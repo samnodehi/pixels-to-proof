@@ -37,28 +37,38 @@ def verdict_card(report: dict) -> str:
         f"<div style='border-left:6px solid {colour};padding:8px 14px'>",
         f"<div style='font-size:1.6em;font-weight:700;color:{colour}'>{v['label']}</div>",
         f"<div><b>Claim</b> ({c.get('source_short', '')}): {c['label']} = <b>{c['value']:.3f}{unc} {c['unit']}</b></div>",
-        f"<div><b>Re-measured from the video</b>: {_fmt(v['measured_mid'])} {c['unit']} "
-        f"(interval {_fmt(v['measured_lo'])} – {_fmt(v['measured_hi'])})</div>",
+        (f"<div><b>Re-measured from the video</b>: {_fmt(v['measured_mid'])} {c['unit']} "
+         f"(interval {_fmt(v['measured_lo'])} – {_fmt(v['measured_hi'])})</div>")
+        if v["label"] != "CANNOT MEASURE" else
+        (f"<div><b>Re-measured from the video</b>: not reported, because a self-check failed"
+         + (f" (the raw fit gave {_fmt(v['measured_mid'])} {c['unit']}; not trusted)" if k else "") + "</div>"),
     ]
     if k:
-        lines.append(f"<div><b>Gravity self-check</b>: {k['g_fit']:.2f} m/s² (expected 9.81) · "
-                     f"take-off angle {k['angle_deg']:.1f}° · height {k['height_mm']:.2f} mm · "
+        lines.append(f"<div><b>Self-checks</b>: gravity {k['g_fit']:.2f} m/s² (expected 9.81) · "
+                     f"sideways acceleration {k.get('ax_rel_g', 0):.0%} of vertical (expected ≈ 0)</div>")
+        lines.append(f"<div>Take-off angle {k['angle_deg']:.1f}° · height {k['height_mm']:.2f} mm · "
                      f"airborne {k['airborne_s'] * 1000:.1f} ms</div>")
     lines.append(f"<div style='opacity:.8'><b>Why</b>: {v['reason']}</div></div>")
     return "\n".join(lines)
 
 
-def evidence_md(report: dict) -> str:
+def evidence_md(report: dict, timing: bool = True) -> str:
     s = report["stages"]
     out = ["| stage | who | result |", "|---|---|---|"]
     if "read_paper" in s:
         out.append(f"| read the paper | Muse Spark 1.3 | {s['read_paper']['claims_found']} kinematic claims extracted with quotes |")
     t = s.get("time", {})
     if t:
+        sk = t.get("skipped_frames") or {}
+        skipped = (f"; **{sk['count']} skipped frames found** at a regular interval (the video was edited) and "
+                   "re-inserted in the timeline" if sk.get("count") else "")
         out.append(f"| time base | Muse Spark 1.3 (overlay) + case | {t['capture_fps']:.0f} fps from {t.get('source', 'case')}; "
-                   f"Spark read {t.get('spark_read_fps')} |")
+                   f"Spark read {t.get('spark_read_fps') or 'none (not printed on this clip)'}{skipped} |")
     sc = s.get("scale")
-    if sc:
+    if sc and sc.get("kind") == "gap":
+        out.append(f"| scale | OpenCV | platform gap {sc['gap_px']:.0f} px = {sc['gap_mm']:.0f} mm "
+                   f"(±{sc['rel_unc']:.1%}), from the median frame with the animal removed |")
+    elif sc:
         sp = sc.get("spark_rel_diff")
         out.append(f"| scale | OpenCV, checked against Muse Spark | grid {sc['spacing_px']:.1f} px (sd {sc['spacing_sd_px']:.2f}, "
                    f"{sc['lines']} lines); Spark's estimate off by {sp:.0%} |" if sp is not None else
@@ -76,7 +86,7 @@ def evidence_md(report: dict) -> str:
         out.append(f"| measure | code (ballistic fit, block bootstrap) | v0 {k['v0_ballistic']:.3f} m/s, 95% CI "
                    f"{k['v0_ci95'][0]:.3f}–{k['v0_ci95'][1]:.3f}; spline method {k['v_max_spline']:.3f} |")
     tm = report.get("timing_s")
-    if tm:
+    if tm and timing:
         out.append("")
         out.append("Time per stage: " + ", ".join(f"{k.replace('_', ' ')} {v:.0f} s" for k, v in tm.items() if v >= 0.5)
                    + f" — total {sum(tm.values()):.0f} s")
@@ -144,7 +154,7 @@ INTRO = """
 
 1. **Muse Spark 1.3** reads the paper and the video: the claim, the frame rate printed on the video, the scale reference, and where the object is.
 2. **SAM 3.1** follows that object through every frame (Spark's box tells it which one).
-3. **Code measures** — grid scale with OpenCV, a ballistic fit of the flight, a **gravity self-check** (the fit must find 9.81 m/s², or the scale or frame rate is wrong), a bootstrap interval.
+3. **Code measures** — the scale with OpenCV (a grid, or the gap between platforms), a ballistic fit of the flight, two **self-checks** (the fit must find 9.81 m/s² downwards, or the scale or frame rate is wrong; and no sideways acceleration, or it is not free flight), a bootstrap interval. Frames skipped by video editing are detected and put back.
 4. **Verdict**: REPRODUCED · NOT REPRODUCED · CANNOT MEASURE, with a visual receipt.
 
 *The model proposes; tracking and physics decide. No number in a verdict is written by a language model.*
@@ -165,9 +175,10 @@ def build() -> gr.Blocks:
                         gr.HTML(verdict_card(c["report"]))
                         if m.get("note"):
                             gr.Markdown(m["note"])
-                gr.Markdown(evidence_md(c["report"]))
+                gr.Markdown(evidence_md(c["report"], timing=False))
                 if (c["dir"] / "scale_evidence.png").exists():
-                    gr.Image(str(c["dir"] / "scale_evidence.png"), label="Scale evidence: measured grid lines (green), Spark's object box (orange)")
+                    gr.Image(str(c["dir"] / "scale_evidence.png"),
+                             label="Scale evidence: measured reference in green (grid lines or platform gap)")
                 if m.get("provenance"):
                     with gr.Accordion("Where the claim comes from", open=False):
                         gr.Markdown(m["provenance"])

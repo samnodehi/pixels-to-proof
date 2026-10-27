@@ -17,7 +17,9 @@ def render(clip: Path, points: list[Point], header: list[str], verdict_label: st
     by_frame = {p.frame: p for p in points}
     cap = cv2.VideoCapture(str(clip))
     fps = cap.get(cv2.CAP_PROP_FPS) or 30
-    w, h = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    w0, h0 = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    z = max(1, -(-960 // w0))   # small clips (montage panels) are enlarged so the burned-in text stays legible
+    w, h = w0 * z, h0 * z
     tmp = out.with_suffix(".raw.mp4")
     writer = cv2.VideoWriter(str(tmp), cv2.VideoWriter_fourcc(*"mp4v"), fps, (w, h))
     bar = 34 * (len(header) + 1) + 10
@@ -27,15 +29,17 @@ def render(clip: Path, points: list[Point], header: list[str], verdict_label: st
         ok, frame = cap.read()
         if not ok:
             break
+        if z > 1:
+            frame = cv2.resize(frame, (w, h), interpolation=cv2.INTER_CUBIC)
         if i in by_frame:
             p = by_frame[i]
-            trail.append((int(round(p.cx)), int(round(p.cy))))
-            cv2.rectangle(frame, (p.left, p.top), (p.right, p.bottom), WHITE, 1)
+            trail.append((int(round(p.cx * z)), int(round(p.cy * z))))
+            cv2.rectangle(frame, (p.left * z, p.top * z), (p.right * z, p.bottom * z), WHITE, 1)
         for a, b in zip(trail, trail[1:]):
             cv2.line(frame, a, b, AMBER, 3, cv2.LINE_AA)
         if takeoff_frame is not None and takeoff_frame in by_frame and i >= takeoff_frame:
             q = by_frame[takeoff_frame]
-            cv2.circle(frame, (int(q.cx), int(q.cy)), 9, colour, 2, cv2.LINE_AA)
+            cv2.circle(frame, (int(q.cx * z), int(q.cy * z)), 9, colour, 2, cv2.LINE_AA)
         if trail:
             cv2.circle(frame, trail[-1], 6, (0, 0, 255), -1, cv2.LINE_AA)
         overlay = frame.copy()

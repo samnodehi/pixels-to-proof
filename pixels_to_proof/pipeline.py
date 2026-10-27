@@ -34,6 +34,19 @@ def _scale_evidence(frame_png: Path, grid: scale.GridScale, band, box, out: Path
     cv2.imwrite(str(out), img)
 
 
+def _gap_evidence(frame_png: Path, gap: scale.GapScale, out: Path) -> None:
+    """Frame 0 with the two measured platform tips (green) and the gap between them."""
+    img = cv2.imread(str(frame_png))
+    for x, row in ((gap.left_tip_px, gap.left_row), (gap.right_tip_px, gap.right_row)):
+        cv2.line(img, (int(round(x)), row - 25), (int(round(x)), row + 25), (80, 220, 120), 2)
+    y = max(gap.left_row, gap.right_row) + 35
+    cv2.arrowedLine(img, (int(gap.left_tip_px), y), (int(gap.right_tip_px), y), (80, 220, 120), 2, tipLength=0.04)
+    cv2.arrowedLine(img, (int(gap.right_tip_px), y), (int(gap.left_tip_px), y), (80, 220, 120), 2, tipLength=0.04)
+    cv2.putText(img, f"gap {gap.gap_px:.0f} px", (int(gap.left_tip_px) + 10, y - 8), cv2.FONT_HERSHEY_SIMPLEX, 0.6,
+                (80, 220, 120), 2, cv2.LINE_AA)
+    cv2.imwrite(str(out), img)
+
+
 def _cannot(log: dict, case: dict, out_dir: Path, reason: str) -> dict:
     claim = case["claim"]
     nan = float("nan")
@@ -65,11 +78,27 @@ def run(case_file: Path, out_dir: Path) -> dict:
 
     tick("read_paper")
     # 2. the analysed clip and its first frame
+    #    Either a shot number (cuts detected automatically) or an explicit frame range; optionally one framed
+    #    panel of a montage (several recordings shown side by side).
     clip = out_dir / "clip.mp4"
-    first, last = shots.shot_range(base / case["video"], int(case["shot"]))
-    log["stages"]["shot"] = {"shot": case["shot"], "first_frame": first, "last_frame": last}
+    video = base / case["video"]
+    if case.get("frames"):
+        first, last = (int(v) for v in case["frames"])
+    else:
+        first, last = shots.shot_range(video, int(case["shot"]))
+    log["stages"]["shot"] = {"shot": case.get("shot"), "first_frame": first, "last_frame": last}
+    crop = None
+    if case.get("panel") is not None:
+        mid_png = out_dir / "montage_frame.png"
+        if not mid_png.exists():
+            shots.frame_at(video, (first + last) // 2, mid_png)
+        panels = shots.framed_panels(cv2.imread(str(mid_png)))
+        if int(case["panel"]) >= len(panels):
+            return _cannot(log, case, out_dir, f"montage panel {case['panel']} not found ({len(panels)} framed panels)")
+        crop = panels[int(case["panel"])]
+        log["stages"]["shot"]["panel"] = {"index": int(case["panel"]), "of": len(panels), "crop_xywh": list(crop)}
     if not clip.exists():
-        shots.extract(base / case["video"], first, last, clip)
+        shots.extract_region(video, first, last, clip, crop)
     frame_png = out_dir / "frame0.png"
     if not frame_png.exists():
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(clip), "-frames:v", "1", str(frame_png)], check=True)
@@ -91,25 +120,39 @@ def run(case_file: Path, out_dir: Path) -> dict:
     log["stages"]["time"] = {"capture_fps": fps, "source": fps_source, "spark_read_fps": spark_fps,
                              "agree": spark_fps is not None and abs(float(spark_fps) - fps) < 1e-6}
 
-    # 4. spatial scale: measured by OpenCV, compared with Spark's estimate
-    band = frame_read.get("grid_band_rows") or None
-    if band is not None and (len(band) != 2 or band[1] - band[0] < 50):
-        band = None
-    band = tuple(case.get("grid_band_rows") or band or (0, h))
-    square_mm = case.get("grid_square_mm") or paper.get("scale_reference_mm")
-    if not square_mm:
-        return _cannot(log, case, out_dir, "the real size of the grid square is not known")
-    try:
-        grid = scale.grid_from_frame(gray, axis="x", band=band)
-    except ValueError as exc:
-        return _cannot(log, case, out_dir, f"no measurable grid: {exc}")
-    mm_per_px = grid.mm_per_px(float(square_mm))
-    est = frame_read.get("grid_square_px_estimate")
-    _scale_evidence(frame_png, grid, band, frame_read.get("object_box"), out_dir / "scale_evidence.png")
-    log["stages"]["scale"] = {"spacing_px": grid.spacing_px, "spacing_sd_px": grid.spacing_sd_px,
-                              "lines": len(grid.lines_px), "mm_per_px": mm_per_px,
-                              "rel_unc": grid.rel_uncertainty(), "spark_estimate_px": est,
-                              "spark_rel_diff": None if not est else scale.compare(est, grid.spacing_px)}
+    # 4. spatial scale, measured by OpenCV: a grid behind the object (compared with Spark's estimate), or the
+    #    gap between a take-off and a landing platform of known separation
+    sc = case.get("scale") or {"kind": "grid"}
+    if sc.get("kind") == "gap":
+        try:
+            gap = scale.platform_gap(shots.median_frame(clip))
+        except ValueError as exc:
+            return _cannot(log, case, out_dir, f"no measurable platform gap: {exc}")
+        mm_per_px, scale_rel_unc = gap.mm_per_px(float(sc["mm"])), gap.rel_uncertainty()
+        _gap_evidence(frame_png, gap, out_dir / "scale_evidence.png")
+        log["stages"]["scale"] = {"kind": "gap", "gap_px": gap.gap_px, "gap_mm": float(sc["mm"]),
+                                  "tips_px": [gap.left_tip_px, gap.right_tip_px], "mm_per_px": mm_per_px,
+                                  "rel_unc": scale_rel_unc, "source": sc.get("source")}
+    else:
+        band = frame_read.get("grid_band_rows") or None
+        if band is not None and (len(band) != 2 or band[1] - band[0] < 50):
+            band = None
+        band = tuple(case.get("grid_band_rows") or band or (0, h))
+        square_mm = case.get("grid_square_mm") or paper.get("scale_reference_mm")
+        if not square_mm:
+            return _cannot(log, case, out_dir, "the real size of the grid square is not known")
+        try:
+            grid = scale.grid_from_frame(gray, axis="x", band=band)
+        except ValueError as exc:
+            return _cannot(log, case, out_dir, f"no measurable grid: {exc}")
+        mm_per_px = grid.mm_per_px(float(square_mm))
+        est = frame_read.get("grid_square_px_estimate")
+        _scale_evidence(frame_png, grid, band, frame_read.get("object_box"), out_dir / "scale_evidence.png")
+        scale_rel_unc = grid.rel_uncertainty()
+        log["stages"]["scale"] = {"kind": "grid", "spacing_px": grid.spacing_px, "spacing_sd_px": grid.spacing_sd_px,
+                                  "lines": len(grid.lines_px), "mm_per_px": mm_per_px,
+                                  "rel_unc": scale_rel_unc, "spark_estimate_px": est,
+                                  "spark_rel_diff": None if not est else scale.compare(est, grid.spacing_px)}
 
     tick("scale")
     # 5-6. SAM 3.1 tracks the object; kinematics are computed per prompt attempt. A track that never leaves
@@ -141,21 +184,23 @@ def run(case_file: Path, out_dir: Path) -> dict:
             attempts.append({"prompt": how, "accepted": False, "reason": quality["reason"], "quality": quality})
             continue
         try:
-            f = np.array([p.frame for p in pts_n])
-            k = measure.kinematics(f, np.array([p.cx for p in pts_n]), np.array([p.cy for p in pts_n]), fps, mm_per_px)
+            cx, cy = np.array([p.cx for p in pts_n]), np.array([p.cy for p in pts_n])
+            f, skipped = measure.repair_dropped_frames(np.array([p.frame for p in pts_n]), cx, cy, mm_per_px)
+            k = measure.kinematics(f, cx, cy, fps, mm_per_px)
         except ValueError as exc:
             attempts.append({"prompt": how, "accepted": False, "reason": str(exc), "quality": quality})
             continue
         attempts.append({"prompt": how, "accepted": True, "quality": quality})
         chosen = (pts_n, k)
+        log["stages"]["time"]["skipped_frames"] = {"count": len(skipped), "at_track_index": skipped}
         break
     log["stages"]["track"] = {"frames_in_clip": n_frames, "attempts": attempts}
     if chosen is None:
         return _cannot(log, case, out_dir, "no usable track: " + "; ".join(a["reason"] for a in attempts))
     pts, k = chosen
     log["stages"]["track"]["frames_tracked"] = len(pts)
-    mid, lo, hi = measure.speed_interval(k, grid.rel_uncertainty())
-    v = verdict.decide(claim["value"], claim.get("plus_minus"), mid, lo, hi, k.g_fit_rel_err)
+    mid, lo, hi = measure.speed_interval(k, scale_rel_unc)
+    v = verdict.decide(claim["value"], claim.get("plus_minus"), mid, lo, hi, k.g_fit_rel_err, k.ax_rel_g)
     log["kinematics"] = k.to_dict()
     log["verdict"] = v.to_dict()
     log["claim"] = claim
@@ -164,8 +209,9 @@ def run(case_file: Path, out_dir: Path) -> dict:
     # 7. receipt
     unc = f" +/- {claim['plus_minus']:.3f}" if claim.get("plus_minus") else ""
     header = [f"Claim ({claim['source_short']}): {claim['label']} {claim['value']:.3f}{unc} {claim['unit']}",
-              f"Re-measured (SAM 3.1 track): {lo:.3f}-{hi:.3f} {claim['unit']} | gravity self-check "
-              f"{k.g_fit:.2f} m/s^2"]
+              (f"Re-measured (SAM 3.1 track): {lo:.3f}-{hi:.3f} {claim['unit']}" if v.label != verdict.CANNOT_MEASURE
+               else "Re-measured: no speed reported, a self-check failed"),
+              f"Self-checks: gravity {k.g_fit:.2f} m/s^2 (9.81) | sideways accel. {k.ax_rel_g:.0%} of vertical (0)"]
     receipt.render(clip, pts, header, v.label, out_dir / "receipt.mp4", takeoff_frame=k.takeoff_frame)
     tick("receipt")
     (out_dir / "report.json").write_text(json.dumps(log, indent=2))

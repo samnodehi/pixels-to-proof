@@ -24,6 +24,8 @@ class Kinematics:
     distance_mm: float
     v_max_spline: float          # max speed of a smoothing spline of cumulative path (the common method in papers)
     v_max_range: tuple[float, float]  # same, over a range of smoothing strengths
+    ax_fit: float = 0.0          # horizontal acceleration of the flight, m/s^2 (free flight: 0)
+    ax_rel_g: float = 0.0        # |ax_fit| / |g_fit|: free-flight self-check, independent of scale and frame rate
     notes: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
@@ -64,6 +66,7 @@ def kinematics(frames: np.ndarray, cx: np.ndarray, cy: np.ndarray, capture_fps: 
     py = np.polyfit(tt, y[a], 2)
     px = np.polyfit(tt, x[a], 1)
     g_fit = -2.0 * py[0]
+    ax_fit = 2.0 * np.polyfit(tt, x[a], 2)[0]
     resid = y[a] - np.polyval(py, tt)
     # Take-off = where the fitted parabola leaves the starting height (y = 0), which lies slightly before the
     # first frame above the lift threshold; evaluate the velocity there, not at the threshold crossing.
@@ -90,7 +93,72 @@ def kinematics(frames: np.ndarray, cx: np.ndarray, cy: np.ndarray, capture_fps: 
         g_fit=float(g_fit), g_fit_rel_err=float((g_fit - G) / G), fit_rms_mm=float(resid.std() * 1000),
         v0_ballistic=float(np.hypot(vx0, vy0)), v0_ci95=v0_ci, angle_deg=float(np.degrees(np.arctan2(vy0, vx0))),
         height_mm=float(y.max() * 1000), distance_mm=float((x[i1] - x[i0]) * 1000),
-        v_max_spline=float(vmax[1]), v_max_range=(min(vmax), max(vmax)), notes=notes)
+        v_max_spline=float(vmax[1]), v_max_range=(min(vmax), max(vmax)), ax_fit=float(ax_fit),
+        ax_rel_g=float(abs(ax_fit) / max(abs(g_fit), 1e-9)), notes=notes)
+
+
+def repair_dropped_frames(frames: np.ndarray, cx: np.ndarray, cy: np.ndarray, mm_per_px: float,
+                          lift_mm: float = 0.5, trim: int = 3, min_step_px: float = 1.0,
+                          min_events: int = 3, max_period_cv: float = 0.1) -> tuple[np.ndarray, list[int]]:
+    """Edited videos (montages, speed changes) can silently skip frames. In free flight the object moves a
+    near-constant distance per frame, so a skipped frame shows up as one step about twice as long as both of
+    its neighbours and pointing the same way. Editing software drops frames at a regular interval, so a repair
+    is made only when at least `min_events` such steps occur periodically; isolated long steps (pixel
+    quantisation, tracking jitter) are left alone. Returns frame indices with each skipped frame re-inserted in
+    the timeline, and the track positions where that happened. Only the flight interior is examined."""
+    f = frames.astype(int).copy()
+    _, _, y = to_metres(f, cx, cy, mm_per_px)
+    try:
+        i0, i1 = flight_window(y, lift_mm / 1000.0)
+    except ValueError:
+        return f, []
+    d = np.stack([np.diff(cx), np.diff(cy)], axis=1)
+    step = np.hypot(d[:, 0], d[:, 1])
+    found: list[int] = []
+    for i in range(i0 + trim + 1, i1 - trim - 1):
+        if f[i + 1] - f[i] != 1:
+            continue
+        local = np.median(step[max(i0 + trim, i - 7):min(i1 - trim, i + 8)])
+        if local < min_step_px:
+            continue
+        neighbours_normal = all(0.75 <= step[n] / local <= 1.33 for n in (i - 1, i + 1))
+        same_direction = np.hypot(*(d[i] - d[i - 1] - d[i + 1])) < 0.3 * step[i]
+        if 1.7 <= step[i] / local <= 2.5 and neighbours_normal and same_direction:
+            found.append(i)
+    if len(found) < min_events:
+        return f, []
+    # The strict detections must sit on one regular period (gaps are whole multiples of it, as when a few
+    # strict tests fail in between). Then every long step on that period is taken, with a relaxed test.
+    base = float(np.median(np.diff(found)))
+    kept: list[int] = []
+    for i in found:   # two candidates closer than half a period: keep the one nearer a clean 2x step
+        if kept and i - kept[-1] < 0.5 * base:
+            if abs(step[i] / np.median(step[i0:i1]) - 2) < abs(step[kept[-1]] / np.median(step[i0:i1]) - 2):
+                kept[-1] = i
+            continue
+        kept.append(i)
+    found = kept
+    if len(found) < min_events:
+        return f, []
+    gaps = np.diff(found)
+    base = float(np.median(gaps))
+    mult = np.round(gaps / base)
+    if base < 4 or (np.abs(gaps - mult * base) > max(1.5, max_period_cv * base)).any():
+        return f, []
+    period = (found[-1] - found[0]) / mult.sum()
+    k = np.arange(np.floor((i0 - found[0]) / period), np.ceil((i1 - found[0]) / period) + 1)
+    predicted = found[0] + k * period
+    chain = []
+    for i in range(i0 + trim + 1, i1 - trim - 1):
+        if f[i + 1] - f[i] != 1 or np.abs(predicted - i).min() > 1.0:
+            continue
+        local = np.median(step[max(i0 + trim, i - 7):min(i1 - trim, i + 8)])
+        if local >= min_step_px and 1.7 <= step[i] / local <= 2.5:
+            chain.append(i)
+    found = sorted(set(chain) | set(found))
+    extra = np.zeros(len(step), int)
+    extra[found] = 1
+    return f + np.concatenate([[0], np.cumsum(extra)]), found
 
 
 def _bootstrap_v0(tt, x, y, py, px, n=400, block=12, seed=0) -> tuple[float, float]:

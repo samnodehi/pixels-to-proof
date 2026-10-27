@@ -66,3 +66,29 @@ def test_platform_gap_on_synthetic_median():
     img[230:236, 380:500] = 120        # landing rod from the right edge, tip at x = 380
     g = scale.platform_gap(img)
     assert abs(g.left_tip_px - 139) <= 3 and abs(g.right_tip_px - 380) <= 3
+
+
+def test_free_flight_check_is_near_zero_for_ballistic_motion():
+    f, cx, cy = synthetic_jump(v0=0.8, angle=45.0)
+    k = measure.kinematics(f, cx, cy, 3200.0, 0.03)
+    assert k.ax_rel_g < 0.03
+
+
+def test_sideways_acceleration_fails_the_free_flight_check():
+    assert verdict.decide(0.41, None, 0.41, 0.38, 0.44, 0.01, 0.30).label == verdict.CANNOT_MEASURE
+    assert verdict.decide(0.41, None, 0.41, 0.38, 0.44, 0.01, 0.02).label == verdict.REPRODUCED
+
+
+def test_repair_dropped_frames_restores_the_timeline():
+    f, cx, cy = synthetic_jump(v0=0.8, angle=30.0, noise_px=0.2)
+    keep = np.ones(len(f), bool)
+    moving = np.where(np.hypot(np.diff(cx), np.diff(cy)) > 3)[0]
+    dropped = moving[20:-20:14]           # one frame in fourteen removed, as in an edited montage
+    keep[dropped] = False
+    g, x, y = np.arange(keep.sum()), cx[keep], cy[keep]   # the edited video renumbers its frames
+    fixed, at = measure.repair_dropped_frames(g, x, y, 0.03)
+    assert len(at) == len(dropped)
+    assert (fixed == f[keep] - f[keep][0]).all()
+    assert abs(measure.kinematics(fixed, x, y, 3200.0, 0.03).g_fit_rel_err) < 0.03
+    none_fixed, none_at = measure.repair_dropped_frames(f, cx, cy, 0.03)
+    assert none_at == [] and (none_fixed == f).all()

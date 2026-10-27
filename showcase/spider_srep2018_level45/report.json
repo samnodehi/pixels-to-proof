@@ -1,0 +1,137 @@
+{
+  "case": "spider_srep2018_level45",
+  "stages": {
+    "shot": {
+      "shot": null,
+      "first_frame": 1386,
+      "last_frame": 1659,
+      "panel": {
+        "index": 1,
+        "of": 3,
+        "crop_xywh": [
+          724,
+          396,
+          562,
+          348
+        ]
+      }
+    },
+    "read_frame": {
+      "usage": {
+        "input_tokens": 392,
+        "input_tokens_details": {
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens": 1257,
+        "output_tokens_details": {
+          "reasoning_tokens": 1158
+        },
+        "total_tokens": 1649
+      }
+    },
+    "time": {
+      "capture_fps": 3200.0,
+      "source": "case",
+      "spark_read_fps": null,
+      "agree": false,
+      "skipped_frames": {
+        "count": 12,
+        "at_track_index": [
+          53,
+          66,
+          79,
+          93,
+          106,
+          119,
+          132,
+          159,
+          172,
+          186,
+          199,
+          212
+        ]
+      }
+    },
+    "scale": {
+      "kind": "gap",
+      "gap_px": 332.0,
+      "gap_mm": 45.0,
+      "tips_px": [
+        118.0,
+        450.0
+      ],
+      "mm_per_px": 0.1355421686746988,
+      "rel_unc": 0.008519358809476477,
+      "source": "Dataset S3, sheet 'Regius', row 8: Gap x-Distance 45 mm (= 3 body lengths, L = 15 mm), the horizontal distance between take-off and landing platform"
+    },
+    "track": {
+      "frames_in_clip": 274,
+      "attempts": [
+        {
+          "prompt": "box from Muse Spark",
+          "accepted": true,
+          "quality": {
+            "frames": 274,
+            "max_area_jump": 0.15895249695493302,
+            "travel_px": 440.4177011331662,
+            "object_size_px": 69.31810730249349,
+            "ok": true
+          }
+        }
+      ],
+      "frames_tracked": 274
+    }
+  },
+  "timing_s": {
+    "read_paper": 0.0,
+    "shot_and_read_frame": 0.02,
+    "scale": 0.45,
+    "track_and_measure": 0.09,
+    "receipt": 3.31
+  },
+  "kinematics": {
+    "takeoff_frame": 38,
+    "landing_frame": 236,
+    "airborne_s": 0.061875,
+    "g_fit": 12.413644588089259,
+    "g_fit_rel_err": 0.26583946486203336,
+    "fit_rms_mm": 0.2555531246987959,
+    "v0_ballistic": 1.0901693187506645,
+    "v0_ci95": [
+      1.0612062559090152,
+      1.119559872059332
+    ],
+    "angle_deg": 22.62463052849013,
+    "height_mm": 6.538980658061149,
+    "distance_mm": 55.57603870282665,
+    "v_max_spline": 1.075544646498925,
+    "v_max_range": [
+      1.0518074712131753,
+      1.1279981065077695
+    ],
+    "ax_fit": -8.533348743851992,
+    "ax_rel_g": 0.6874168728851506,
+    "notes": [
+      "12 gaps in the track (missing frames); fits use true frame times."
+    ]
+  },
+  "verdict": {
+    "label": "CANNOT MEASURE",
+    "published": 0.838,
+    "published_unc": null,
+    "measured_mid": 1.0901693187506645,
+    "measured_lo": 0.7789509246716491,
+    "measured_hi": 1.4173358611930251,
+    "rel_diff": -0.23131206722975003,
+    "reason": "self-check failed: gravity from the flight is +27% off 9.81 m/s^2, so the scale or the frame rate is wrong; the object accelerates sideways at 69% of its vertical acceleration, so this is not free flight in the image plane (drag, a tether, motion towards the camera, a tilted camera or an edited time base)"
+  },
+  "claim": {
+    "label": "take-off speed",
+    "value": 0.838,
+    "plus_minus": null,
+    "unit": "m/s",
+    "source_short": "Sci Rep 2018, Dataset S3 row 8",
+    "provenance": "Supplementary Dataset S3, sheet 'Regius', row S/N 8: gap x = 45 mm, y = 0 mm; take-off velocity 0.838 m/s, take-off angle 18 deg, time to take-off 21.875 ms. No uncertainty is published. Methods: the nominal centre of mass was tracked in Phantom PCC 2.7 and the ballistic velocity and angle were chosen to minimise the RMS deviation from the trajectory."
+  }
+}

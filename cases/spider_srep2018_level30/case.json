@@ -1,0 +1,28 @@
+{
+  "id": "spider_srep2018_level30",
+  "paper": "Nabawy M.R.A., Sivalingam G., Garwood R.J., Crowther W.J., Sellers W.I. (2018) Energy and time optimal trajectories in exploratory jumps of the spider Phidippus regius. Scientific Reports 8: 7142. https://doi.org/10.1038/s41598-018-25227-9",
+  "licence": "CC BY 4.0 (article PDF: 'This article is licensed under a Creative Commons Attribution 4.0 International License'); supplementary files published with the article",
+  "video": "S2_Movie.mp4",
+  "video_note": "Supplementary Movie S2 (41598_2018_25227_MOESM2_ESM.avi), re-encoded frame for frame with `ffmpeg -i MOESM2_ESM.avi -fps_mode passthrough -an -c:v libx264 -crf 16 norm.mp4` (2184 decoded frames; the AVI header's 2521 counts not-coded frames). Frames 1386-1659 are the 'Level jumps' montage; panel order left to right is x_gap/L = 2, 3, 4.",
+  "frames": [
+    1386,
+    1659
+  ],
+  "panel": 0,
+  "capture_fps": 3200,
+  "capture_fps_source": "Methods: Phantom v310 cameras 'operating at 3,200 frames per second with 1280 x 800 resolution'",
+  "scale": {
+    "kind": "gap",
+    "mm": 30,
+    "source": "Dataset S3, sheet 'Regius', row 3: Gap x-Distance 30 mm (= 2 body lengths, L = 15 mm), the horizontal distance between take-off and landing platform"
+  },
+  "object_phrase": "spider",
+  "claim": {
+    "label": "take-off speed",
+    "value": 0.571,
+    "plus_minus": null,
+    "unit": "m/s",
+    "source_short": "Sci Rep 2018, Dataset S3 row 3",
+    "provenance": "Supplementary Dataset S3, sheet 'Regius', row S/N 3: gap x = 30 mm, y = 0 mm; take-off velocity 0.571 m/s, take-off angle 14.5 deg, time to take-off 24.0625 ms. No uncertainty is published. Methods: the nominal centre of mass was tracked in Phantom PCC 2.7 and the ballistic velocity and angle were chosen to minimise the RMS deviation from the trajectory."
+  }
+}

@@ -39,9 +39,14 @@
       "capture_fps": 3200.0,
       "source": "case",
       "spark_read_fps": 3200,
-      "agree": true
+      "agree": true,
+      "skipped_frames": {
+        "count": 0,
+        "at_track_index": []
+      }
     },
     "scale": {
+      "kind": "grid",
       "spacing_px": 186.25340439513442,
       "spacing_sd_px": 0.21223403574511535,
       "lines": 7,
@@ -68,6 +73,13 @@
       "frames_tracked": 593
     }
   },
+  "timing_s": {
+    "read_paper": 0.0,
+    "shot_and_read_frame": 4.17,
+    "scale": 0.08,
+    "track_and_measure": 0.26,
+    "receipt": 9.75
+  },
   "kinematics": {
     "takeoff_frame": 63,
     "landing_frame": 324,
@@ -88,6 +100,8 @@
       0.32388349659160315,
       0.39756824127768714
     ],
+    "ax_fit": -0.06593854600881764,
+    "ax_rel_g": 0.006579937429685852,
     "notes": []
   },
   "verdict": {
