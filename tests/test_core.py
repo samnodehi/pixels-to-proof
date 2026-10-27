@@ -51,3 +51,18 @@ def test_verdict_rules():
     assert verdict.decide(0.40, 0.02, 0.41, 0.38, 0.44, 0.01).label == verdict.REPRODUCED
     assert verdict.decide(0.60, 0.02, 0.41, 0.38, 0.44, 0.01).label == verdict.NOT_REPRODUCED
     assert verdict.decide(0.41, None, 0.41, 0.38, 0.44, 0.25).label == verdict.CANNOT_MEASURE
+
+
+def test_gravity_timebase_recovers_frame_rate():
+    f, cx, cy = synthetic_jump(v0=0.7, angle=40.0, fps=3200.0, mm_per_px=0.03, noise_px=0.5)
+    fps, lo, hi = measure.gravity_timebase(f, cx, cy, 0.03)
+    assert abs(fps - 3200.0) / 3200.0 < 0.02
+    assert lo <= 3200.0 * 1.01 and hi >= 3200.0 * 0.99
+
+
+def test_platform_gap_on_synthetic_median():
+    img = np.full((300, 500), 200, np.uint8)
+    img[200:206, 0:140] = 120          # take-off rod from the left edge, tip at x = 139
+    img[230:236, 380:500] = 120        # landing rod from the right edge, tip at x = 380
+    g = scale.platform_gap(img)
+    assert abs(g.left_tip_px - 139) <= 3 and abs(g.right_tip_px - 380) <= 3

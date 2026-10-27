@@ -122,3 +122,32 @@ def speed_interval(k: Kinematics, scale_rel_unc: float, fps_rel_unc: float = 0.0
     sys_rel = float(np.sqrt(scale_rel_unc ** 2 + fps_rel_unc ** 2 + k.g_fit_rel_err ** 2))
     lo, hi = k.v0_ci95
     return k.v0_ballistic, lo * (1 - sys_rel), hi * (1 + sys_rel)
+
+
+def gravity_timebase(frames: np.ndarray, cx: np.ndarray, cy: np.ndarray, mm_per_px: float,
+                     lift_mm: float = 0.5, trim: int = 5, n: int = 400, block: int = 12, seed: int = 0):
+    """Frame rate implied by free fall when the video does not state its playback speed: the flight parabola
+    measured per *video frame* must curve at g = 9.81 m/s^2, so fps = sqrt(G / g_per_frame^2).
+    Returns (fps, lo95, hi95). Speeds then scale with sqrt(length scale), halving the effect of a scale error."""
+    f, x, y = to_metres(frames, cx, cy, mm_per_px)
+    t = (f - f[0]).astype(float)
+    i0, i1 = flight_window(y, lift_mm / 1000.0)
+    a = slice(i0 + trim, i1 - trim)
+    tt, yy = t[a] - t[i0], y[a]
+    py = np.polyfit(tt, yy, 2)
+    g_frame = -2.0 * py[0]
+    if g_frame <= 0:
+        raise ValueError("flight is not curving downwards; cannot infer a time base from gravity")
+    rng = np.random.default_rng(seed)
+    r = yy - np.polyval(py, tt)
+    m = len(tt)
+    block = max(1, min(block, m // 4))
+    samples = []
+    for _ in range(n):
+        starts = rng.integers(0, m - block + 1, int(np.ceil(m / block)))
+        idx = np.concatenate([np.arange(s0, s0 + block) for s0 in starts])[:m]
+        g_b = -2.0 * np.polyfit(tt, np.polyval(py, tt) + r[idx], 2)[0]
+        if g_b > 0:
+            samples.append(np.sqrt(G / g_b))
+    lo, hi = np.percentile(samples, [2.5, 97.5])
+    return float(np.sqrt(G / g_frame)), float(lo), float(hi)
