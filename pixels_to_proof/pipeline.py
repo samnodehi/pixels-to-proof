@@ -20,6 +20,19 @@ def _cached(path: Path, fn):
     return value
 
 
+def _scale_evidence(frame_png: Path, grid: scale.GridScale, band, box, out: Path) -> None:
+    """Frame 0 with the measured grid lines (green), the band used (blue) and Spark's object box (orange)."""
+    img = cv2.imread(str(frame_png))
+    for x in grid.lines_px:
+        cv2.line(img, (int(round(x)), int(band[0])), (int(round(x)), int(band[1])), (80, 220, 120), 2)
+    cv2.rectangle(img, (0, int(band[0])), (img.shape[1] - 1, int(band[1])), (255, 140, 0), 2)
+    if box and len(box) == 4:
+        cv2.rectangle(img, (int(box[0]), int(box[1])), (int(box[2]), int(box[3])), (0, 165, 255), 2)
+    cv2.putText(img, f"grid {grid.spacing_px:.1f} px (sd {grid.spacing_sd_px:.2f})", (16, 40),
+                cv2.FONT_HERSHEY_SIMPLEX, 1.0, (80, 220, 120), 2, cv2.LINE_AA)
+    cv2.imwrite(str(out), img)
+
+
 def run(case_file: Path, out_dir: Path) -> dict:
     case = json.loads(case_file.read_text())
     base = case_file.parent
@@ -27,9 +40,11 @@ def run(case_file: Path, out_dir: Path) -> dict:
     log: dict = {"case": case["id"], "stages": {}}
 
     # 1. Spark reads the paper
-    paper, usage = _cached(out_dir / "paper_reading.json",
-                           lambda: list(read.read_paper(base / case["paper_pdf"])))
-    log["stages"]["read_paper"] = {"claims_found": len(paper["claims"]), "usage": usage}
+    paper: dict = {}
+    if case.get("paper_pdf"):
+        paper, usage = _cached(out_dir / "paper_reading.json",
+                               lambda: list(read.read_paper(base / case["paper_pdf"])))
+        log["stages"]["read_paper"] = {"claims_found": len(paper["claims"]), "usage": usage}
 
     # 2. the analysed clip and its first frame
     clip = out_dir / "clip.mp4"
@@ -59,29 +74,61 @@ def run(case_file: Path, out_dir: Path) -> dict:
     grid = scale.grid_from_frame(gray, axis="x", band=band)
     mm_per_px = grid.mm_per_px(float(case["grid_square_mm"]))
     est = frame_read.get("grid_square_px_estimate")
+    _scale_evidence(frame_png, grid, band, frame_read.get("object_box"), out_dir / "scale_evidence.png")
     log["stages"]["scale"] = {"spacing_px": grid.spacing_px, "spacing_sd_px": grid.spacing_sd_px,
                               "lines": len(grid.lines_px), "mm_per_px": mm_per_px,
                               "rel_unc": grid.rel_uncertainty(), "spark_estimate_px": est,
                               "spark_rel_diff": None if not est else scale.compare(est, grid.spacing_px)}
 
-    # 5. SAM 3.1 tracks the object
-    track_file = out_dir / "track.json"
-    if not track_file.exists():
-        fid = meta.upload(clip, "video/mp4")
-        result = track.segment(fid, case.get("object_phrase") or paper["object_noun_phrase"])
-        oid, pts = track.main_track(result)
-        others = {k: len(v) for k, v in track.tracks(result).items() if k != oid}
-        track.save_track(pts, track_file)
-        (out_dir / "track_meta.json").write_text(json.dumps({"file_id": fid, "object_id": oid, "other_tracks": others}))
-    pts = track.load_track(track_file)
-    n_frames = int(cv2.VideoCapture(str(clip)).get(cv2.CAP_PROP_FRAME_COUNT))
-    log["stages"]["track"] = {"frames_tracked": len(pts), "frames_in_clip": n_frames}
-
-    # 6. kinematics, interval, verdict
-    f = np.array([p.frame for p in pts])
-    k = measure.kinematics(f, np.array([p.cx for p in pts]), np.array([p.cy for p in pts]), fps, mm_per_px)
-    mid, lo, hi = measure.speed_interval(k, grid.rel_uncertainty())
+    # 5-6. SAM 3.1 tracks the object; kinematics are computed per prompt attempt. A track that never leaves
+    # the ground or whose mask area jumps (SAM switched to background) is rejected and the next prompt is tried.
+    phrase = case.get("object_phrase") or paper.get("object_noun_phrase", "object")
+    box = frame_read.get("object_box") or []
+    prompts = []
+    if len(box) == 4:   # Spark's grounding on frame 0 tells SAM which object to follow
+        prompts.append(("box from Muse Spark", track.box_prompt(box, (w, h))))
+    prompts.append((f"text '{phrase}'", phrase))
     claim = case["claim"]
+    n_frames = int(cv2.VideoCapture(str(clip)).get(cv2.CAP_PROP_FRAME_COUNT))
+    file_id = None
+    attempts, chosen = [], None
+    for n, (how, prompt) in enumerate(prompts):
+        tfile = out_dir / f"track_{n}.json"
+        if not tfile.exists():
+            file_id = file_id or meta.upload(clip, "video/mp4")
+            try:
+                result = track.segment(file_id, prompt)
+                _, pts_n = track.main_track(result)
+                track.save_track(pts_n, tfile)
+            except (LookupError, RuntimeError) as exc:
+                attempts.append({"prompt": how, "accepted": False, "reason": str(exc)})
+                continue
+        pts_n = track.load_track(tfile)
+        quality = track.quality(pts_n)
+        if not quality["ok"]:
+            attempts.append({"prompt": how, "accepted": False, "reason": quality["reason"], "quality": quality})
+            continue
+        try:
+            f = np.array([p.frame for p in pts_n])
+            k = measure.kinematics(f, np.array([p.cx for p in pts_n]), np.array([p.cy for p in pts_n]), fps, mm_per_px)
+        except ValueError as exc:
+            attempts.append({"prompt": how, "accepted": False, "reason": str(exc), "quality": quality})
+            continue
+        attempts.append({"prompt": how, "accepted": True, "quality": quality})
+        chosen = (pts_n, k)
+        break
+    log["stages"]["track"] = {"frames_in_clip": n_frames, "attempts": attempts}
+    if chosen is None:
+        v = verdict.Verdict(verdict.CANNOT_MEASURE, claim["value"], claim.get("plus_minus"), float("nan"),
+                            float("nan"), float("nan"), float("nan"), "no usable track: " +
+                            "; ".join(a["reason"] for a in attempts))
+        log["verdict"] = v.to_dict()
+        log["claim"] = claim
+        (out_dir / "report.json").write_text(json.dumps(log, indent=2))
+        return log
+    pts, k = chosen
+    log["stages"]["track"]["frames_tracked"] = len(pts)
+    mid, lo, hi = measure.speed_interval(k, grid.rel_uncertainty())
     v = verdict.decide(claim["value"], claim.get("plus_minus"), mid, lo, hi, k.g_fit_rel_err)
     log["kinematics"] = k.to_dict()
     log["verdict"] = v.to_dict()

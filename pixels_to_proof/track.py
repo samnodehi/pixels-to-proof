@@ -16,7 +16,11 @@ from typing import Any
 
 import numpy as np
 from meta_sam_parser import (
+    FramePrompt,
+    PromptBox,
+    PromptObject,
     ResponsesEventLike,
+    build_object_prompt,
     VideoSegmentationResult,
     decode_mask_to_raster,
     parse_responses_stream,
@@ -59,6 +63,16 @@ async def _events(stream: AsyncIterable[Any]) -> AsyncIterator[ResponsesEventLik
             yield {"type": "response.output_text.done", "item_id": data.get("item_id"),
                    "output_index": data.get("output_index"), "content_index": data.get("content_index"),
                    "text": part["text"]}
+
+
+def box_prompt(box: list[int] | tuple[int, int, int, int], size: tuple[int, int], frame: int = 0) -> str:
+    """SAM object-prompt text for one object given by a box on one frame (e.g. Muse Spark's grounding)."""
+    w, h = size
+    x1, y1, x2, y2 = (int(round(v)) for v in box)
+    x1, y1 = max(0, min(x1, w - 2)), max(0, min(y1, h - 2))
+    x2, y2 = max(x1 + 1, min(x2, w - 1)), max(y1 + 1, min(y2, h - 1))
+    return build_object_prompt(size=(w, h), objects=[
+        PromptObject(id="0", prompts=[FramePrompt(frame=frame, box=PromptBox(left=x1, top=y1, right=x2, bottom=y2))])])
 
 
 async def _segment(file_id: str, concept: str) -> VideoSegmentationResult:
@@ -116,6 +130,24 @@ def main_track(result: VideoSegmentationResult) -> tuple[str, list[Point]]:
         raise LookupError("SAM returned no masks for this concept.")
     oid = max(all_tracks, key=lambda k: len(all_tracks[k]))
     return oid, all_tracks[oid]
+
+
+def quality(points: list[Point], max_area_jump: float = 0.6) -> dict:
+    """Cheap sanity checks on a track before any physics is done on it."""
+    if len(points) < 20:
+        return {"ok": False, "reason": f"only {len(points)} tracked frames"}
+    area = np.array([p.area for p in points], float)
+    jumps = np.abs(np.diff(area)) / np.maximum(area[:-1], 1)
+    worst = float(jumps.max()) if len(jumps) else 0.0
+    cx, cy = np.array([p.cx for p in points]), np.array([p.cy for p in points])
+    travel = float(np.hypot(cx - cx[0], cy - cy[0]).max())
+    size = float(np.sqrt(np.median(area)))
+    q = {"frames": len(points), "max_area_jump": worst, "travel_px": travel, "object_size_px": size}
+    if worst > max_area_jump:
+        return {**q, "ok": False, "reason": f"mask area jumps by {worst:.0%} between frames (SAM switched objects)"}
+    if travel < 2 * size:
+        return {**q, "ok": False, "reason": "tracked mask barely moves (likely background, not the object)"}
+    return {**q, "ok": True}
 
 
 def cut_clip(src: Path, dst: Path, start_s: float, end_s: float) -> Path:
