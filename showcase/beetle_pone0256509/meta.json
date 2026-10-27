@@ -1,0 +1,7 @@
+{
+  "title": "Larval beetle jump \u2014 Laemophloeus biguttatus",
+  "citation": "Bertone M.A. et al. (2022). A novel power-amplified jumping behavior in larval beetles (Coleoptera: Laemophloeidae). PLOS ONE 17(1): e0256509. https://doi.org/10.1371/journal.pone.0256509 \u2014 video: S2 Video, shot 2.",
+  "licence": "CC BY 4.0 (article and supplementary files) \u2014 video and data reused with attribution; overlays added by Pixels to Proof.",
+  "note": "Our physics-based take-off speed (ballistic fit, validated by the gravity check) is about 7% above the value the authors obtained with a smoothing-spline method. The intervals overlap, so the verdict is REPRODUCED. On synthetic flights with known truth, the spline-peak method reads 3\u201310% low for slow, steep jumps \u2014 the likely cause of the gap (an inference, not a claim about the authors' error).",
+  "provenance": "S1 Table row c_21382_488 (Larva9): velocity.max = 0.405 m/s, VelError = 0.059. VelError is a relative error in the authors' R script (ratio formula), so +/- = 0.059 x 0.405 = 0.024 m/s. That the video jump is jump 488 is an inference: take-off angle, distance, height and airborne time all match that row (74.6 deg, 9.44 mm, 8.64 mm, 0.081 s)."
+}

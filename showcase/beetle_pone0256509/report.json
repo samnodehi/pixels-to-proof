@@ -1,0 +1,111 @@
+{
+  "case": "beetle_pone0256509_jump488",
+  "stages": {
+    "read_paper": {
+      "claims_found": 24,
+      "usage": {
+        "input_tokens": 88763,
+        "input_tokens_details": {
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens": 7339,
+        "output_tokens_details": {
+          "reasoning_tokens": 5319
+        },
+        "total_tokens": 96102
+      }
+    },
+    "shot": {
+      "shot": 2,
+      "first_frame": 211,
+      "last_frame": 803
+    },
+    "read_frame": {
+      "usage": {
+        "input_tokens": 1316,
+        "input_tokens_details": {
+          "cache_write_tokens": null,
+          "cached_tokens": 0
+        },
+        "output_tokens": 3363,
+        "output_tokens_details": {
+          "reasoning_tokens": 3203
+        },
+        "total_tokens": 4679
+      }
+    },
+    "time": {
+      "capture_fps": 3200.0,
+      "source": "case",
+      "spark_read_fps": 3200,
+      "agree": true
+    },
+    "scale": {
+      "spacing_px": 186.25340439513442,
+      "spacing_sd_px": 0.21223403574511535,
+      "lines": 7,
+      "mm_per_px": 0.026845146891342497,
+      "rel_unc": 0.0004651951600700684,
+      "spark_estimate_px": 195,
+      "spark_rel_diff": 0.046960728762357414
+    },
+    "track": {
+      "frames_in_clip": 593,
+      "attempts": [
+        {
+          "prompt": "box from Muse Spark",
+          "accepted": true,
+          "quality": {
+            "frames": 593,
+            "max_area_jump": 0.119477286869944,
+            "travel_px": 414.3089961023079,
+            "object_size_px": 57.48912940721924,
+            "ok": true
+          }
+        }
+      ],
+      "frames_tracked": 593
+    }
+  },
+  "kinematics": {
+    "takeoff_frame": 63,
+    "landing_frame": 324,
+    "airborne_s": 0.08156250000000001,
+    "g_fit": 10.021150917230798,
+    "g_fit_rel_err": 0.02187300629988824,
+    "fit_rms_mm": 0.03302674934914904,
+    "v0_ballistic": 0.43596131010860545,
+    "v0_ci95": [
+      0.4343983301804371,
+      0.43747112848701797
+    ],
+    "angle_deg": 74.74966988166186,
+    "height_mm": 8.844412655569325,
+    "distance_mm": 9.335250410600135,
+    "v_max_spline": 0.3601567544185796,
+    "v_max_range": [
+      0.32388349659160315,
+      0.39756824127768714
+    ],
+    "notes": []
+  },
+  "verdict": {
+    "label": "REPRODUCED",
+    "published": 0.405,
+    "published_unc": 0.0239,
+    "measured_mid": 0.43596131010860545,
+    "measured_lo": 0.42489458409167385,
+    "measured_hi": 0.4470421011115636,
+    "rel_diff": -0.07101848120626215,
+    "reason": "published value (with its stated uncertainty) overlaps the measured interval"
+  },
+  "claim": {
+    "label": "take-off speed",
+    "value": 0.405,
+    "plus_minus": 0.0239,
+    "unit": "m/s",
+    "source_short": "PLOS ONE 2022, S1 Table, jump 488",
+    "provenance": "S1 Table row c_21382_488 (Larva9): velocity.max = 0.405 m/s, VelError = 0.059. VelError is a relative error in the authors' R script (ratio formula), so +/- = 0.059 x 0.405 = 0.024 m/s. That the video jump is jump 488 is an inference: take-off angle, distance, height and airborne time all match that row (74.6 deg, 9.44 mm, 8.64 mm, 0.081 s)."
+  }
+}
