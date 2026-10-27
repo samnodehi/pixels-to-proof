@@ -75,6 +75,11 @@ def evidence_md(report: dict) -> str:
     if k:
         out.append(f"| measure | code (ballistic fit, block bootstrap) | v0 {k['v0_ballistic']:.3f} m/s, 95% CI "
                    f"{k['v0_ci95'][0]:.3f}–{k['v0_ci95'][1]:.3f}; spline method {k['v_max_spline']:.3f} |")
+    tm = report.get("timing_s")
+    if tm:
+        out.append("")
+        out.append("Time per stage: " + ", ".join(f"{k.replace('_', ' ')} {v:.0f} s" for k, v in tm.items() if v >= 0.5)
+                   + f" — total {sum(tm.values()):.0f} s")
     return "\n".join(out)
 
 

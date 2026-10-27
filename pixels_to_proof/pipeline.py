@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import subprocess
+import time
 from pathlib import Path
 
 import cv2
@@ -47,7 +48,13 @@ def run(case_file: Path, out_dir: Path) -> dict:
     case = json.loads(case_file.read_text())
     base = case_file.parent
     out_dir.mkdir(parents=True, exist_ok=True)
-    log: dict = {"case": case["id"], "stages": {}}
+    log: dict = {"case": case["id"], "stages": {}, "timing_s": {}}
+    clock = [time.perf_counter()]
+
+    def tick(name: str) -> None:
+        now = time.perf_counter()
+        log["timing_s"][name] = round(now - clock[0], 2)
+        clock[0] = now
 
     # 1. Spark reads the paper
     paper: dict = {}
@@ -56,6 +63,7 @@ def run(case_file: Path, out_dir: Path) -> dict:
                                lambda: list(read.read_paper(base / case["paper_pdf"])))
         log["stages"]["read_paper"] = {"claims_found": len(paper["claims"]), "usage": usage}
 
+    tick("read_paper")
     # 2. the analysed clip and its first frame
     clip = out_dir / "clip.mp4"
     first, last = shots.shot_range(base / case["video"], int(case["shot"]))
@@ -70,6 +78,7 @@ def run(case_file: Path, out_dir: Path) -> dict:
     frame_read, usage = _cached(out_dir / "frame_reading.json", lambda: list(read.read_frame(frame_png, w, h)))
     log["stages"]["read_frame"] = {"usage": usage}
 
+    tick("shot_and_read_frame")
     # 3. time base: stated by the case, else read by Spark from the overlay, else the paper's video legend.
     #    When both the case and Spark give one, they must agree (logged; the gravity check is the real test).
     spark_fps = frame_read.get("capture_fps")
@@ -102,6 +111,7 @@ def run(case_file: Path, out_dir: Path) -> dict:
                               "rel_unc": grid.rel_uncertainty(), "spark_estimate_px": est,
                               "spark_rel_diff": None if not est else scale.compare(est, grid.spacing_px)}
 
+    tick("scale")
     # 5-6. SAM 3.1 tracks the object; kinematics are computed per prompt attempt. A track that never leaves
     # the ground or whose mask area jumps (SAM switched to background) is rejected and the next prompt is tried.
     phrase = case.get("object_phrase") or paper.get("object_noun_phrase", "object")
@@ -150,11 +160,13 @@ def run(case_file: Path, out_dir: Path) -> dict:
     log["verdict"] = v.to_dict()
     log["claim"] = claim
 
+    tick("track_and_measure")
     # 7. receipt
     unc = f" +/- {claim['plus_minus']:.3f}" if claim.get("plus_minus") else ""
     header = [f"Claim ({claim['source_short']}): {claim['label']} {claim['value']:.3f}{unc} {claim['unit']}",
               f"Re-measured (SAM 3.1 track): {lo:.3f}-{hi:.3f} {claim['unit']} | gravity self-check "
               f"{k.g_fit:.2f} m/s^2"]
     receipt.render(clip, pts, header, v.label, out_dir / "receipt.mp4", takeoff_frame=k.takeoff_frame)
+    tick("receipt")
     (out_dir / "report.json").write_text(json.dumps(log, indent=2))
     return log
