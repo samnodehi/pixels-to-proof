@@ -154,7 +154,8 @@ def build() -> gr.Blocks:
                 m = c["meta"]
                 gr.Markdown(f"### {m.get('title', c['dir'].name)}\n{m.get('citation', '')}  \n*Licence: {m.get('licence', '')}*")
                 with gr.Row():
-                    gr.Video(str(c["dir"] / "receipt.mp4"), label="Receipt", autoplay=False)
+                    if (c["dir"] / "receipt.mp4").exists():
+                        gr.Video(str(c["dir"] / "receipt.mp4"), label="Receipt", autoplay=False)
                     with gr.Column():
                         gr.HTML(verdict_card(c["report"]))
                         if m.get("note"):
