@@ -1,0 +1,6 @@
+openai>=1.0
+meta_sam_parser
+numpy
+scipy
+opencv-python-headless
+pytest

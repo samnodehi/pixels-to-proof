@@ -1,0 +1,5 @@
+pixels_to_proof/track.py adapts the streaming adapter from Meta's model cookbook
+(https://github.com/meta-models/meta-model-cookbook, 07_sam/01_api_basics/python/sam_api.py),
+MIT License, Copyright (c) Meta Platforms, Inc. and affiliates.
+
+Case data are third-party works under their own licences, credited in each cases/*/case.json.

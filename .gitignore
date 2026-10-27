@@ -1,0 +1,9 @@
+runs/
+__pycache__/
+*.pyc
+.env
+*.env
+cases/*/*.pdf
+cases/*/*.mp4
+cases/*/*.xlsx
+cases/*/*.zip

@@ -1,0 +1,22 @@
+{
+  "id": "beetle_pone0256509_jump488",
+  "paper": "Bertone M.A. et al. (2022) A novel power-amplified jumping behavior in larval beetles (Coleoptera: Laemophloeidae). PLOS ONE 17(1): e0256509. https://doi.org/10.1371/journal.pone.0256509",
+  "licence": "CC BY 4.0 (article and supplementary files)",
+  "paper_pdf": "paper.pdf",
+  "video": "S2_Video.mp4",
+  "video_note": "S2 Video, sequence 2 (3,200 fps capture of the jump in Fig 3D), detected automatically as shot 2 of the published file",
+  "shot": 2,
+  "capture_fps": 3200,
+  "capture_fps_source": "overlay text in the video ('captured - 3,200 frames/second, playback - 30 frames/second') and Methods",
+  "grid_square_mm": 5.0,
+  "grid_square_source": "Methods: '0.5cm2 scale grid' read as 0.5 cm squares; consistent with larval body length 5.9-6.2 mm in S1 Table",
+  "object_phrase": "larva",
+  "claim": {
+    "label": "take-off speed",
+    "value": 0.405,
+    "plus_minus": 0.0239,
+    "unit": "m/s",
+    "source_short": "PLOS ONE 2022, S1 Table, jump 488",
+    "provenance": "S1 Table row c_21382_488 (Larva9): velocity.max = 0.405 m/s, VelError = 0.059. VelError is a relative error in the authors' R script (ratio formula), so +/- = 0.059 x 0.405 = 0.024 m/s. That the video jump is jump 488 is an inference: take-off angle, distance, height and airborne time all match that row (74.6 deg, 9.44 mm, 8.64 mm, 0.081 s)."
+  }
+}
