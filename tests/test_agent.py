@@ -122,7 +122,10 @@ def test_merge_takes_only_rejected_fields():
     m = plan.merge(old, new, rejected)
     assert m["authors_speed_method"]["family"] == "linear_fit"
     assert m["scale_reference"]["size_mm"] == 5.0                    # accepted field untouched
-    assert {c["quote"] for c in m["claims"]} == {"angle was 40 degrees overall", "speed of 0.5 m/s"}
+    quotes = [c["quote"] for c in m["claims"]]
+    assert "angle was 40 degrees overall" in quotes and "speed of 0.5 m/s" in quotes   # accepted claim kept
+    assert "speed was 0.5 m/s in one" not in quotes                                    # rejected one replaced
+    # a claim the re-proposal adds ("angle 41 degrees") is kept as a new proposal; G1 then checks its quote
 
 
 def test_licence_gate_normalises_dashes():

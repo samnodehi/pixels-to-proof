@@ -195,7 +195,11 @@ def merge(old: dict, new: dict, rejected: list[Check]) -> dict:
             repl += [x for x in alt[:1] if x not in repl]
         else:
             keep.append(cl)
-    out["claims"] = keep + repl
+    # claims the re-proposal adds that are not already there (same quantity and value) are kept too: they change no
+    # accepted field and are checked like every other claim
+    have = {(c["quantity"], round(float(c["value"]), 9)) for c in keep + repl}
+    extra = [x for x in new.get("claims", []) if (x["quantity"], round(float(x["value"]), 9)) not in have]
+    out["claims"] = keep + repl + extra
     return out
 
 
@@ -327,8 +331,11 @@ def check(plan: dict, pdf_text: str, script_text: str, tables: list[ingest.Table
         seen.add(key)
         ok_quote = quoted(cl["quote"]) and _number_in(cl["value"], cl["quote"])
         f = unit_factor(cl["unit"])
+        loose = ok_quote and not ingest.quote_is_exact(cl["quote"], corpus)
         cp.checks.append(Check(f"claim '{cl['quote'][:50]}'", ok_quote,
-                               "quote and value found in the PDF" if ok_quote else "quote not found verbatim or value not in quote; dropped"))
+                               ("quote and value found in the PDF" + (" (letters and digits only: the PDF's text layer "
+                                                                      "garbles symbols)" if loose else ""))
+                               if ok_quote else "quote not found verbatim or value not in quote; dropped"))
         if ok_quote:
             cl = dict(cl, si_factor=f)
             rf = cl.get("row_filter") or {}

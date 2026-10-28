@@ -94,7 +94,19 @@ def quote_in_text(quote: str, text_norm: str, min_len: int = 12) -> bool:
     parts = [x for x in parts if x]
     if not parts or sum(len(x) for x in parts) < min_len or any(len(x) < 8 for x in parts if len(parts) > 1):
         return False
-    return all(x in t for x in parts)
+    if all(x in t for x in parts):
+        return True
+    # Fallback for PDFs whose text layer maps symbols wrongly (e.g. '=' as '~', '.' as ':', '±' as '+' from a
+    # Symbol font): letters and digits only, in order. The claimed value must still appear in Spark's quote (G1).
+    lt = re.sub(r"[^a-z0-9]", "", t)
+    lparts = [re.sub(r"[^a-z0-9]", "", x) for x in parts]
+    return all(len(x) >= 12 for x in lparts) and all(x in lt for x in lparts)
+
+
+def quote_is_exact(quote: str, text_norm: str) -> bool:
+    t = re.sub(r"\s+", "", text_norm)
+    parts = [re.sub(r"\s+", "", normalise(x)) for x in re.split(r"\.\.\.|…|\[\.\.\.\]", quote)]
+    return all(x in t for x in parts if x)
 
 
 def licence(text: str) -> tuple[str | None, str]:

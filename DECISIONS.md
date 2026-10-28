@@ -114,3 +114,22 @@ hands-off beetle run gives the same verdict.
     following transition.
   - *Captions:* claims printed on the videos are proposed too (quoted from the transcribed overlay text) and marked as
     such in the report. A single-event claim that no measured shot was paired to ends as NOT CHECKED, not "see video".
+
+## 2026-10-28 night (breadth test on 11 papers without, or with unusable, video)
+Changes after the first batch runs (recorded beetle and peacock runs stay on commit 49f237b):
+- **Any raw-data table.** The plan prompt asked for "the table in which each row is one jump"; human-performance and
+  ecology papers have one row per athlete, trial or step, and Spark proposed no table for three papers. It now asks for
+  the raw-data table whose rows are individual records, and for claims about the measured movement or the animals
+  (forces, frequencies and body size too).
+- **Other tables and sheets.** A claim may name a column of another table or sheet; it is read in the claim's own unit
+  (no column meaning was proposed for it) and only that column is tried. A statistic without any proposed column is
+  refused as such (it was reported as a unit problem).
+- **Population SD.** When the mean reproduces and the SD reproduces only as a population SD (divided by n), the reason
+  says so.
+- **Garbled PDF text layers.** Some PDFs map symbols wrongly in their text layer ('=' as '~', '.' as ':', '±' as '+'
+  from a Symbol font); 14 of 15 claim quotes of one paper failed for that reason. A quote that fails the exact check is
+  accepted if its letters and digits (≥ 12 per passage) occur in order, and the G1 note says so; the claimed value must
+  still occur in the quote.
+- **Re-proposals may add claims.** A re-proposal used to contribute only replacements for rejected claims; claims it
+  adds that are not already there (same quantity and value) are now kept as new proposals and checked like any other.
+  Accepted fields are still never replaced.
