@@ -104,7 +104,13 @@ hands-off beetle run gives the same verdict.
     first; the animal is the animal-id column alone or with one categorical column (IDs are reused across conditions),
     and a grouping is used only if it yields exactly the stated n. Male mass (n = 10 spiders) then reproduces; female
     mass (n = 12) gives 10.43 ± 2.05 against the printed 10.40 ± 2.05 and stays NOT CHECKED.
-  - *Truncation:* for a maximum or minimum that the table reproduces only when truncated instead of rounded, the reason
-    says so (e.g. 90.069 printed as 90.06); the outcome stays NOT CHECKED.
+  - *Statistic label:* the statistic is Spark's proposal too ("a maximum acceleration of 122.7" is the mean of the
+    per-jump peak accelerations). If the proposed statistic fails on the named column, the others are tried there,
+    only for values printed with at least three significant digits; a match says which statistic reproduced it.
+  - *Truncation:* a value that a statistic of the named column reproduces only when truncated instead of rounded is
+    reported as such (90.069 printed as 90.06; 127.871 printed as 127.8); the outcome stays NOT CHECKED.
+  - *Recording starts:* a recording created by a split starts at the first frame Spark gives for it (not inside the
+    dissolve, where the first frame is a blend and the box can land on a ghost) and still ends in the middle of the
+    following transition.
   - *Captions:* claims printed on the videos are proposed too (quoted from the transcribed overlay text) and marked as
     such in the report. A single-event claim that no measured shot was paired to ends as NOT CHECKED, not "see video".

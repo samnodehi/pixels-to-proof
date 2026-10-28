@@ -151,19 +151,35 @@ def check(claim: dict, table: Table, columns: dict[str, dict], circular: bool = 
                     "proposed_quantity": claim["quantity"], "column_quantity": col["quantity"],
                     "reason": f"'{name}' ({col['quantity']}) reproduces the printed digits; the column proposed for this "
                               f"sentence ('{claim.get('table_column')}') does not"}
+    # The statistic is Spark's proposal too ("maximum acceleration" can be the mean of per-jump maxima). If the proposed
+    # one fails on the named column, the others are tried there, only for values printed with >= 3 significant digits.
+    if named is not None and unit_dim(named["unit"]) == dim and claim["statistic"] in ("mean", "median", "max", "min") \
+            and len(re.sub(r"[^0-9]", "", (_printed(claim["value"], claim["quote"])[0] or "")).lstrip("0")) >= 3:
+        for stat in ("mean", "median", "max", "min"):
+            if stat == claim["statistic"] or (stat != "mean" and claim.get("plus_minus") is not None):
+                continue
+            r = _try(dict(claim, statistic=stat), named, table, circular, columns)
+            if r["ok"]:
+                return {**r, "outcome": MATCHES, "statistic_used": stat,
+                        "reason": f"the {stat} (not the proposed {claim['statistic']}) of {r['n_rows']} rows of "
+                                  f"'{r['column']}'{_subset(claim)} reproduces the printed digits"}
     if tried and "table_value" in tried[0]:
         r = tried[0]
         shown = f"{r['table_value']:.4g}" + (f" ± {r['table_sd']:.3g}" if r["table_sd"] is not None and
                                              claim.get("plus_minus") is not None else "")
         vt, vs = _printed(claim["value"], claim["quote"])
-        if vt is not None and r.get("table_value") is not None and claim["statistic"] in ("max", "min", "median"):
+        if vt is not None and claim.get("plus_minus") is None:
             d = len(vt.split(".")[1]) if "." in vt else 0
             q = 10 ** d / vs
-            if math.trunc(r["table_value"] * q) / q == math.trunc(claim["value"] * q) / q and \
-                    abs(r["table_value"] - claim["value"]) < 1 / q:
-                return {**r, "outcome": NOT_CHECKED,
-                        "reason": f"'{r['column']}' over {r['n_rows']} rows{_subset(claim)} gives "
-                                  f"{r['table_value']:.{d + 3}g}: the printed {vt} is that value truncated, not rounded"}
+            for stat in [claim["statistic"]] + [x for x in ("mean", "median", "max", "min") if x != claim["statistic"]]:
+                rr = r if stat == claim["statistic"] else _try(dict(claim, statistic=stat), named, table, circular,
+                                                               columns)
+                tv = rr.get("table_value")
+                if tv is not None and math.trunc(tv * q) == round(claim["value"] * q) and \
+                        abs(tv - claim["value"]) < 1 / q:
+                    return {**rr, "outcome": NOT_CHECKED,
+                            "reason": f"the {stat} of '{rr['column']}' over {rr['n_rows']} rows{_subset(claim)} is "
+                                      f"{tv:.{d + 2}f}: the printed {vt} is that value truncated, not rounded"}
         pa = r.get("per_animal")
         extra = (f"; averaged per animal ({pa['groups']} animals, the n printed) it gives {pa['value']:.4g}"
                  + (f" ± {pa['sd']:.3g}" if pa["sd"] is not None and claim.get("plus_minus") is not None else "")

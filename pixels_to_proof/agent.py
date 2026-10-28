@@ -92,9 +92,9 @@ def video_units(video: Path, min_frames: int, rel: str | None = None) -> list[Un
 def check_split(proposal: list[dict], first: int, last: int, sampled: list[int], min_frames: int) -> tuple[list, str]:
     """Gate on Muse Spark's split of one shot into recordings. Returns ([(first, last), ...], reason); an empty list
     means the proposal is rejected and the shot stays whole. A single recording keeps the shot as it is. Spark places
-    boundaries only to the nearest tile and tends to widen the transition it sees, so each inner boundary is put in the
-    middle of the gap between two proposed recordings and the recordings meet there: a few blended frames may remain at
-    the ends, and a flight that a boundary cuts is refused later (G5: the shot ends before the flight does)."""
+    boundaries only to the nearest tile and tends to widen the transition it sees, so a recording runs on to the middle
+    of the gap before the next one (a few blended frames may remain at its end; a flight that is still cut is refused
+    later, G5) and starts at the first frame Spark gives for it."""
     recs = sorted((int(r["first_frame"]), int(r["last_frame"])) for r in proposal)
     if not recs:
         return [], "no recording proposed; the shot is kept as it is"
@@ -106,13 +106,16 @@ def check_split(proposal: list[dict], first: int, last: int, sampled: list[int],
             return [], f"recording {a}-{b} is outside the shot {first}-{last}"
         if nxt and b >= nxt[0]:
             return [], f"recordings {a}-{b} and {nxt[0]}-{nxt[1]} overlap"
+    # A recording ends at the middle of the next transition (its landing must not be cut off) and starts where Spark
+    # says the transition is over (the first frame must show the animal at rest, not a blend of two scenes).
     cuts = [(b + nxt_a + 1) // 2 for (_, b), (nxt_a, _) in zip(recs, recs[1:])]
-    out = list(zip([first] + cuts, [c - 1 for c in cuts] + [last]))
+    starts = [first] + [max(c, min(a, last)) for c, (a, _) in zip(cuts, recs[1:])]
+    out = list(zip(starts, [c - 1 for c in cuts] + [last]))
     for (a, b), r in zip(out, recs):
         if b - a + 1 < min_frames:
             return [], f"recording {r[0]}-{r[1]} is shorter than {min_frames} frames"
     return out, f"{len(out)} recordings: " + ", ".join(f"{a}-{b}" for a, b in out) + \
-        " (boundaries in the middle of each proposed transition)"
+        " (each ends in the middle of the following transition)"
 
 
 def split_stage(path: Path, rel: str, units: list[Unit], out: Path, led: Ledger, min_frames: int) -> list[Unit]:

@@ -198,7 +198,7 @@ def test_split_proposal_gate():
     sampled = list(range(173, 572, 8))
     recs, _ = check_split([{"first_frame": 181, "last_frame": 365}, {"first_frame": 405, "last_frame": 563}],
                           173, 571, sampled, 30)
-    assert recs == [(173, 384), (385, 571)]          # outer edges kept, boundary in the middle of the transition
+    assert recs == [(173, 384), (405, 571)]          # ends mid-transition, the next starts where Spark says
     assert check_split([{"first_frame": 173, "last_frame": 571}], 173, 571, sampled, 30)[0] == [(173, 571)]
     assert check_split([{"first_frame": 173, "last_frame": 400}, {"first_frame": 390, "last_frame": 571}],
                        173, 571, sampled, 30)[0] == []                       # overlap
