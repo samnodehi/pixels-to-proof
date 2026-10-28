@@ -132,7 +132,7 @@ def main_track(result: VideoSegmentationResult) -> tuple[str, list[Point]]:
     return oid, all_tracks[oid]
 
 
-def quality(points: list[Point], max_area_jump: float = 0.6) -> dict:
+def quality(points: list[Point], max_area_jump: float = 0.6, min_travel_body_sizes: float = 2.0) -> dict:
     """Cheap sanity checks on a track before any physics is done on it."""
     if len(points) < 20:
         return {"ok": False, "reason": f"only {len(points)} tracked frames"}
@@ -145,12 +145,13 @@ def quality(points: list[Point], max_area_jump: float = 0.6) -> dict:
     q = {"frames": len(points), "max_area_jump": worst, "travel_px": travel, "object_size_px": size}
     if worst > max_area_jump:
         return {**q, "ok": False, "reason": f"mask area jumps by {worst:.0%} between frames (SAM switched objects)"}
-    if travel < 2 * size:
+    if travel < min_travel_body_sizes * size:
         return {**q, "ok": False, "reason": "tracked mask barely moves (likely background, not the object)"}
     # The track must begin with the object at rest: a track that starts in mid-air has no take-off point, and its
     # first position would be taken as the ground.
     step = np.hypot(np.diff(cx), np.diff(cy))
-    start, moving = float(np.median(step[:8])), float(np.percentile(step, 90))
+    smooth = np.array([np.median(step[max(0, i - 2):i + 3]) for i in range(len(step))])   # robust to single jumps
+    start, moving = float(np.median(step[:8])), float(smooth.max())
     q["start_step_px"], q["moving_step_px"] = start, moving
     if moving > 0 and start > 0.5 * moving:
         return {**q, "ok": False, "reason": f"track begins with the object already moving (first frame {points[0].frame}); "

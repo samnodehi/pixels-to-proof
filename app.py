@@ -116,8 +116,13 @@ def verdict_card(v: dict) -> str:
                      f"<b>{m['mid']:.3f} m/s</b>, interval {m['lo']:.3f}–{m['hi']:.3f}</div>")
     else:
         lines.append("<div><b>Re-measured</b>: not reported, a self-check failed</div>")
+    if v.get("accepts_published"):
+        a, b = v["accepts_published"]
+        lines.append(f"<div><b>Sensitivity</b>: with this interval and this kind of ±, any published value between "
+                     f"{a:.3f} and {b:.3f} m/s ({(a / c['value'] - 1):+.0%} to {(b / c['value'] - 1):+.0%} of the "
+                     "printed one) would read REPRODUCED.</div>")
     if v.get("authors_method_replica") is not None:
-        lines.append(f"<div><b>Second reading</b> — the authors' own method, replicated on our track "
+        lines.append(f"<div><b>Second reading</b> — the authors' stated method, approximately replicated on our track "
                      f"({_e(v['authors_method']['parameters'][:80])}): {v['authors_method_replica']:.3f} m/s "
                      "<span style='opacity:.7'>(printed, does not vote)</span></div>")
     lines.append(f"<div><b>Self-checks</b>: gravity from the flight {k['g_fit']:.2f} m/s² (9.81 expected) · "

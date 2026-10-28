@@ -116,15 +116,17 @@ def classify(base_rep: dict, rep: dict, new_rejections: list[str], reproposals: 
     refusal / not-checked. recovered: a check fired (or Spark re-proposed) and the final results equal the unmutated
     run. no effect: nothing fired and nothing changed (the corrupted field was overridden or not needed)."""
     bv, mv = base_rep["summary"]["videos"], rep.get("summary", {}).get("videos", {})
-    bc = {(c["quote"], c["quantity"]): c["outcome"] for c in base_rep["claims"]}
-    mc = {(c["quote"], c["quantity"]): c["outcome"] for c in rep.get("claims", [])}
+    key = lambda c: (c["quantity"], c["statistic"], round(float(c["value"]), 9), c.get("plus_minus"))
+    bc = {key(c): c["outcome"] for c in base_rep["claims"]}
+    mc = {key(c): c["outcome"] for c in rep.get("claims", [])}
     changed_v = {u: (bv[u], mv.get(u)) for u in bv if mv.get(u) != bv[u]}
     changed_c = {k: (bc[k], mc.get(k)) for k in bc if mc.get(k) != bc[k]}
     added_c = {k: (None, v) for k, v in mc.items() if k not in bc}
     wrong = [f"{u}: {a} -> {b}" for u, (a, b) in changed_v.items()
              if b not in (None, "CANNOT MEASURE") and a != b]
-    wrong += [f"claim {k[0][:40]}: {a} -> {b}" for k, (a, b) in {**changed_c, **added_c}.items()
-              if b in ("MATCHES TABLE", "MATCHES OTHER COLUMN") and a not in ("MATCHES TABLE", "MATCHES OTHER COLUMN")]
+    wrong += [f"claim {k}: {a} -> {b}" for k, (a, b) in {**changed_c, **added_c}.items()
+              if b in ("MATCHES TABLE", "MATCHES OTHER COLUMN") and a not in ("MATCHES TABLE", "MATCHES OTHER COLUMN")
+              and not any(k[0] == kb[0] and k[2] == kb[2] for kb in bc)]      # a value the base run never matched
     if wrong:
         return "WRONG", "; ".join(wrong)
     fired = bool(new_rejections) or reproposals > 0
@@ -132,7 +134,7 @@ def classify(base_rep: dict, rep: dict, new_rejections: list[str], reproposals: 
         return ("recovered", "a check fired and the final results equal the unmutated run") if fired else \
             ("no effect", "nothing fired and nothing changed")
     parts = [f"{u}: {a} -> {b}" for u, (a, b) in changed_v.items()] + \
-            [f"claim '{k[0][:40]}': {a} -> {b}" for k, (a, b) in {**changed_c, **added_c}.items()]
+            [f"claim {k}: {a} -> {b}" for k, (a, b) in {**changed_c, **added_c}.items()]
     return "caught", "; ".join(parts)
 
 
@@ -149,7 +151,11 @@ def main() -> None:
         if run.exists():
             shutil.rmtree(run)
         shutil.copytree(a.base, run, ignore=shutil.ignore_patterns("ledger.json", "report.json", "receipt.mp4",
-                                                                     "plan_checked.json"))
+                                                                     "plan_checked.json", "plan_raw_v*.json"))
+        # Mutate the plan the base run accepted (after any re-proposal and merge); re-proposals in the mutated run
+        # are live model calls.
+        accepted = _load(a.base / "plan_checked.json")["plan"]
+        (run / "plan_raw.json").write_text(json.dumps([accepted, {}]))
         apply(run)
         rep, err = None, None
         try:
@@ -168,8 +174,14 @@ def main() -> None:
         print(f"[{outcome}] {name} | {detail[:150]} | new rejections: {len(new_rej)}", flush=True)
     (a.out / "faults.json").write_text(json.dumps(rows, indent=1))
     n = len(rows)
-    md = ["# Fault injection", "", f"{n} single-field corruptions of model proposals on one bundle "
-          f"({a.bundle.name}); base run {base_rep['run_id']}.", "",
+    md = ["# Fault injection", "",
+          f"Each row corrupts one model proposal of a real audit ({a.bundle.name}, base run {base_rep['run_id']}) the way "
+          "a wrong model answer would, then re-runs the agent. Re-proposals in these runs are live model calls, so a "
+          "repeat run can differ.", "",
+          "- **caught**: a check fired and the affected result became a refusal or NOT CHECKED",
+          "- **recovered**: a check fired (or Muse Spark re-proposed) and the final results equal the uncorrupted run",
+          "- **no effect**: nothing fired and nothing changed (code overrode the field, or it was not needed)",
+          "- **WRONG**: a verdict changed to a different non-refusal — must not happen", "",
           "| mutation | outcome | what happened | gate rejections that fired |", "|---|---|---|---|"]
     for r in rows:
         md.append(f"| {r['mutation']} | {r['outcome']} | {r['detail'][:160]} | "

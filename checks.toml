@@ -1,5 +1,7 @@
-# Thresholds of every gate the audit agent applies. Committed before final runs; the SHA-256 of this file is
-# written into every run ledger. Changing a value after seeing a result must be recorded in DECISIONS.md.
+# Thresholds of the audit agent's main gates (verdict self-checks, track quality, pairing, re-proposals). Committed
+# before final runs; the SHA-256 of this file is written into every run ledger. Changing a value after seeing a result
+# must be recorded in DECISIONS.md. Fixed rules that are not tunable (e.g. table checks compare at the printed digits
+# with the sample standard deviation) are documented in DESIGN.md.
 
 [selfcheck]
 gravity_rel_tolerance = 0.10        # fitted free-fall acceleration within 10% of 9.81 m/s^2
@@ -15,10 +17,6 @@ min_shot_frames = 30                # shots shorter than this are transitions, n
 
 [pairing]
 min_margin = 2.0                    # best row must be at least this many times closer than the second best
-features = ["angle", "distance", "height", "airborne_time"]
 
 [plan]
 max_reproposals = 2                 # Spark re-proposals after a gate rejection, per decision
-
-[table_check]
-sd_kind = "sample"                  # mean +/- sample standard deviation, compared at the printed digits

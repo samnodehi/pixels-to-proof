@@ -150,6 +150,40 @@ def make_plan(pdf: Path, inventory_text: str, tables_text: str, scripts_text: st
 CRITICAL = ("fps", "kind", "scale size", "authors' method", "claim '")
 
 
+def merge(old: dict, new: dict, rejected: list[Check]) -> dict:
+    """Take from a re-proposal only the fields the checker rejected in the previous version; everything that already
+    passed stays as it was (a re-proposal must not silently change accepted fields)."""
+    import copy
+    out = copy.deepcopy(old)
+    names = " | ".join(c.field for c in rejected)
+    if "authors' method" in names:
+        out["authors_speed_method"] = new["authors_speed_method"]
+    if "scale size" in names and new["scale_reference"].get("kind") == out["scale_reference"].get("kind"):
+        out["scale_reference"] = dict(out["scale_reference"], size_mm=new["scale_reference"]["size_mm"],
+                                      evidence=new["scale_reference"]["evidence"])
+    for v in out.get("videos", []):
+        if f"video {v['file']} fps" in names:
+            alt = [w for w in new.get("videos", []) if w["file"] == v["file"] and w.get("label") == v.get("label")]
+            if alt:
+                v.update(alt[0])
+    if out.get("event_table") and new.get("event_table"):
+        newcols = {c["name"]: c for c in new["event_table"]["columns"]}
+        for i, c in enumerate(out["event_table"]["columns"]):
+            if f"column {c['name']} kind" in names and c["name"] in newcols:
+                out["event_table"]["columns"][i] = newcols[c["name"]]
+    bad = [c.field[len("claim '"):-1] for c in rejected if c.field.startswith("claim '")]
+    keep, repl = [], []
+    for cl in out.get("claims", []):
+        if any(cl["quote"][:50] == b for b in bad):
+            alt = [x for x in new.get("claims", []) if x["quantity"] == cl["quantity"]
+                   and abs(x["value"] - cl["value"]) <= 1e-9 + 1e-6 * abs(cl["value"])]
+            repl += alt[:1]
+        else:
+            keep.append(cl)
+    out["claims"] = keep + repl
+    return out
+
+
 def feedback_for(cp: "CheckedPlan") -> str:
     """The rejections worth a re-proposal: those that drop a field the audit needs (not 'unit not absolute')."""
     lines = [f"- {c.field}: {c.note}" for c in cp.rejected() if any(k in c.field for k in CRITICAL)]
@@ -210,15 +244,17 @@ def check(plan: dict, pdf_text: str, script_text: str, tables: list[ingest.Table
         return bool(q) and ingest.quote_in_text(q, corpus, min_len=8)
 
     for v in plan.get("videos", []):
-        ok = v.get("capture_fps") is None or quoted(v.get("fps_evidence", ""))
+        q = v.get("fps_evidence", "")
+        ok = v.get("capture_fps") is None or (quoted(q) and _number_in(float(v["capture_fps"]), q))
         cp.checks.append(Check(f"video {v['file']} fps", ok,
-                               "fps quote found" if ok else f"fps {v.get('capture_fps')} has no verbatim quote; dropped"))
+                               "fps quote found and states the number" if ok else
+                               f"fps {v.get('capture_fps')}: no verbatim quote stating that number; dropped"))
         if not ok:
             v["capture_fps"] = None
 
     et = plan.get("event_table")
     if et:
-        tab = next((t for t in tables if t.file == et["file"] and t.sheet == et["sheet"]), None)
+        tab = next((t for t in tables if t.file == Path(et["file"]).name and t.sheet == et["sheet"]), None)
         if tab is None:
             cp.checks.append(Check("event_table", False, f"no table {et['file']}/{et['sheet']}"))
             plan["event_table"] = None
@@ -233,9 +269,17 @@ def check(plan: dict, pdf_text: str, script_text: str, tables: list[ingest.Table
                 c["index"] = j
                 c["si_factor"] = unit_factor(c["unit"])
                 if c["quantity"] == "speed_uncertainty":
-                    if c["uncertainty_kind"] in ("absolute", "relative") and not quoted(c["evidence"]):
+                    ev = c["evidence"].lower()
+                    words = (c["name"].lower(), "relativ", "ratio", "fraction", "percent", "%", "absolute", "m/s", "m s")
+                    if c["uncertainty_kind"] in ("absolute", "relative") and not (quoted(c["evidence"]) and
+                                                                               any(w in ev for w in words)):
                         cp.checks.append(Check(f"column {c['name']} kind", False,
-                                               f"'{c['uncertainty_kind']}' not supported by a verbatim quote; set to unknown"))
+                                               f"'{c['uncertainty_kind']}' not supported by a verbatim quote about it; "
+                                               "set to unknown"))
+                        c["uncertainty_kind"] = "unknown"
+                    elif c["uncertainty_kind"] == "relative" and vals and max(vals) >= 1:
+                        cp.checks.append(Check(f"column {c['name']} kind", False,
+                                               f"'relative' but values reach {max(vals):g} (a percentage?); set to unknown"))
                         c["uncertainty_kind"] = "unknown"
                     else:
                         cp.checks.append(Check(f"column {c['name']} kind", True,
@@ -249,7 +293,7 @@ def check(plan: dict, pdf_text: str, script_text: str, tables: list[ingest.Table
                         cp.columns[c["name"]] = c
                         continue
                     si = [x * f for x in vals]
-                    lo, hi = {"takeoff_speed": (1e-3, 100), "takeoff_angle": (-90, 180), "jump_distance": (1e-5, 10),
+                    lo, hi = {"takeoff_speed": (1e-2, 30), "takeoff_angle": (-90, 180), "jump_distance": (1e-5, 10),
                               "jump_height": (-10, 10), "airborne_time": (1e-4, 10)}[c["quantity"]]
                     plausible = lo <= min(si) and max(si) <= hi
                     cp.checks.append(Check(f"column {c['name']} range", plausible,
@@ -274,8 +318,10 @@ def check(plan: dict, pdf_text: str, script_text: str, tables: list[ingest.Table
             cp.claims.append(dict(cl, si_factor=f))
 
     sr = plan.get("scale_reference", {})
-    if sr.get("size_mm") is not None and not quoted(sr.get("evidence", "")):
-        cp.checks.append(Check("scale size", False, f"{sr['size_mm']} mm without a verbatim quote; dropped"))
+    size_ok = sr.get("size_mm") is not None and quoted(sr.get("evidence", "")) and any(
+        _number_in(sr["size_mm"] * f, sr["evidence"]) for f in (1, 0.1, 0.001))     # stated in mm, cm or m
+    if sr.get("size_mm") is not None and not size_ok:
+        cp.checks.append(Check("scale size", False, f"{sr['size_mm']} mm: no verbatim quote stating that size; dropped"))
         sr["size_mm"] = None
     am = plan.get("authors_speed_method", {})
     if am.get("family") not in ("unknown",) and not quoted(am.get("evidence", "")):

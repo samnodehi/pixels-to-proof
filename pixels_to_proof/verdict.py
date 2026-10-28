@@ -27,13 +27,14 @@ class Verdict:
 
 
 def decide(published: float, published_unc: float | None, mid: float, lo: float, hi: float,
-           g_rel_err: float | None, ax_rel_g: float | None = None) -> Verdict:
+           g_rel_err: float | None, ax_rel_g: float | None = None, g_tol: float = G_TOLERANCE,
+           free_flight_tol: float = FREE_FLIGHT_TOLERANCE) -> Verdict:
     rel = (published - mid) / mid
     failed = []
-    if g_rel_err is not None and abs(g_rel_err) > G_TOLERANCE:
+    if g_rel_err is not None and abs(g_rel_err) > g_tol:
         failed.append(f"gravity from the flight is {g_rel_err:+.0%} off 9.81 m/s^2, so the scale or the frame "
                       "rate is wrong")
-    if ax_rel_g is not None and ax_rel_g > FREE_FLIGHT_TOLERANCE:
+    if ax_rel_g is not None and ax_rel_g > free_flight_tol:
         failed.append(f"the object accelerates sideways at {ax_rel_g:.0%} of its vertical acceleration, so this "
                       "is not free flight in the image plane (drag, a tether, motion towards the camera, "
                       "a tilted camera or an edited time base)")

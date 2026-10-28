@@ -5,6 +5,7 @@ every proposal against the files and the physics; SAM 3.1 tracks. Every step is 
 from __future__ import annotations
 
 import json
+import math
 import re
 import time
 import tomllib
@@ -40,7 +41,7 @@ class Unit:
 
     @property
     def uid(self) -> str:
-        stem = Path(self.video).stem
+        stem = str(Path(self.video).with_suffix("")).replace("/", "_").replace("\\", "_")
         return f"{stem}_s{self.shot}" + (f"_p{self.panel}" if self.panel is not None else "")
 
 
@@ -56,9 +57,12 @@ def ingest_stage(bundle: Path, out: Path, led: Ledger) -> dict:
                           f"{len(inv.archives)} archive files")
     if not inv.pdfs:
         raise ValueError("no PDF in the bundle")
-    pdf = bundle / sorted(inv.pdfs, key=lambda p: (bundle / p).stat().st_size)[-1]   # the paper = largest PDF
-    text = ingest.pdf_text(pdf)
+    # The paper: the PDF that states a licence (supplements usually do not); among those, the longest text.
+    texts = {p: ingest.pdf_text(bundle / p) for p in inv.pdfs}
+    ranked = sorted(inv.pdfs, key=lambda p: (ingest.licence(texts[p])[0] is not None, len(texts[p])))
+    pdf, text = bundle / ranked[-1], texts[ranked[-1]]
     lic, snippet = ingest.licence(text)
+    led.step("paper", f"{ranked[-1]} chosen as the paper" + (f" (of {len(inv.pdfs)} PDFs)" if len(inv.pdfs) > 1 else ""))
     led.gate("G0 licence", lic is not None, f"{lic}: {snippet[:160]}" if lic else snippet)
     tables = [t for f in inv.tables for t in ingest.read_tables(bundle / f)]
     scripts = []
@@ -74,13 +78,13 @@ def ingest_stage(bundle: Path, out: Path, led: Ledger) -> dict:
     return {"inventory": inv, "pdf": pdf, "pdf_text": text, "licence": lic, "tables": tables, "scripts": scripts}
 
 
-def video_units(video: Path, min_frames: int) -> list[Unit]:
+def video_units(video: Path, min_frames: int, rel: str | None = None) -> list[Unit]:
     starts, total, _ = shots.cuts(video)
     bounds = list(zip(starts, starts[1:] + [total]))
     units = []
     for a, b in bounds:             # cut detection also fires inside fades; only real recordings are numbered
         if b - a >= min_frames:
-            units.append(Unit(video=video.name, shot=len(units) + 1, first=a, last=b - 1))
+            units.append(Unit(video=rel or video.name, shot=len(units) + 1, first=a, last=b - 1))
     return units
 
 
@@ -91,7 +95,7 @@ def video_stage(bundle: Path, ing: dict, out: Path, led: Ledger) -> list[dict]:
     todo = []
     for v in ing["inventory"].videos:
         path = bundle / v
-        units = video_units(path, th["video"]["min_shot_frames"])
+        units = video_units(path, th["video"]["min_shot_frames"], rel=v)
         led.step("shots", f"{v}: {len(units)} shots of >= {th['video']['min_shot_frames']} frames", ref=v)
         for u in units:
             udir = out / "units" / u.uid
@@ -157,6 +161,8 @@ def plan_stage(ing: dict, units: list[dict], out: Path, led: Ledger) -> planmod.
                          f"v{version}: {len(raw['claims'])} claims, event table "
                          f"{(raw['event_table'] or {}).get('sheet')}, {len(raw['videos'])} videos, "
                          f"authors' method {raw['authors_speed_method']['family']}", cached=cached)
+        if best is not None:              # keep what already passed; take only the re-proposed fields
+            raw = planmod.merge(best[1].plan, raw, [c for c in best[1].checks if not c.ok])
         cp = planmod.check(raw, ing["pdf_text"], scripts, ing["tables"], overlay)
         for c in cp.checks:
             if version == 1 or not c.ok or any(k in c.field for k in planmod.CRITICAL):
@@ -216,7 +222,8 @@ def unit_inputs(u: dict, cp: planmod.CheckedPlan, table, out: Path, led: Ledger)
         led.gate("G4 frame rate", False, f"Spark read {fr['capture_fps']:g} fps but that number is not printed on the "
                                          "shot", ref=uid)
     if fps is None:
-        per_file = {v["capture_fps"] for v in cp.plan["videos"] if v["file"] == u["unit"]["video"] and v["capture_fps"]}
+        per_file = {v["capture_fps"] for v in cp.plan["videos"]
+                    if Path(v["file"]).name == Path(u["unit"]["video"]).name and v["capture_fps"]}
         if len(per_file) == 1:
             fps, src = float(per_file.pop()), "stated in the paper for this video file"
         elif len(per_file) > 1:
@@ -303,11 +310,17 @@ def measure_unit(bundle: Path, u: dict, inputs: dict, phrase: str, out: Path, le
         boxes.append(ans["object_box"])
         return (f"box re-proposed by Muse Spark (round {len(boxes) - 1})", track.box_prompt(ans["object_box"], (w, h)))
 
-    (tm), secs = _timed(lambda: pipeline.track_and_measure(clip, u["frame_reading"], phrase, inputs["fps"],
-                                                           inputs["mm_per_px"], udir, repropose=repropose,
-                                                           max_reproposals=th["plan"]["max_reproposals"]))
+    (tm), secs = _timed(lambda: pipeline.track_and_measure(
+        clip, u["frame_reading"], phrase, inputs["fps"], inputs["mm_per_px"], udir, repropose=repropose,
+        max_reproposals=th["plan"]["max_reproposals"],
+        quality_kw={"max_area_jump": th["track"]["max_area_jump"],
+                    "min_travel_body_sizes": th["track"]["min_travel_body_sizes"]}))
     for a in tm["attempts"]:
-        led.gate("G5 track", a["accepted"], f"{a['prompt']}: " + ("accepted" if a["accepted"] else a["reason"]), ref=uid)
+        i = led.model("track", meta.SAM, None, a.get("seconds", 0.0), f"{a['prompt']}: "
+                      + (f"{a['quality']['frames']} frames tracked" if a.get("quality") else "no track"), ref=uid,
+                      cached=a.get("cached", False))
+        led.gate("G5 track", a["accepted"], f"{a['prompt']}: " + ("accepted" if a["accepted"] else a["reason"]),
+                 ref=uid, on=i)
     if tm["pts"] is None:
         return {"ok": False, "reason": "no usable track: " + "; ".join(a["reason"] for a in tm["attempts"])}
     k = tm["k"]
@@ -321,15 +334,116 @@ def measure_unit(bundle: Path, u: dict, inputs: dict, phrase: str, out: Path, le
             "attempts": tm["attempts"], "clip": clip}
 
 
+def _audit_unit(bundle: Path, u: dict, cp: planmod.CheckedPlan, table, et, id_col, speed_col, unc_col, am, lam,
+                out: Path, led: Ledger) -> dict:
+    th = thresholds()
+    uid = u["uid"]
+    vrow = {"unit": uid, "video": u["unit"]["video"], "shot": u["unit"]["shot"], "frames": u["n_frames"]}
+    if table is None or speed_col is None:
+        led.gate("G4 comparison", False, "no single, absolute take-off speed column in an event table: nothing to "
+                                         "compare a video measurement with, so the shot is not tracked", ref=uid)
+        vrow.update(verdict=verdict.CANNOT_MEASURE, reason="no table of single-event speeds to compare with",
+                    stage="inputs")
+        return vrow
+    inputs = unit_inputs(u, cp, table, out, led)
+    if not inputs["ok"]:
+        vrow.update(verdict=verdict.CANNOT_MEASURE, reason=inputs["reason"], stage="inputs")
+        return vrow
+    m = measure_unit(bundle, u, inputs, cp.plan["object_phrase"], out, led)
+    if not m["ok"]:
+        vrow.update(verdict=verdict.CANNOT_MEASURE, reason=m["reason"], stage="track")
+        return vrow
+    k = m["k"]
+    vrow.update(fps=inputs["fps"], fps_source=inputs["fps_source"], mm_per_px=inputs["mm_per_px"],
+                kinematics=k.to_dict(), skipped_frames=len(m["skipped"]))
+    pr = pairing.pair(k, table, cp.columns, id_col, th["pairing"]["min_margin"])
+    led.gate("G3 blind pairing", pr["ok"], pr["reason"] + f" (features: {', '.join(pr.get('features', []))}; "
+                                                          "published speed not used)", ref=uid)
+    vrow["pairing"] = {kk: vv for kk, vv in pr.items() if kk != "detail"}
+    vrow["pairing_detail"] = pr.get("detail")
+    if not pr["ok"]:
+        vrow.update(verdict=verdict.CANNOT_MEASURE, reason="unpaired: " + pr["reason"])
+        return vrow
+    rr = table.rows[pr["row_index"]]
+    if not _finite(rr[speed_col["index"]]):
+        led.gate("G6 published value", False, f"row {pr['row_id']} has no numeric value in {speed_col['name']}", ref=uid)
+        vrow.update(verdict=verdict.CANNOT_MEASURE, reason="the paired row has no published speed")
+        return vrow
+    published = rr[speed_col["index"]] * speed_col["si_factor"]
+    pm_val, pm_note = None, "no uncertainty column"
+    if unc_col is not None and _finite(rr[unc_col["index"]]):
+        raw = rr[unc_col["index"]]
+        if unc_col["uncertainty_kind"] == "relative":
+            pm_val, pm_note = raw * published, f"{unc_col['name']} = {raw:.3g} (relative, per the quote)"
+        elif unc_col["uncertainty_kind"] == "absolute" and unc_col.get("si_factor"):
+            pm_val, pm_note = raw * unc_col["si_factor"], f"{unc_col['name']} (absolute)"
+        else:
+            pm_note = f"{unc_col['name']}: meaning (absolute or relative) not established by the paper or script"
+    mid, lo, hi = measure.speed_interval(k, inputs["scale_rel_unc"])
+    tol = {"g_tol": th["selfcheck"]["gravity_rel_tolerance"], "free_flight_tol": th["selfcheck"]["sideways_rel_tolerance"]}
+    v = verdict.decide(published, pm_val, mid, lo, hi, k.g_fit_rel_err, k.ax_rel_g, **tol)
+    if pm_val is None and unc_col is not None and _finite(rr[unc_col["index"]]):
+        # The ± exists but its meaning is unknown: decide only if both readings give the same verdict.
+        raw = rr[unc_col["index"]]
+        options = sorted((raw * published, raw * (unc_col.get("si_factor") or 1.0)))
+        vs = [verdict.decide(published, x, mid, lo, hi, k.g_fit_rel_err, k.ax_rel_g, **tol) for x in options]
+        readings = {x.label for x in vs}
+        if len(readings) > 1:
+            v = verdict.Verdict(verdict.CANNOT_MEASURE, published, None, mid, lo, hi, v.rel_diff,
+                                f"the verdict depends on whether {unc_col['name']} is a relative or an absolute "
+                                "uncertainty, and the paper does not say which")
+        else:
+            v, pm_val = vs[0], options[0]      # both readings agree; report the narrower ±
+            pm_note += f"; both readings give {v.label}, the narrower ± is shown"
+        led.gate("G6 uncertainty", len(readings) == 1, pm_note + f"; verdict under both readings: {sorted(readings)}",
+                 ref=uid)
+    # Sensitivity: which published values this measurement would have accepted (same kind of ±).
+    if pm_val is not None and unc_col is not None and unc_col["uncertainty_kind"] == "relative" and published:
+        r = pm_val / published
+        accept = [lo / (1 + r), hi / (1 - r) if r < 1 else float("inf")]
+    else:
+        pm_abs = pm_val or 0.0
+        accept = [lo - pm_abs, hi + pm_abs]
+    second = None
+    if lam is not None:
+        p = m["pts"]
+        f_ = np.array([q.frame for q in p])
+        if m["skipped"]:
+            f_, _ = measure.repair_dropped_frames(f_, np.array([q.cx for q in p]), np.array([q.cy for q in p]),
+                                                  inputs["mm_per_px"])
+        second = measure.smoothing_spline_max(f_, np.array([q.cx for q in p]), np.array([q.cy for q in p]),
+                                              inputs["fps"], inputs["mm_per_px"], lam)
+    vrow.update(verdict=v.label, reason=v.reason, claim={"row": pr["row_id"], "value": published,
+                                                          "plus_minus": pm_val, "plus_minus_note": pm_note,
+                                                          "column": speed_col["name"]},
+                measured={"mid": mid, "lo": lo, "hi": hi}, authors_method_replica=second,
+                accepts_published=accept,
+                authors_method=am if lam is not None else None)
+    led.verdict({"unit": uid, "row": pr["row_id"], "label": v.label, "published": published, "pm": pm_val,
+                 "interval": [lo, hi], "replica": second})
+    header = [f"Claim ({Path(et['file']).name}, row {pr['row_id'][:28]}): take-off speed {published:.3f}"
+              + (f" +/- {pm_val:.3f}" if pm_val else "") + " m/s",
+              (f"Re-measured (SAM 3.1 track): {lo:.3f}-{hi:.3f} m/s" if v.label != verdict.CANNOT_MEASURE
+               else "Re-measured: no speed reported, a self-check failed"),
+              f"Self-checks: gravity {k.g_fit:.2f} m/s^2 (9.81) | sideways {k.ax_rel_g:.0%} (0) | paired blind, "
+              f"margin {pr['margin']:.1f}x"]
+    receipt.render(m["clip"], m["pts"], header, v.label, out / "units" / uid / "receipt.mp4",
+                   takeoff_frame=k.takeoff_frame)
+    return vrow
+
+
+
 def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
     out.mkdir(parents=True, exist_ok=True)
-    th = thresholds()
     run_id = run_id or time.strftime("%Y%m%d-%H%M%S")
     inv = ingest.inventory(bundle)
     led = Ledger(out / "ledger.json", run_id, inv.hashes, CHECKS)
     ing = ingest_stage(bundle, out, led)
     report = {"run_id": run_id, "bundle": bundle.name, "claims": [], "videos": []}
     if ing["licence"] is None:
+        report["summary"] = {"claims": {}, "videos": {}, "stopped": "no open licence (CC BY, CC0 or public domain) "
+                                                                     "stated in the paper; nothing was sent to the Model API"}
+        (out / "report.json").write_text(json.dumps(report, indent=1))
         led.finish(status="stopped at G0: no open licence found; nothing was sent to the Model API")
         return report
     units = video_stage(bundle, ing, out, led)
@@ -337,7 +451,11 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
     et = cp.plan.get("event_table")
     table = next((t for t in ing["tables"] if et and t.file == et["file"] and t.sheet == et["sheet"]), None)
     id_col = next((n for n, c in cp.columns.items() if c["quantity"] == "event_id"), None)
-    speed_col = next((c for c in cp.columns.values() if c["quantity"] == "takeoff_speed" and c.get("si_factor")), None)
+    speed_cols = [c for c in cp.columns.values() if c["quantity"] == "takeoff_speed" and c.get("si_factor")]
+    speed_col = speed_cols[0] if len(speed_cols) == 1 else None
+    if len(speed_cols) > 1:
+        led.gate("G1 plan", False, f"several take-off speed columns ({', '.join(c['name'] for c in speed_cols)}): "
+                                   "which one a video jump is compared with is ambiguous")
     unc_col = next((c for c in cp.columns.values() if c["quantity"] == "speed_uncertainty"
                     and speed_col and c.get("uncertainty_of") == speed_col["name"]), None)
     am = cp.plan.get("authors_speed_method", {})
@@ -348,7 +466,8 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
         route = planmod.needs(c)
         row = {"source": "paper", "quote": c["quote"], "quantity": c["quantity"], "value": c["value"],
                "plus_minus": c["plus_minus"], "unit": c["unit"], "statistic": c["statistic"], "route": route}
-        if route.startswith("video") and c.get("table_column") and table is not None:
+        if route.startswith("video") and c.get("table_column") and table is not None and \
+                len(re.sub(r"[^0-9]", "", f"{c['value']:g}").lstrip("0")) >= 2:
             # Spark labelled it a single event, but if it equals a statistic of its column, it is one (code decides).
             for stat in ("mean", "max", "min"):
                 res = tablecheck.check(dict(c, statistic=stat), table, cp.columns)
@@ -371,89 +490,15 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
         led.gate("route", row["outcome"] not in ("REFUSED",), f"{row['outcome']}: {c['quote'][:70]}")
         report["claims"].append(row)
 
-    # video units
+    # video units: one failure (a crashed tool, an unreadable file) refuses that shot, not the audit
     for u in units:
-        uid = u["uid"]
-        vrow = {"unit": uid, "video": u["unit"]["video"], "shot": u["unit"]["shot"], "frames": u["n_frames"]}
-        inputs = unit_inputs(u, cp, table, out, led)
-        if not inputs["ok"]:
-            vrow.update(verdict=verdict.CANNOT_MEASURE, reason=inputs["reason"], stage="inputs")
-            report["videos"].append(vrow)
-            continue
-        m = measure_unit(bundle, u, inputs, cp.plan["object_phrase"], out, led)
-        if not m["ok"]:
-            vrow.update(verdict=verdict.CANNOT_MEASURE, reason=m["reason"], stage="track")
-            report["videos"].append(vrow)
-            continue
-        k = m["k"]
-        vrow.update(fps=inputs["fps"], fps_source=inputs["fps_source"], mm_per_px=inputs["mm_per_px"],
-                    kinematics=k.to_dict(), skipped_frames=len(m["skipped"]))
-        if table is None or speed_col is None:
-            vrow.update(verdict=verdict.CANNOT_MEASURE, reason="no table of single-event speeds to compare with")
-            report["videos"].append(vrow)
-            continue
-        pr = pairing.pair(k, table, cp.columns, id_col, th["pairing"]["min_margin"])
-        led.gate("G3 blind pairing", pr["ok"], pr["reason"] + f" (features: {', '.join(pr.get('features', []))}; "
-                                                              "published speed not used)", ref=uid)
-        vrow["pairing"] = {kk: vv for kk, vv in pr.items() if kk != "detail"}
-        vrow["pairing_detail"] = pr.get("detail")
-        if not pr["ok"]:
-            vrow.update(verdict=verdict.CANNOT_MEASURE, reason="unpaired: " + pr["reason"])
-            report["videos"].append(vrow)
-            continue
-        rr = table.rows[pr["row_index"]]
-        published = rr[speed_col["index"]] * speed_col["si_factor"]
-        pm_val, pm_note = None, "no uncertainty column"
-        if unc_col is not None and isinstance(rr[unc_col["index"]], (int, float)):
-            raw = rr[unc_col["index"]]
-            if unc_col["uncertainty_kind"] == "relative":
-                pm_val, pm_note = raw * published, f"{unc_col['name']} = {raw:.3g} (relative, per the quote)"
-            elif unc_col["uncertainty_kind"] == "absolute" and unc_col.get("si_factor"):
-                pm_val, pm_note = raw * unc_col["si_factor"], f"{unc_col['name']} (absolute)"
-            else:
-                pm_note = f"{unc_col['name']}: meaning (absolute or relative) not established by the paper or script"
-        mid, lo, hi = measure.speed_interval(k, inputs["scale_rel_unc"])
-        v = verdict.decide(published, pm_val, mid, lo, hi, k.g_fit_rel_err, k.ax_rel_g)
-        if pm_val is None and unc_col is not None and isinstance(rr[unc_col["index"]], (int, float)):
-            # The ± exists but its meaning is unknown: decide only if both readings give the same verdict.
-            raw = rr[unc_col["index"]]
-            options = sorted((raw * published, raw * (unc_col.get("si_factor") or 1.0)))
-            vs = [verdict.decide(published, x, mid, lo, hi, k.g_fit_rel_err, k.ax_rel_g) for x in options]
-            readings = {x.label for x in vs}
-            if len(readings) > 1:
-                v = verdict.Verdict(verdict.CANNOT_MEASURE, published, None, mid, lo, hi, v.rel_diff,
-                                    f"the verdict depends on whether {unc_col['name']} is a relative or an absolute "
-                                    "uncertainty, and the paper does not say which")
-            else:
-                v, pm_val = vs[0], options[0]      # both readings agree; report the narrower ±
-                pm_note += f"; both readings give {v.label}, the narrower ± is shown"
-            led.gate("G6 uncertainty", len(readings) == 1, pm_note + f"; verdict under both readings: {sorted(readings)}",
-                     ref=uid)
-        second = None
-        if lam is not None:
-            p = m["pts"]
-            f_ = np.array([q.frame for q in p])
-            if m["skipped"]:
-                f_, _ = measure.repair_dropped_frames(f_, np.array([q.cx for q in p]), np.array([q.cy for q in p]),
-                                                      inputs["mm_per_px"])
-            second = measure.smoothing_spline_max(f_, np.array([q.cx for q in p]), np.array([q.cy for q in p]),
-                                                  inputs["fps"], inputs["mm_per_px"], lam)
-        vrow.update(verdict=v.label, reason=v.reason, claim={"row": pr["row_id"], "value": published,
-                                                              "plus_minus": pm_val, "plus_minus_note": pm_note,
-                                                              "column": speed_col["name"]},
-                    measured={"mid": mid, "lo": lo, "hi": hi}, authors_method_replica=second,
-                    authors_method=am if lam is not None else None)
-        led.verdict({"unit": uid, "row": pr["row_id"], "label": v.label, "published": published, "pm": pm_val,
-                     "interval": [lo, hi], "replica": second})
-        header = [f"Claim ({Path(et['file']).name}, row {pr['row_id'][:28]}): take-off speed {published:.3f}"
-                  + (f" +/- {pm_val:.3f}" if pm_val else "") + " m/s",
-                  (f"Re-measured (SAM 3.1 track): {lo:.3f}-{hi:.3f} m/s" if v.label != verdict.CANNOT_MEASURE
-                   else "Re-measured: no speed reported, a self-check failed"),
-                  f"Self-checks: gravity {k.g_fit:.2f} m/s^2 (9.81) | sideways {k.ax_rel_g:.0%} (0) | paired blind, "
-                  f"margin {pr['margin']:.1f}x"]
-        receipt.render(m["clip"], m["pts"], header, v.label, out / "units" / uid / "receipt.mp4",
-                       takeoff_frame=k.takeoff_frame)
-        report["videos"].append(vrow)
+        try:
+            report["videos"].append(_audit_unit(bundle, u, cp, table, et, id_col, speed_col, unc_col, am, lam, out, led))
+        except Exception as exc:
+            led.gate("error", False, f"{type(exc).__name__}: {exc}", ref=u["uid"])
+            report["videos"].append({"unit": u["uid"], "video": u["unit"]["video"], "shot": u["unit"]["shot"],
+                                     "frames": u["n_frames"], "verdict": verdict.CANNOT_MEASURE,
+                                     "reason": f"processing error: {type(exc).__name__}: {exc}", "stage": "error"})
 
     counts = {}
     for r in report["claims"]:
@@ -463,6 +508,10 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
     (out / "report.json").write_text(json.dumps(report, indent=1, ensure_ascii=False, default=float))
     led.finish(status="complete", claims=counts, videos=report["summary"]["videos"])
     return report
+
+
+def _finite(v) -> bool:
+    return isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v)
 
 
 def _spar(am: dict) -> float | None:

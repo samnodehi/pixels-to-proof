@@ -17,4 +17,7 @@ for v in rep["videos"]:
         if (src / f).exists():
             (dst / "units" / v["unit"]).mkdir(parents=True, exist_ok=True)
             shutil.copy(src / f, dst / "units" / v["unit"] / f)
+if len(sys.argv) > 3:                     # optional: a fault-injection run to show on the Calibration tab
+    faults = Path(sys.argv[3]) / "FAULTS.md"
+    shutil.copy(faults, dst.parent.parent / "faults.md")
 print(f"exported {run} -> {dst}")

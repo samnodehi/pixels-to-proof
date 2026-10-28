@@ -10,9 +10,16 @@ import numpy as np
 from .ingest import Table
 from .measure import Kinematics
 
+def _mirror(k: Kinematics) -> tuple[float, float]:
+    """Tables report jumps as positive distance and angle; a jump filmed right-to-left is mirrored."""
+    if k.distance_mm < 0:
+        return 180.0 - k.angle_deg, -k.distance_mm
+    return k.angle_deg, k.distance_mm
+
+
 FEATURE_FROM_K = {
-    "takeoff_angle": lambda k: k.angle_deg,
-    "jump_distance": lambda k: k.distance_mm / 1000.0,
+    "takeoff_angle": lambda k: _mirror(k)[0],
+    "jump_distance": lambda k: _mirror(k)[1] / 1000.0,
     "jump_height": lambda k: k.height_mm / 1000.0,
     "airborne_time": lambda k: k.airborne_s,
 }
@@ -50,8 +57,8 @@ def pair(k: Kinematics, table: Table, columns: dict[str, dict], id_column: str |
     margin = d2 / d1 if d1 > 0 else float("inf")
     idx = table.header.index(id_column) if id_column in table.header else None
     rid = lambda i: str(table.rows[i][idx]) if idx is not None else f"row {i + 1}"
-    detail = {q: {"ours": ours[q], "row": {name: table.rows[i1][j] * fac for name, j, fac in cols}}
-              for q, cols in feats.items()}
+    detail = {q: {"ours": ours[q], "row": {name: (table.rows[i1][j] * fac if _num(table.rows[i1][j]) else None)
+                                           for name, j, fac in cols}} for q, cols in feats.items()}
     out = {"row_index": i1, "row_id": rid(i1), "distance": d1, "runner_up": rid(i2), "runner_up_distance": d2,
            "margin": margin, "features": sorted(feats), "n_rows": len(scores), "detail": detail,
            "top3": [(rid(i), round(d, 3)) for d, i, _ in scores[:3]]}

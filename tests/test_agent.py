@@ -107,3 +107,68 @@ def test_quote_with_joined_passages():
     text = ingest.normalise("A spline was fitted with spar 10-8. This value was chosen by eye. Speeds were maxima.")
     assert ingest.quote_in_text("A spline was fitted with spar 10-8 ... Speeds were maxima.", text)
     assert not ingest.quote_in_text("A spline was fitted with spar 10-8. Speeds were maxima.", text)
+
+
+def test_merge_takes_only_rejected_fields():
+    old = {"authors_speed_method": {"family": "unknown", "parameters": "", "evidence": "x"},
+           "scale_reference": {"kind": "grid", "size_mm": 5.0, "evidence": "q"}, "videos": [], "event_table": None,
+           "claims": [{"quote": "speed was 0.5 m/s in one", "quantity": "takeoff_speed", "value": 0.5},
+                      {"quote": "angle was 40 degrees overall", "quantity": "takeoff_angle", "value": 40.0}]}
+    new = {"authors_speed_method": {"family": "linear_fit", "parameters": "p", "evidence": "e"},
+           "scale_reference": {"kind": "ruler", "size_mm": 1.0, "evidence": "r"}, "videos": [], "event_table": None,
+           "claims": [{"quote": "speed of 0.5 m/s", "quantity": "takeoff_speed", "value": 0.5},
+                      {"quote": "angle 41 degrees", "quantity": "takeoff_angle", "value": 41.0}]}
+    rejected = [plan.Check("authors' method", False, ""), plan.Check("claim 'speed was 0.5 m/s in one'", False, "")]
+    m = plan.merge(old, new, rejected)
+    assert m["authors_speed_method"]["family"] == "linear_fit"
+    assert m["scale_reference"]["size_mm"] == 5.0                    # accepted field untouched
+    assert {c["quote"] for c in m["claims"]} == {"angle was 40 degrees overall", "speed of 0.5 m/s"}
+
+
+def test_licence_gate_normalises_dashes():
+    assert ingest.licence("published under a CC BY–NC 4.0 licence")[0] is None
+    assert ingest.licence("CC BY‑NC‑ND licence")[0] is None
+
+
+def test_table_check_fails_closed_on_unprinted_value():
+    t, cols = _table()
+    claim = {"quote": "mean airborne time was short", "value": 0.0012, "plus_minus": None, "unit": "s",
+             "statistic": "mean", "spread": "none", "table_column": "airtime", "si_factor": 1.0,
+             "quantity": "airborne_time"}
+    assert tablecheck.check(claim, t, cols)["outcome"] == tablecheck.NOT_CHECKED
+
+
+def test_pairing_tolerates_blank_cells():
+    t, cols = _table()
+    t.rows[7][3] = None
+    r = pairing.pair(_k(30 + 2 * 7, 0.01 + 0.0005 * 7, 0.004 + 0.0002 * 7, 0.05 + 0.002 * 7), t, cols, "id", 2.0)
+    assert r["row_id"] == "jump7" and r["detail"]["jump_height"]["row"]["height"] is None
+
+
+def test_pairing_mirrors_right_to_left_jumps():
+    t, cols = _table()
+    k = _k(180 - (30 + 2 * 7), -(0.01 + 0.0005 * 7), 0.004 + 0.0002 * 7, 0.05 + 0.002 * 7)
+    assert pairing.pair(k, t, cols, "id", 2.0)["row_id"] == "jump7"
+
+
+def test_speed_column_in_wrong_unit_is_rejected():
+    t, _ = _table()
+    raw = {"videos": [], "event_table": {"file": "t.csv", "sheet": "t", "rows_are": "jumps", "columns": [
+        {"name": "speed", "quantity": "takeoff_speed", "unit": "cm/s", "uncertainty_of": None,
+         "uncertainty_kind": "not_an_uncertainty", "evidence": ""}]},
+        "scale_reference": {"kind": "none", "size_mm": None, "evidence": ""}, "object_phrase": "x",
+        "authors_speed_method": {"family": "unknown", "parameters": "", "evidence": ""}, "claims": []}
+    cp = plan.check(raw, "text", "", [t], "")
+    assert "speed" not in cp.columns
+
+
+def test_track_start_gate_keeps_a_short_flight_in_a_long_track():
+    from pixels_to_proof.track import Point, quality
+    rng = np.random.default_rng(1)
+    pts, x, y = [], 300.0, 300.0
+    for i in range(520):
+        if 100 <= i < 115:              # 15-frame flight in a 520-frame clip
+            x += 6.0
+            y -= 3.0 - 0.4 * (i - 100)
+        pts.append(Point(i, x + rng.normal(0, 0.3), y + rng.normal(0, 0.3), 900, 0, 0, 1, 1))
+    assert quality(pts)["ok"]

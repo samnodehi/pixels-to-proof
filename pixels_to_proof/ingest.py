@@ -99,6 +99,7 @@ def licence(text: str) -> tuple[str | None, str]:
     """(allowed licence name or None, the matched or explaining snippet). Looks at the whole text; a forbidden term
     near a licence statement wins."""
     flat = re.sub(r"\s+", " ", text)
+    flat = re.sub(r"[\u2010-\u2015\u2212\u00ad]", "-", flat)        # every dash-like character is a hyphen
     for m in re.finditer(_FORBIDDEN, flat, re.I):
         ctx = flat[max(0, m.start() - 120): m.end() + 120]
         if re.search(r"licen[cs]e|creative commons|copyright", ctx, re.I):

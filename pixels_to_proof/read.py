@@ -59,12 +59,19 @@ FRAME_PROMPT = (
     "box [x1, y1, x2, y2]. Do not invent values you cannot see; use null.")
 
 
-def _structured(content: list[dict], name: str, schema: dict) -> tuple[dict, dict]:
-    r = meta.client().responses.create(
-        model=meta.SPARK, max_output_tokens=24000, input=[{"role": "user", "content": content}],
-        text={"format": {"type": "json_schema", "name": name, "schema": schema, "strict": True}})
-    usage = r.usage.model_dump() if r.usage else {}
-    return json.loads(r.output_text), usage
+def _structured(content: list[dict], name: str, schema: dict, attempts: int = 3) -> tuple[dict, dict]:
+    """Strict-schema call. An answer that is not valid JSON (seen once: truncated output) is retried."""
+    last = None
+    for _ in range(attempts):
+        r = meta.client().responses.create(
+            model=meta.SPARK, max_output_tokens=32000, input=[{"role": "user", "content": content}],
+            text={"format": {"type": "json_schema", "name": name, "schema": schema, "strict": True}})
+        usage = r.usage.model_dump() if r.usage else {}
+        try:
+            return json.loads(r.output_text), usage
+        except json.JSONDecodeError as exc:
+            last = exc
+    raise RuntimeError(f"Muse Spark returned invalid JSON {attempts} times for '{name}': {last}")
 
 
 def read_paper(pdf: Path) -> tuple[dict, dict]:

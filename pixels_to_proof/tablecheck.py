@@ -17,6 +17,8 @@ NOT_CHECKED = "NOT CHECKED"
 def _printed(value: float, quote: str) -> tuple[str | None, float]:
     """The token in the quote that prints this value, and the power of ten applied to it ('x 10-3')."""
     q = quote.replace(",", "")
+    q = re.sub(r"(\d*\.?\d+)[eE]([-+]?\d+)", lambda m: f"{m.group(1)} x 10-{-int(m.group(2))}"
+               if int(m.group(2)) < 0 else m.group(0), q)          # '1.2e-3' printed as '1.2 x 10-3'
     m = re.search(r"[x×]\s*10\s*[-−–]\s*(\d+)", q)
     k = 10 ** -int(m.group(1)) if m else 1.0
     for tok in re.findall(r"(?<![\d.])\d*\.?\d+", q):
@@ -27,7 +29,10 @@ def _printed(value: float, quote: str) -> tuple[str | None, float]:
 
 
 def _tol(tok: str | None, scale: float) -> float:
-    d = len(tok.split(".")[1]) if tok and "." in tok else 0
+    """Half a unit of the last printed digit. Without the printed token there is no tolerance: no match."""
+    if tok is None:
+        return -1.0
+    d = len(tok.split(".")[1]) if "." in tok else 0
     return 0.5 * 10 ** -d * scale + 1e-12
 
 

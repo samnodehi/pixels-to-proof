@@ -48,7 +48,7 @@ def _gap_evidence(frame_png: Path, gap: scale.GapScale, out: Path) -> None:
 
 
 def track_and_measure(clip: Path, frame_read: dict, phrase: str, fps: float, mm_per_px: float, out_dir: Path,
-                      repropose=None, max_reproposals: int = 0) -> dict:
+                      repropose=None, max_reproposals: int = 0, quality_kw: dict | None = None) -> dict:
     """SAM 3.1 tracks the object (Spark's frame-0 box first, the noun phrase second); each track passes the quality
     gate and the flight fit or is rejected with a reason. `repropose(attempts)` may return one more (label, prompt)
     after a rejection (the agent asks Spark for a new box); it is called at most `max_reproposals` times."""
@@ -67,31 +67,35 @@ def track_and_measure(clip: Path, frame_read: dict, phrase: str, fps: float, mm_
     while n < len(prompts):
         how, prompt = prompts[n]
         tfile = out_dir / f"track_{n}.json"
-        result_ok = True
-        if not tfile.exists():
-            file_id = file_id or meta.upload(clip, "video/mp4")
+        result_ok, cached, t0 = True, tfile.exists(), time.perf_counter()
+        if not cached:
             try:
+                file_id = file_id or meta.upload(clip, "video/mp4")
                 result = track.segment(file_id, prompt)
                 _, pts_n = track.main_track(result)
                 track.save_track(pts_n, tfile)
-            except (LookupError, RuntimeError) as exc:
-                attempts.append({"prompt": how, "accepted": False, "reason": str(exc)})
+            except (LookupError, RuntimeError, OSError) as exc:
+                attempts.append({"prompt": how, "accepted": False, "reason": str(exc), "cached": False,
+                                 "seconds": round(time.perf_counter() - t0, 1)})
                 result_ok = False
         if result_ok:
+            meta_t = {"cached": cached, "seconds": round(time.perf_counter() - t0, 1)}
             pts_n = track.load_track(tfile)
-            quality = track.quality(pts_n)
+            quality = track.quality(pts_n, **(quality_kw or {}))
             if not quality["ok"]:
-                attempts.append({"prompt": how, "accepted": False, "reason": quality["reason"], "quality": quality})
+                attempts.append({"prompt": how, "accepted": False, "reason": quality["reason"], "quality": quality,
+                                 **meta_t})
             else:
                 try:
                     cx, cy = np.array([p.cx for p in pts_n]), np.array([p.cy for p in pts_n])
                     f, skipped = measure.repair_dropped_frames(np.array([p.frame for p in pts_n]), cx, cy, mm_per_px)
                     k = measure.kinematics(f, cx, cy, fps, mm_per_px)
-                    attempts.append({"prompt": how, "accepted": True, "quality": quality})
+                    attempts.append({"prompt": how, "accepted": True, "quality": quality, **meta_t})
                     chosen = (pts_n, k)
                     break
                 except ValueError as exc:
-                    attempts.append({"prompt": how, "accepted": False, "reason": str(exc), "quality": quality})
+                    attempts.append({"prompt": how, "accepted": False, "reason": str(exc), "quality": quality,
+                                     **meta_t})
         n += 1
         if n == len(prompts) and repropose is not None and extra < max_reproposals:
             nxt = repropose(attempts)
