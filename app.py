@@ -1,12 +1,13 @@
-"""Pixels to Proof - web app (Hugging Face Space).
+"""Pixels to Proof — web app (Hugging Face Space).
 
-Shows the verified cases and the calibration benchmark from stored runs, and lets a visitor run the full
-pipeline on their own clip. Live runs use the Space's MODEL_API_KEY secret and are rate limited."""
+Audit view: a paper's recorded audit run, rendered from its ledger (every model proposal and every code check), with
+the per-claim results and the video receipts. Bundled papers can also be re-run live (labelled live, rate limited).
+Calibration view: the synthetic benchmark and the fault-injection results."""
 from __future__ import annotations
 
 import datetime as dt
+import html
 import json
-import math
 import os
 import shutil
 import tempfile
@@ -16,89 +17,147 @@ from pathlib import Path
 import gradio as gr
 
 ROOT = Path(__file__).parent
-SHOWCASE = ROOT / "showcase"
+AUDITS = ROOT / "showcase" / "audits"
+BUNDLES = ROOT / "bundles"
 MAX_RUNS_PER_DAY = int(os.environ.get("P2P_MAX_RUNS_PER_DAY", "15"))
-MAX_VIDEO_MB = 40
 
 _lock = threading.Lock()
 _runs = {"day": dt.date.today(), "n": 0}
 
+COLOURS = {"REPRODUCED": "#1f9d55", "NOT REPRODUCED": "#cc3333", "CANNOT MEASURE": "#b7791f",
+           "MATCHES TABLE": "#1f9d55", "MATCHES OTHER COLUMN": "#2b6cb0", "NOT CHECKED": "#718096",
+           "REFUSED": "#b7791f"}
 
-def _fmt(x: float, unit: str = "") -> str:
-    return "n/a" if x is None or (isinstance(x, float) and math.isnan(x)) else f"{x:.3f}{(' ' + unit) if unit else ''}"
+
+def _e(x) -> str:
+    return html.escape(str(x))
 
 
-def verdict_card(report: dict) -> str:
-    v, c = report["verdict"], report["claim"]
-    colour = {"REPRODUCED": "#1f9d55", "NOT REPRODUCED": "#cc3333"}.get(v["label"], "#b7791f")
-    unc = f" ± {c['plus_minus']:.3f}" if c.get("plus_minus") else ""
-    k = report.get("kinematics", {})
-    lines = [
-        f"<div style='border-left:6px solid {colour};padding:8px 14px'>",
-        f"<div style='font-size:1.6em;font-weight:700;color:{colour}'>{v['label']}</div>",
-        f"<div><b>Claim</b> ({c.get('source_short', '')}): {c['label']} = <b>{c['value']:.3f}{unc} {c['unit']}</b></div>",
-        (f"<div><b>Re-measured from the video</b>: {_fmt(v['measured_mid'])} {c['unit']} "
-         f"(interval {_fmt(v['measured_lo'])} – {_fmt(v['measured_hi'])})</div>")
-        if v["label"] != "CANNOT MEASURE" else
-        (f"<div><b>Re-measured from the video</b>: not reported, because a self-check failed"
-         + (f" (the raw fit gave {_fmt(v['measured_mid'])} {c['unit']}; not trusted)" if k else "") + "</div>"),
-    ]
-    if k:
-        lines.append(f"<div><b>Self-checks</b>: gravity {k['g_fit']:.2f} m/s² (expected 9.81) · "
-                     f"sideways acceleration {k.get('ax_rel_g', 0):.0%} of vertical (expected ≈ 0)</div>")
-        lines.append(f"<div>Take-off angle {k['angle_deg']:.1f}° · height {k['height_mm']:.2f} mm · "
-                     f"airborne {k['airborne_s'] * 1000:.1f} ms</div>")
-    lines.append(f"<div style='opacity:.8'><b>Why</b>: {v['reason']}</div></div>")
+def chip(label: str) -> str:
+    c = COLOURS.get(label, "#4a5568")
+    return (f"<span style='display:inline-block;padding:1px 8px;border-radius:10px;background:{c};color:white;"
+            f"font-size:.85em;font-weight:600;white-space:nowrap'>{_e(label)}</span>")
+
+
+def audits() -> dict[str, Path]:
+    out = {}
+    for d in sorted(p for p in AUDITS.glob("*") if (p / "report.json").exists()):
+        meta = json.loads((d / "meta.json").read_text()) if (d / "meta.json").exists() else {}
+        out[meta.get("title", d.name)] = d
+    return out
+
+
+def load(d: Path) -> tuple[dict, dict, dict]:
+    rep = json.loads((d / "report.json").read_text())
+    led = json.loads((d / "ledger.json").read_text())
+    meta = json.loads((d / "meta.json").read_text()) if (d / "meta.json").exists() else {}
+    return rep, led, meta
+
+
+def header_md(rep: dict, led: dict, meta: dict, live: bool = False) -> str:
+    s = led.get("summary", {})
+    models = [e for e in led["events"] if e["kind"] == "model"]
+    replayed = sum(1 for e in models if e.get("cached"))
+    gates = [e for e in led["events"] if e["kind"] == "gate" and e["gate"] != "route"]
+    rej = sum(1 for g in gates if not g["ok"])
+    tag = "LIVE RUN" if live else "RECORDED RUN"
+    lines = [f"### {_e(meta.get('title', rep.get('bundle')))}",
+             f"{meta.get('citation', '')}  ",
+             f"*Licence: {meta.get('licence', '')}*  ",
+             f"**{tag}** `{led['run_id']}` · {led['started'][:16].replace('T', ' ')} UTC · code `{led['commit'][:12]}` · "
+             f"{s.get('wall_s', '?')} s" + (f" ({replayed} of {len(models)} model outputs replayed from an earlier "
+                                            "run on the same files)" if replayed else " (all model calls made in this run)")
+             + f" · input files: {len(led.get('inputs', {}))} (hashes in the ledger)  ",
+             f"**Hands-off:** the agent received only the files the journal published — "
+             f"{', '.join(f'`{k}`' for k in led.get('inputs', {}))}. Nothing was set by hand.  ",
+             f"**Work done:** {len(models)} Muse Spark proposals ({sum(e['tokens'] or 0 for e in models):,} tokens) · "
+             f"SAM 3.1 tracks: {sum(1 for g in gates if g['gate'] == 'G5 track')} · "
+             f"{len(gates)} code checks, {rej} of which rejected something."]
     return "\n".join(lines)
 
 
-def evidence_md(report: dict, timing: bool = True) -> str:
-    s = report["stages"]
-    out = ["| stage | who | result |", "|---|---|---|"]
-    if "read_paper" in s:
-        out.append(f"| read the paper | Muse Spark 1.3 | {s['read_paper']['claims_found']} kinematic claims extracted with quotes |")
-    t = s.get("time", {})
-    if t:
-        sk = t.get("skipped_frames") or {}
-        skipped = (f"; **{sk['count']} skipped frames found** at a regular interval (the video was edited) and "
-                   "re-inserted in the timeline" if sk.get("count") else "")
-        out.append(f"| time base | Muse Spark 1.3 (overlay) + case | {t['capture_fps']:.0f} fps from {t.get('source', 'case')}; "
-                   f"Spark read {t.get('spark_read_fps') or 'none (not printed on this clip)'}{skipped} |")
-    sc = s.get("scale")
-    if sc and sc.get("kind") == "gap":
-        out.append(f"| scale | OpenCV | platform gap {sc['gap_px']:.0f} px = {sc['gap_mm']:.0f} mm "
-                   f"(±{sc['rel_unc']:.1%}), from the median frame with the animal removed |")
-    elif sc:
-        sp = sc.get("spark_rel_diff")
-        out.append(f"| scale | OpenCV, checked against Muse Spark | grid {sc['spacing_px']:.1f} px (sd {sc['spacing_sd_px']:.2f}, "
-                   f"{sc['lines']} lines); Spark's estimate off by {sp:.0%} |" if sp is not None else
-                   f"| scale | OpenCV | grid {sc['spacing_px']:.1f} px |")
-    tr = s.get("track")
-    if tr:
-        acc = next((a for a in tr["attempts"] if a["accepted"]), None)
-        rej = [a for a in tr["attempts"] if not a["accepted"]]
-        txt = (f"{tr.get('frames_tracked', 0)}/{tr['frames_in_clip']} frames, prompt: {acc['prompt']}" if acc else "no usable track")
-        if rej:
-            txt += f"; rejected: {'; '.join(a['prompt'] + ' (' + a['reason'] + ')' for a in rej)}"
-        out.append(f"| track | SAM 3.1 | {txt} |")
-    k = report.get("kinematics")
-    if k:
-        out.append(f"| measure | code (ballistic fit, block bootstrap) | v0 {k['v0_ballistic']:.3f} m/s, 95% CI "
-                   f"{k['v0_ci95'][0]:.3f}–{k['v0_ci95'][1]:.3f}; spline method {k['v_max_spline']:.3f} |")
-    tm = report.get("timing_s")
-    if tm and timing:
-        out.append("")
-        out.append("Time per stage: " + ", ".join(f"{k.replace('_', ' ')} {v:.0f} s" for k, v in tm.items() if v >= 0.5)
-                   + f" — total {sum(tm.values()):.0f} s")
-    return "\n".join(out)
+def claims_html(rep: dict) -> str:
+    rows = []
+    for c in rep["claims"]:
+        pm = f" ± {c['plus_minus']:g}" if c.get("plus_minus") is not None else ""
+        rows.append(f"<tr><td style='max-width:420px'>“{_e(c['quote'])}”</td>"
+                    f"<td>{_e(c['statistic'])}</td><td>{_e(c['value'])}{_e(pm)} {_e(c['unit'])}</td>"
+                    f"<td>{chip(c['outcome'])}</td><td style='max-width:380px;font-size:.9em'>{_e(c['reason'])}</td></tr>")
+    counts = rep.get("summary", {}).get("claims", {})
+    head = " · ".join(f"{chip(k)} {v}" for k, v in counts.items())
+    return (f"<div style='margin:6px 0'>{len(rep['claims'])} kinematic claims found in the paper: {head}</div>"
+            "<div style='overflow-x:auto'><table style='font-size:.92em'><tr><th>claim (verbatim from the PDF)</th>"
+            "<th>kind</th><th>value</th><th>outcome</th><th>why</th></tr>" + "".join(rows) + "</table></div>"
+            "<div style='opacity:.75;font-size:.85em'>Statistics over many jumps are recomputed from the paper's own "
+            "event table (arithmetic only). MATCHES OTHER COLUMN: the printed digits are reproduced by a different "
+            "column than the one proposed for the sentence. NOT CHECKED is not a judgement of the paper: the column or "
+            "aggregation behind a printed number is not always stated.</div>")
 
 
-def showcase_cases() -> list[dict]:
-    cases = []
-    for d in sorted(p for p in SHOWCASE.glob("*") if p.is_dir() and (p / "report.json").exists()):
-        meta = json.loads((d / "meta.json").read_text()) if (d / "meta.json").exists() else {}
-        cases.append({"dir": d, "report": json.loads((d / "report.json").read_text()), "meta": meta})
-    return cases
+def videos_html(rep: dict) -> str:
+    rows = []
+    for v in rep["videos"]:
+        rows.append(f"<tr><td>{_e(v['video'])}</td><td>{v['shot']}</td><td>{v['frames']}</td>"
+                    f"<td>{chip(v['verdict'])}</td><td style='font-size:.9em'>{_e(v['reason'])}</td></tr>")
+    return ("<div style='overflow-x:auto'><table style='font-size:.92em'><tr><th>video</th><th>shot</th><th>frames</th>"
+            "<th>verdict</th><th>why</th></tr>" + "".join(rows) + "</table></div>")
+
+
+def verdict_card(v: dict) -> str:
+    c, m, k, pr = v["claim"], v["measured"], v["kinematics"], v["pairing"]
+    col = COLOURS.get(v["verdict"], "#4a5568")
+    pm = f" ± {c['plus_minus']:.3f}" if c.get("plus_minus") else ""
+    lines = [f"<div style='border-left:6px solid {col};padding:8px 14px'>",
+             f"<div style='font-size:1.5em;font-weight:700;color:{col}'>{_e(v['verdict'])}</div>",
+             f"<div><b>Published</b> (event table, row <code>{_e(c['row'])}</code>, column <code>{_e(c['column'])}</code>): "
+             f"<b>{c['value']:.3f}{pm} m/s</b> <span style='opacity:.7'>({_e(c['plus_minus_note'])})</span></div>"]
+    if v["verdict"] != "CANNOT MEASURE":
+        lines.append(f"<div><b>Re-measured from the video</b> (ballistic fit of the SAM 3.1 track): "
+                     f"<b>{m['mid']:.3f} m/s</b>, interval {m['lo']:.3f}–{m['hi']:.3f}</div>")
+    else:
+        lines.append("<div><b>Re-measured</b>: not reported, a self-check failed</div>")
+    if v.get("authors_method_replica") is not None:
+        lines.append(f"<div><b>Second reading</b> — the authors' own method, replicated on our track "
+                     f"({_e(v['authors_method']['parameters'][:80])}): {v['authors_method_replica']:.3f} m/s "
+                     "<span style='opacity:.7'>(printed, does not vote)</span></div>")
+    lines.append(f"<div><b>Self-checks</b>: gravity from the flight {k['g_fit']:.2f} m/s² (9.81 expected) · "
+                 f"sideways acceleration {k['ax_rel_g']:.1%} of vertical (≈0 expected)</div>")
+    lines.append(f"<div><b>Blind pairing</b>: this jump is row <code>{_e(pr['row_id'])}</code>, {pr['margin']:.1f}× closer than "
+                 f"the runner-up, from {', '.join(pr['features'])} only — the published speed was not looked at.</div>")
+    lines.append(f"<div style='opacity:.8'><b>Why</b>: {_e(v['reason'])}</div></div>")
+    return "\n".join(lines)
+
+
+def ledger_html(led: dict, limit: int = 400) -> str:
+    rows = []
+    for e in led["events"][:limit]:
+        if e["kind"] == "model":
+            who, what, ok = "MUSE SPARK PROPOSED", f"{e['role']}: {e['proposal']}", None
+        elif e["kind"] == "gate":
+            who, what, ok = "CODE CHECKED", f"{e['gate']}: {e['note']}", e["ok"]
+        else:
+            who, what, ok = "CODE", f"{e['what']}: {e.get('note', '')}", None
+        mark = "" if ok is None else ("<span style='color:#1f9d55'>✔</span>" if ok else "<span style='color:#cc3333'>✘</span>")
+        tag_c = "#6b46c1" if who.startswith("MUSE") else "#2d3748"
+        rows.append(f"<tr><td style='opacity:.6'>{e['t']:.1f}s</td><td><span style='color:{tag_c};font-weight:600;"
+                    f"font-size:.8em'>{who}</span></td><td>{mark}</td><td style='font-size:.88em'>{_e(what)}"
+                    f"{(' <code>' + _e(e['ref']) + '</code>') if e.get('ref') else ''}</td></tr>")
+    more = f"<div style='opacity:.6'>… {len(led['events']) - limit} more events in ledger.json</div>" \
+        if len(led["events"]) > limit else ""
+    return ("<div style='max-height:520px;overflow-y:auto'><table style='font-size:.9em'>" + "".join(rows) +
+            "</table></div>" + more)
+
+
+def render(d: Path, live: bool = False):
+    rep, led, meta = load(d)
+    vids = [v for v in rep["videos"] if v["verdict"] in ("REPRODUCED", "NOT REPRODUCED") or v.get("claim")]
+    hero = vids[0] if vids else None
+    rec = (d / "units" / hero["unit"] / "receipt.mp4") if hero else None
+    ev = (d / "units" / hero["unit"] / "scale_evidence.png") if hero else None
+    return (header_md(rep, led, meta, live), str(rec) if rec and rec.exists() else None,
+            verdict_card(hero) if hero else "<i>No video jump could be measured in this bundle.</i>",
+            str(ev) if ev and ev.exists() else None, claims_html(rep), videos_html(rep), ledger_html(led),
+            meta.get("note", ""))
 
 
 def _quota() -> bool:
@@ -111,104 +170,81 @@ def _quota() -> bool:
         return True
 
 
-def live_run(video, pdf, shot, value, plus_minus, unit, label, square_mm, fps, phrase):
-    from pixels_to_proof.pipeline import run  # imported lazily so the showcase loads without a key
+def live_run(title: str):
+    from pixels_to_proof import agent      # lazily: the recorded view loads without an API key
 
+    keep = [gr.update()] * 8
+    d = audits().get(title)
+    bundle = BUNDLES / d.name if d else None
     if not os.environ.get("MODEL_API_KEY"):
-        yield None, "Live runs are disabled: this Space has no MODEL_API_KEY secret.", ""
+        yield *keep, "Live runs are disabled on this deployment (no MODEL_API_KEY secret)."
         return
-    if video is None or value in (None, ""):
-        yield None, "Upload a video and enter the published value.", ""
-        return
-    if Path(video).stat().st_size > MAX_VIDEO_MB * 1e6:
-        yield None, f"Video larger than {MAX_VIDEO_MB} MB.", ""
+    if bundle is None or not bundle.exists():
+        yield *keep, "This paper's files are not bundled with the app, so it is shown as recorded only."
         return
     if not _quota():
-        yield None, f"Daily limit of {MAX_RUNS_PER_DAY} live runs reached. The stored cases above show full runs.", ""
+        yield *keep, f"The daily limit of {MAX_RUNS_PER_DAY} live runs is reached; the recorded run is shown."
         return
-    work = Path(tempfile.mkdtemp(prefix="p2p_"))
-    shutil.copy(video, work / "video.mp4")
-    case = {"id": "live", "video": "video.mp4", "shot": int(shot or 1),
-            "capture_fps": float(fps) if fps else None, "grid_square_mm": float(square_mm) if square_mm else None,
-            "object_phrase": phrase or None,
-            "claim": {"label": label or "take-off speed", "value": float(value),
-                      "plus_minus": float(plus_minus) if plus_minus else None, "unit": unit or "m/s",
-                      "source_short": "your input"}}
-    if pdf is not None:
-        shutil.copy(pdf, work / "paper.pdf")
-        case["paper_pdf"] = "paper.pdf"
-    (work / "case.json").write_text(json.dumps(case))
-    yield None, "Running: Muse Spark reads the frame and the paper → OpenCV measures the scale → SAM 3.1 tracks → physics. About 2–4 minutes.", ""
+    work = Path(tempfile.mkdtemp(prefix="p2p_live_"))
+    yield *keep, ("Running the whole audit from the bundled files: Muse Spark reads the paper, tables and videos, "
+                  "code checks every proposal, SAM 3.1 tracks. This takes a few minutes.")
     try:
-        report = run(work / "case.json", work / "run")
-    except Exception as exc:  # shown to the user; the pipeline itself never invents a number
-        yield None, f"Run failed: {type(exc).__name__}: {exc}", ""
+        agent.run_audit(bundle, work, run_id="live-" + dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d-%H%M%S"))
+        if (d / "meta.json").exists():
+            shutil.copy(d / "meta.json", work / "meta.json")
+        out = render(work, live=True)
+    except Exception as exc:          # shown as is; the recorded run stays available
+        yield *keep, f"Live run failed: {type(exc).__name__}: {exc}. Select the paper again to see the recorded run."
         return
-    rec = work / "run" / "receipt.mp4"
-    yield (str(rec) if rec.exists() else None), verdict_card(report), evidence_md(report)
+    yield *out, "Live run finished; shown above. Select the paper again to return to the recorded run."
 
 
 INTRO = """
 # Pixels to Proof
-**Re-measure a number a scientific paper published — from the paper's own video.**
+**An agent that audits the motion numbers in a scientific paper against the paper's own supplementary videos and data.**
 
-1. **Muse Spark 1.3** reads the paper and the video: the claim, the frame rate printed on the video, the scale reference, and where the object is.
-2. **SAM 3.1** follows that object through every frame (Spark's box tells it which one).
-3. **Code measures** — the scale with OpenCV (a grid, or the gap between platforms), a ballistic fit of the flight, two **self-checks** (the fit must find 9.81 m/s² downwards, or the scale or frame rate is wrong; and no sideways acceleration, or it is not free flight), a bootstrap interval. Frames skipped by video editing are detected and put back.
-4. **Verdict**: REPRODUCED · NOT REPRODUCED · CANNOT MEASURE, with a visual receipt.
-
-*The model proposes; tracking and physics decide. No number in a verdict is written by a language model.*
+Give it what the journal published — the PDF, the videos, the data tables. **Muse Spark 1.3** reads them and *proposes*:
+which file is which, what each table column means (with the sentence or script line that says so), which claims the paper
+makes, what is printed on each video. **Code checks every proposal** against the files and the physics. **SAM 3.1** tracks
+the animal. Each claim ends with a verdict and its evidence, or a refusal that names the check that failed.
+*The model proposes; tracking, arithmetic and physics decide. No number in a verdict is written by a language model.*
 """
 
 
 def build() -> gr.Blocks:
+    choices = list(audits())
     with gr.Blocks(title="Pixels to Proof") as demo:
         gr.Markdown(INTRO)
-        with gr.Tab("Verified cases"):
-            for c in showcase_cases():
-                m = c["meta"]
-                gr.Markdown(f"### {m.get('title', c['dir'].name)}\n{m.get('citation', '')}  \n*Licence: {m.get('licence', '')}*")
-                with gr.Row():
-                    if (c["dir"] / "receipt.mp4").exists():
-                        gr.Video(str(c["dir"] / "receipt.mp4"), label="Receipt", autoplay=False)
-                    with gr.Column():
-                        gr.HTML(verdict_card(c["report"]))
-                        if m.get("note"):
-                            gr.Markdown(m["note"])
-                gr.Markdown(evidence_md(c["report"], timing=False))
-                if (c["dir"] / "scale_evidence.png").exists():
-                    gr.Image(str(c["dir"] / "scale_evidence.png"),
-                             label="Scale evidence: measured reference in green (grid lines or platform gap)")
-                if m.get("provenance"):
-                    with gr.Accordion("Where the claim comes from", open=False):
-                        gr.Markdown(m["provenance"])
+        with gr.Tab("Audit"):
+            pick = gr.Dropdown(choices, value=choices[0] if choices else None, label="Paper")
+            head = gr.Markdown()
+            with gr.Row():
+                rec = gr.Video(label="Receipt: the tracked jump with the checks burned in", autoplay=False)
+                with gr.Column():
+                    card = gr.HTML()
+                    note = gr.Markdown()
+            gr.Markdown("#### Every claim the paper makes about motion")
+            claims = gr.HTML()
+            gr.Markdown("#### Every shot in the supplementary videos")
+            vids = gr.HTML()
+            ev = gr.Image(label="Scale evidence: grid lines measured by OpenCV (green), Spark's object box (orange)",
+                          height=320)
+            with gr.Accordion("Run ledger: every proposal and every check, in order", open=False):
+                led = gr.HTML()
+            with gr.Row():
+                go = gr.Button("Re-run this audit live", variant="secondary")
+                status = gr.Markdown()
+            outs = [head, rec, card, ev, claims, vids, led, note]
+            pick.change(lambda t: render(audits()[t]), pick, outs)
+            demo.load(lambda t: render(audits()[t]) if t else [None] * 8, pick, outs)
+            go.click(live_run, pick, outs + [status], concurrency_limit=1)
         with gr.Tab("Calibration"):
-            cal = SHOWCASE / "calibration.md"
-            gr.Markdown(cal.read_text() if cal.exists() else "Calibration results not bundled.")
-        with gr.Tab("Try it"):
-            gr.Markdown("Upload a high-speed clip of **one object in free flight in front of a square grid** "
-                        "(a jump, a throw, a drop). Enter the number the paper claims. Live runs are limited per day.")
-            with gr.Row():
-                video = gr.File(label="Video (mp4, ≤ 40 MB)", file_types=[".mp4", ".mov", ".avi"])
-                pdf = gr.File(label="Paper PDF (optional)", file_types=[".pdf"])
-            with gr.Row():
-                value = gr.Number(label="Published value")
-                plus_minus = gr.Number(label="± (optional)")
-                unit = gr.Textbox(value="m/s", label="Unit")
-                label = gr.Textbox(value="take-off speed", label="Quantity")
-            with gr.Row():
-                shot = gr.Number(value=1, precision=0, label="Shot number in the video")
-                square_mm = gr.Number(label="Grid square size, mm (blank = from the paper)")
-                fps = gr.Number(label="Capture fps (blank = read from the video by Spark)")
-                phrase = gr.Textbox(label="Object name (optional, e.g. 'larva')")
-            go = gr.Button("Re-measure", variant="primary")
-            out_video = gr.Video(label="Receipt")
-            out_card = gr.HTML()
-            out_ev = gr.Markdown()
-            go.click(live_run, [video, pdf, shot, value, plus_minus, unit, label, square_mm, fps, phrase],
-                     [out_video, out_card, out_ev], concurrency_limit=1)
-        gr.Markdown("Built for the Meta Global AI Developer Hackathon 2026 with Muse Spark 1.3 and SAM 3.1 (Meta Model API). "
-                    "Source: github.com/samnodehi/pixels-to-proof")
+            for name in ("calibration.md", "faults.md"):
+                f = ROOT / "showcase" / name
+                if f.exists():
+                    gr.Markdown(f.read_text())
+        gr.Markdown("Built for the Meta Global AI Developer Hackathon 2026 with Muse Spark 1.3 and SAM 3.1 (Meta Model "
+                    "API). Source: github.com/samnodehi/pixels-to-proof")
     return demo
 
 

@@ -2,6 +2,7 @@ openai>=1.0
 meta_sam_parser
 numpy
 scipy
+openpyxl
 opencv-python-headless
 pytest
 gradio>=6.30

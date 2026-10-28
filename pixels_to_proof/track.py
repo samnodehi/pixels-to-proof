@@ -147,6 +147,14 @@ def quality(points: list[Point], max_area_jump: float = 0.6) -> dict:
         return {**q, "ok": False, "reason": f"mask area jumps by {worst:.0%} between frames (SAM switched objects)"}
     if travel < 2 * size:
         return {**q, "ok": False, "reason": "tracked mask barely moves (likely background, not the object)"}
+    # The track must begin with the object at rest: a track that starts in mid-air has no take-off point, and its
+    # first position would be taken as the ground.
+    step = np.hypot(np.diff(cx), np.diff(cy))
+    start, moving = float(np.median(step[:8])), float(np.percentile(step, 90))
+    q["start_step_px"], q["moving_step_px"] = start, moving
+    if moving > 0 and start > 0.5 * moving:
+        return {**q, "ok": False, "reason": f"track begins with the object already moving (first frame {points[0].frame}); "
+                                            "the take-off is not in it"}
     return {**q, "ok": True}
 
 

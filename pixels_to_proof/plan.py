@@ -96,7 +96,8 @@ Propose, strictly from what the material says:
 - every quantitative kinematic claim in the PDF (speeds, distances, heights, durations, angles, accelerations):
   value, ±, unit, an exact quote, whether it is a single event or a statistic over events (mean, max, ...), the spread
   type, n if stated, and which event-table column it summarises if any.
-Do not invent anything. Quotes must be copied exactly. Use null or 'unknown' where the material is silent.
+Do not invent anything. Quotes must be copied exactly from one contiguous passage; to cite two separate passages,
+join them with ' ... '. Use null or 'unknown' where the material is silent.
 
 FILE INVENTORY
 {inventory}
@@ -130,12 +131,29 @@ class CheckedPlan:
         return [c for c in self.checks if not c.ok]
 
 
-def make_plan(pdf: Path, inventory_text: str, tables_text: str, scripts_text: str, videos_text: str) -> tuple[dict, dict]:
-    fid = meta.upload(pdf, "application/pdf")
+def make_plan(pdf: Path, inventory_text: str, tables_text: str, scripts_text: str, videos_text: str,
+              feedback: str = "", file_id: str | None = None) -> tuple[dict, dict, str]:
+    """One plan proposal. `feedback` lists the fields a checker rejected in the previous proposal (re-proposal)."""
+    fid = file_id or meta.upload(pdf, "application/pdf")
     prompt = PLAN_PROMPT.format(inventory=inventory_text, tables=tables_text, scripts=scripts_text or "(none)",
                                 videos=videos_text)
-    return read._structured([{"type": "input_file", "file_id": fid}, {"type": "input_text", "text": prompt}],
-                            "audit_plan", PLAN_SCHEMA)
+    if feedback:
+        prompt += ("\n\nAN AUTOMATIC CHECKER REJECTED THESE FIELDS OF YOUR PREVIOUS PROPOSAL (it verifies every quote "
+                   "against the files, every unit and every value range):\n" + feedback +
+                   "\nReturn the complete plan again. Fix only what was rejected, using quotes copied exactly; if the "
+                   "material does not support a field, say 'unknown' or null instead.")
+    plan, usage = read._structured([{"type": "input_file", "file_id": fid}, {"type": "input_text", "text": prompt}],
+                                   "audit_plan", PLAN_SCHEMA)
+    return plan, usage, fid
+
+
+CRITICAL = ("fps", "kind", "scale size", "authors' method", "claim '")
+
+
+def feedback_for(cp: "CheckedPlan") -> str:
+    """The rejections worth a re-proposal: those that drop a field the audit needs (not 'unit not absolute')."""
+    lines = [f"- {c.field}: {c.note}" for c in cp.rejected() if any(k in c.field for k in CRITICAL)]
+    return "\n".join(lines)
 
 
 _UNIT_SCALE = {"m/s": 1.0, "m s-1": 1.0, "ms-1": 1.0, "m/sec": 1.0, "mm/s": 1e-3, "cm/s": 1e-2,
@@ -150,20 +168,36 @@ _DIM = {"m/s": "speed", "m s-1": "speed", "ms-1": "speed", "m/sec": "speed", "mm
         "m/s2": "accel", "m/s^2": "accel", "m s-2": "accel", "m/sec2": "accel"}
 
 
+_MULT = re.compile(r"^\s*[x×*]?\s*10\s*(?:\^|e)?\s*\(?([-−–]?\d+)\)?\s*")
+
+
+def _split_multiplier(unit: str) -> tuple[float, str]:
+    """'x 10-3 s' -> (1e-3, 's'): a printed power of ten in front of the unit."""
+    m = _MULT.match(unit)
+    if m and unit[m.end():].strip():
+        return 10.0 ** int(m.group(1).replace("−", "-").replace("–", "-")), unit[m.end():]
+    return 1.0, unit
+
+
 def unit_dim(unit: str) -> str:
     """Physical dimension of a unit, or the unit text itself when it is not an absolute unit."""
+    unit = _split_multiplier(unit)[1]
     u = unit.strip().lower().replace("²", "2").replace(" ", "")
     for k, v in _DIM.items():
         if u == k.replace(" ", ""):
             return v
+    if u.replace("_", "").replace("-", "") in {"ratio", "relative", "bodylengths", "bodylength", "bl", "dimensionless",
+                                                "bodylengthunits", ""}:
+        return "ratio"
     return "other:" + u
 
 
 def unit_factor(unit: str) -> float | None:
+    mult, unit = _split_multiplier(unit)
     u = unit.strip().lower().replace("²", "2").replace(" ", "")
     for k, v in _UNIT_SCALE.items():
         if u == k.replace(" ", ""):
-            return v
+            return v * mult
     return None
 
 

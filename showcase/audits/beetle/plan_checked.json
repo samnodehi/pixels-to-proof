@@ -1,0 +1,1311 @@
+{
+  "plan": {
+    "authors_speed_method": {
+      "evidence": "Psp <- smooth.Pspline(time2,displacement, spar=0.00000001, method =1) ... velocity.max <- max(velocity)",
+      "family": "smoothing_spline_max",
+      "parameters": "smooth.Pspline spar=0.00000001 method=1, whole track, max of derivative"
+    },
+    "claims": [
+      {
+        "n_events": 29,
+        "plus_minus": 0.17,
+        "quantity": "other_duration",
+        "quote": "over a period of 0.22 ± 0.17s.",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Load_time",
+        "unit": "s",
+        "value": 0.22
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 0.15,
+        "quantity": "takeoff_speed",
+        "quote": "takeoff velocities of 0.47 ± 0.15",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "velocity.max",
+        "unit": "m s-1",
+        "value": 0.47
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 2.8,
+        "quantity": "jump_distance",
+        "quote": "traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontally",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "DistanceTrajm",
+        "unit": "mm",
+        "value": 11.2
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 0.8,
+        "quantity": "jump_distance",
+        "quote": "traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontally",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "DistanceTraj_bodyProp",
+        "unit": "body lengths",
+        "value": 1.98
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 4.3,
+        "quantity": "jump_height",
+        "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "HeightTrajm",
+        "unit": "mm",
+        "value": 7.9
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 0.9,
+        "quantity": "jump_height",
+        "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "HeightTraj_bodyProp",
+        "unit": "body lengths",
+        "value": 1.5
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 14.4,
+        "quantity": "other_duration",
+        "quote": "averaging 5.5 ± 14.4",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Latch_time",
+        "unit": "x 10-3 s",
+        "value": 5.5
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 0.8,
+        "quantity": "other_duration",
+        "quote": "averaged 1.4 ± 0.8",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Launch_time",
+        "unit": "x 10-3 s",
+        "value": 1.4
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 16.7,
+        "quantity": "body_angle",
+        "quote": "from near horizontal to 149.5 ± 16.7 degrees.",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "LoadingBAngle",
+        "unit": "deg",
+        "value": 149.5
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 29.6,
+        "quantity": "body_angle",
+        "quote": "continues to arch further to 124.1 ± 29.6 degrees.",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "ReleaseBAngle",
+        "unit": "deg",
+        "value": 124.1
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 28.2,
+        "quantity": "body_angle",
+        "quote": "rapidly arched their body even further to 79.6 ± 28.2 degrees prior to takeoff,",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "TakeoffBAngle",
+        "unit": "deg",
+        "value": 79.6
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 34.5,
+        "quantity": "acceleration",
+        "quote": "reached a maximum acceleration of 89.5 ± 34.5",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "acceleration.max",
+        "unit": "m s-2",
+        "value": 89.5
+      },
+      {
+        "n_events": 29,
+        "plus_minus": null,
+        "quantity": "takeoff_speed",
+        "quote": "with the fastest takeoff velocity reaching 0.87",
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "velocity.max",
+        "unit": "m s-1",
+        "value": 0.87
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 28.2,
+        "quantity": "takeoff_angle",
+        "quote": "leaving the ground at an angle of 79.6 ± 28.2 degrees.",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "TakeoffAngleDeg",
+        "unit": "deg",
+        "value": 79.6
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 0.7,
+        "quantity": "airborne_time",
+        "quote": "larvae were airborne for 1.3 ± 0.7",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Airborne_time",
+        "unit": "x 10-3 s",
+        "value": 1.3
+      },
+      {
+        "n_events": 29,
+        "plus_minus": null,
+        "quantity": "jump_distance",
+        "quote": "with the farthest horizontal jumper traveling 23.75 mm",
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "DistanceTrajm",
+        "unit": "mm",
+        "value": 23.75
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 14.3,
+        "quantity": "other_duration",
+        "quote": "combined latch-decoupling and launch phases lasted 6.9 ± 14.3 ms.",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ms",
+        "value": 6.9
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 2.8,
+        "quantity": "jump_distance",
+        "quote": "covered distances of 11.2 ± 2.8 mm horizontally and 7.9 ± 4.3 mm vertically,",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "DistanceTrajm",
+        "unit": "mm",
+        "value": 11.2
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 0.8,
+        "quantity": "jump_distance",
+        "quote": "equivalent to 1.98 ± 0.8 and 1.5 ± 0.9 body lengths, respectively,",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "DistanceTraj_bodyProp",
+        "unit": "body lengths",
+        "value": 1.98
+      }
+    ],
+    "event_table": {
+      "columns": [
+        {
+          "evidence": "",
+          "name": "filename",
+          "quantity": "event_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "BeetleID",
+          "quantity": "animal_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "Bodylengthm",
+          "quantity": "body_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m"
+        },
+        {
+          "evidence": "",
+          "name": "BodyMasskg",
+          "quantity": "mass",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "kg"
+        },
+        {
+          "evidence": "",
+          "name": "Load_time",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "",
+          "name": "Load.displacement.max",
+          "quantity": "other_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m"
+        },
+        {
+          "evidence": "",
+          "name": "Latch_time",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "",
+          "name": "Launch_time",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "",
+          "name": "LatchLaunch.displacement.max",
+          "quantity": "other_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m"
+        },
+        {
+          "evidence": "",
+          "name": "Airborne_time",
+          "quantity": "airborne_time",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "",
+          "name": "TakeoffAngleDeg",
+          "quantity": "takeoff_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "deg"
+        },
+        {
+          "evidence": "",
+          "name": "DistanceRawm",
+          "quantity": "jump_distance",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m"
+        },
+        {
+          "evidence": "",
+          "name": "HeightRawm",
+          "quantity": "jump_height",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m"
+        },
+        {
+          "evidence": "",
+          "name": "DistanceRaw_bodyProp",
+          "quantity": "jump_distance",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "ratio"
+        },
+        {
+          "evidence": "",
+          "name": "HeightRaw_bodyProp",
+          "quantity": "jump_height",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "ratio"
+        },
+        {
+          "evidence": "",
+          "name": "A",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "B",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "C",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "DistanceTrajm",
+          "quantity": "jump_distance",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m"
+        },
+        {
+          "evidence": "",
+          "name": "HeightTrajm",
+          "quantity": "jump_height",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m"
+        },
+        {
+          "evidence": "",
+          "name": "DistanceTraj_bodyProp",
+          "quantity": "jump_distance",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "ratio"
+        },
+        {
+          "evidence": "",
+          "name": "HeightTraj_bodyProp",
+          "quantity": "jump_height",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "ratio"
+        },
+        {
+          "evidence": "",
+          "name": "velocity.max",
+          "quantity": "takeoff_speed",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m s-1"
+        },
+        {
+          "evidence": "VelError<-sqrt((ScaleSensitivitym/LatchLaunch.displacement.max)^2+((1/fps)/(Latch_time+Launch_time))^2)",
+          "name": "VelError",
+          "quantity": "speed_uncertainty",
+          "uncertainty_kind": "relative",
+          "uncertainty_of": "velocity.max",
+          "unit": "ratio"
+        },
+        {
+          "evidence": "",
+          "name": "acceleration.max",
+          "quantity": "acceleration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m s-2"
+        },
+        {
+          "evidence": "AccelError<-sqrt((ScaleSensitivitym/LatchLaunch.displacement.max)^2+((2/fps)/(Latch_time+Launch_time))^2)",
+          "name": "AccelError",
+          "quantity": "other",
+          "uncertainty_kind": "relative",
+          "uncertainty_of": "acceleration.max",
+          "unit": "ratio"
+        },
+        {
+          "evidence": "",
+          "name": "EnergyJ",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "J"
+        },
+        {
+          "evidence": "EnergyError<-sqrt((BalanceSensitivitykg/BodyMasskg)^2+ VelError^2)",
+          "name": "EnergyError",
+          "quantity": "other",
+          "uncertainty_kind": "relative",
+          "uncertainty_of": "EnergyJ",
+          "unit": "ratio"
+        },
+        {
+          "evidence": "",
+          "name": "launchPower",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "W"
+        },
+        {
+          "evidence": "launchPowerError<-sqrt(((3/fps)/(Launch_time+Latch_time))^2+(2*ScaleSensitivitym/LatchLaunch.displacement.max)^2+(BalanceSensitivitykg/BodyMasskg)^2)",
+          "name": "launchPowerError",
+          "quantity": "other",
+          "uncertainty_kind": "relative",
+          "uncertainty_of": "launchPower",
+          "unit": "ratio"
+        },
+        {
+          "evidence": "",
+          "name": "launchPowerOutput",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "W kg-1"
+        },
+        {
+          "evidence": "",
+          "name": "JumpPower",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "W"
+        },
+        {
+          "evidence": "JumpPowerError<-sqrt(((3/fps)/(Launch_time+Latch_time))^2+(2*ScaleSensitivitym/LatchLaunch.displacement.max)^2+(BalanceSensitivitykg/BodyMasskg)^2)",
+          "name": "JumpPowerError",
+          "quantity": "other",
+          "uncertainty_kind": "relative",
+          "uncertainty_of": "JumpPower",
+          "unit": "ratio"
+        },
+        {
+          "evidence": "",
+          "name": "LoadingBAngle",
+          "quantity": "body_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "deg"
+        },
+        {
+          "evidence": "",
+          "name": "ReleaseBAngle",
+          "quantity": "body_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "deg"
+        },
+        {
+          "evidence": "",
+          "name": "TakeoffBAngle",
+          "quantity": "body_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "deg"
+        },
+        {
+          "evidence": "",
+          "name": "velocity.max.BL",
+          "quantity": "other_speed",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "BL/s"
+        },
+        {
+          "evidence": "",
+          "name": "acceleration.max.BL",
+          "quantity": "acceleration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "BL s-2"
+        }
+      ],
+      "file": "journal.pone.0256509.s001.xlsx",
+      "rows_are": "one jump per row (one recorded jump event)",
+      "sheet": "BeetleJumpPerformanceData"
+    },
+    "object_phrase": "beetle larva",
+    "scale_reference": {
+      "evidence": "affixed to a backing board with a 0.5cm2 scale grid.",
+      "kind": "grid",
+      "size_mm": 5.0
+    },
+    "title": "A novel power-amplified jumping behavior in larval beetles (Coleoptera: Laemophloeidae)",
+    "videos": [
+      {
+        "capture_fps": 30,
+        "content": "Real-time jumping behavior of Laemophloeus biguttatus and Placonotus testaceus",
+        "file": "journal.pone.0256509.s003.mp4",
+        "fps_evidence": "The larval jumping behavior was filmed at a rate of 30 frames s-1 at a pixel resolution of 1920 x 1080 using a",
+        "label": "S1 Video"
+      },
+      {
+        "capture_fps": 3200,
+        "content": "Slow-motion jump sequences of Laemophloeus biguttatus showing loading, latch-decoupling, launch and airborne phases",
+        "file": "journal.pone.0256509.s004.mp4",
+        "fps_evidence": "Jumps were filmed at a rate of 3,200 frames s-1 at a pixel resolution of 1280 x 720",
+        "label": "S2 Video"
+      },
+      {
+        "capture_fps": 60000,
+        "content": "High-speed initiation of jump showing hind legs detaching from substrate as first movement",
+        "file": "journal.pone.0256509.s004.mp4",
+        "fps_evidence": "an additional eight jumps from two individuals were filmed at 60,000 frames s-1",
+        "label": "S2 Video"
+      }
+    ]
+  },
+  "checks": [
+    {
+      "field": "video journal.pone.0256509.s003.mp4 fps",
+      "ok": true,
+      "note": "fps quote found"
+    },
+    {
+      "field": "video journal.pone.0256509.s004.mp4 fps",
+      "ok": true,
+      "note": "fps quote found"
+    },
+    {
+      "field": "video journal.pone.0256509.s004.mp4 fps",
+      "ok": true,
+      "note": "fps quote found"
+    },
+    {
+      "field": "column Airborne_time range",
+      "ok": true,
+      "note": "0.02594..0.1062 in SI"
+    },
+    {
+      "field": "column TakeoffAngleDeg range",
+      "ok": true,
+      "note": "23.67..85.16 in SI"
+    },
+    {
+      "field": "column DistanceRawm range",
+      "ok": true,
+      "note": "0.00233..0.02375 in SI"
+    },
+    {
+      "field": "column HeightRawm range",
+      "ok": true,
+      "note": "0.001513..0.01483 in SI"
+    },
+    {
+      "field": "column DistanceRaw_bodyProp unit",
+      "ok": true,
+      "note": "unit 'ratio' is not absolute: kept for table checks, not used for pairing"
+    },
+    {
+      "field": "column HeightRaw_bodyProp unit",
+      "ok": true,
+      "note": "unit 'ratio' is not absolute: kept for table checks, not used for pairing"
+    },
+    {
+      "field": "column DistanceTrajm range",
+      "ok": true,
+      "note": "0.002893..0.02494 in SI"
+    },
+    {
+      "field": "column HeightTrajm range",
+      "ok": true,
+      "note": "0.001342..0.01478 in SI"
+    },
+    {
+      "field": "column DistanceTraj_bodyProp unit",
+      "ok": true,
+      "note": "unit 'ratio' is not absolute: kept for table checks, not used for pairing"
+    },
+    {
+      "field": "column HeightTraj_bodyProp unit",
+      "ok": true,
+      "note": "unit 'ratio' is not absolute: kept for table checks, not used for pairing"
+    },
+    {
+      "field": "column velocity.max range",
+      "ok": true,
+      "note": "0.1373..0.8673 in SI"
+    },
+    {
+      "field": "column VelError kind",
+      "ok": true,
+      "note": "relative (quote found)"
+    },
+    {
+      "field": "claim 'over a period of 0.22 ± 0.17s.'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'takeoff velocities of 0.47 ± 0.15'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) h'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) h'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'averaging 5.5 ± 14.4'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'averaged 1.4 ± 0.8'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'from near horizontal to 149.5 ± 16.7 degrees.'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'continues to arch further to 124.1 ± 29.6 degrees.'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'rapidly arched their body even further to 79.6 ± 2'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'reached a maximum acceleration of 89.5 ± 34.5'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'with the fastest takeoff velocity reaching 0.87'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'leaving the ground at an angle of 79.6 ± 28.2 degr'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'larvae were airborne for 1.3 ± 0.7'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'with the farthest horizontal jumper traveling 23.7'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'combined latch-decoupling and launch phases lasted'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    }
+  ],
+  "columns": {
+    "filename": {
+      "evidence": "",
+      "name": "filename",
+      "quantity": "event_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 0,
+      "si_factor": null
+    },
+    "BeetleID": {
+      "evidence": "",
+      "name": "BeetleID",
+      "quantity": "animal_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 1,
+      "si_factor": null
+    },
+    "Bodylengthm": {
+      "evidence": "",
+      "name": "Bodylengthm",
+      "quantity": "body_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m",
+      "index": 2,
+      "si_factor": 1.0
+    },
+    "BodyMasskg": {
+      "evidence": "",
+      "name": "BodyMasskg",
+      "quantity": "mass",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "kg",
+      "index": 3,
+      "si_factor": null
+    },
+    "Load_time": {
+      "evidence": "",
+      "name": "Load_time",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 4,
+      "si_factor": 1.0
+    },
+    "Load.displacement.max": {
+      "evidence": "",
+      "name": "Load.displacement.max",
+      "quantity": "other_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m",
+      "index": 5,
+      "si_factor": 1.0
+    },
+    "Latch_time": {
+      "evidence": "",
+      "name": "Latch_time",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 6,
+      "si_factor": 1.0
+    },
+    "Launch_time": {
+      "evidence": "",
+      "name": "Launch_time",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 7,
+      "si_factor": 1.0
+    },
+    "LatchLaunch.displacement.max": {
+      "evidence": "",
+      "name": "LatchLaunch.displacement.max",
+      "quantity": "other_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m",
+      "index": 8,
+      "si_factor": 1.0
+    },
+    "Airborne_time": {
+      "evidence": "",
+      "name": "Airborne_time",
+      "quantity": "airborne_time",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 9,
+      "si_factor": 1.0
+    },
+    "TakeoffAngleDeg": {
+      "evidence": "",
+      "name": "TakeoffAngleDeg",
+      "quantity": "takeoff_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "deg",
+      "index": 10,
+      "si_factor": 1.0
+    },
+    "DistanceRawm": {
+      "evidence": "",
+      "name": "DistanceRawm",
+      "quantity": "jump_distance",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m",
+      "index": 11,
+      "si_factor": 1.0
+    },
+    "HeightRawm": {
+      "evidence": "",
+      "name": "HeightRawm",
+      "quantity": "jump_height",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m",
+      "index": 12,
+      "si_factor": 1.0
+    },
+    "DistanceRaw_bodyProp": {
+      "evidence": "",
+      "name": "DistanceRaw_bodyProp",
+      "quantity": "jump_distance",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "ratio",
+      "index": 13,
+      "si_factor": null
+    },
+    "HeightRaw_bodyProp": {
+      "evidence": "",
+      "name": "HeightRaw_bodyProp",
+      "quantity": "jump_height",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "ratio",
+      "index": 14,
+      "si_factor": null
+    },
+    "A": {
+      "evidence": "",
+      "name": "A",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 15,
+      "si_factor": null
+    },
+    "B": {
+      "evidence": "",
+      "name": "B",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 16,
+      "si_factor": null
+    },
+    "C": {
+      "evidence": "",
+      "name": "C",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 17,
+      "si_factor": null
+    },
+    "DistanceTrajm": {
+      "evidence": "",
+      "name": "DistanceTrajm",
+      "quantity": "jump_distance",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m",
+      "index": 18,
+      "si_factor": 1.0
+    },
+    "HeightTrajm": {
+      "evidence": "",
+      "name": "HeightTrajm",
+      "quantity": "jump_height",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m",
+      "index": 19,
+      "si_factor": 1.0
+    },
+    "DistanceTraj_bodyProp": {
+      "evidence": "",
+      "name": "DistanceTraj_bodyProp",
+      "quantity": "jump_distance",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "ratio",
+      "index": 20,
+      "si_factor": null
+    },
+    "HeightTraj_bodyProp": {
+      "evidence": "",
+      "name": "HeightTraj_bodyProp",
+      "quantity": "jump_height",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "ratio",
+      "index": 21,
+      "si_factor": null
+    },
+    "velocity.max": {
+      "evidence": "",
+      "name": "velocity.max",
+      "quantity": "takeoff_speed",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m s-1",
+      "index": 22,
+      "si_factor": 1.0
+    },
+    "VelError": {
+      "evidence": "VelError<-sqrt((ScaleSensitivitym/LatchLaunch.displacement.max)^2+((1/fps)/(Latch_time+Launch_time))^2)",
+      "name": "VelError",
+      "quantity": "speed_uncertainty",
+      "uncertainty_kind": "relative",
+      "uncertainty_of": "velocity.max",
+      "unit": "ratio",
+      "index": 23,
+      "si_factor": null
+    },
+    "acceleration.max": {
+      "evidence": "",
+      "name": "acceleration.max",
+      "quantity": "acceleration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m s-2",
+      "index": 24,
+      "si_factor": 1.0
+    },
+    "AccelError": {
+      "evidence": "AccelError<-sqrt((ScaleSensitivitym/LatchLaunch.displacement.max)^2+((2/fps)/(Latch_time+Launch_time))^2)",
+      "name": "AccelError",
+      "quantity": "other",
+      "uncertainty_kind": "relative",
+      "uncertainty_of": "acceleration.max",
+      "unit": "ratio",
+      "index": 25,
+      "si_factor": null
+    },
+    "EnergyJ": {
+      "evidence": "",
+      "name": "EnergyJ",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "J",
+      "index": 26,
+      "si_factor": null
+    },
+    "EnergyError": {
+      "evidence": "EnergyError<-sqrt((BalanceSensitivitykg/BodyMasskg)^2+ VelError^2)",
+      "name": "EnergyError",
+      "quantity": "other",
+      "uncertainty_kind": "relative",
+      "uncertainty_of": "EnergyJ",
+      "unit": "ratio",
+      "index": 27,
+      "si_factor": null
+    },
+    "launchPower": {
+      "evidence": "",
+      "name": "launchPower",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "W",
+      "index": 28,
+      "si_factor": null
+    },
+    "launchPowerError": {
+      "evidence": "launchPowerError<-sqrt(((3/fps)/(Launch_time+Latch_time))^2+(2*ScaleSensitivitym/LatchLaunch.displacement.max)^2+(BalanceSensitivitykg/BodyMasskg)^2)",
+      "name": "launchPowerError",
+      "quantity": "other",
+      "uncertainty_kind": "relative",
+      "uncertainty_of": "launchPower",
+      "unit": "ratio",
+      "index": 29,
+      "si_factor": null
+    },
+    "launchPowerOutput": {
+      "evidence": "",
+      "name": "launchPowerOutput",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "W kg-1",
+      "index": 30,
+      "si_factor": null
+    },
+    "JumpPower": {
+      "evidence": "",
+      "name": "JumpPower",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "W",
+      "index": 31,
+      "si_factor": null
+    },
+    "JumpPowerError": {
+      "evidence": "JumpPowerError<-sqrt(((3/fps)/(Launch_time+Latch_time))^2+(2*ScaleSensitivitym/LatchLaunch.displacement.max)^2+(BalanceSensitivitykg/BodyMasskg)^2)",
+      "name": "JumpPowerError",
+      "quantity": "other",
+      "uncertainty_kind": "relative",
+      "uncertainty_of": "JumpPower",
+      "unit": "ratio",
+      "index": 32,
+      "si_factor": null
+    },
+    "LoadingBAngle": {
+      "evidence": "",
+      "name": "LoadingBAngle",
+      "quantity": "body_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "deg",
+      "index": 33,
+      "si_factor": 1.0
+    },
+    "ReleaseBAngle": {
+      "evidence": "",
+      "name": "ReleaseBAngle",
+      "quantity": "body_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "deg",
+      "index": 34,
+      "si_factor": 1.0
+    },
+    "TakeoffBAngle": {
+      "evidence": "",
+      "name": "TakeoffBAngle",
+      "quantity": "body_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "deg",
+      "index": 35,
+      "si_factor": 1.0
+    },
+    "velocity.max.BL": {
+      "evidence": "",
+      "name": "velocity.max.BL",
+      "quantity": "other_speed",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "BL/s",
+      "index": 36,
+      "si_factor": null
+    },
+    "acceleration.max.BL": {
+      "evidence": "",
+      "name": "acceleration.max.BL",
+      "quantity": "acceleration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "BL s-2",
+      "index": 37,
+      "si_factor": null
+    }
+  },
+  "claims": [
+    {
+      "n_events": 29,
+      "plus_minus": 0.17,
+      "quantity": "other_duration",
+      "quote": "over a period of 0.22 ± 0.17s.",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Load_time",
+      "unit": "s",
+      "value": 0.22,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 0.15,
+      "quantity": "takeoff_speed",
+      "quote": "takeoff velocities of 0.47 ± 0.15",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "velocity.max",
+      "unit": "m s-1",
+      "value": 0.47,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 2.8,
+      "quantity": "jump_distance",
+      "quote": "traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontally",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "DistanceTrajm",
+      "unit": "mm",
+      "value": 11.2,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 0.8,
+      "quantity": "jump_distance",
+      "quote": "traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontally",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "DistanceTraj_bodyProp",
+      "unit": "body lengths",
+      "value": 1.98,
+      "si_factor": null
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 4.3,
+      "quantity": "jump_height",
+      "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "HeightTrajm",
+      "unit": "mm",
+      "value": 7.9,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 0.9,
+      "quantity": "jump_height",
+      "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "HeightTraj_bodyProp",
+      "unit": "body lengths",
+      "value": 1.5,
+      "si_factor": null
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 14.4,
+      "quantity": "other_duration",
+      "quote": "averaging 5.5 ± 14.4",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Latch_time",
+      "unit": "x 10-3 s",
+      "value": 5.5,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 0.8,
+      "quantity": "other_duration",
+      "quote": "averaged 1.4 ± 0.8",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Launch_time",
+      "unit": "x 10-3 s",
+      "value": 1.4,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 16.7,
+      "quantity": "body_angle",
+      "quote": "from near horizontal to 149.5 ± 16.7 degrees.",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "LoadingBAngle",
+      "unit": "deg",
+      "value": 149.5,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 29.6,
+      "quantity": "body_angle",
+      "quote": "continues to arch further to 124.1 ± 29.6 degrees.",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "ReleaseBAngle",
+      "unit": "deg",
+      "value": 124.1,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 28.2,
+      "quantity": "body_angle",
+      "quote": "rapidly arched their body even further to 79.6 ± 28.2 degrees prior to takeoff,",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "TakeoffBAngle",
+      "unit": "deg",
+      "value": 79.6,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 34.5,
+      "quantity": "acceleration",
+      "quote": "reached a maximum acceleration of 89.5 ± 34.5",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "acceleration.max",
+      "unit": "m s-2",
+      "value": 89.5,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 29,
+      "plus_minus": null,
+      "quantity": "takeoff_speed",
+      "quote": "with the fastest takeoff velocity reaching 0.87",
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "velocity.max",
+      "unit": "m s-1",
+      "value": 0.87,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 28.2,
+      "quantity": "takeoff_angle",
+      "quote": "leaving the ground at an angle of 79.6 ± 28.2 degrees.",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "TakeoffAngleDeg",
+      "unit": "deg",
+      "value": 79.6,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 0.7,
+      "quantity": "airborne_time",
+      "quote": "larvae were airborne for 1.3 ± 0.7",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Airborne_time",
+      "unit": "x 10-3 s",
+      "value": 1.3,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 29,
+      "plus_minus": null,
+      "quantity": "jump_distance",
+      "quote": "with the farthest horizontal jumper traveling 23.75 mm",
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "DistanceTrajm",
+      "unit": "mm",
+      "value": 23.75,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 14.3,
+      "quantity": "other_duration",
+      "quote": "combined latch-decoupling and launch phases lasted 6.9 ± 14.3 ms.",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ms",
+      "value": 6.9,
+      "si_factor": 0.001
+    }
+  ]
+}

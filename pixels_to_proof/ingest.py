@@ -85,11 +85,14 @@ def normalise(text: str) -> str:
 
 
 def quote_in_text(quote: str, text_norm: str, min_len: int = 12) -> bool:
-    """Whitespace-insensitive containment: PDF extraction breaks lines and spaces superscripts ('m s -1')."""
-    q = re.sub(r"\s+", "", normalise(quote))
-    if len(q) < min_len:
+    """Whitespace-insensitive containment: PDF extraction breaks lines and spaces superscripts ('m s -1'). A quote
+    may join non-adjacent passages with '...' or '…'; then every passage must be found."""
+    t = re.sub(r"\s+", "", text_norm)
+    parts = [re.sub(r"\s+", "", normalise(x)) for x in re.split(r"\.\.\.|…|\[\.\.\.\]", quote)]
+    parts = [x for x in parts if x]
+    if not parts or sum(len(x) for x in parts) < min_len or any(len(x) < 8 for x in parts if len(parts) > 1):
         return False
-    return q in re.sub(r"\s+", "", text_norm)
+    return all(x in t for x in parts)
 
 
 def licence(text: str) -> tuple[str | None, str]:

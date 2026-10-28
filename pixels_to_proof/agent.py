@@ -78,16 +78,17 @@ def video_units(video: Path, min_frames: int) -> list[Unit]:
     starts, total, _ = shots.cuts(video)
     bounds = list(zip(starts, starts[1:] + [total]))
     units = []
-    for k, (a, b) in enumerate(bounds, start=1):
+    for a, b in bounds:             # cut detection also fires inside fades; only real recordings are numbered
         if b - a >= min_frames:
-            units.append(Unit(video=video.name, shot=k, first=a, last=b - 1))
+            units.append(Unit(video=video.name, shot=len(units) + 1, first=a, last=b - 1))
     return units
 
 
 def video_stage(bundle: Path, ing: dict, out: Path, led: Ledger) -> list[dict]:
-    """Shots (and montage panels) of every video, with Spark's reading of a frame of each."""
+    """Shots (and montage panels) of every video, with Spark's reading of a frame of each (calls run in parallel)."""
+    from concurrent.futures import ThreadPoolExecutor
     th = thresholds()
-    rows = []
+    todo = []
     for v in ing["inventory"].videos:
         path = bundle / v
         units = video_units(path, th["video"]["min_shot_frames"])
@@ -98,22 +99,32 @@ def video_stage(bundle: Path, ing: dict, out: Path, led: Ledger) -> list[dict]:
             f0 = udir / "frame0.png"
             if not f0.exists():
                 shots.frame_at(path, u.first, f0)
-            img = cv2.imread(str(f0))
-            panels = shots.framed_panels(img)
-            if len(panels) >= 2:
-                led.step("montage", f"{u.uid}: {len(panels)} framed panels", ref=u.uid)
-            cache = udir / "frame_reading.json"
-            if cache.exists():
-                fr, usage, secs = *json.loads(cache.read_text()), 0.0
-            else:
-                h, w = img.shape[:2]
-                (fr, usage), secs = _timed(lambda: read.read_frame(f0, w, h))
-                cache.write_text(json.dumps([fr, usage]))
-            led.model("read frame", meta.SPARK, usage, secs,
-                      f"overlay '{fr['overlay_text'][:80]}', fps {fr['capture_fps']}, reference {fr['reference_kind']}",
-                      ref=u.uid)
-            rows.append({"unit": asdict(u), "uid": u.uid, "frame_reading": fr, "panels": panels,
-                         "n_frames": u.last - u.first + 1})
+            todo.append((u, udir, f0))
+
+    def readone(item):
+        u, udir, f0 = item
+        cache = udir / "frame_reading.json"
+        if cache.exists():
+            fr, usage = json.loads(cache.read_text())
+            return fr, usage, 0.0, True
+        h, w = cv2.imread(str(f0)).shape[:2]
+        (fr, usage), secs = _timed(lambda: read.read_frame(f0, w, h))
+        cache.write_text(json.dumps([fr, usage]))
+        return fr, usage, secs, False
+
+    with ThreadPoolExecutor(max_workers=6) as ex:
+        results = list(ex.map(readone, todo))
+    rows = []
+    for (u, udir, f0), (fr, usage, secs, cached) in zip(todo, results):
+        panels = shots.framed_panels(cv2.imread(str(f0)))
+        if len(panels) >= 2:
+            led.step("montage", f"{u.uid}: {len(panels)} framed panels", ref=u.uid)
+        led.model("read frame", meta.SPARK, usage, secs,
+                  f"printed text '{' / '.join(fr['overlay_text'].splitlines())[:90]}', fps {fr['capture_fps']}, "
+                  f"scale reference {fr['reference_kind']}, object box {fr.get('object_box')}", ref=u.uid,
+                  cached=cached)
+        rows.append({"unit": asdict(u), "uid": u.uid, "frame_reading": fr, "panels": panels,
+                     "n_frames": u.last - u.first + 1})
     return rows
 
 
@@ -129,21 +140,35 @@ def plan_stage(ing: dict, units: list[dict], out: Path, led: Ledger) -> planmod.
         f" ({u['n_frames']} frames): printed text '{u['frame_reading']['overlay_text']}'"
         + (f"; montage with {len(u['panels'])} framed panels" if len(u['panels']) >= 2 else "")
         for u in units)
-    cache = out / "plan_raw.json"
-    if cache.exists():
-        raw, usage, secs = *json.loads(cache.read_text()), 0.0
-    else:
-        (raw, usage), secs = _timed(lambda: planmod.make_plan(ing["pdf"], inv_text, tables_text, scripts_text,
-                                                               videos_text))
-        cache.write_text(json.dumps([raw, usage], ensure_ascii=False))
     overlay = "\n".join(u["frame_reading"]["overlay_text"] for u in units)
-    call = led.model("plan", meta.SPARK, usage, secs,
-                     f"{len(raw['claims'])} claims, event table "
-                     f"{(raw['event_table'] or {}).get('sheet')}, {len(raw['videos'])} videos, "
-                     f"authors' method {raw['authors_speed_method']['family']}")
-    cp = planmod.check(raw, ing["pdf_text"], "\n".join(s for _, s in ing["scripts"]), ing["tables"], overlay)
-    for c in cp.checks:
-        led.gate("G1 plan", c.ok, f"{c.field}: {c.note}", on=call)
+    scripts = "\n".join(s for _, s in ing["scripts"])
+    feedback, fid, best = "", None, None
+    for version in range(1, thresholds()["plan"]["max_reproposals"] + 2):
+        cache = out / ("plan_raw.json" if version == 1 else f"plan_raw_v{version}.json")
+        cached = cache.exists()
+        if cached:
+            raw, usage, secs = *json.loads(cache.read_text()), 0.0
+        else:
+            (res), secs = _timed(lambda: planmod.make_plan(ing["pdf"], inv_text, tables_text, scripts_text,
+                                                            videos_text, feedback, fid))
+            raw, usage, fid = res
+            cache.write_text(json.dumps([raw, usage], ensure_ascii=False))
+        call = led.model("plan" if version == 1 else "re-propose plan", meta.SPARK, usage, secs,
+                         f"v{version}: {len(raw['claims'])} claims, event table "
+                         f"{(raw['event_table'] or {}).get('sheet')}, {len(raw['videos'])} videos, "
+                         f"authors' method {raw['authors_speed_method']['family']}", cached=cached)
+        cp = planmod.check(raw, ing["pdf_text"], scripts, ing["tables"], overlay)
+        for c in cp.checks:
+            if version == 1 or not c.ok or any(k in c.field for k in planmod.CRITICAL):
+                led.gate("G1 plan", c.ok, f"v{version} {c.field}: {c.note}", on=call)
+        score = len(planmod.feedback_for(cp).splitlines())
+        if best is None or score < best[0]:
+            best = (score, cp, version)
+        feedback = planmod.feedback_for(cp)
+        if not feedback:
+            break
+    score, cp, version = best
+    led.step("plan accepted", f"v{version} ({score} needed fields still rejected)")
     planmod.save(cp, out / "plan_checked.json")
     return cp
 
@@ -152,13 +177,25 @@ def plan_stage(ing: dict, units: list[dict], out: Path, led: Ledger) -> planmod.
 # Video route: per shot/panel inputs -> feasibility -> track -> self-checks -> blind pairing -> verdict
 # ---------------------------------------------------------------------------------------------------------------------
 
-def _overlay_fps(fr: dict) -> float | None:
-    """Spark's fps reading is kept only if the number is printed in the overlay text it transcribed."""
+_RATE = re.compile(r"(\d[\d,]*\.?\d*)\s*(?:frames?\s*(?:/|per)\s*s(?:ec(?:ond)?)?|fps|frames?\s*s-1)", re.I)
+
+
+def _overlay_fps(fr: dict) -> tuple[float | None, str]:
+    """Spark's fps reading is kept only if the number is printed in the overlay text it transcribed. Otherwise code
+    parses the transcribed text itself: the one rate on a line that says captured/recorded/filmed."""
+    text = fr.get("overlay_text", "")
+    printed = [float(x) for x in re.findall(r"\d[\d,]*\.?\d*", text.replace(",", ""))]
     fps = fr.get("capture_fps")
-    if not fps:
-        return None
-    printed = [float(x) for x in re.findall(r"\d[\d,]*\.?\d*", fr.get("overlay_text", "").replace(",", ""))]
-    return float(fps) if any(abs(p - fps) < 1e-6 for p in printed) else None
+    if fps and any(abs(p - fps) < 1e-6 for p in printed):
+        return float(fps), "printed on the video (read by Spark, number found in the overlay text)"
+    rates = []
+    for line in text.splitlines():
+        if re.search(r"captur|record|film|acquir", line, re.I):
+            rates += [float(m.group(1).replace(",", "")) for m in _RATE.finditer(line)]
+    if len(set(rates)) == 1:
+        return rates[0], ("parsed by code from the overlay text" +
+                          (f" (Spark's number {fps:g} is not printed there)" if fps else ""))
+    return None, ""
 
 
 def _airborne_range(cp: planmod.CheckedPlan, table) -> tuple[float, float] | None:
@@ -174,7 +211,10 @@ def unit_inputs(u: dict, cp: planmod.CheckedPlan, table, out: Path, led: Ledger)
     """Frame rate and scale for one shot, checked before any tracking. Returns {'ok': False, 'reason'} or inputs."""
     th = thresholds()
     uid, fr = u["uid"], u["frame_reading"]
-    fps, src = _overlay_fps(fr), "printed on the video (read by Spark, number found in the overlay text)"
+    fps, src = _overlay_fps(fr)
+    if fr.get("capture_fps") and fps != fr.get("capture_fps"):
+        led.gate("G4 frame rate", False, f"Spark read {fr['capture_fps']:g} fps but that number is not printed on the "
+                                         "shot", ref=uid)
     if fps is None:
         per_file = {v["capture_fps"] for v in cp.plan["videos"] if v["file"] == u["unit"]["video"] and v["capture_fps"]}
         if len(per_file) == 1:
@@ -201,21 +241,31 @@ def unit_inputs(u: dict, cp: planmod.CheckedPlan, table, out: Path, led: Ledger)
             return {"ok": False, "reason": f"at {fps:g} fps a flight spans at most {rng[1] * fps:.1f} frames"}
     sr = cp.plan.get("scale_reference", {})
     kind = fr.get("reference_kind")
-    if kind != "grid" or sr.get("kind") != "grid" or not sr.get("size_mm"):
-        led.gate("G4 scale", False, f"reference seen on this shot: {kind}; paper: {sr.get('kind')} "
-                                    f"{sr.get('size_mm')} mm — no measurable grid of known size", ref=uid)
-        return {"ok": False, "reason": f"no scale reference of known size on this shot (seen: {kind})"}
+    if sr.get("kind") != "grid" or not sr.get("size_mm"):
+        led.gate("G4 scale", False, f"the paper states no grid of known size (plan: {sr.get('kind')} "
+                                    f"{sr.get('size_mm')} mm)", ref=uid)
+        return {"ok": False, "reason": "no scale reference of known size stated in the paper"}
     gray = cv2.imread(str(out / "units" / uid / "frame0.png"), cv2.IMREAD_GRAYSCALE)
     h = gray.shape[0]
     band = fr.get("grid_band_rows") or None
-    if band is not None and (len(band) != 2 or band[1] - band[0] < 50):
+    if band is not None and (len(band) != 2 or band[1] - band[0] < 50 or kind != "grid"):
         band = None
     try:
         grid = scale.grid_from_frame(gray, axis="x", band=tuple(band or (0, h)))
     except ValueError as exc:
-        led.gate("G4 scale", False, f"grid not measurable: {exc}", ref=uid)
-        return {"ok": False, "reason": f"grid not measurable: {exc}"}
+        led.gate("G4 scale", False, f"no measurable grid on this shot (Spark saw: {kind}; code: {exc})", ref=uid)
+        return {"ok": False, "reason": f"no measurable grid on this shot (seen: {kind})"}
+    if kind != "grid":
+        # Spark did not report a grid; code accepts one only if it is unmistakable.
+        regular = len(grid.lines_px) >= 4 and grid.spacing_sd_px / grid.spacing_px < 0.02
+        led.gate("G4 scale", regular, f"Spark reported '{kind}', code found {len(grid.lines_px)} lines at "
+                                      f"{grid.spacing_px:.1f} px (sd {grid.spacing_sd_px:.2f})"
+                                      + ("; regular enough to use" if regular else "; not regular enough"), ref=uid)
+        if not regular:
+            return {"ok": False, "reason": f"no measurable grid on this shot (seen: {kind})"}
     est = fr.get("grid_square_px_estimate")
+    pipeline._scale_evidence(out / "units" / uid / "frame0.png", grid, tuple(band or (0, h)), fr.get("object_box"),
+                             out / "units" / uid / "scale_evidence.png")
     led.gate("G4 scale", True, f"grid {grid.spacing_px:.1f} px (sd {grid.spacing_sd_px:.2f}, {len(grid.lines_px)} lines) "
                                f"= {sr['size_mm']} mm" + (f"; Spark's estimate {est} px" if est else ""), ref=uid)
     return {"ok": True, "fps": fps, "fps_source": src, "mm_per_px": grid.mm_per_px(float(sr["size_mm"])),
@@ -238,13 +288,15 @@ def measure_unit(bundle: Path, u: dict, inputs: dict, phrase: str, out: Path, le
     def repropose(attempts):
         reason = attempts[-1]["reason"]
         cache = udir / f"rebox_{len(boxes)}.json"
-        if cache.exists():
+        cached = cache.exists()
+        if cached:
             ans, usage, secs = *json.loads(cache.read_text()), 0.0
         else:
             (ans, usage), secs = _timed(lambda: read.repropose_box(udir / "frame0.png", w, h, phrase, reason, boxes))
             cache.write_text(json.dumps([ans, usage]))
         i = led.model("re-propose box", meta.SPARK, usage, secs,
-                      f"new box {ans['object_box']} ({ans['what_is_in_the_box'][:60]})", ref=uid)
+                      f"new box {ans['object_box']} ({ans['what_is_in_the_box'][:60]}); "
+                      f"diagnosis: {ans['why_the_previous_failed'][:80]}", ref=uid, cached=cached)
         if len(ans["object_box"]) != 4 or ans["object_box"] in boxes:
             led.gate("G5 track", False, "re-proposed box is invalid or repeats a rejected one", ref=uid, on=i)
             return None
@@ -296,6 +348,16 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
         route = planmod.needs(c)
         row = {"source": "paper", "quote": c["quote"], "quantity": c["quantity"], "value": c["value"],
                "plus_minus": c["plus_minus"], "unit": c["unit"], "statistic": c["statistic"], "route": route}
+        if route.startswith("video") and c.get("table_column") and table is not None:
+            # Spark labelled it a single event, but if it equals a statistic of its column, it is one (code decides).
+            for stat in ("mean", "max", "min"):
+                res = tablecheck.check(dict(c, statistic=stat), table, cp.columns)
+                if res["outcome"] != tablecheck.NOT_CHECKED:
+                    led.gate("route", False, f"proposed as a single event, but it equals the {stat} of "
+                                             f"'{res['column']}': routed to the table check")
+                    route, c = "table_check", dict(c, statistic=stat)
+                    row["statistic"], row["route"] = stat, route
+                    break
         if route == "table_check" and table is not None:
             res = tablecheck.check(c, table, cp.columns)
             row.update(outcome=res["outcome"], reason=res["reason"],
@@ -349,9 +411,24 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
             elif unc_col["uncertainty_kind"] == "absolute" and unc_col.get("si_factor"):
                 pm_val, pm_note = raw * unc_col["si_factor"], f"{unc_col['name']} (absolute)"
             else:
-                pm_note = f"{unc_col['name']}: meaning not established; ± not used"
+                pm_note = f"{unc_col['name']}: meaning (absolute or relative) not established by the paper or script"
         mid, lo, hi = measure.speed_interval(k, inputs["scale_rel_unc"])
         v = verdict.decide(published, pm_val, mid, lo, hi, k.g_fit_rel_err, k.ax_rel_g)
+        if pm_val is None and unc_col is not None and isinstance(rr[unc_col["index"]], (int, float)):
+            # The ± exists but its meaning is unknown: decide only if both readings give the same verdict.
+            raw = rr[unc_col["index"]]
+            options = sorted((raw * published, raw * (unc_col.get("si_factor") or 1.0)))
+            vs = [verdict.decide(published, x, mid, lo, hi, k.g_fit_rel_err, k.ax_rel_g) for x in options]
+            readings = {x.label for x in vs}
+            if len(readings) > 1:
+                v = verdict.Verdict(verdict.CANNOT_MEASURE, published, None, mid, lo, hi, v.rel_diff,
+                                    f"the verdict depends on whether {unc_col['name']} is a relative or an absolute "
+                                    "uncertainty, and the paper does not say which")
+            else:
+                v, pm_val = vs[0], options[0]      # both readings agree; report the narrower ±
+                pm_note += f"; both readings give {v.label}, the narrower ± is shown"
+            led.gate("G6 uncertainty", len(readings) == 1, pm_note + f"; verdict under both readings: {sorted(readings)}",
+                     ref=uid)
         second = None
         if lam is not None:
             p = m["pts"]

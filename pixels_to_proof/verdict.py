@@ -43,7 +43,9 @@ def decide(published: float, published_unc: float | None, mid: float, lo: float,
     p_lo = published - (published_unc or 0.0)
     p_hi = published + (published_unc or 0.0)
     if p_hi >= lo and p_lo <= hi:
+        a, b = max(p_lo, lo), min(p_hi, hi)
         return Verdict(REPRODUCED, published, published_unc, mid, lo, hi, rel,
-                       "published value (with its stated uncertainty) overlaps the measured interval")
+                       f"published value (with its stated uncertainty) overlaps the measured interval "
+                       f"over {a:.3f}-{b:.3f}")
     return Verdict(NOT_REPRODUCED, published, published_unc, mid, lo, hi, rel,
                    "published value lies outside the measured interval")

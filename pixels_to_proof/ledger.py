@@ -15,6 +15,9 @@ def _now() -> str:
 
 
 def _commit(repo: Path) -> str:
+    stamp = repo / "COMMIT"            # deployments without git carry the commit they were built from
+    if stamp.exists():
+        return stamp.read_text().strip()
     try:
         sha = subprocess.run(["git", "-C", str(repo), "rev-parse", "HEAD"], capture_output=True, text=True,
                              check=True).stdout.strip()
@@ -40,10 +43,12 @@ class Ledger:
         self.save()
         return ev
 
-    def model(self, role: str, model: str, usage: dict | None, seconds: float, proposal: str, ref: str = "") -> int:
+    def model(self, role: str, model: str, usage: dict | None, seconds: float, proposal: str, ref: str = "",
+              cached: bool = False) -> int:
+        """cached=True: the output was produced by an earlier run on the same inputs and replayed here."""
         tokens = (usage or {}).get("total_tokens")
         return self._add("model", role=role, model=model, tokens=tokens, seconds=round(seconds, 1),
-                         proposal=proposal, ref=ref)["i"]
+                         proposal=proposal, ref=ref, cached=cached)["i"]
 
     def gate(self, gate: str, ok: bool, note: str, ref: str = "", on: int | None = None) -> None:
         self._add("gate", gate=gate, ok=bool(ok), note=note, ref=ref, on=on)
