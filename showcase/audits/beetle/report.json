@@ -1,10 +1,10 @@
 {
- "run_id": "beetle-20261028d",
+ "run_id": "beetle-20261028-7a8c0e6",
  "bundle": "beetle",
  "claims": [
   {
    "source": "paper",
-   "quote": "over a period of 0.22 ± 0.17s.",
+   "quote": "arching their body while gripping the substrate with their legs over a period of 0.22 ± 0.17s.",
    "quantity": "other_duration",
    "value": 0.22,
    "plus_minus": 0.17,
@@ -22,11 +22,11 @@
   },
   {
    "source": "paper",
-   "quote": "takeoff velocities of 0.47 ± 0.15",
+   "quote": "Larvae reached takeoff velocities of 0.47 ± 0.15 m s-1",
    "quantity": "takeoff_speed",
    "value": 0.47,
    "plus_minus": 0.15,
-   "unit": "m s-1",
+   "unit": "m/s",
    "statistic": "mean",
    "route": "table_check",
    "outcome": "MATCHES TABLE",
@@ -48,12 +48,12 @@
    "statistic": "mean",
    "route": "table_check",
    "outcome": "NOT CHECKED",
-   "reason": "no column reproduces the printed digits; 'DistanceTrajm' over 29 rows gives 11.74 ± 4.86 mm (the printed value may use another aggregation unit)",
+   "reason": "no column reproduces the printed digits; 'DistanceRawm' over 29 rows gives 11.24 ± 4.78 mm (the printed value may use another aggregation unit)",
    "evidence": {
-    "column": "DistanceTrajm",
+    "column": "DistanceRawm",
     "n_rows": 29,
-    "table_value": 11.736935620689655,
-    "table_sd": 4.857509544383061
+    "table_value": 11.23611651724138,
+    "table_sd": 4.7826286943905245
    }
   },
   {
@@ -62,96 +62,60 @@
    "quantity": "jump_distance",
    "value": 1.98,
    "plus_minus": 0.8,
-   "unit": "body lengths",
+   "unit": "ratio",
    "statistic": "mean",
    "route": "table_check",
    "outcome": "NOT CHECKED",
-   "reason": "no column reproduces the printed digits; 'DistanceTraj_bodyProp' over 29 rows gives 2.222 ± 0.928 body lengths (the printed value may use another aggregation unit)",
+   "reason": "no column reproduces the printed digits; 'DistanceRaw_bodyProp' over 29 rows gives 2.125 ± 0.913 ratio (the printed value may use another aggregation unit)",
    "evidence": {
-    "column": "DistanceTraj_bodyProp",
+    "column": "DistanceRaw_bodyProp",
     "n_rows": 29,
-    "table_value": 2.2221808562413794,
-    "table_sd": 0.92809608584817
+    "table_value": 2.124512214551724,
+    "table_sd": 0.9129669651650109
    }
   },
   {
    "source": "paper",
-   "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
+   "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically during their jumps.",
    "quantity": "jump_height",
    "value": 7.9,
    "plus_minus": 4.3,
    "unit": "mm",
    "statistic": "mean",
    "route": "table_check",
-   "outcome": "MATCHES OTHER COLUMN",
-   "reason": "'HeightRawm' (jump_height) reproduces the printed digits; the column proposed for this sentence ('HeightTrajm') does not",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'HeightRawm' reproduces the printed digits",
    "evidence": {
     "column": "HeightRawm",
     "n_rows": 29,
     "table_value": 7.859771896551725,
-    "table_sd": 4.305256325104609,
-    "proposed_column": "HeightTrajm",
+    "table_sd": 4.305256325104609
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically during their jumps.",
+   "quantity": "jump_height",
+   "value": 1.5,
+   "plus_minus": 0.9,
+   "unit": "ratio",
+   "statistic": "mean",
+   "route": "table_check",
+   "outcome": "MATCHES OTHER COLUMN",
+   "reason": "'HeightTraj_bodyProp' (jump_height) reproduces the printed digits; the column proposed for this sentence ('HeightRaw_bodyProp') does not",
+   "evidence": {
+    "column": "HeightTraj_bodyProp",
+    "n_rows": 29,
+    "table_value": 1.500636902689655,
+    "table_sd": 0.9287662860293248,
+    "proposed_column": "HeightRaw_bodyProp",
     "proposed_quantity": "jump_height",
     "column_quantity": "jump_height"
    }
   },
   {
    "source": "paper",
-   "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
-   "quantity": "jump_height",
-   "value": 1.5,
-   "plus_minus": 0.9,
-   "unit": "body lengths",
-   "statistic": "mean",
-   "route": "table_check",
-   "outcome": "MATCHES TABLE",
-   "reason": "mean of 29 rows of 'HeightTraj_bodyProp' reproduces the printed digits",
-   "evidence": {
-    "column": "HeightTraj_bodyProp",
-    "n_rows": 29,
-    "table_value": 1.500636902689655,
-    "table_sd": 0.9287662860293248
-   }
-  },
-  {
-   "source": "paper",
-   "quote": "averaging 5.5 ± 14.4",
-   "quantity": "other_duration",
-   "value": 5.5,
-   "plus_minus": 14.4,
-   "unit": "x 10-3 s",
-   "statistic": "mean",
-   "route": "table_check",
-   "outcome": "MATCHES TABLE",
-   "reason": "mean of 29 rows of 'Latch_time' reproduces the printed digits",
-   "evidence": {
-    "column": "Latch_time",
-    "n_rows": 29,
-    "table_value": 5.484913793103448,
-    "table_sd": 14.376112681824571
-   }
-  },
-  {
-   "source": "paper",
-   "quote": "averaged 1.4 ± 0.8",
-   "quantity": "other_duration",
-   "value": 1.4,
-   "plus_minus": 0.8,
-   "unit": "x 10-3 s",
-   "statistic": "mean",
-   "route": "table_check",
-   "outcome": "MATCHES TABLE",
-   "reason": "mean of 29 rows of 'Launch_time' reproduces the printed digits",
-   "evidence": {
-    "column": "Launch_time",
-    "n_rows": 29,
-    "table_value": 1.4224137931034482,
-    "table_sd": 0.7860841815716949
-   }
-  },
-  {
-   "source": "paper",
-   "quote": "from near horizontal to 149.5 ± 16.7 degrees.",
+   "quote": "resulted in a change in body angle (head-to-posterior) from near horizontal to 149.5 ± 16.7 degrees.",
    "quantity": "body_angle",
    "value": 149.5,
    "plus_minus": 16.7,
@@ -169,7 +133,25 @@
   },
   {
    "source": "paper",
-   "quote": "continues to arch further to 124.1 ± 29.6 degrees.",
+   "quote": "between the first leg movement and the point at which the last legs left the ground averaging 5.5 ± 14.4 x 10-3 s in duration.",
+   "quantity": "other_duration",
+   "value": 0.0055,
+   "plus_minus": 0.0144,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'Latch_time' reproduces the printed digits",
+   "evidence": {
+    "column": "Latch_time",
+    "n_rows": 29,
+    "table_value": 0.0054849137931034485,
+    "table_sd": 0.014376112681824569
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "During the latch-decoupling phase the body of the larvae continues to arch further to 124.1 ± 29.6 degrees.",
    "quantity": "body_angle",
    "value": 124.1,
    "plus_minus": 29.6,
@@ -187,7 +169,37 @@
   },
   {
    "source": "paper",
-   "quote": "rapidly arched their body even further to 79.6 ± 28.2 degrees prior to takeoff,",
+   "quote": "averaged 1.4 ± 0.8 x 10-3 s.",
+   "quantity": "other_duration",
+   "value": 0.0014,
+   "plus_minus": 0.0008,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'Launch_time' reproduces the printed digits",
+   "evidence": {
+    "column": "Launch_time",
+    "n_rows": 29,
+    "table_value": 0.0014224137931034483,
+    "table_sd": 0.0007860841815716949
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "When pooled, the combined latch-decoupling and launch phases lasted 6.9 ± 14.3 ms.",
+   "quantity": "other_duration",
+   "value": 6.9,
+   "plus_minus": 14.3,
+   "unit": "ms",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no event-table column to recompute it",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no event-table column to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "the larvae rapidly arched their body even further to 79.6 ± 28.2 degrees prior to takeoff,",
    "quantity": "body_angle",
    "value": 79.6,
    "plus_minus": 28.2,
@@ -205,11 +217,11 @@
   },
   {
    "source": "paper",
-   "quote": "reached a maximum acceleration of 89.5 ± 34.5",
+   "quote": "reached a maximum acceleration of 89.5 ± 34.5 m s-2",
    "quantity": "acceleration",
    "value": 89.5,
    "plus_minus": 34.5,
-   "unit": "m s-2",
+   "unit": "m/s^2",
    "statistic": "mean",
    "route": "table_check",
    "outcome": "MATCHES TABLE",
@@ -223,11 +235,11 @@
   },
   {
    "source": "paper",
-   "quote": "with the fastest takeoff velocity reaching 0.87",
+   "quote": "with the fastest takeoff velocity reaching 0.87 m s-1",
    "quantity": "takeoff_speed",
    "value": 0.87,
    "plus_minus": null,
-   "unit": "m s-1",
+   "unit": "m/s",
    "statistic": "max",
    "route": "table_check",
    "outcome": "MATCHES TABLE",
@@ -262,51 +274,48 @@
   },
   {
    "source": "paper",
-   "quote": "larvae were airborne for 1.3 ± 0.7",
+   "quote": "Over the course of the jump larvae were airborne for 1.3 ± 0.7 x 10-3 s",
    "quantity": "airborne_time",
-   "value": 1.3,
-   "plus_minus": 0.7,
-   "unit": "x 10-3 s",
+   "value": 0.0013,
+   "plus_minus": 0.0007,
+   "unit": "s",
    "statistic": "mean",
    "route": "table_check",
    "outcome": "NOT CHECKED",
-   "reason": "no column reproduces the printed digits; 'Airborne_time' over 29 rows gives 67.42 ± 26.2 x 10-3 s (the printed value may use another aggregation unit)",
+   "reason": "no column reproduces the printed digits; 'Airborne_time' over 29 rows gives 0.06742 ± 0.0262 s (the printed value may use another aggregation unit)",
    "evidence": {
     "column": "Airborne_time",
     "n_rows": 29,
-    "table_value": 67.42456896551724,
-    "table_sd": 26.221239449062548
+    "table_value": 0.06742456896551724,
+    "table_sd": 0.026221239449062544
    }
   },
   {
    "source": "paper",
-   "quote": "with the farthest horizontal jumper traveling 23.75 mm",
+   "quote": "with the farthest horizontal jumper traveling 23.75 mm (Fig 4).",
    "quantity": "jump_distance",
    "value": 23.75,
    "plus_minus": null,
    "unit": "mm",
    "statistic": "max",
    "route": "table_check",
-   "outcome": "MATCHES OTHER COLUMN",
-   "reason": "'DistanceRawm' (jump_distance) reproduces the printed digits; the column proposed for this sentence ('DistanceTrajm') does not",
+   "outcome": "MATCHES TABLE",
+   "reason": "max of 29 rows of 'DistanceRawm' reproduces the printed digits",
    "evidence": {
     "column": "DistanceRawm",
     "n_rows": 29,
     "table_value": 23.748718,
-    "table_sd": null,
-    "proposed_column": "DistanceTrajm",
-    "proposed_quantity": "jump_distance",
-    "column_quantity": "jump_distance"
+    "table_sd": null
    }
   },
   {
    "source": "paper",
-   "quote": "combined latch-decoupling and launch phases lasted 6.9 ± 14.3 ms.",
-   "quantity": "other_duration",
-   "value": 6.9,
-   "plus_minus": 14.3,
-   "unit": "ms",
-   "statistic": "mean",
+   "quote": "the longest jumping distance was about 5 cm, horizontally.",
+   "quantity": "jump_distance",
+   "value": 5.0,
+   "plus_minus": null,
+   "unit": "cm",
+   "statistic": "max",
    "route": "refuse: statistic over several events and no event-table column to recompute it",
    "outcome": "REFUSED",
    "reason": "statistic over several events and no event-table column to recompute it"
@@ -410,39 +419,39 @@
    "frames": 593,
    "fps": 3200.0,
    "fps_source": "printed on the video (read by Spark, number found in the overlay text)",
-   "mm_per_px": 0.026846218783591894,
+   "mm_per_px": 0.02684510304224565,
    "kinematics": {
-    "takeoff_frame": 63,
+    "takeoff_frame": 62,
     "landing_frame": 324,
-    "airborne_s": 0.08156250000000001,
-    "g_fit": 10.020363147877985,
-    "g_fit_rel_err": 0.021792676181773152,
-    "fit_rms_mm": 0.03296229890064868,
-    "v0_ballistic": 0.4359548120602103,
+    "airborne_s": 0.081875,
+    "g_fit": 10.01796689513749,
+    "g_fit_rel_err": 0.021548326404785663,
+    "fit_rms_mm": 0.03308310985144673,
+    "v0_ballistic": 0.43604781542234283,
     "v0_ci95": [
-     0.4343999912456813,
-     0.4374582506247877
+     0.4344881867948948,
+     0.43758804883529095
     ],
-    "angle_deg": 74.75199204899039,
-    "height_mm": 8.845261372281175,
-    "distance_mm": 9.340088995644768,
-    "v_max_spline": 0.3615589085645269,
+    "angle_deg": 74.76377813344821,
+    "height_mm": 8.85180188669995,
+    "distance_mm": 9.391565085678076,
+    "v_max_spline": 0.3594495197316558,
     "v_max_range": [
-     0.323852079115545,
-     0.38661655088253405
+     0.32380101183195925,
+     0.3974596662679572
     ],
-    "ax_fit": -0.06541471794241822,
-    "ax_rel_g": 0.006528178368093487,
+    "ax_fit": -0.06543334270660355,
+    "ax_rel_g": 0.006531599015201728,
     "notes": []
    },
    "skipped_frames": 0,
    "pairing": {
     "row_index": 23,
     "row_id": "c_21382_488_croppedxypts",
-    "distance": 0.0348897424449324,
+    "distance": 0.036314042374058525,
     "runner_up": "c_21382_426_croppedxypts",
-    "runner_up_distance": 0.17712048961283644,
-    "margin": 5.076577733194545,
+    "runner_up_distance": 0.17240268516566293,
+    "margin": 4.747548713795117,
     "features": [
      "airborne_time",
      "jump_distance",
@@ -453,42 +462,42 @@
     "top3": [
      [
       "c_21382_488_croppedxypts",
-      0.035
+      0.036
      ],
      [
       "c_21382_426_croppedxypts",
-      0.177
+      0.172
      ],
      [
       "c_21382_486_croppedxypts",
-      0.238
+      0.232
      ]
     ],
     "ok": true,
-    "reason": "c_21382_488_croppedxypts is 5.1x closer than the runner-up c_21382_426_croppedxypts"
+    "reason": "c_21382_488_croppedxypts is 4.7x closer than the runner-up c_21382_426_croppedxypts"
    },
    "pairing_detail": {
     "airborne_time": {
-     "ours": 0.08156250000000001,
+     "ours": 0.081875,
      "row": {
       "Airborne_time": 0.0809375
      }
     },
     "takeoff_angle": {
-     "ours": 74.75199204899039,
+     "ours": 74.76377813344821,
      "row": {
       "TakeoffAngleDeg": 74.63392626
      }
     },
     "jump_distance": {
-     "ours": 0.009340088995644768,
+     "ours": 0.009391565085678077,
      "row": {
       "DistanceRawm": 0.009437529,
       "DistanceTrajm": 0.009519116
      }
     },
     "jump_height": {
-     "ours": 0.008845261372281175,
+     "ours": 0.00885180188669995,
      "row": {
       "HeightRawm": 0.008639686,
       "HeightTrajm": 0.008551541
@@ -505,15 +514,19 @@
     "column": "velocity.max"
    },
    "measured": {
-    "mid": 0.4359548120602103,
-    "lo": 0.424930966334581,
-    "hi": 0.44699393929009834
+    "mid": 0.43604781542234283,
+    "lo": 0.4251232273322115,
+    "hi": 0.44701982273213037
    },
-   "authors_method_replica": 0.3976751306345504,
+   "authors_method_replica": 0.39753290199094565,
+   "accepts_published": [
+    0.40150231685176835,
+    0.4749624921456219
+   ],
    "authors_method": {
-    "evidence": "Psp <- smooth.Pspline(time2,displacement, spar=0.00000001, method =1) ... velocity.max <- max(velocity)",
+    "evidence": "A spline function was fitted to the cumulative displacement data using the smooth.pspline function from the pspline package in R with a smoothing spar value of 10-8 [59]. ... Velocity and acceleration curves were calculated by taking the first and second derivatives of the displacement splines, respectively, and takeoff velocities and accelerations were estimated as the maximum values of these curves.",
     "family": "smoothing_spline_max",
-    "parameters": "smooth.Pspline spar=0.00000001 method=1, whole track, max of derivative"
+    "parameters": "smooth.Pspline spar=1e-8 method=1, whole track, max of derivative"
    }
   },
   {
@@ -528,10 +541,10 @@
  ],
  "summary": {
   "claims": {
-   "MATCHES TABLE": 10,
+   "MATCHES TABLE": 11,
    "NOT CHECKED": 3,
-   "MATCHES OTHER COLUMN": 3,
-   "REFUSED": 1
+   "MATCHES OTHER COLUMN": 2,
+   "REFUSED": 2
   },
   "videos": {
    "journal.pone.0256509.s003_s1": "CANNOT MEASURE",
@@ -548,7 +561,7 @@
    "journal.pone.0256509.s004_s3": "CANNOT MEASURE"
   },
   "model_calls": 14,
-  "tokens": 291456,
-  "rejected_calls": 1
+  "tokens": 168948,
+  "rejected_calls": 0
  }
 }

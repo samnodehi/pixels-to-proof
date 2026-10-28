@@ -172,3 +172,12 @@ def test_track_start_gate_keeps_a_short_flight_in_a_long_track():
             y -= 3.0 - 0.4 * (i - 100)
         pts.append(Point(i, x + rng.normal(0, 0.3), y + rng.normal(0, 0.3), 900, 0, 0, 1, 1))
     assert quality(pts)["ok"]
+
+
+def test_merge_takes_a_corrected_value_from_the_same_sentence():
+    base = {"authors_speed_method": {}, "scale_reference": {}, "videos": [], "event_table": None,
+            "claims": [{"quote": "Larvae reached takeoff velocities of 0.57", "quantity": "takeoff_speed", "value": 0.57}]}
+    new = dict(base, claims=[{"quote": "Larvae reached takeoff velocities of 0.47", "quantity": "takeoff_speed",
+                              "value": 0.47}])
+    m = plan.merge(base, new, [plan.Check("claim 'Larvae reached takeoff velocities of 0.57'", False, "")])
+    assert [c["value"] for c in m["claims"]] == [0.47]

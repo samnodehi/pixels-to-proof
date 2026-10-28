@@ -173,11 +173,15 @@ def merge(old: dict, new: dict, rejected: list[Check]) -> dict:
                 out["event_table"]["columns"][i] = newcols[c["name"]]
     bad = [c.field[len("claim '"):-1] for c in rejected if c.field.startswith("claim '")]
     keep, repl = [], []
+    def same_sentence(a: str, b: str) -> bool:
+        return ingest.normalise(a)[:25] == ingest.normalise(b)[:25]
+
     for cl in out.get("claims", []):
         if any(cl["quote"][:50] == b for b in bad):
-            alt = [x for x in new.get("claims", []) if x["quantity"] == cl["quantity"]
-                   and abs(x["value"] - cl["value"]) <= 1e-9 + 1e-6 * abs(cl["value"])]
-            repl += alt[:1]
+            # the re-proposed version of this claim: same quantity, and the same value or the same sentence
+            alt = [x for x in new.get("claims", []) if x["quantity"] == cl["quantity"] and
+                   (abs(x["value"] - cl["value"]) <= 1e-9 + 1e-6 * abs(cl["value"]) or same_sentence(x["quote"], cl["quote"]))]
+            repl += [x for x in alt[:1] if x not in repl]
         else:
             keep.append(cl)
     out["claims"] = keep + repl

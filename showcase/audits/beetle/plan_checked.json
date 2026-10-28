@@ -1,16 +1,16 @@
 {
   "plan": {
     "authors_speed_method": {
-      "evidence": "Psp <- smooth.Pspline(time2,displacement, spar=0.00000001, method =1) ... velocity.max <- max(velocity)",
+      "evidence": "A spline function was fitted to the cumulative displacement data using the smooth.pspline function from the pspline package in R with a smoothing spar value of 10-8 [59]. ... Velocity and acceleration curves were calculated by taking the first and second derivatives of the displacement splines, respectively, and takeoff velocities and accelerations were estimated as the maximum values of these curves.",
       "family": "smoothing_spline_max",
-      "parameters": "smooth.Pspline spar=0.00000001 method=1, whole track, max of derivative"
+      "parameters": "smooth.Pspline spar=1e-8 method=1, whole track, max of derivative"
     },
     "claims": [
       {
         "n_events": 29,
         "plus_minus": 0.17,
         "quantity": "other_duration",
-        "quote": "over a period of 0.22 ± 0.17s.",
+        "quote": "arching their body while gripping the substrate with their legs over a period of 0.22 ± 0.17s.",
         "spread": "sd",
         "statistic": "mean",
         "table_column": "Load_time",
@@ -21,11 +21,11 @@
         "n_events": 29,
         "plus_minus": 0.15,
         "quantity": "takeoff_speed",
-        "quote": "takeoff velocities of 0.47 ± 0.15",
+        "quote": "Larvae reached takeoff velocities of 0.47 ± 0.15 m s-1",
         "spread": "sd",
         "statistic": "mean",
         "table_column": "velocity.max",
-        "unit": "m s-1",
+        "unit": "m/s",
         "value": 0.47
       },
       {
@@ -35,7 +35,7 @@
         "quote": "traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontally",
         "spread": "sd",
         "statistic": "mean",
-        "table_column": "DistanceTrajm",
+        "table_column": "DistanceRawm",
         "unit": "mm",
         "value": 11.2
       },
@@ -46,18 +46,18 @@
         "quote": "traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontally",
         "spread": "sd",
         "statistic": "mean",
-        "table_column": "DistanceTraj_bodyProp",
-        "unit": "body lengths",
+        "table_column": "DistanceRaw_bodyProp",
+        "unit": "ratio",
         "value": 1.98
       },
       {
         "n_events": 29,
         "plus_minus": 4.3,
         "quantity": "jump_height",
-        "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
+        "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically during their jumps.",
         "spread": "sd",
         "statistic": "mean",
-        "table_column": "HeightTrajm",
+        "table_column": "HeightRawm",
         "unit": "mm",
         "value": 7.9
       },
@@ -65,40 +65,29 @@
         "n_events": 29,
         "plus_minus": 0.9,
         "quantity": "jump_height",
-        "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
+        "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically during their jumps.",
         "spread": "sd",
         "statistic": "mean",
-        "table_column": "HeightTraj_bodyProp",
-        "unit": "body lengths",
+        "table_column": "HeightRaw_bodyProp",
+        "unit": "ratio",
         "value": 1.5
       },
       {
         "n_events": 29,
-        "plus_minus": 14.4,
+        "plus_minus": 0.17,
         "quantity": "other_duration",
-        "quote": "averaging 5.5 ± 14.4",
+        "quote": "in a ‘loading phase’ which averaged 0.22 ± 0.17 s (mean ± standard deviation)",
         "spread": "sd",
         "statistic": "mean",
-        "table_column": "Latch_time",
-        "unit": "x 10-3 s",
-        "value": 5.5
-      },
-      {
-        "n_events": 29,
-        "plus_minus": 0.8,
-        "quantity": "other_duration",
-        "quote": "averaged 1.4 ± 0.8",
-        "spread": "sd",
-        "statistic": "mean",
-        "table_column": "Launch_time",
-        "unit": "x 10-3 s",
-        "value": 1.4
+        "table_column": "Load_time",
+        "unit": "s",
+        "value": 0.22
       },
       {
         "n_events": 29,
         "plus_minus": 16.7,
         "quantity": "body_angle",
-        "quote": "from near horizontal to 149.5 ± 16.7 degrees.",
+        "quote": "resulted in a change in body angle (head-to-posterior) from near horizontal to 149.5 ± 16.7 degrees.",
         "spread": "sd",
         "statistic": "mean",
         "table_column": "LoadingBAngle",
@@ -107,9 +96,20 @@
       },
       {
         "n_events": 29,
+        "plus_minus": 0.0144,
+        "quantity": "other_duration",
+        "quote": "between the first leg movement and the point at which the last legs left the ground averaging 5.5 ± 14.4 x 10-3 s in duration.",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Latch_time",
+        "unit": "s",
+        "value": 0.0055
+      },
+      {
+        "n_events": 29,
         "plus_minus": 29.6,
         "quantity": "body_angle",
-        "quote": "continues to arch further to 124.1 ± 29.6 degrees.",
+        "quote": "During the latch-decoupling phase the body of the larvae continues to arch further to 124.1 ± 29.6 degrees.",
         "spread": "sd",
         "statistic": "mean",
         "table_column": "ReleaseBAngle",
@@ -118,9 +118,31 @@
       },
       {
         "n_events": 29,
+        "plus_minus": 0.0008,
+        "quantity": "other_duration",
+        "quote": "averaged 1.4 ± 0.8 x 10-3 s.",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Launch_time",
+        "unit": "s",
+        "value": 0.0014
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 14.3,
+        "quantity": "other_duration",
+        "quote": "When pooled, the combined latch-decoupling and launch phases lasted 6.9 ± 14.3 ms.",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ms",
+        "value": 6.9
+      },
+      {
+        "n_events": 29,
         "plus_minus": 28.2,
         "quantity": "body_angle",
-        "quote": "rapidly arched their body even further to 79.6 ± 28.2 degrees prior to takeoff,",
+        "quote": "the larvae rapidly arched their body even further to 79.6 ± 28.2 degrees prior to takeoff,",
         "spread": "sd",
         "statistic": "mean",
         "table_column": "TakeoffBAngle",
@@ -131,22 +153,33 @@
         "n_events": 29,
         "plus_minus": 34.5,
         "quantity": "acceleration",
-        "quote": "reached a maximum acceleration of 89.5 ± 34.5",
+        "quote": "reached a maximum acceleration of 89.5 ± 34.5 m s-2",
         "spread": "sd",
         "statistic": "mean",
         "table_column": "acceleration.max",
-        "unit": "m s-2",
+        "unit": "m/s^2",
         "value": 89.5
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 0.15,
+        "quantity": "takeoff_speed",
+        "quote": "achieved a takeoff velocity of 0.47 ± 0.15 m s-1",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "velocity.max",
+        "unit": "m/s",
+        "value": 0.47
       },
       {
         "n_events": 29,
         "plus_minus": null,
         "quantity": "takeoff_speed",
-        "quote": "with the fastest takeoff velocity reaching 0.87",
+        "quote": "with the fastest takeoff velocity reaching 0.87 m s-1",
         "spread": "none",
         "statistic": "max",
         "table_column": "velocity.max",
-        "unit": "m s-1",
+        "unit": "m/s",
         "value": 0.87
       },
       {
@@ -162,36 +195,14 @@
       },
       {
         "n_events": 29,
-        "plus_minus": 0.7,
+        "plus_minus": 0.0007,
         "quantity": "airborne_time",
-        "quote": "larvae were airborne for 1.3 ± 0.7",
+        "quote": "Over the course of the jump larvae were airborne for 1.3 ± 0.7 x 10-3 s",
         "spread": "sd",
         "statistic": "mean",
         "table_column": "Airborne_time",
-        "unit": "x 10-3 s",
-        "value": 1.3
-      },
-      {
-        "n_events": 29,
-        "plus_minus": null,
-        "quantity": "jump_distance",
-        "quote": "with the farthest horizontal jumper traveling 23.75 mm",
-        "spread": "none",
-        "statistic": "max",
-        "table_column": "DistanceTrajm",
-        "unit": "mm",
-        "value": 23.75
-      },
-      {
-        "n_events": 29,
-        "plus_minus": 14.3,
-        "quantity": "other_duration",
-        "quote": "combined latch-decoupling and launch phases lasted 6.9 ± 14.3 ms.",
-        "spread": "sd",
-        "statistic": "mean",
-        "table_column": null,
-        "unit": "ms",
-        "value": 6.9
+        "unit": "s",
+        "value": 0.0013
       },
       {
         "n_events": 29,
@@ -200,9 +211,20 @@
         "quote": "covered distances of 11.2 ± 2.8 mm horizontally and 7.9 ± 4.3 mm vertically,",
         "spread": "sd",
         "statistic": "mean",
-        "table_column": "DistanceTrajm",
+        "table_column": "DistanceRawm",
         "unit": "mm",
         "value": 11.2
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 4.3,
+        "quantity": "jump_height",
+        "quote": "covered distances of 11.2 ± 2.8 mm horizontally and 7.9 ± 4.3 mm vertically,",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "HeightRawm",
+        "unit": "mm",
+        "value": 7.9
       },
       {
         "n_events": 29,
@@ -211,9 +233,42 @@
         "quote": "equivalent to 1.98 ± 0.8 and 1.5 ± 0.9 body lengths, respectively,",
         "spread": "sd",
         "statistic": "mean",
-        "table_column": "DistanceTraj_bodyProp",
-        "unit": "body lengths",
+        "table_column": "DistanceRaw_bodyProp",
+        "unit": "ratio",
         "value": 1.98
+      },
+      {
+        "n_events": 29,
+        "plus_minus": 0.9,
+        "quantity": "jump_height",
+        "quote": "equivalent to 1.98 ± 0.8 and 1.5 ± 0.9 body lengths, respectively,",
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "HeightRaw_bodyProp",
+        "unit": "ratio",
+        "value": 1.5
+      },
+      {
+        "n_events": 29,
+        "plus_minus": null,
+        "quantity": "jump_distance",
+        "quote": "with the farthest horizontal jumper traveling 23.75 mm (Fig 4).",
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "DistanceRawm",
+        "unit": "mm",
+        "value": 23.75
+      },
+      {
+        "n_events": 4,
+        "plus_minus": null,
+        "quantity": "jump_distance",
+        "quote": "the longest jumping distance was about 5 cm, horizontally.",
+        "spread": "none",
+        "statistic": "max",
+        "table_column": null,
+        "unit": "cm",
+        "value": 5.0
       }
     ],
     "event_table": {
@@ -235,7 +290,7 @@
           "unit": ""
         },
         {
-          "evidence": "",
+          "evidence": "#estimates the body length of the larva from the first tracked frame",
           "name": "Bodylengthm",
           "quantity": "body_length",
           "uncertainty_kind": "not_an_uncertainty",
@@ -243,7 +298,7 @@
           "unit": "m"
         },
         {
-          "evidence": "",
+          "evidence": "Due to the sensitivity of the balance used, average mass was used for all jump calculations, since mass values could not be associated with individual beetles.",
           "name": "BodyMasskg",
           "quantity": "mass",
           "uncertainty_kind": "not_an_uncertainty",
@@ -251,7 +306,7 @@
           "unit": "kg"
         },
         {
-          "evidence": "",
+          "evidence": "Load_time<-ReleaseFrame/fps",
           "name": "Load_time",
           "quantity": "other_duration",
           "uncertainty_kind": "not_an_uncertainty",
@@ -259,7 +314,7 @@
           "unit": "s"
         },
         {
-          "evidence": "",
+          "evidence": "#calculates the max displacement during the loading phase",
           "name": "Load.displacement.max",
           "quantity": "other_length",
           "uncertainty_kind": "not_an_uncertainty",
@@ -267,7 +322,7 @@
           "unit": "m"
         },
         {
-          "evidence": "",
+          "evidence": "Latch_time<-(LaunchFrame-ReleaseFrame)/fps",
           "name": "Latch_time",
           "quantity": "other_duration",
           "uncertainty_kind": "not_an_uncertainty",
@@ -275,7 +330,7 @@
           "unit": "s"
         },
         {
-          "evidence": "",
+          "evidence": "Launch_time<-(TakeoffFrame-LaunchFrame)/fps",
           "name": "Launch_time",
           "quantity": "other_duration",
           "uncertainty_kind": "not_an_uncertainty",
@@ -283,7 +338,7 @@
           "unit": "s"
         },
         {
-          "evidence": "",
+          "evidence": "#calculates the max displacement during the latch release phase (also subtracts displacement that occured during previous phase)",
           "name": "LatchLaunch.displacement.max",
           "quantity": "other_length",
           "uncertainty_kind": "not_an_uncertainty",
@@ -291,7 +346,7 @@
           "unit": "m"
         },
         {
-          "evidence": "",
+          "evidence": "Airborne_time<-(nrow(displacement.dataframe)-TakeoffFrame)/fps",
           "name": "Airborne_time",
           "quantity": "airborne_time",
           "uncertainty_kind": "not_an_uncertainty",
@@ -299,7 +354,7 @@
           "unit": "s"
         },
         {
-          "evidence": "",
+          "evidence": "#calculates takeoff angle",
           "name": "TakeoffAngleDeg",
           "quantity": "takeoff_angle",
           "uncertainty_kind": "not_an_uncertainty",
@@ -307,7 +362,7 @@
           "unit": "deg"
         },
         {
-          "evidence": "",
+          "evidence": "#Estimates horizontal distance traveled over course of jump",
           "name": "DistanceRawm",
           "quantity": "jump_distance",
           "uncertainty_kind": "not_an_uncertainty",
@@ -315,7 +370,7 @@
           "unit": "m"
         },
         {
-          "evidence": "",
+          "evidence": "#manually calculates maximum vertical distance traveled over course of jump",
           "name": "HeightRawm",
           "quantity": "jump_height",
           "uncertainty_kind": "not_an_uncertainty",
@@ -323,7 +378,7 @@
           "unit": "m"
         },
         {
-          "evidence": "",
+          "evidence": "#converts the estimate of horizontal distance traveled from meters to number of body lengths",
           "name": "DistanceRaw_bodyProp",
           "quantity": "jump_distance",
           "uncertainty_kind": "not_an_uncertainty",
@@ -331,7 +386,7 @@
           "unit": "ratio"
         },
         {
-          "evidence": "",
+          "evidence": "#converts the estimate of vertical distance traveled from meters to number of body lengths",
           "name": "HeightRaw_bodyProp",
           "quantity": "jump_height",
           "uncertainty_kind": "not_an_uncertainty",
@@ -339,31 +394,31 @@
           "unit": "ratio"
         },
         {
-          "evidence": "",
+          "evidence": "#Code for calculating the coefficients (A,B,and C) for the quadratic equation describing the trajectory in the form of y= AX^2 +BX +C",
           "name": "A",
           "quantity": "other",
           "uncertainty_kind": "not_an_uncertainty",
           "uncertainty_of": null,
-          "unit": ""
+          "unit": "1/m"
         },
         {
-          "evidence": "",
+          "evidence": "#Code for calculating the coefficients (A,B,and C) for the quadratic equation describing the trajectory in the form of y= AX^2 +BX +C",
           "name": "B",
           "quantity": "other",
           "uncertainty_kind": "not_an_uncertainty",
           "uncertainty_of": null,
-          "unit": ""
+          "unit": "ratio"
         },
         {
-          "evidence": "",
+          "evidence": "#Code for calculating the coefficients (A,B,and C) for the quadratic equation describing the trajectory in the form of y= AX^2 +BX +C",
           "name": "C",
           "quantity": "other",
           "uncertainty_kind": "not_an_uncertainty",
           "uncertainty_of": null,
-          "unit": ""
+          "unit": "m"
         },
         {
-          "evidence": "",
+          "evidence": "#Estimates the distance traveled using the quadratic formula",
           "name": "DistanceTrajm",
           "quantity": "jump_distance",
           "uncertainty_kind": "not_an_uncertainty",
@@ -371,7 +426,7 @@
           "unit": "m"
         },
         {
-          "evidence": "",
+          "evidence": "#estimates height of jump by calculating the vertex of the parabola",
           "name": "HeightTrajm",
           "quantity": "jump_height",
           "uncertainty_kind": "not_an_uncertainty",
@@ -379,7 +434,7 @@
           "unit": "m"
         },
         {
-          "evidence": "",
+          "evidence": "DistanceTraj_bodyProp<-DistanceTrajm/Bodylengthm",
           "name": "DistanceTraj_bodyProp",
           "quantity": "jump_distance",
           "uncertainty_kind": "not_an_uncertainty",
@@ -387,7 +442,7 @@
           "unit": "ratio"
         },
         {
-          "evidence": "",
+          "evidence": "HeightTraj_bodyProp<-HeightTrajm/Bodylengthm",
           "name": "HeightTraj_bodyProp",
           "quantity": "jump_height",
           "uncertainty_kind": "not_an_uncertainty",
@@ -395,15 +450,15 @@
           "unit": "ratio"
         },
         {
-          "evidence": "",
+          "evidence": "Velocity and acceleration curves were calculated by taking the first and second derivatives of the displacement splines, respectively, and takeoff velocities and accelerations were estimated as the maximum values of these curves.",
           "name": "velocity.max",
           "quantity": "takeoff_speed",
           "uncertainty_kind": "not_an_uncertainty",
           "uncertainty_of": null,
-          "unit": "m s-1"
+          "unit": "m/s"
         },
         {
-          "evidence": "VelError<-sqrt((ScaleSensitivitym/LatchLaunch.displacement.max)^2+((1/fps)/(Latch_time+Launch_time))^2)",
+          "evidence": "#Calculates estimates of error propogation ratios ... # multiply by mean value of measurement to get magnitude of uncertainty",
           "name": "VelError",
           "quantity": "speed_uncertainty",
           "uncertainty_kind": "relative",
@@ -411,15 +466,15 @@
           "unit": "ratio"
         },
         {
-          "evidence": "",
+          "evidence": "Velocity and acceleration curves were calculated by taking the first and second derivatives of the displacement splines, respectively, and takeoff velocities and accelerations were estimated as the maximum values of these curves.",
           "name": "acceleration.max",
           "quantity": "acceleration",
           "uncertainty_kind": "not_an_uncertainty",
           "uncertainty_of": null,
-          "unit": "m s-2"
+          "unit": "m/s^2"
         },
         {
-          "evidence": "AccelError<-sqrt((ScaleSensitivitym/LatchLaunch.displacement.max)^2+((2/fps)/(Latch_time+Launch_time))^2)",
+          "evidence": "#Calculates estimates of error propogation ratios ... # multiply by mean value of measurement to get magnitude of uncertainty",
           "name": "AccelError",
           "quantity": "other",
           "uncertainty_kind": "relative",
@@ -427,7 +482,7 @@
           "unit": "ratio"
         },
         {
-          "evidence": "",
+          "evidence": "#calculates the maximum kinetic energy during the jump",
           "name": "EnergyJ",
           "quantity": "other",
           "uncertainty_kind": "not_an_uncertainty",
@@ -435,7 +490,7 @@
           "unit": "J"
         },
         {
-          "evidence": "EnergyError<-sqrt((BalanceSensitivitykg/BodyMasskg)^2+ VelError^2)",
+          "evidence": "#Calculates estimates of error propogation ratios ... # multiply by mean value of measurement to get magnitude of uncertainty",
           "name": "EnergyError",
           "quantity": "other",
           "uncertainty_kind": "relative",
@@ -443,7 +498,7 @@
           "unit": "ratio"
         },
         {
-          "evidence": "",
+          "evidence": "#calculated the power of the launch phase of the jump (combines latch and launch times and displacements, since some movement is occuring during the latch release phase)",
           "name": "launchPower",
           "quantity": "other",
           "uncertainty_kind": "not_an_uncertainty",
@@ -451,7 +506,7 @@
           "unit": "W"
         },
         {
-          "evidence": "launchPowerError<-sqrt(((3/fps)/(Launch_time+Latch_time))^2+(2*ScaleSensitivitym/LatchLaunch.displacement.max)^2+(BalanceSensitivitykg/BodyMasskg)^2)",
+          "evidence": "#Calculates estimates of error propogation ratios ... # multiply by mean value of measurement to get magnitude of uncertainty",
           "name": "launchPowerError",
           "quantity": "other",
           "uncertainty_kind": "relative",
@@ -459,15 +514,15 @@
           "unit": "ratio"
         },
         {
-          "evidence": "",
+          "evidence": "launchPowerOutput<-(launchPower/(0.30*BodyMasskg))",
           "name": "launchPowerOutput",
           "quantity": "other",
           "uncertainty_kind": "not_an_uncertainty",
           "uncertainty_of": null,
-          "unit": "W kg-1"
+          "unit": "W/kg"
         },
         {
-          "evidence": "",
+          "evidence": "#calculates the maximum power during the jump",
           "name": "JumpPower",
           "quantity": "other",
           "uncertainty_kind": "not_an_uncertainty",
@@ -475,7 +530,7 @@
           "unit": "W"
         },
         {
-          "evidence": "JumpPowerError<-sqrt(((3/fps)/(Launch_time+Latch_time))^2+(2*ScaleSensitivitym/LatchLaunch.displacement.max)^2+(BalanceSensitivitykg/BodyMasskg)^2)",
+          "evidence": "#Calculates estimates of error propogation ratios ... # multiply by mean value of measurement to get magnitude of uncertainty",
           "name": "JumpPowerError",
           "quantity": "other",
           "uncertainty_kind": "relative",
@@ -483,7 +538,7 @@
           "unit": "ratio"
         },
         {
-          "evidence": "",
+          "evidence": "The angles of the larvae’s bodies at the end of the loading, latch-decoupling, and launch phases were measured using ImageJ’s default angle tool.",
           "name": "LoadingBAngle",
           "quantity": "body_angle",
           "uncertainty_kind": "not_an_uncertainty",
@@ -491,7 +546,7 @@
           "unit": "deg"
         },
         {
-          "evidence": "",
+          "evidence": "The angles of the larvae’s bodies at the end of the loading, latch-decoupling, and launch phases were measured using ImageJ’s default angle tool.",
           "name": "ReleaseBAngle",
           "quantity": "body_angle",
           "uncertainty_kind": "not_an_uncertainty",
@@ -499,7 +554,7 @@
           "unit": "deg"
         },
         {
-          "evidence": "",
+          "evidence": "The angles of the larvae’s bodies at the end of the loading, latch-decoupling, and launch phases were measured using ImageJ’s default angle tool.",
           "name": "TakeoffBAngle",
           "quantity": "body_angle",
           "uncertainty_kind": "not_an_uncertainty",
@@ -509,7 +564,7 @@
         {
           "evidence": "",
           "name": "velocity.max.BL",
-          "quantity": "other_speed",
+          "quantity": "takeoff_speed",
           "uncertainty_kind": "not_an_uncertainty",
           "uncertainty_of": null,
           "unit": "BL/s"
@@ -520,16 +575,16 @@
           "quantity": "acceleration",
           "uncertainty_kind": "not_an_uncertainty",
           "uncertainty_of": null,
-          "unit": "BL s-2"
+          "unit": "BL/s^2"
         }
       ],
       "file": "journal.pone.0256509.s001.xlsx",
-      "rows_are": "one jump per row (one recorded jump event)",
+      "rows_are": "one jump (one recorded event)",
       "sheet": "BeetleJumpPerformanceData"
     },
     "object_phrase": "beetle larva",
     "scale_reference": {
-      "evidence": "affixed to a backing board with a 0.5cm2 scale grid.",
+      "evidence": "placed on a 6cm x 2cm acrylic platform affixed to a backing board with a 0.5cm2 scale grid.",
       "kind": "grid",
       "size_mm": 5.0
     },
@@ -537,23 +592,23 @@
     "videos": [
       {
         "capture_fps": 30,
-        "content": "Real-time jumping behavior of Laemophloeus biguttatus and Placonotus testaceus",
+        "content": "Real-time jumping behavior of Laemophloeus biguttatus and Placonotus testaceus on natural substrate and tissue paper",
         "file": "journal.pone.0256509.s003.mp4",
-        "fps_evidence": "The larval jumping behavior was filmed at a rate of 30 frames s-1 at a pixel resolution of 1920 x 1080 using a",
+        "fps_evidence": "The larval jumping behavior was filmed at a rate of 30 frames s−1 at a pixel resolution of 1920 x 1080 using a digital camera (Canon EOS 7D) fitted with a macro-objective (MP-E 65 mm)",
         "label": "S1 Video"
       },
       {
         "capture_fps": 3200,
-        "content": "Slow-motion jump sequences of Laemophloeus biguttatus showing loading, latch-decoupling, launch and airborne phases",
+        "content": "Slow motion sequences of Laemophloeus biguttatus jumping behavior showing loading, latch-decoupling and launch phases",
         "file": "journal.pone.0256509.s004.mp4",
-        "fps_evidence": "Jumps were filmed at a rate of 3,200 frames s-1 at a pixel resolution of 1280 x 720",
+        "fps_evidence": "Jumps were filmed at a rate of 3,200 frames s−1 at a pixel resolution of 1280 x 720 using a Phantom Miro LC321s (Vision Research, Wayne, New Jersey, US)",
         "label": "S2 Video"
       },
       {
         "capture_fps": 60000,
-        "content": "High-speed initiation of jump showing hind legs detaching from substrate as first movement",
+        "content": "Slow motion initiation of jump showing hind legs detaching from substrate as first movement",
         "file": "journal.pone.0256509.s004.mp4",
-        "fps_evidence": "an additional eight jumps from two individuals were filmed at 60,000 frames s-1",
+        "fps_evidence": "To confirm that 3,200 frames s−1 was fast enough to resolve all jump-related rapid movements, an additional eight jumps from two individuals were filmed at 60,000 frames s−1",
         "label": "S2 Video"
       }
     ]
@@ -562,17 +617,17 @@
     {
       "field": "video journal.pone.0256509.s003.mp4 fps",
       "ok": true,
-      "note": "fps quote found"
+      "note": "fps quote found and states the number"
     },
     {
       "field": "video journal.pone.0256509.s004.mp4 fps",
       "ok": true,
-      "note": "fps quote found"
+      "note": "fps quote found and states the number"
     },
     {
       "field": "video journal.pone.0256509.s004.mp4 fps",
       "ok": true,
-      "note": "fps quote found"
+      "note": "fps quote found and states the number"
     },
     {
       "field": "column Airborne_time range",
@@ -635,12 +690,17 @@
       "note": "relative (quote found)"
     },
     {
-      "field": "claim 'over a period of 0.22 ± 0.17s.'",
+      "field": "column velocity.max.BL unit",
+      "ok": true,
+      "note": "unit 'BL/s' is not absolute: kept for table checks, not used for pairing"
+    },
+    {
+      "field": "claim 'arching their body while gripping the substrate wi'",
       "ok": true,
       "note": "quote and value found in the PDF"
     },
     {
-      "field": "claim 'takeoff velocities of 0.47 ± 0.15'",
+      "field": "claim 'Larvae reached takeoff velocities of 0.47 ± 0.15 m'",
       "ok": true,
       "note": "quote and value found in the PDF"
     },
@@ -655,47 +715,52 @@
       "note": "quote and value found in the PDF"
     },
     {
-      "field": "claim '7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically'",
+      "field": "claim '7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically d'",
       "ok": true,
       "note": "quote and value found in the PDF"
     },
     {
-      "field": "claim '7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically'",
+      "field": "claim '7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically d'",
       "ok": true,
       "note": "quote and value found in the PDF"
     },
     {
-      "field": "claim 'averaging 5.5 ± 14.4'",
+      "field": "claim 'resulted in a change in body angle (head-to-poster'",
       "ok": true,
       "note": "quote and value found in the PDF"
     },
     {
-      "field": "claim 'averaged 1.4 ± 0.8'",
+      "field": "claim 'between the first leg movement and the point at wh'",
       "ok": true,
       "note": "quote and value found in the PDF"
     },
     {
-      "field": "claim 'from near horizontal to 149.5 ± 16.7 degrees.'",
+      "field": "claim 'During the latch-decoupling phase the body of the '",
       "ok": true,
       "note": "quote and value found in the PDF"
     },
     {
-      "field": "claim 'continues to arch further to 124.1 ± 29.6 degrees.'",
+      "field": "claim 'averaged 1.4 ± 0.8 x 10-3 s.'",
       "ok": true,
       "note": "quote and value found in the PDF"
     },
     {
-      "field": "claim 'rapidly arched their body even further to 79.6 ± 2'",
+      "field": "claim 'When pooled, the combined latch-decoupling and lau'",
       "ok": true,
       "note": "quote and value found in the PDF"
     },
     {
-      "field": "claim 'reached a maximum acceleration of 89.5 ± 34.5'",
+      "field": "claim 'the larvae rapidly arched their body even further '",
       "ok": true,
       "note": "quote and value found in the PDF"
     },
     {
-      "field": "claim 'with the fastest takeoff velocity reaching 0.87'",
+      "field": "claim 'reached a maximum acceleration of 89.5 ± 34.5 m s-'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'with the fastest takeoff velocity reaching 0.87 m '",
       "ok": true,
       "note": "quote and value found in the PDF"
     },
@@ -705,7 +770,7 @@
       "note": "quote and value found in the PDF"
     },
     {
-      "field": "claim 'larvae were airborne for 1.3 ± 0.7'",
+      "field": "claim 'Over the course of the jump larvae were airborne f'",
       "ok": true,
       "note": "quote and value found in the PDF"
     },
@@ -715,7 +780,7 @@
       "note": "quote and value found in the PDF"
     },
     {
-      "field": "claim 'combined latch-decoupling and launch phases lasted'",
+      "field": "claim 'the longest jumping distance was about 5 cm, horiz'",
       "ok": true,
       "note": "quote and value found in the PDF"
     }
@@ -742,7 +807,7 @@
       "si_factor": null
     },
     "Bodylengthm": {
-      "evidence": "",
+      "evidence": "#estimates the body length of the larva from the first tracked frame",
       "name": "Bodylengthm",
       "quantity": "body_length",
       "uncertainty_kind": "not_an_uncertainty",
@@ -752,7 +817,7 @@
       "si_factor": 1.0
     },
     "BodyMasskg": {
-      "evidence": "",
+      "evidence": "Due to the sensitivity of the balance used, average mass was used for all jump calculations, since mass values could not be associated with individual beetles.",
       "name": "BodyMasskg",
       "quantity": "mass",
       "uncertainty_kind": "not_an_uncertainty",
@@ -762,7 +827,7 @@
       "si_factor": null
     },
     "Load_time": {
-      "evidence": "",
+      "evidence": "Load_time<-ReleaseFrame/fps",
       "name": "Load_time",
       "quantity": "other_duration",
       "uncertainty_kind": "not_an_uncertainty",
@@ -772,7 +837,7 @@
       "si_factor": 1.0
     },
     "Load.displacement.max": {
-      "evidence": "",
+      "evidence": "#calculates the max displacement during the loading phase",
       "name": "Load.displacement.max",
       "quantity": "other_length",
       "uncertainty_kind": "not_an_uncertainty",
@@ -782,7 +847,7 @@
       "si_factor": 1.0
     },
     "Latch_time": {
-      "evidence": "",
+      "evidence": "Latch_time<-(LaunchFrame-ReleaseFrame)/fps",
       "name": "Latch_time",
       "quantity": "other_duration",
       "uncertainty_kind": "not_an_uncertainty",
@@ -792,7 +857,7 @@
       "si_factor": 1.0
     },
     "Launch_time": {
-      "evidence": "",
+      "evidence": "Launch_time<-(TakeoffFrame-LaunchFrame)/fps",
       "name": "Launch_time",
       "quantity": "other_duration",
       "uncertainty_kind": "not_an_uncertainty",
@@ -802,7 +867,7 @@
       "si_factor": 1.0
     },
     "LatchLaunch.displacement.max": {
-      "evidence": "",
+      "evidence": "#calculates the max displacement during the latch release phase (also subtracts displacement that occured during previous phase)",
       "name": "LatchLaunch.displacement.max",
       "quantity": "other_length",
       "uncertainty_kind": "not_an_uncertainty",
@@ -812,7 +877,7 @@
       "si_factor": 1.0
     },
     "Airborne_time": {
-      "evidence": "",
+      "evidence": "Airborne_time<-(nrow(displacement.dataframe)-TakeoffFrame)/fps",
       "name": "Airborne_time",
       "quantity": "airborne_time",
       "uncertainty_kind": "not_an_uncertainty",
@@ -822,7 +887,7 @@
       "si_factor": 1.0
     },
     "TakeoffAngleDeg": {
-      "evidence": "",
+      "evidence": "#calculates takeoff angle",
       "name": "TakeoffAngleDeg",
       "quantity": "takeoff_angle",
       "uncertainty_kind": "not_an_uncertainty",
@@ -832,7 +897,7 @@
       "si_factor": 1.0
     },
     "DistanceRawm": {
-      "evidence": "",
+      "evidence": "#Estimates horizontal distance traveled over course of jump",
       "name": "DistanceRawm",
       "quantity": "jump_distance",
       "uncertainty_kind": "not_an_uncertainty",
@@ -842,7 +907,7 @@
       "si_factor": 1.0
     },
     "HeightRawm": {
-      "evidence": "",
+      "evidence": "#manually calculates maximum vertical distance traveled over course of jump",
       "name": "HeightRawm",
       "quantity": "jump_height",
       "uncertainty_kind": "not_an_uncertainty",
@@ -852,7 +917,7 @@
       "si_factor": 1.0
     },
     "DistanceRaw_bodyProp": {
-      "evidence": "",
+      "evidence": "#converts the estimate of horizontal distance traveled from meters to number of body lengths",
       "name": "DistanceRaw_bodyProp",
       "quantity": "jump_distance",
       "uncertainty_kind": "not_an_uncertainty",
@@ -862,7 +927,7 @@
       "si_factor": null
     },
     "HeightRaw_bodyProp": {
-      "evidence": "",
+      "evidence": "#converts the estimate of vertical distance traveled from meters to number of body lengths",
       "name": "HeightRaw_bodyProp",
       "quantity": "jump_height",
       "uncertainty_kind": "not_an_uncertainty",
@@ -872,37 +937,37 @@
       "si_factor": null
     },
     "A": {
-      "evidence": "",
+      "evidence": "#Code for calculating the coefficients (A,B,and C) for the quadratic equation describing the trajectory in the form of y= AX^2 +BX +C",
       "name": "A",
       "quantity": "other",
       "uncertainty_kind": "not_an_uncertainty",
       "uncertainty_of": null,
-      "unit": "",
+      "unit": "1/m",
       "index": 15,
       "si_factor": null
     },
     "B": {
-      "evidence": "",
+      "evidence": "#Code for calculating the coefficients (A,B,and C) for the quadratic equation describing the trajectory in the form of y= AX^2 +BX +C",
       "name": "B",
       "quantity": "other",
       "uncertainty_kind": "not_an_uncertainty",
       "uncertainty_of": null,
-      "unit": "",
+      "unit": "ratio",
       "index": 16,
       "si_factor": null
     },
     "C": {
-      "evidence": "",
+      "evidence": "#Code for calculating the coefficients (A,B,and C) for the quadratic equation describing the trajectory in the form of y= AX^2 +BX +C",
       "name": "C",
       "quantity": "other",
       "uncertainty_kind": "not_an_uncertainty",
       "uncertainty_of": null,
-      "unit": "",
+      "unit": "m",
       "index": 17,
-      "si_factor": null
+      "si_factor": 1.0
     },
     "DistanceTrajm": {
-      "evidence": "",
+      "evidence": "#Estimates the distance traveled using the quadratic formula",
       "name": "DistanceTrajm",
       "quantity": "jump_distance",
       "uncertainty_kind": "not_an_uncertainty",
@@ -912,7 +977,7 @@
       "si_factor": 1.0
     },
     "HeightTrajm": {
-      "evidence": "",
+      "evidence": "#estimates height of jump by calculating the vertex of the parabola",
       "name": "HeightTrajm",
       "quantity": "jump_height",
       "uncertainty_kind": "not_an_uncertainty",
@@ -922,7 +987,7 @@
       "si_factor": 1.0
     },
     "DistanceTraj_bodyProp": {
-      "evidence": "",
+      "evidence": "DistanceTraj_bodyProp<-DistanceTrajm/Bodylengthm",
       "name": "DistanceTraj_bodyProp",
       "quantity": "jump_distance",
       "uncertainty_kind": "not_an_uncertainty",
@@ -932,7 +997,7 @@
       "si_factor": null
     },
     "HeightTraj_bodyProp": {
-      "evidence": "",
+      "evidence": "HeightTraj_bodyProp<-HeightTrajm/Bodylengthm",
       "name": "HeightTraj_bodyProp",
       "quantity": "jump_height",
       "uncertainty_kind": "not_an_uncertainty",
@@ -942,17 +1007,17 @@
       "si_factor": null
     },
     "velocity.max": {
-      "evidence": "",
+      "evidence": "Velocity and acceleration curves were calculated by taking the first and second derivatives of the displacement splines, respectively, and takeoff velocities and accelerations were estimated as the maximum values of these curves.",
       "name": "velocity.max",
       "quantity": "takeoff_speed",
       "uncertainty_kind": "not_an_uncertainty",
       "uncertainty_of": null,
-      "unit": "m s-1",
+      "unit": "m/s",
       "index": 22,
       "si_factor": 1.0
     },
     "VelError": {
-      "evidence": "VelError<-sqrt((ScaleSensitivitym/LatchLaunch.displacement.max)^2+((1/fps)/(Latch_time+Launch_time))^2)",
+      "evidence": "#Calculates estimates of error propogation ratios ... # multiply by mean value of measurement to get magnitude of uncertainty",
       "name": "VelError",
       "quantity": "speed_uncertainty",
       "uncertainty_kind": "relative",
@@ -962,17 +1027,17 @@
       "si_factor": null
     },
     "acceleration.max": {
-      "evidence": "",
+      "evidence": "Velocity and acceleration curves were calculated by taking the first and second derivatives of the displacement splines, respectively, and takeoff velocities and accelerations were estimated as the maximum values of these curves.",
       "name": "acceleration.max",
       "quantity": "acceleration",
       "uncertainty_kind": "not_an_uncertainty",
       "uncertainty_of": null,
-      "unit": "m s-2",
+      "unit": "m/s^2",
       "index": 24,
       "si_factor": 1.0
     },
     "AccelError": {
-      "evidence": "AccelError<-sqrt((ScaleSensitivitym/LatchLaunch.displacement.max)^2+((2/fps)/(Latch_time+Launch_time))^2)",
+      "evidence": "#Calculates estimates of error propogation ratios ... # multiply by mean value of measurement to get magnitude of uncertainty",
       "name": "AccelError",
       "quantity": "other",
       "uncertainty_kind": "relative",
@@ -982,7 +1047,7 @@
       "si_factor": null
     },
     "EnergyJ": {
-      "evidence": "",
+      "evidence": "#calculates the maximum kinetic energy during the jump",
       "name": "EnergyJ",
       "quantity": "other",
       "uncertainty_kind": "not_an_uncertainty",
@@ -992,7 +1057,7 @@
       "si_factor": null
     },
     "EnergyError": {
-      "evidence": "EnergyError<-sqrt((BalanceSensitivitykg/BodyMasskg)^2+ VelError^2)",
+      "evidence": "#Calculates estimates of error propogation ratios ... # multiply by mean value of measurement to get magnitude of uncertainty",
       "name": "EnergyError",
       "quantity": "other",
       "uncertainty_kind": "relative",
@@ -1002,7 +1067,7 @@
       "si_factor": null
     },
     "launchPower": {
-      "evidence": "",
+      "evidence": "#calculated the power of the launch phase of the jump (combines latch and launch times and displacements, since some movement is occuring during the latch release phase)",
       "name": "launchPower",
       "quantity": "other",
       "uncertainty_kind": "not_an_uncertainty",
@@ -1012,7 +1077,7 @@
       "si_factor": null
     },
     "launchPowerError": {
-      "evidence": "launchPowerError<-sqrt(((3/fps)/(Launch_time+Latch_time))^2+(2*ScaleSensitivitym/LatchLaunch.displacement.max)^2+(BalanceSensitivitykg/BodyMasskg)^2)",
+      "evidence": "#Calculates estimates of error propogation ratios ... # multiply by mean value of measurement to get magnitude of uncertainty",
       "name": "launchPowerError",
       "quantity": "other",
       "uncertainty_kind": "relative",
@@ -1022,17 +1087,17 @@
       "si_factor": null
     },
     "launchPowerOutput": {
-      "evidence": "",
+      "evidence": "launchPowerOutput<-(launchPower/(0.30*BodyMasskg))",
       "name": "launchPowerOutput",
       "quantity": "other",
       "uncertainty_kind": "not_an_uncertainty",
       "uncertainty_of": null,
-      "unit": "W kg-1",
+      "unit": "W/kg",
       "index": 30,
       "si_factor": null
     },
     "JumpPower": {
-      "evidence": "",
+      "evidence": "#calculates the maximum power during the jump",
       "name": "JumpPower",
       "quantity": "other",
       "uncertainty_kind": "not_an_uncertainty",
@@ -1042,7 +1107,7 @@
       "si_factor": null
     },
     "JumpPowerError": {
-      "evidence": "JumpPowerError<-sqrt(((3/fps)/(Launch_time+Latch_time))^2+(2*ScaleSensitivitym/LatchLaunch.displacement.max)^2+(BalanceSensitivitykg/BodyMasskg)^2)",
+      "evidence": "#Calculates estimates of error propogation ratios ... # multiply by mean value of measurement to get magnitude of uncertainty",
       "name": "JumpPowerError",
       "quantity": "other",
       "uncertainty_kind": "relative",
@@ -1052,7 +1117,7 @@
       "si_factor": null
     },
     "LoadingBAngle": {
-      "evidence": "",
+      "evidence": "The angles of the larvae’s bodies at the end of the loading, latch-decoupling, and launch phases were measured using ImageJ’s default angle tool.",
       "name": "LoadingBAngle",
       "quantity": "body_angle",
       "uncertainty_kind": "not_an_uncertainty",
@@ -1062,7 +1127,7 @@
       "si_factor": 1.0
     },
     "ReleaseBAngle": {
-      "evidence": "",
+      "evidence": "The angles of the larvae’s bodies at the end of the loading, latch-decoupling, and launch phases were measured using ImageJ’s default angle tool.",
       "name": "ReleaseBAngle",
       "quantity": "body_angle",
       "uncertainty_kind": "not_an_uncertainty",
@@ -1072,7 +1137,7 @@
       "si_factor": 1.0
     },
     "TakeoffBAngle": {
-      "evidence": "",
+      "evidence": "The angles of the larvae’s bodies at the end of the loading, latch-decoupling, and launch phases were measured using ImageJ’s default angle tool.",
       "name": "TakeoffBAngle",
       "quantity": "body_angle",
       "uncertainty_kind": "not_an_uncertainty",
@@ -1084,7 +1149,7 @@
     "velocity.max.BL": {
       "evidence": "",
       "name": "velocity.max.BL",
-      "quantity": "other_speed",
+      "quantity": "takeoff_speed",
       "uncertainty_kind": "not_an_uncertainty",
       "uncertainty_of": null,
       "unit": "BL/s",
@@ -1097,7 +1162,7 @@
       "quantity": "acceleration",
       "uncertainty_kind": "not_an_uncertainty",
       "uncertainty_of": null,
-      "unit": "BL s-2",
+      "unit": "BL/s^2",
       "index": 37,
       "si_factor": null
     }
@@ -1107,7 +1172,7 @@
       "n_events": 29,
       "plus_minus": 0.17,
       "quantity": "other_duration",
-      "quote": "over a period of 0.22 ± 0.17s.",
+      "quote": "arching their body while gripping the substrate with their legs over a period of 0.22 ± 0.17s.",
       "spread": "sd",
       "statistic": "mean",
       "table_column": "Load_time",
@@ -1119,11 +1184,11 @@
       "n_events": 29,
       "plus_minus": 0.15,
       "quantity": "takeoff_speed",
-      "quote": "takeoff velocities of 0.47 ± 0.15",
+      "quote": "Larvae reached takeoff velocities of 0.47 ± 0.15 m s-1",
       "spread": "sd",
       "statistic": "mean",
       "table_column": "velocity.max",
-      "unit": "m s-1",
+      "unit": "m/s",
       "value": 0.47,
       "si_factor": 1.0
     },
@@ -1134,7 +1199,7 @@
       "quote": "traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontally",
       "spread": "sd",
       "statistic": "mean",
-      "table_column": "DistanceTrajm",
+      "table_column": "DistanceRawm",
       "unit": "mm",
       "value": 11.2,
       "si_factor": 0.001
@@ -1146,8 +1211,8 @@
       "quote": "traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontally",
       "spread": "sd",
       "statistic": "mean",
-      "table_column": "DistanceTraj_bodyProp",
-      "unit": "body lengths",
+      "table_column": "DistanceRaw_bodyProp",
+      "unit": "ratio",
       "value": 1.98,
       "si_factor": null
     },
@@ -1155,10 +1220,10 @@
       "n_events": 29,
       "plus_minus": 4.3,
       "quantity": "jump_height",
-      "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
+      "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically during their jumps.",
       "spread": "sd",
       "statistic": "mean",
-      "table_column": "HeightTrajm",
+      "table_column": "HeightRawm",
       "unit": "mm",
       "value": 7.9,
       "si_factor": 0.001
@@ -1167,43 +1232,19 @@
       "n_events": 29,
       "plus_minus": 0.9,
       "quantity": "jump_height",
-      "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
+      "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically during their jumps.",
       "spread": "sd",
       "statistic": "mean",
-      "table_column": "HeightTraj_bodyProp",
-      "unit": "body lengths",
+      "table_column": "HeightRaw_bodyProp",
+      "unit": "ratio",
       "value": 1.5,
       "si_factor": null
     },
     {
       "n_events": 29,
-      "plus_minus": 14.4,
-      "quantity": "other_duration",
-      "quote": "averaging 5.5 ± 14.4",
-      "spread": "sd",
-      "statistic": "mean",
-      "table_column": "Latch_time",
-      "unit": "x 10-3 s",
-      "value": 5.5,
-      "si_factor": 0.001
-    },
-    {
-      "n_events": 29,
-      "plus_minus": 0.8,
-      "quantity": "other_duration",
-      "quote": "averaged 1.4 ± 0.8",
-      "spread": "sd",
-      "statistic": "mean",
-      "table_column": "Launch_time",
-      "unit": "x 10-3 s",
-      "value": 1.4,
-      "si_factor": 0.001
-    },
-    {
-      "n_events": 29,
       "plus_minus": 16.7,
       "quantity": "body_angle",
-      "quote": "from near horizontal to 149.5 ± 16.7 degrees.",
+      "quote": "resulted in a change in body angle (head-to-posterior) from near horizontal to 149.5 ± 16.7 degrees.",
       "spread": "sd",
       "statistic": "mean",
       "table_column": "LoadingBAngle",
@@ -1213,9 +1254,21 @@
     },
     {
       "n_events": 29,
+      "plus_minus": 0.0144,
+      "quantity": "other_duration",
+      "quote": "between the first leg movement and the point at which the last legs left the ground averaging 5.5 ± 14.4 x 10-3 s in duration.",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Latch_time",
+      "unit": "s",
+      "value": 0.0055,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 29,
       "plus_minus": 29.6,
       "quantity": "body_angle",
-      "quote": "continues to arch further to 124.1 ± 29.6 degrees.",
+      "quote": "During the latch-decoupling phase the body of the larvae continues to arch further to 124.1 ± 29.6 degrees.",
       "spread": "sd",
       "statistic": "mean",
       "table_column": "ReleaseBAngle",
@@ -1225,9 +1278,33 @@
     },
     {
       "n_events": 29,
+      "plus_minus": 0.0008,
+      "quantity": "other_duration",
+      "quote": "averaged 1.4 ± 0.8 x 10-3 s.",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Launch_time",
+      "unit": "s",
+      "value": 0.0014,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 29,
+      "plus_minus": 14.3,
+      "quantity": "other_duration",
+      "quote": "When pooled, the combined latch-decoupling and launch phases lasted 6.9 ± 14.3 ms.",
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ms",
+      "value": 6.9,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 29,
       "plus_minus": 28.2,
       "quantity": "body_angle",
-      "quote": "rapidly arched their body even further to 79.6 ± 28.2 degrees prior to takeoff,",
+      "quote": "the larvae rapidly arched their body even further to 79.6 ± 28.2 degrees prior to takeoff,",
       "spread": "sd",
       "statistic": "mean",
       "table_column": "TakeoffBAngle",
@@ -1239,11 +1316,11 @@
       "n_events": 29,
       "plus_minus": 34.5,
       "quantity": "acceleration",
-      "quote": "reached a maximum acceleration of 89.5 ± 34.5",
+      "quote": "reached a maximum acceleration of 89.5 ± 34.5 m s-2",
       "spread": "sd",
       "statistic": "mean",
       "table_column": "acceleration.max",
-      "unit": "m s-2",
+      "unit": "m/s^2",
       "value": 89.5,
       "si_factor": 1.0
     },
@@ -1251,11 +1328,11 @@
       "n_events": 29,
       "plus_minus": null,
       "quantity": "takeoff_speed",
-      "quote": "with the fastest takeoff velocity reaching 0.87",
+      "quote": "with the fastest takeoff velocity reaching 0.87 m s-1",
       "spread": "none",
       "statistic": "max",
       "table_column": "velocity.max",
-      "unit": "m s-1",
+      "unit": "m/s",
       "value": 0.87,
       "si_factor": 1.0
     },
@@ -1273,39 +1350,39 @@
     },
     {
       "n_events": 29,
-      "plus_minus": 0.7,
+      "plus_minus": 0.0007,
       "quantity": "airborne_time",
-      "quote": "larvae were airborne for 1.3 ± 0.7",
+      "quote": "Over the course of the jump larvae were airborne for 1.3 ± 0.7 x 10-3 s",
       "spread": "sd",
       "statistic": "mean",
       "table_column": "Airborne_time",
-      "unit": "x 10-3 s",
-      "value": 1.3,
-      "si_factor": 0.001
+      "unit": "s",
+      "value": 0.0013,
+      "si_factor": 1.0
     },
     {
       "n_events": 29,
       "plus_minus": null,
       "quantity": "jump_distance",
-      "quote": "with the farthest horizontal jumper traveling 23.75 mm",
+      "quote": "with the farthest horizontal jumper traveling 23.75 mm (Fig 4).",
       "spread": "none",
       "statistic": "max",
-      "table_column": "DistanceTrajm",
+      "table_column": "DistanceRawm",
       "unit": "mm",
       "value": 23.75,
       "si_factor": 0.001
     },
     {
-      "n_events": 29,
-      "plus_minus": 14.3,
-      "quantity": "other_duration",
-      "quote": "combined latch-decoupling and launch phases lasted 6.9 ± 14.3 ms.",
-      "spread": "sd",
-      "statistic": "mean",
+      "n_events": 4,
+      "plus_minus": null,
+      "quantity": "jump_distance",
+      "quote": "the longest jumping distance was about 5 cm, horizontally.",
+      "spread": "none",
+      "statistic": "max",
       "table_column": null,
-      "unit": "ms",
-      "value": 6.9,
-      "si_factor": 0.001
+      "unit": "cm",
+      "value": 5.0,
+      "si_factor": 0.01
     }
   ]
 }

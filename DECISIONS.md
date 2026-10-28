@@ -32,3 +32,19 @@ Dated record of choices that affect verdicts, including those made after seeing 
   otherwise code parses the transcribed text itself (a single rate on a line saying captured/recorded/filmed).
 - **Statistic label.** A claim labelled as a single event whose value equals the mean, max or min of its table column
   is routed to the table check (code overrides the label).
+- **Plan re-proposal merge.** A re-proposal may only replace the fields the checker rejected; everything already
+  accepted is kept (re-proposals had changed unrelated claims, which made runs harder to compare).
+- **'±' convention.** When the plan leaves a claim's spread type unknown and the paper states "mean ± standard
+  deviation" (or SD/SE) somewhere, that convention is applied; otherwise the claim is NOT CHECKED.
+
+## 2026-10-28 afternoon (after the impact and documentation reviews)
+- Hardening: finite published values only; a single take-off speed column (several → ambiguous); quotes for frame
+  rate and grid size must state the number; the ± meaning needs a quote about it and a relative ± must be below 1; the
+  speed column must be 0.01–30 m/s; table checks fail closed when the printed number is not found; licence check on
+  normalised dashes; one shot's failure does not abort the audit; nothing is tracked when there is nothing to compare
+  with; right-to-left jumps mirrored for pairing.
+- Track-start gate: compared with the flight's own speed (median-filtered maximum step), not the 90th percentile of all
+  steps, which rejected short flights in long clips.
+- Verdict tolerances and track thresholds are read from `checks.toml`; dead keys removed.
+- Each verdict records the published-value range it would accept (sensitivity), replacing an unsupported "15 % / 20 %"
+  sentence in the README.

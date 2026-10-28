@@ -1,50 +1,61 @@
-# Audit agent — design (2026-10-28)
+# Audit agent — design (as built, 2026-10-28)
 
-Source: agent council (council/room1/RESULT.md, 7/7 vote for plan "Verified Auditor") plus two independent reviews
-(red-team, novelty-critic) of that plan. This file records what is built; where it departs from the council result,
-the reason is given.
+Origin: an agent council (7 members, a moderator and an evidence desk, external to this repo) followed by two
+independent reviews of its plan (red-team, novelty-critic) and, after building, two reviews of the code (impact,
+docs). Where the build departs from the council's plan, the reason is in `DECISIONS.md`.
 
 ## One sentence
 Muse Spark reads the paper, its tables and its videos and **proposes**; code **checks every proposal**, measures every
-number and returns, per claim, a verdict with evidence or a refusal naming the first failing check. Every model output is
-a row in a ledger with the check that accepted or rejected it.
+number and returns, per claim and per video shot, an outcome with its evidence or a refusal naming the first failing
+check. Every model output is a ledger row together with the check that accepted or rejected it.
 
-## Flow
-1. **Ingest (code).** Inventory of the bundle; PDF text; tables to text; zip contents listed; **licence gate G0**: no
-   CC BY / CC0 / public-domain statement in the PDF → nothing is uploaded to the Model API.
-2. **Video inventory.** Shots by cut detection (code). Montages: Spark watches the whole video and returns sections and
-   panel labels; code finds panel rectangles (coloured borders) and keeps a panel only where both agree. Per shot/panel
-   Spark reads a frame: printed frame rate, scale reference, object box.
-3. **Plan (Spark, one call, strict JSON).** File roles; meaning and unit of every table column (including what a ±
-   column means, with the quote or script line that says so); the per-event table and its id column; claims from the
-   PDF with exact quotes, whether each is an aggregate over n events; the authors' speed estimator with its quote.
-   **G1 (code):** every quote must occur in the PDF/script text (normalised whitespace), units must parse, named columns
-   must exist, values must lie in the column's range. A ± whose meaning has no supporting quote is set to UNKNOWN
-   (the verdict then uses no ±, the stricter reading) — never guessed (red-team #2).
-4. **Route per claim (code, needs-matrix).** Aggregate claims (mean ± SD over n) → TABLE CHECK (arithmetic on the
-   column the plan named, sample SD, compare at printed digits; MATCHES TABLE or NOT CHECKED with the closest value; no
-   "differs" label). Single-event rows of the per-event table → VIDEO route via pairing. Anything else → refuse with a
-   reason from a fixed vocabulary.
-5. **Per shot/panel inputs (code) before pairing** (red-team #1): frame rate (case ▸ overlay ▸ the plan's per-video
-   value) and scale (grid ▸ platform gap). A shot without both is CANNOT for the reason named, and is not paired.
-6. **Track (SAM 3.1)** from Spark's box, text prompt as fallback; quality gate; flight window; kinematics; two
-   self-checks (gravity within 10%, sideways acceleration below 10% of vertical); too-short flights refused.
-7. **Blind pairing (code).** Event geometry (angle, distance, height, airborne time) against every row of the
-   per-event table; the claimed speed is never used. Accept only if best/second-best distance ≥ margin threshold.
-8. **Re-proposal (Spark) on rejection.** When a gate rejects a proposal (panel, prompt, column map), Spark is called
-   again with the rejection reason — never with the claimed value — and proposes the next candidate. Bounded (2), every
-   round logged as plan_version v1 → v2. This is what makes the loop an agent and not a fixed pipeline; its effect is
-   measured by fault injection (caught k/N, recovered to the unmutated verdict r/k, recovered to a wrong verdict: must
-   be 0). Departure from the council result: the council kept recovery inside code only; reviewers noted that this
-   leaves no agentic behaviour to show.
-9. **Verdict (code).** Ballistic estimate decides. The authors' estimator, when the paper states it and it can be
-   coded (beetle: smoothing P-spline), is replicated and printed as a second reading together with its check on the
-   authors' own raw points; it does not vote. Departure from the council's two-estimator vote: the vote produced
-   METHOD-DEPENDENT zigzags across edited claims and needed a gate with thresholds set after viewing n=9 tracks
-   (novelty-critic #1, red-team #4).
-10. **Ledger.** One JSON per run: inputs and their hashes, commit, every model call (role, tokens, seconds, accepted or
-   rejected by which gate), every gate result, per-claim verdict. The app renders runs from ledgers (replay) and
-   labels live runs.
+## Flow (`pixels_to_proof/agent.py: run_audit`)
+1. **Ingest (code).** Inventory of the bundle with SHA-256 hashes; PDF text (reading order and layout); tables to
+   text; zips unpacked; scripts collected. The paper is the PDF that states a licence (longest text among those).
+   **G0 licence:** no CC BY / CC0 / public-domain statement (dash variants normalised, NC/ND excluded) → stop; nothing
+   is uploaded to the Model API, and the report says so.
+2. **Shots.** Cut detection per video; shots shorter than `video.min_shot_frames` are transitions. Muse Spark reads
+   frame 0 of every shot (in parallel): printed text, frame rate, scale reference, object box. Framed montage panels
+   are detected and logged; **the agent does not split montages yet** (the case-file pipeline does).
+3. **Plan (Muse Spark, one call, strict JSON):** video labels and frame rates with quotes; the event table and the
+   meaning and unit of every column (quantity types separate trajectory angle from body-posture angle); the meaning of
+   any ± column (relative or absolute) with a quote; scale reference and size with a quote; object phrase; every
+   kinematic claim with its quote, statistic, spread type and the column it summarises; the authors' speed method.
+   **G1 (code):** quotes must occur in the PDF, scripts or transcribed video text (whitespace-insensitive; passages
+   may be joined with "..."); frame-rate and grid-size quotes must state the number; a ± meaning needs a quote about
+   it and a relative ± must be below 1; speed and trajectory columns must parse to SI units within plausible ranges.
+   Rejected fields are dropped, never repaired by code.
+4. **Re-proposal.** If G1 rejected a field the audit needs (frame-rate quote, ± meaning, grid size, authors' method,
+   a claim quote), Muse Spark is called again with the checker's reasons; only the rejected fields are taken from
+   the new answer (`plan.merge`); at most `plan.max_reproposals` rounds; the best-checked version is kept.
+5. **Route per claim (code, `plan.needs`).** Statistics over events with a table column → TABLE CHECK
+   (`tablecheck.py`: mean with sample SD, max, min, median, compared at the printed digits; if the proposed column fails,
+   every other column of the same dimension is tried → MATCHES OTHER COLUMN; else NOT CHECKED with the closest values).
+   A '±' of unknown type is read with the paper's own stated convention ("mean ± standard deviation") if it states one.
+   A claim labelled single-event that equals a column statistic (≥ 2 significant digits) is routed to the table check.
+   Units the agent cannot convert, or statistics without a column → refused with a reason.
+6. **Per shot, before any tracking (G4):** an absolute take-off speed column must exist (else nothing to compare
+   with); frame rate = Spark's reading only if that number is printed on the frame, else code parses the transcribed
+   text, else the paper's rate for the file if unique; feasibility from the table's airborne times (the shot must be
+   long enough to hold a flight; the flight must span `selfcheck.min_flight_frames` at this frame rate); scale = grid
+   measured by OpenCV (if Spark saw no grid, code accepts one only if ≥ 4 lines with < 2 % spacing spread), size from
+   the plan.
+7. **Track (SAM 3.1, G5):** Spark's box, then the noun phrase, then up to two **box re-proposals** by Muse Spark given
+   the rejection reason. Quality gate: no mask-area jump (object switch), real motion, track starts at rest.
+8. **Measure and self-check (code):** skipped-frame repair (periodic only), ballistic fit, take-off at the parabola
+   root, block bootstrap, interval widened by scale, frame-rate and gravity misfit in quadrature; gravity within
+   `selfcheck.gravity_rel_tolerance`, sideways acceleration below `selfcheck.sideways_rel_tolerance`.
+9. **Blind pairing (code, G3):** trajectory geometry (angle, distance, height, airborne time; right-to-left jumps
+   mirrored) against every row; z-scored distance; the published speed is never used; accepted only if the best row is
+   `pairing.min_margin` times closer than the runner-up.
+10. **Verdict (code, G6):** the paired row's speed (finite, else CANNOT) ± its uncertainty (relative or absolute per
+   the checked plan; if unknown, both readings — different verdicts → CANNOT MEASURE) against the measured interval.
+   The ballistic estimate decides. If the authors' method is a smoothing spline with a stated parameter, an approximate
+   scipy replica on our track is printed as a second reading (it does not vote). Each verdict also records the range of
+   published values the measurement would have accepted.
+11. **Ledger and receipt.** Every Muse Spark and SAM call (role, tokens, seconds, replayed-from-cache flag), every
+   gate, every verdict; inputs' hashes; commit; `checks.toml` hash. Receipts are rendered for verdict shots. Any
+   exception inside one shot refuses that shot only.
 
-## Thresholds
-`checks.toml`, committed before final runs; its hash is written into every ledger.
+## Not done (known)
+Montage panels and platform-gap scale in the agent; a replica check on the authors' raw points; a held-out paper.
