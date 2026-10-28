@@ -59,8 +59,17 @@ hands-off beetle run gives the same verdict.
 - **Recordings inside a shot (G2).** A dissolve between two near-identical scenes (same platform, same target, a
   different spider) is invisible to pixel statistics (2–5 % of pixels change, as during a flight). Muse Spark therefore
   reads a contact sheet of every shot of at least 90 frames and proposes the separate recordings; code accepts a split
-  only if the recordings lie inside the shot, do not overlap and keep at least `video.min_shot_frames` after one tile is
-  trimmed at each inner boundary. A single recording leaves the shot unchanged.
+  only if the recordings lie inside the shot, do not overlap and are at least `video.min_shot_frames` long. A single
+  recording leaves the shot unchanged; none (a title card) leaves it whole, and it is not tracked if the frame reading
+  also finds no object. First version trimmed one tile at each inner boundary; in the first peacock run Spark widened
+  the transition by about 60 frames and the trimmed male recording ended mid-flight. Boundaries are now placed in the
+  middle of each proposed transition, and a track that ends while the object is still in the air is refused (G5: the
+  shot ends before the flight does) instead of being measured on a partial flight.
+- **Scale sanity.** A platform must protrude from the image border (its tip more than 1 % of the width inside): in the
+  first peacock run a black title card and the magnified take-off shots, where no landing target is visible, returned
+  a "gap" spanning the whole frame.
+- **Quotes across a hyphenated line break.** "take-off" broken at a line end extracts as "takeoff"; quotes are compared
+  with hyphens between letters removed on both sides (the beetle plan's 38 checks give the same results).
 - **Overlay text from two frames.** Captions are often typed in after the first frame; the frame reading now gets the
   first frame (for the object box) and a frame at 40 % of the shot (for the text).
 - **Playback speed.** "Playback N x faster" printed on a shot means one video frame stands for N camera frames; a

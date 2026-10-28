@@ -81,6 +81,8 @@ def normalise(text: str) -> str:
     t = text.replace("−", "-").replace("–", "-").replace("—", "-").replace("±", "+/-")
     t = t.replace("ﬁ", "fi").replace("ﬂ", "fl").replace(" ", " ")
     t = re.sub(r"-\s*\n\s*", "", t)            # words hyphenated across lines
+    # "take-off" broken as "take-|off" at a line end extracts as "takeoff": compare compounds without their hyphen
+    t = re.sub(r"(?<=[A-Za-z])-(?=[A-Za-z])", "", t)
     return re.sub(r"\s+", " ", t).strip().lower()
 
 

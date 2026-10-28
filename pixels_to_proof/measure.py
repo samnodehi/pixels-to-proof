@@ -28,6 +28,7 @@ class Kinematics:
     ax_rel_g: float = 0.0        # |ax_fit| / |g_fit|: free-flight self-check, independent of scale and frame rate
     end_height_mm: float = 0.0   # height at the end of the flight relative to the start (landing on a raised target)
     drag_like: str = ""          # when the flight is not free: whether the extra acceleration opposes the motion
+    truncated: bool = False      # the track ends while the object is still in the air (the shot cuts the flight)
     notes: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
@@ -113,6 +114,7 @@ def kinematics(frames: np.ndarray, cx: np.ndarray, cy: np.ndarray, capture_fps: 
         height_mm=float(y[i0:i1 + 1].max() * 1000), distance_mm=float((x[i1] - x[i0]) * 1000),
         v_max_spline=float(vmax[1]), v_max_range=(min(vmax), max(vmax)), ax_fit=float(ax_fit),
         ax_rel_g=float(abs(ax_fit) / max(abs(g_fit), 1e-9)), end_height_mm=float(y[i1] * 1000),
+        truncated=bool(i1 >= len(y) - 2 and y[-1] > lift_mm / 1000.0),
         drag_like=drag_like, notes=notes)
 
 

@@ -132,6 +132,8 @@ def platform_gap(median_gray: np.ndarray) -> GapScale:
         (rr, rx), kind = tip("R"), "rod"
     if rx - lx < w * 0.2:
         raise ValueError("platform tips not found or too close together")
+    if lx < 0.01 * w or (kind == "rod" and rx > 0.99 * w):
+        raise ValueError("no platform protrudes from the image border")
     return GapScale(left_tip_px=float(lx), right_tip_px=float(rx), left_row=lr, right_row=rr, right_kind=kind)
 
 

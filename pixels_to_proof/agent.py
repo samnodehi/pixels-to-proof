@@ -91,9 +91,10 @@ def video_units(video: Path, min_frames: int, rel: str | None = None) -> list[Un
 
 def check_split(proposal: list[dict], first: int, last: int, sampled: list[int], min_frames: int) -> tuple[list, str]:
     """Gate on Muse Spark's split of one shot into recordings. Returns ([(first, last), ...], reason); an empty list
-    means the proposal is rejected and the shot stays whole. A single recording keeps the shot as it is. At a boundary
-    between two recordings the frames up to the neighbouring sampled tile are dropped, because Spark can only place a
-    boundary to the nearest tile and the frames there may be a blend of two scenes."""
+    means the proposal is rejected and the shot stays whole. A single recording keeps the shot as it is. Spark places
+    boundaries only to the nearest tile and tends to widen the transition it sees, so each inner boundary is put in the
+    middle of the gap between two proposed recordings and the recordings meet there: a few blended frames may remain at
+    the ends, and a flight that a boundary cuts is refused later (G5: the shot ends before the flight does)."""
     recs = sorted((int(r["first_frame"]), int(r["last_frame"])) for r in proposal)
     if not recs:
         return [], "no recording proposed; the shot is kept as it is"
@@ -105,14 +106,13 @@ def check_split(proposal: list[dict], first: int, last: int, sampled: list[int],
             return [], f"recording {a}-{b} is outside the shot {first}-{last}"
         if nxt and b >= nxt[0]:
             return [], f"recordings {a}-{b} and {nxt[0]}-{nxt[1]} overlap"
-    out = []
-    for i, (a, b) in enumerate(recs):
-        a = first if i == 0 else min(max(a, first), last) + step
-        b = last if i == len(recs) - 1 else max(min(b, last), first) - step
+    cuts = [(b + nxt_a + 1) // 2 for (_, b), (nxt_a, _) in zip(recs, recs[1:])]
+    out = list(zip([first] + cuts, [c - 1 for c in cuts] + [last]))
+    for (a, b), r in zip(out, recs):
         if b - a + 1 < min_frames:
-            return [], f"recording {recs[i][0]}-{recs[i][1]} leaves fewer than {min_frames} frames after trimming"
-        out.append((a, b))
-    return out, f"{len(out)} recordings: " + ", ".join(f"{a}-{b}" for a, b in out)
+            return [], f"recording {r[0]}-{r[1]} is shorter than {min_frames} frames"
+    return out, f"{len(out)} recordings: " + ", ".join(f"{a}-{b}" for a, b in out) + \
+        " (boundaries in the middle of each proposed transition)"
 
 
 def split_stage(path: Path, rel: str, units: list[Unit], out: Path, led: Ledger, min_frames: int) -> list[Unit]:
@@ -151,7 +151,9 @@ def split_stage(path: Path, rel: str, units: list[Unit], out: Path, led: Ledger,
         recs, why = check_split(prop["recordings"] if prop else [], u.first, u.last, sampled[u.shot], min_frames)
         led.gate("G2 recordings", bool(recs), f"shot {u.shot} ({u.first}-{u.last}): {why}"
                  + (f"; Spark: {prop['evidence'][:120]}" if prop else ""), ref=rel, on=call)
-        if len(recs) <= 1:
+        if prop is not None and not prop["recordings"]:
+            result.append(Unit(video=u.video, shot=u.shot, first=u.first, last=u.last, label="no recording proposed"))
+        elif len(recs) <= 1:
             result.append(u)
         else:
             result += [Unit(video=u.video, shot=u.shot, first=a, last=b, rec=k + 1) for k, (a, b) in enumerate(recs)]
@@ -443,13 +445,18 @@ def measure_unit(bundle: Path, u: dict, inputs: dict, phrase: str, out: Path, le
                     "min_travel_body_sizes": th["track"]["min_travel_body_sizes"]}))
     for a in tm["attempts"]:
         i = led.model("track", meta.SAM, None, a.get("seconds", 0.0), f"{a['prompt']}: "
-                      + (f"{a['quality']['frames']} frames tracked" if a.get("quality") else "no track"), ref=uid,
+                      + (f"{a['quality'].get('frames', 0)} frames tracked" if a.get("quality") else "no track"), ref=uid,
                       cached=a.get("cached", False))
         led.gate("G5 track", a["accepted"], f"{a['prompt']}: " + ("accepted" if a["accepted"] else a["reason"]),
                  ref=uid, on=i)
     if tm["pts"] is None:
         return {"ok": False, "reason": "no usable track: " + "; ".join(a["reason"] for a in tm["attempts"])}
     k = tm["k"]
+    if k.truncated:
+        led.gate("G5 track", False, f"the flight is still under way at the last frame of the shot (frame {k.landing_frame}): "
+                                    "the shot boundary cuts the flight, so its end, distance and height are unknown",
+                 ref=uid)
+        return {"ok": False, "reason": "the shot ends before the flight does"}
     g_ok = abs(k.g_fit_rel_err) <= th["selfcheck"]["gravity_rel_tolerance"]
     s_ok = k.ax_rel_g <= th["selfcheck"]["sideways_rel_tolerance"]
     led.gate("G5 gravity", g_ok, f"{k.g_fit:.2f} m/s^2 from the flight ({k.g_fit_rel_err:+.1%} vs 9.81)", ref=uid)
@@ -471,6 +478,12 @@ def _audit_unit(bundle: Path, u: dict, cp: planmod.CheckedPlan, table, et, id_co
         led.gate("G4 comparison", False, "no single, absolute take-off speed column in an event table: nothing to "
                                          "compare a video measurement with, so the shot is not tracked", ref=uid)
         vrow.update(verdict=verdict.CANNOT_MEASURE, reason="no table of single-event speeds to compare with",
+                    stage="inputs")
+        return vrow
+    if u["unit"].get("label") == "no recording proposed" and not u["frame_reading"].get("object_box"):
+        led.gate("G2 recordings", False, "no recording in this shot: Muse Spark saw none on the contact sheet and no "
+                                         "moving object on its first frame; not tracked", ref=uid)
+        vrow.update(verdict=verdict.CANNOT_MEASURE, reason="no recording in this shot (e.g. a title card)",
                     stage="inputs")
         return vrow
     inputs = unit_inputs(u, cp, table, out, led, bundle)

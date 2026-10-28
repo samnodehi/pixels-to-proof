@@ -198,12 +198,12 @@ def test_split_proposal_gate():
     sampled = list(range(173, 572, 8))
     recs, _ = check_split([{"first_frame": 181, "last_frame": 365}, {"first_frame": 405, "last_frame": 563}],
                           173, 571, sampled, 30)
-    assert recs == [(173, 357), (413, 571)]          # outer edges kept, inner boundaries trimmed by one tile
+    assert recs == [(173, 384), (385, 571)]          # outer edges kept, boundary in the middle of the transition
     assert check_split([{"first_frame": 173, "last_frame": 571}], 173, 571, sampled, 30)[0] == [(173, 571)]
     assert check_split([{"first_frame": 173, "last_frame": 400}, {"first_frame": 390, "last_frame": 571}],
                        173, 571, sampled, 30)[0] == []                       # overlap
-    assert check_split([{"first_frame": 173, "last_frame": 200}, {"first_frame": 210, "last_frame": 571}],
-                       173, 571, sampled, 30)[0] == []                       # too short after trimming
+    assert check_split([{"first_frame": 173, "last_frame": 190}, {"first_frame": 200, "last_frame": 571}],
+                       173, 571, sampled, 30)[0] == []                       # too short
     assert check_split([{"first_frame": 100, "last_frame": 300}, {"first_frame": 320, "last_frame": 571}],
                        173, 571, sampled, 30)[0] == []                       # outside the shot
 
@@ -275,3 +275,13 @@ def test_table_check_subset_and_circular_mean():
     assert r["outcome"] == tablecheck.MATCHES and r["stats"] == "circular" and r["n_rows"] == 3
     fem = dict(claim, value=6.0, quote="females 6.0 deg", row_filter={"column": "sex", "value": "female"})
     assert tablecheck.check(fem, t, cols)["outcome"] == tablecheck.MATCHES
+
+
+def test_flight_cut_by_the_shot_end_is_flagged():
+    from pixels_to_proof import measure
+    fps, n, mm = 1250.0, 90, 0.025
+    t = np.arange(n) / fps
+    tf = np.clip(t - 0.02, 0, None)
+    x, y = 0.6 * tf, 0.7 * tf - 0.5 * 9.80665 * tf ** 2          # still rising when the clip ends
+    k = measure.kinematics(np.arange(n), x * 1000 / mm + 100, 900 - y * 1000 / mm, fps, mm)
+    assert k.truncated

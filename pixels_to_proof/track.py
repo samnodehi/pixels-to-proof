@@ -135,7 +135,7 @@ def main_track(result: VideoSegmentationResult) -> tuple[str, list[Point]]:
 def quality(points: list[Point], max_area_jump: float = 0.6, min_travel_body_sizes: float = 2.0) -> dict:
     """Cheap sanity checks on a track before any physics is done on it."""
     if len(points) < 20:
-        return {"ok": False, "reason": f"only {len(points)} tracked frames"}
+        return {"ok": False, "frames": len(points), "reason": f"only {len(points)} tracked frames"}
     area = np.array([p.area for p in points], float)
     jumps = np.abs(np.diff(area)) / np.maximum(area[:-1], 1)
     worst = float(jumps.max()) if len(jumps) else 0.0
