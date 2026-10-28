@@ -78,3 +78,24 @@ def read_frame(png: Path, width: int, height: int) -> tuple[dict, dict]:
     return _structured([{"type": "input_image", "image_url": url},
                         {"type": "input_text", "text": FRAME_PROMPT.format(w=width, h=height)}],
                        "frame_reading", FRAME_SCHEMA)
+
+
+BOX_SCHEMA = {"type": "object", "additionalProperties": False,
+              "properties": {"object_box": {"type": "array", "items": {"type": "integer"}},
+                             "what_is_in_the_box": {"type": "string"},
+                             "why_the_previous_failed": {"type": "string"}},
+              "required": ["object_box", "what_is_in_the_box", "why_the_previous_failed"]}
+
+REBOX_PROMPT = (
+    "This is frame 0 of a scientific high-speed video ({w}x{h} px, origin top-left). A tracker was started on the "
+    "moving animal '{phrase}' and its result was rejected by an automatic check: {reason}. Previous box(es): {boxes}. "
+    "Look again and give a tight box [x1, y1, x2, y2] around the animal that later jumps, not around the background, "
+    "a shadow, a label or the substrate. Say what is in your box and why the previous attempt likely failed.")
+
+
+def repropose_box(png: Path, width: int, height: int, phrase: str, reason: str, boxes: list) -> tuple[dict, dict]:
+    url = "data:image/png;base64," + base64.b64encode(png.read_bytes()).decode()
+    return _structured([{"type": "input_image", "image_url": url},
+                        {"type": "input_text", "text": REBOX_PROMPT.format(w=width, h=height, phrase=phrase,
+                                                                            reason=reason, boxes=boxes)}],
+                       "rebox", BOX_SCHEMA)

@@ -47,6 +47,61 @@ def _gap_evidence(frame_png: Path, gap: scale.GapScale, out: Path) -> None:
     cv2.imwrite(str(out), img)
 
 
+def track_and_measure(clip: Path, frame_read: dict, phrase: str, fps: float, mm_per_px: float, out_dir: Path,
+                      repropose=None, max_reproposals: int = 0) -> dict:
+    """SAM 3.1 tracks the object (Spark's frame-0 box first, the noun phrase second); each track passes the quality
+    gate and the flight fit or is rejected with a reason. `repropose(attempts)` may return one more (label, prompt)
+    after a rejection (the agent asks Spark for a new box); it is called at most `max_reproposals` times."""
+    h, w = cv2.imread(str(out_dir / "frame0.png")).shape[:2] if (out_dir / "frame0.png").exists() else \
+        (int(cv2.VideoCapture(str(clip)).get(cv2.CAP_PROP_FRAME_HEIGHT)),
+         int(cv2.VideoCapture(str(clip)).get(cv2.CAP_PROP_FRAME_WIDTH)))
+    box = frame_read.get("object_box") or []
+    prompts = []
+    if len(box) == 4:   # Spark's grounding on frame 0 tells SAM which object to follow
+        prompts.append(("box from Muse Spark", track.box_prompt(box, (w, h))))
+    prompts.append((f"text '{phrase}'", phrase))
+    n_frames = int(cv2.VideoCapture(str(clip)).get(cv2.CAP_PROP_FRAME_COUNT))
+    file_id = None
+    attempts, chosen, skipped = [], None, []
+    n, extra = 0, 0
+    while n < len(prompts):
+        how, prompt = prompts[n]
+        tfile = out_dir / f"track_{n}.json"
+        result_ok = True
+        if not tfile.exists():
+            file_id = file_id or meta.upload(clip, "video/mp4")
+            try:
+                result = track.segment(file_id, prompt)
+                _, pts_n = track.main_track(result)
+                track.save_track(pts_n, tfile)
+            except (LookupError, RuntimeError) as exc:
+                attempts.append({"prompt": how, "accepted": False, "reason": str(exc)})
+                result_ok = False
+        if result_ok:
+            pts_n = track.load_track(tfile)
+            quality = track.quality(pts_n)
+            if not quality["ok"]:
+                attempts.append({"prompt": how, "accepted": False, "reason": quality["reason"], "quality": quality})
+            else:
+                try:
+                    cx, cy = np.array([p.cx for p in pts_n]), np.array([p.cy for p in pts_n])
+                    f, skipped = measure.repair_dropped_frames(np.array([p.frame for p in pts_n]), cx, cy, mm_per_px)
+                    k = measure.kinematics(f, cx, cy, fps, mm_per_px)
+                    attempts.append({"prompt": how, "accepted": True, "quality": quality})
+                    chosen = (pts_n, k)
+                    break
+                except ValueError as exc:
+                    attempts.append({"prompt": how, "accepted": False, "reason": str(exc), "quality": quality})
+        n += 1
+        if n == len(prompts) and repropose is not None and extra < max_reproposals:
+            nxt = repropose(attempts)
+            extra += 1
+            if nxt is not None:
+                prompts.append(nxt)
+    return {"attempts": attempts, "n_frames": n_frames, "pts": chosen[0] if chosen else None,
+            "k": chosen[1] if chosen else None, "skipped": skipped}
+
+
 def _cannot(log: dict, case: dict, out_dir: Path, reason: str) -> dict:
     claim = case["claim"]
     nan = float("nan")
@@ -158,45 +213,13 @@ def run(case_file: Path, out_dir: Path) -> dict:
     # 5-6. SAM 3.1 tracks the object; kinematics are computed per prompt attempt. A track that never leaves
     # the ground or whose mask area jumps (SAM switched to background) is rejected and the next prompt is tried.
     phrase = case.get("object_phrase") or paper.get("object_noun_phrase", "object")
-    box = frame_read.get("object_box") or []
-    prompts = []
-    if len(box) == 4:   # Spark's grounding on frame 0 tells SAM which object to follow
-        prompts.append(("box from Muse Spark", track.box_prompt(box, (w, h))))
-    prompts.append((f"text '{phrase}'", phrase))
     claim = case["claim"]
-    n_frames = int(cv2.VideoCapture(str(clip)).get(cv2.CAP_PROP_FRAME_COUNT))
-    file_id = None
-    attempts, chosen = [], None
-    for n, (how, prompt) in enumerate(prompts):
-        tfile = out_dir / f"track_{n}.json"
-        if not tfile.exists():
-            file_id = file_id or meta.upload(clip, "video/mp4")
-            try:
-                result = track.segment(file_id, prompt)
-                _, pts_n = track.main_track(result)
-                track.save_track(pts_n, tfile)
-            except (LookupError, RuntimeError) as exc:
-                attempts.append({"prompt": how, "accepted": False, "reason": str(exc)})
-                continue
-        pts_n = track.load_track(tfile)
-        quality = track.quality(pts_n)
-        if not quality["ok"]:
-            attempts.append({"prompt": how, "accepted": False, "reason": quality["reason"], "quality": quality})
-            continue
-        try:
-            cx, cy = np.array([p.cx for p in pts_n]), np.array([p.cy for p in pts_n])
-            f, skipped = measure.repair_dropped_frames(np.array([p.frame for p in pts_n]), cx, cy, mm_per_px)
-            k = measure.kinematics(f, cx, cy, fps, mm_per_px)
-        except ValueError as exc:
-            attempts.append({"prompt": how, "accepted": False, "reason": str(exc), "quality": quality})
-            continue
-        attempts.append({"prompt": how, "accepted": True, "quality": quality})
-        chosen = (pts_n, k)
-        log["stages"]["time"]["skipped_frames"] = {"count": len(skipped), "at_track_index": skipped}
-        break
-    log["stages"]["track"] = {"frames_in_clip": n_frames, "attempts": attempts}
-    if chosen is None:
-        return _cannot(log, case, out_dir, "no usable track: " + "; ".join(a["reason"] for a in attempts))
+    tm = track_and_measure(clip, frame_read, phrase, fps, mm_per_px, out_dir)
+    log["stages"]["track"] = {"frames_in_clip": tm["n_frames"], "attempts": tm["attempts"]}
+    if tm["pts"] is None:
+        return _cannot(log, case, out_dir, "no usable track: " + "; ".join(a["reason"] for a in tm["attempts"]))
+    log["stages"]["time"]["skipped_frames"] = {"count": len(tm["skipped"]), "at_track_index": tm["skipped"]}
+    chosen = (tm["pts"], tm["k"])
     pts, k = chosen
     log["stages"]["track"]["frames_tracked"] = len(pts)
     mid, lo, hi = measure.speed_interval(k, scale_rel_unc)

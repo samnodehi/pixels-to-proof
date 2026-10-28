@@ -1,0 +1,24 @@
+# Thresholds of every gate the audit agent applies. Committed before final runs; the SHA-256 of this file is
+# written into every run ledger. Changing a value after seeing a result must be recorded in DECISIONS.md.
+
+[selfcheck]
+gravity_rel_tolerance = 0.10        # fitted free-fall acceleration within 10% of 9.81 m/s^2
+sideways_rel_tolerance = 0.10       # |horizontal accel| / |vertical accel| below 10%
+min_flight_frames = 20              # shorter flights cannot verify the time base
+
+[track]
+max_area_jump = 0.60                # mask area change between frames (SAM switched objects)
+min_travel_body_sizes = 2.0         # the object must travel at least twice its size
+
+[video]
+min_shot_frames = 30                # shots shorter than this are transitions, not recordings
+
+[pairing]
+min_margin = 2.0                    # best row must be at least this many times closer than the second best
+features = ["angle", "distance", "height", "airborne_time"]
+
+[plan]
+max_reproposals = 2                 # Spark re-proposals after a gate rejection, per decision
+
+[table_check]
+sd_kind = "sample"                  # mean +/- sample standard deviation, compared at the printed digits

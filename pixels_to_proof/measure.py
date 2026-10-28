@@ -219,3 +219,18 @@ def gravity_timebase(frames: np.ndarray, cx: np.ndarray, cy: np.ndarray, mm_per_
             samples.append(np.sqrt(G / g_b))
     lo, hi = np.percentile(samples, [2.5, 97.5])
     return float(np.sqrt(G / g_frame)), float(lo), float(hi)
+
+
+def smoothing_spline_max(frames: np.ndarray, cx: np.ndarray, cy: np.ndarray, capture_fps: float, mm_per_px: float,
+                         lam: float, n_eval: int = 100) -> float:
+    """Replica of a common estimator in jumping papers (e.g. R pspline::smooth.Pspline, method=1): a penalised
+    smoothing spline of the cumulative path length over the whole track, derivative evaluated on n_eval evenly
+    spaced times, maximum taken as take-off speed. scipy's lam is matched to R's spar only up to the criterion's
+    normalisation; a replica is printed as a second reading and never decides a verdict."""
+    from scipy.interpolate import make_smoothing_spline
+    f, x, y = to_metres(frames, cx, cy, mm_per_px)
+    t = (f - f[0]) / capture_fps
+    disp = np.concatenate([[0.0], np.cumsum(np.hypot(np.diff(x), np.diff(y)))])
+    spl = make_smoothing_spline(t, disp, lam=lam)
+    tt = np.linspace(t[0], t[-1], n_eval)
+    return float(spl.derivative()(tt).max())
