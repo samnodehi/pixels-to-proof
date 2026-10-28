@@ -48,3 +48,38 @@ Dated record of choices that affect verdicts, including those made after seeing 
 - Verdict tolerances and track thresholds are read from `checks.toml`; dead keys removed.
 - Each verdict records the published-value range it would accept (sensitivity), replacing an unsupported "15 % / 20 %"
   sentence in the README.
+
+## 2026-10-28 evening (second paper: peacock spider, J Exp Biol 2025)
+Changes made while preparing the second hands-off bundle. `kinematics` was recomputed on every cached track before and
+after: none of the 48 synthetic tracks, the beetle track or the three hand-prepared spider panels changed, and a fresh
+hands-off beetle run gives the same verdict.
+- **Fades.** Shots are also split at gradual transitions (most of the picture changes and its mean brightness moves
+  across a 20-frame window). Spans that contain a hard cut, or are shorter than the window, are left to the cut
+  detector, so the beetle videos keep exactly their old shots.
+- **Recordings inside a shot (G2).** A dissolve between two near-identical scenes (same platform, same target, a
+  different spider) is invisible to pixel statistics (2–5 % of pixels change, as during a flight). Muse Spark therefore
+  reads a contact sheet of every shot of at least 90 frames and proposes the separate recordings; code accepts a split
+  only if the recordings lie inside the shot, do not overlap and keep at least `video.min_shot_frames` after one tile is
+  trimmed at each inner boundary. A single recording leaves the shot unchanged.
+- **Overlay text from two frames.** Captions are often typed in after the first frame; the frame reading now gets the
+  first frame (for the object box) and a frame at 40 % of the shot (for the text).
+- **Playback speed.** "Playback N x faster" printed on a shot means one video frame stands for N camera frames; a
+  slower or non-integer factor refuses the shot. The gravity self-check tests the reading independently (a wrong N
+  scales g by N²).
+- **Scale from a gap to a vertical target.** `scale.platform_gap` now recognises a vertical landing target at the
+  border (a straight edge over ≥ 40 % of the height with a darker solid body behind it) besides a second platform. The
+  three hand-prepared spider panels still give their old gaps.
+- **End of flight.** A flight also ends when the horizontal motion stops (three frames below 35 % of the early-flight
+  horizontal step, and the next eight frames below it on average): a landing on a raised target never brings the body
+  back below the take-off height. The rule is skipped when the early horizontal step is below ten times the track's
+  horizontal jitter (near-vertical jumps; found by the impact review, which showed a first version truncating noisy
+  near-vertical flights). The jump height is now the maximum inside the flight window.
+- **End height** (height at the end of the flight) is a pairing quantity, for tables that report it.
+- **Direction of the extra acceleration (diagnostic, no effect on verdicts).** When a self-check fails and the flight
+  decelerates sideways by at least 5 % of g, the acceleration left after removing gravity is compared with the
+  direction of motion; within 30° of straight against it, the refusal says so ("the direction air drag would have").
+  This is a direction, not a proof of drag: a wrong scale or frame rate rescales only the vertical acceleration. A drag
+  model was tried on the first peacock track and not adopted: g and the drag constant trade off against each other, so
+  the take-off speed it returns is not constrained.
+- Not changed, on purpose: a split keeps the outer ends of a shot as they are (only inner boundaries are trimmed), so a
+  shot that Spark calls one recording is never shortened.

@@ -72,6 +72,7 @@ class GapScale:
     right_tip_px: float
     left_row: int
     right_row: int
+    right_kind: str = "rod"      # "rod" (a second platform) or "wall" (a vertical landing target)
 
     @property
     def gap_px(self) -> float:
@@ -124,7 +125,43 @@ def platform_gap(median_gray: np.ndarray) -> GapScale:
         return best[0], best[1]
 
     lr, lx = tip("L")
-    rr, rx = tip("R")
+    wall = _wall_face(img, side="R")
+    if wall is not None:
+        rx, rr, kind = wall, h // 2, "wall"
+    else:
+        (rr, rx), kind = tip("R"), "rod"
     if rx - lx < w * 0.2:
         raise ValueError("platform tips not found or too close together")
-    return GapScale(left_tip_px=float(lx), right_tip_px=float(rx), left_row=lr, right_row=rr)
+    return GapScale(left_tip_px=float(lx), right_tip_px=float(rx), left_row=lr, right_row=rr, right_kind=kind)
+
+
+def _wall_face(img: np.ndarray, side: str = "R", min_rows: float = 0.4, contrast: float = 5.0,
+               min_dark: float = 20.0) -> float | None:
+    """A vertical landing target at one border: a straight vertical edge in the outer 15 % of the frame, much stronger
+    than the background texture, running unbroken over at least `min_rows` of the picture height, with a solid darker
+    body between the edge and the border. Returns the sub-pixel column of its face, or None."""
+    import cv2
+
+    h, w = img.shape
+    if side != "R":
+        x = _wall_face(img[:, ::-1].copy(), "R", min_rows, contrast, min_dark)
+        return None if x is None else float(w - 1 - x)
+    gx = np.abs(cv2.Sobel(img, cv2.CV_32F, 1, 0, ksize=3))
+    prof = gx.mean(axis=0)
+    lo, hi = int(w * 0.85), w - 2
+    x = lo + int(np.argmax(prof[lo:hi]))
+    if prof[x] < contrast * float(np.median(prof)) or w - x < max(4, int(0.005 * w)):
+        return None
+    on = gx[:, max(0, x - 2):x + 3].max(axis=1) > 0.5 * prof[x]
+    body = img[:, min(w - 1, x + 3):]
+    if float(body.std()) < 3.0 and float(body.mean()) < 25.0:
+        return None                     # a uniform black pillarbox or frame border, not an object
+    dark = body.mean(axis=1) < img[:, max(0, x - 40):max(1, x - 3)].mean(axis=1) - min_dark
+    run = best = 0
+    for v in on & dark:
+        run = run + 1 if v else 0
+        best = max(best, run)
+    if best < min_rows * h:
+        return None
+    win = np.arange(max(0, x - 3), min(w, x + 4))
+    return float(np.average(win, weights=prof[win]))

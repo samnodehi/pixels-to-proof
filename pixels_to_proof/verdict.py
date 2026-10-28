@@ -33,7 +33,7 @@ def decide(published: float, published_unc: float | None, mid: float, lo: float,
     failed = []
     if g_rel_err is not None and abs(g_rel_err) > g_tol:
         failed.append(f"gravity from the flight is {g_rel_err:+.0%} off 9.81 m/s^2, so the scale or the frame "
-                      "rate is wrong")
+                      "rate is wrong, or the flight is not free")
     if ax_rel_g is not None and ax_rel_g > free_flight_tol:
         failed.append(f"the object accelerates sideways at {ax_rel_g:.0%} of its vertical acceleration, so this "
                       "is not free flight in the image plane (drag, a tether, motion towards the camera, "

@@ -38,11 +38,13 @@ class Unit:
     crop: tuple[int, int, int, int] | None = None
     panel: int | None = None
     label: str = ""
+    rec: int | None = None    # 1-based recording within a shot that Muse Spark split (checked by code)
 
     @property
     def uid(self) -> str:
         stem = str(Path(self.video).with_suffix("")).replace("/", "_").replace("\\", "_")
-        return f"{stem}_s{self.shot}" + (f"_p{self.panel}" if self.panel is not None else "")
+        return (f"{stem}_s{self.shot}" + (f"r{self.rec}" if self.rec is not None else "")
+                + (f"_p{self.panel}" if self.panel is not None else ""))
 
 
 def _timed(fn):
@@ -79,13 +81,81 @@ def ingest_stage(bundle: Path, out: Path, led: Ledger) -> dict:
 
 
 def video_units(video: Path, min_frames: int, rel: str | None = None) -> list[Unit]:
-    starts, total, _ = shots.cuts(video)
-    bounds = list(zip(starts, starts[1:] + [total]))
+    ranges, _ = shots.ranges(video)
     units = []
-    for a, b in bounds:             # cut detection also fires inside fades; only real recordings are numbered
-        if b - a >= min_frames:
-            units.append(Unit(video=rel or video.name, shot=len(units) + 1, first=a, last=b - 1))
+    for a, b in ranges:             # cut detection also fires inside fades; only real recordings are numbered
+        if b - a + 1 >= min_frames:
+            units.append(Unit(video=rel or video.name, shot=len(units) + 1, first=a, last=b))
     return units
+
+
+def check_split(proposal: list[dict], first: int, last: int, sampled: list[int], min_frames: int) -> tuple[list, str]:
+    """Gate on Muse Spark's split of one shot into recordings. Returns ([(first, last), ...], reason); an empty list
+    means the proposal is rejected and the shot stays whole. A single recording keeps the shot as it is. At a boundary
+    between two recordings the frames up to the neighbouring sampled tile are dropped, because Spark can only place a
+    boundary to the nearest tile and the frames there may be a blend of two scenes."""
+    recs = sorted((int(r["first_frame"]), int(r["last_frame"])) for r in proposal)
+    if not recs:
+        return [], "no recording proposed; the shot is kept as it is"
+    if len(recs) == 1:
+        return [(first, last)], "one recording: the shot is kept as it is"
+    step = max(int(np.median(np.diff(sampled))) if len(sampled) > 1 else 1, 1)
+    for (a, b), nxt in zip(recs, recs[1:] + [None]):
+        if not first - step <= a <= b <= last + step:
+            return [], f"recording {a}-{b} is outside the shot {first}-{last}"
+        if nxt and b >= nxt[0]:
+            return [], f"recordings {a}-{b} and {nxt[0]}-{nxt[1]} overlap"
+    out = []
+    for i, (a, b) in enumerate(recs):
+        a = first if i == 0 else min(max(a, first), last) + step
+        b = last if i == len(recs) - 1 else max(min(b, last), first) - step
+        if b - a + 1 < min_frames:
+            return [], f"recording {recs[i][0]}-{recs[i][1]} leaves fewer than {min_frames} frames after trimming"
+        out.append((a, b))
+    return out, f"{len(out)} recordings: " + ", ".join(f"{a}-{b}" for a, b in out)
+
+
+def split_stage(path: Path, rel: str, units: list[Unit], out: Path, led: Ledger, min_frames: int) -> list[Unit]:
+    """Muse Spark looks at a contact sheet of every long shot and proposes the separate recordings in it (code-level
+    cut detection cannot see a dissolve between two near-identical scenes); code checks each proposal."""
+    long_ = [u for u in units if u.last - u.first + 1 >= 3 * min_frames]
+    if not long_:
+        return units
+    vdir = out / "videos" / str(Path(rel).with_suffix("")).replace("/", "_").replace("\\", "_")
+    vdir.mkdir(parents=True, exist_ok=True)
+    sheets, sampled = [], {}
+    for u in long_:
+        png = vdir / f"sheet_s{u.shot}.jpg"
+        meta_f = vdir / f"sheet_s{u.shot}.json"
+        if not png.exists() or not meta_f.exists():
+            meta_f.write_text(json.dumps(shots.contact_sheet(path, u.first, u.last, png)))
+        sheets.append(png)
+        sampled[u.shot] = json.loads(meta_f.read_text())
+    cache = vdir / "split.json"
+    cached = cache.exists()
+    if cached:
+        ans, usage, secs = *json.loads(cache.read_text()), 0.0
+    else:
+        (ans, usage), secs = _timed(lambda: read.split_shots(sheets, rel, [(u.first, u.last) for u in long_]))
+        cache.write_text(json.dumps([ans, usage]))
+    by_sheet = {int(s_["sheet"]): s_ for s_ in ans["shots"]}
+    call = led.model("split shots", meta.SPARK, usage, secs,
+                     f"{rel}: " + "; ".join(f"shot {u.shot}: {len(by_sheet.get(i + 1, {}).get('recordings', []))} "
+                                            "recording(s)" for i, u in enumerate(long_)), ref=rel, cached=cached)
+    result = []
+    for u in units:
+        if u not in long_:
+            result.append(u)
+            continue
+        prop = by_sheet.get(long_.index(u) + 1)
+        recs, why = check_split(prop["recordings"] if prop else [], u.first, u.last, sampled[u.shot], min_frames)
+        led.gate("G2 recordings", bool(recs), f"shot {u.shot} ({u.first}-{u.last}): {why}"
+                 + (f"; Spark: {prop['evidence'][:120]}" if prop else ""), ref=rel, on=call)
+        if len(recs) <= 1:
+            result.append(u)
+        else:
+            result += [Unit(video=u.video, shot=u.shot, first=a, last=b, rec=k + 1) for k, (a, b) in enumerate(recs)]
+    return result
 
 
 def video_stage(bundle: Path, ing: dict, out: Path, led: Ledger) -> list[dict]:
@@ -96,13 +166,17 @@ def video_stage(bundle: Path, ing: dict, out: Path, led: Ledger) -> list[dict]:
     for v in ing["inventory"].videos:
         path = bundle / v
         units = video_units(path, th["video"]["min_shot_frames"], rel=v)
-        led.step("shots", f"{v}: {len(units)} shots of >= {th['video']['min_shot_frames']} frames", ref=v)
+        led.step("shots", f"{v}: {len(units)} shots of >= {th['video']['min_shot_frames']} frames (cuts and fades)",
+                 ref=v)
+        units = split_stage(path, v, units, out, led, th["video"]["min_shot_frames"])
         for u in units:
             udir = out / "units" / u.uid
             udir.mkdir(parents=True, exist_ok=True)
-            f0 = udir / "frame0.png"
+            f0, ft = udir / "frame0.png", udir / "frame_text.png"
             if not f0.exists():
                 shots.frame_at(path, u.first, f0)
+            if not ft.exists():     # overlay text is often typed in after the first frame
+                shots.frame_at(path, u.first + int(0.4 * (u.last - u.first)), ft)
             todo.append((u, udir, f0))
 
     def readone(item):
@@ -112,7 +186,7 @@ def video_stage(bundle: Path, ing: dict, out: Path, led: Ledger) -> list[dict]:
             fr, usage = json.loads(cache.read_text())
             return fr, usage, 0.0, True
         h, w = cv2.imread(str(f0)).shape[:2]
-        (fr, usage), secs = _timed(lambda: read.read_frame(f0, w, h))
+        (fr, usage), secs = _timed(lambda: read.read_frame(f0, w, h, udir / "frame_text.png"))
         cache.write_text(json.dumps([fr, usage]))
         return fr, usage, secs, False
 
@@ -140,7 +214,9 @@ def plan_stage(ing: dict, units: list[dict], out: Path, led: Ledger) -> planmod.
     tables_text = "\n\n".join(ingest.table_digest(t) for t in ing["tables"])
     scripts_text = "\n\n".join(f"--- {name} ---\n{src[:30000]}" for name, src in ing["scripts"])
     videos_text = "\n".join(
-        f"{u['unit']['video']} shot {u['unit']['shot']} frames {u['unit']['first']}-{u['unit']['last']}"
+        f"{u['unit']['video']} shot {u['unit']['shot']}"
+        + (f" recording {u['unit']['rec']}" if u['unit'].get('rec') else "")
+        + f" frames {u['unit']['first']}-{u['unit']['last']}"
         f" ({u['n_frames']} frames): printed text '{u['frame_reading']['overlay_text']}'"
         + (f"; montage with {len(u['panels'])} framed panels" if len(u['panels']) >= 2 else "")
         for u in units)
@@ -204,6 +280,25 @@ def _overlay_fps(fr: dict) -> tuple[float | None, str]:
     return None, ""
 
 
+_SPEEDUP = re.compile(r"play\s*-?\s*back[^\n]{0,20}?(\d+(?:\.\d+)?)\s*(?:x|×|times)\s*(faster|slower)", re.I)
+
+
+def _frame_step(fr: dict) -> tuple[int | None, str]:
+    """Camera frames per video frame. A statement 'playback N x faster' on the video means the editor kept every N-th
+    camera frame (a frame-by-frame copy plays N times slower than that); 'playback - 30 frames/second' or no statement
+    means every camera frame is shown. 'N x slower' or a non-integer factor is ambiguous and refuses the shot. The
+    gravity self-check tests the reading independently: a wrong step scales the fitted g by step^2."""
+    found = {(float(m.group(1)), m.group(2).lower()) for m in _SPEEDUP.finditer(fr.get("overlay_text", ""))}
+    if not found:
+        return 1, "every camera frame shown (no speed-up stated on the video)"
+    if len(found) > 1:
+        return None, f"several playback speeds stated on the video: {sorted(found)}"
+    n, kind = found.pop()
+    if kind != "faster" or n != int(n) or n < 1:
+        return None, f"'playback {n:g}x {kind}' does not say how many camera frames a video frame stands for"
+    return int(n), f"'playback {int(n)}x faster' printed on the video: every {int(n)}th camera frame is shown"
+
+
 def _airborne_range(cp: planmod.CheckedPlan, table) -> tuple[float, float] | None:
     for c in cp.columns.values():
         if c["quantity"] == "airborne_time" and c.get("si_factor"):
@@ -213,7 +308,33 @@ def _airborne_range(cp: planmod.CheckedPlan, table) -> tuple[float, float] | Non
     return None
 
 
-def unit_inputs(u: dict, cp: planmod.CheckedPlan, table, out: Path, led: Ledger) -> dict:
+def _clip(bundle: Path, u: dict, out: Path) -> Path:
+    clip = out / "units" / u["uid"] / "clip.mp4"
+    if not clip.exists():
+        un = u["unit"]
+        shots.extract_region(bundle / un["video"], un["first"], un["last"], clip,
+                             tuple(un["crop"]) if un.get("crop") else None)
+    return clip
+
+
+def _gap_inputs(bundle: Path, u: dict, sr: dict, fps: float, src: str, out: Path, led: Ledger) -> dict:
+    """Scale from the gap between a take-off platform and a landing platform or vertical target whose separation the
+    paper (or the video) states. Both are located by code on the median frame of the shot, where the animal is gone."""
+    uid = u["uid"]
+    try:
+        gap = scale.platform_gap(shots.median_frame(_clip(bundle, u, out)))
+    except ValueError as exc:
+        led.gate("G4 scale", False, f"no measurable platform gap on this shot ({exc})", ref=uid)
+        return {"ok": False, "reason": f"no measurable platform gap on this shot ({exc})"}
+    pipeline._gap_evidence(out / "units" / uid / "frame0.png", gap, out / "units" / uid / "scale_evidence.png")
+    led.gate("G4 scale", True, f"gap from the platform tip at x={gap.left_tip_px:.0f} px to the {gap.right_kind} at "
+                               f"x={gap.right_tip_px:.1f} px = {gap.gap_px:.0f} px = {sr['size_mm']:g} mm "
+                               f"(stated: '{sr.get('evidence', '')[:80]}')", ref=uid)
+    return {"ok": True, "fps": fps, "fps_source": src, "mm_per_px": gap.mm_per_px(float(sr["size_mm"])),
+            "scale_rel_unc": gap.rel_uncertainty(), "gap_px": gap.gap_px, "band": None}
+
+
+def unit_inputs(u: dict, cp: planmod.CheckedPlan, table, out: Path, led: Ledger, bundle: Path) -> dict:
     """Frame rate and scale for one shot, checked before any tracking. Returns {'ok': False, 'reason'} or inputs."""
     th = thresholds()
     uid, fr = u["uid"], u["frame_reading"]
@@ -233,7 +354,14 @@ def unit_inputs(u: dict, cp: planmod.CheckedPlan, table, out: Path, led: Ledger)
     if fps is None:
         led.gate("G4 frame rate", False, "no frame rate printed on the shot or stated for the file", ref=uid)
         return {"ok": False, "reason": "no frame rate"}
-    led.gate("G4 frame rate", True, f"{fps:g} fps, {src}", ref=uid)
+    step, step_note = _frame_step(fr)
+    if step is None:
+        led.gate("G4 frame rate", False, step_note, ref=uid)
+        return {"ok": False, "reason": "playback speed of the shot is ambiguous"}
+    if step != 1:
+        src += f"; {step_note}, so one video frame = {step}/{fps:g} s"
+        fps = fps / step
+    led.gate("G4 frame rate", True, f"{fps:g} video frames per second of real time, {src}", ref=uid)
     n = u["n_frames"]
     rng = _airborne_range(cp, table) if table is not None else None
     if rng:
@@ -248,6 +376,8 @@ def unit_inputs(u: dict, cp: planmod.CheckedPlan, table, out: Path, led: Ledger)
             return {"ok": False, "reason": f"at {fps:g} fps a flight spans at most {rng[1] * fps:.1f} frames"}
     sr = cp.plan.get("scale_reference", {})
     kind = fr.get("reference_kind")
+    if sr.get("kind") == "platform_gap" and sr.get("size_mm"):
+        return _gap_inputs(bundle, u, sr, fps, src, out, led)
     if sr.get("kind") != "grid" or not sr.get("size_mm"):
         led.gate("G4 scale", False, f"the paper states no grid of known size (plan: {sr.get('kind')} "
                                     f"{sr.get('size_mm')} mm)", ref=uid)
@@ -283,11 +413,7 @@ def measure_unit(bundle: Path, u: dict, inputs: dict, phrase: str, out: Path, le
     th = thresholds()
     uid = u["uid"]
     udir = out / "units" / uid
-    clip = udir / "clip.mp4"
-    if not clip.exists():
-        un = u["unit"]
-        shots.extract_region(bundle / un["video"], un["first"], un["last"], clip,
-                             tuple(un["crop"]) if un.get("crop") else None)
+    clip = _clip(bundle, u, out)
     boxes = [u["frame_reading"].get("object_box")]
     img = cv2.imread(str(udir / "frame0.png"))
     h, w = img.shape[:2]
@@ -327,7 +453,8 @@ def measure_unit(bundle: Path, u: dict, inputs: dict, phrase: str, out: Path, le
     g_ok = abs(k.g_fit_rel_err) <= th["selfcheck"]["gravity_rel_tolerance"]
     s_ok = k.ax_rel_g <= th["selfcheck"]["sideways_rel_tolerance"]
     led.gate("G5 gravity", g_ok, f"{k.g_fit:.2f} m/s^2 from the flight ({k.g_fit_rel_err:+.1%} vs 9.81)", ref=uid)
-    led.gate("G5 free flight", s_ok, f"sideways acceleration {k.ax_rel_g:.1%} of vertical", ref=uid)
+    led.gate("G5 free flight", s_ok, f"sideways acceleration {k.ax_rel_g:.1%} of vertical"
+             + (f"; {k.drag_like}" if k.drag_like and not (g_ok and s_ok) else ""), ref=uid)
     if tm["skipped"]:
         led.step("skipped frames", f"{len(tm['skipped'])} frames missing at a regular interval, re-inserted", ref=uid)
     return {"ok": True, "pts": tm["pts"], "k": k, "self_ok": g_ok and s_ok, "skipped": tm["skipped"],
@@ -338,14 +465,15 @@ def _audit_unit(bundle: Path, u: dict, cp: planmod.CheckedPlan, table, et, id_co
                 out: Path, led: Ledger) -> dict:
     th = thresholds()
     uid = u["uid"]
-    vrow = {"unit": uid, "video": u["unit"]["video"], "shot": u["unit"]["shot"], "frames": u["n_frames"]}
+    vrow = {"unit": uid, "video": u["unit"]["video"], "shot": u["unit"]["shot"], "frames": u["n_frames"],
+            "shot_label": f"{u['unit']['shot']}" + (f" (recording {u['unit']['rec']})" if u["unit"].get("rec") else "")}
     if table is None or speed_col is None:
         led.gate("G4 comparison", False, "no single, absolute take-off speed column in an event table: nothing to "
                                          "compare a video measurement with, so the shot is not tracked", ref=uid)
         vrow.update(verdict=verdict.CANNOT_MEASURE, reason="no table of single-event speeds to compare with",
                     stage="inputs")
         return vrow
-    inputs = unit_inputs(u, cp, table, out, led)
+    inputs = unit_inputs(u, cp, table, out, led, bundle)
     if not inputs["ok"]:
         vrow.update(verdict=verdict.CANNOT_MEASURE, reason=inputs["reason"], stage="inputs")
         return vrow
@@ -362,7 +490,16 @@ def _audit_unit(bundle: Path, u: dict, cp: planmod.CheckedPlan, table, et, id_co
     vrow["pairing"] = {kk: vv for kk, vv in pr.items() if kk != "detail"}
     vrow["pairing_detail"] = pr.get("detail")
     if not pr["ok"]:
-        vrow.update(verdict=verdict.CANNOT_MEASURE, reason="unpaired: " + pr["reason"])
+        reason = "unpaired: " + pr["reason"]
+        if not m["self_ok"]:
+            reason = (f"self-checks failed (gravity {k.g_fit_rel_err:+.0%}, sideways {k.ax_rel_g:.0%} of vertical"
+                      + (f"; {k.drag_like}" if k.drag_like else "") + "); " + reason)
+        vrow.update(verdict=verdict.CANNOT_MEASURE, reason=reason)
+        receipt.render(m["clip"], m["pts"], [
+            f"Track: SAM 3.1, {len(m['pts'])} frames; take-off at frame {k.takeoff_frame}",
+            f"Self-checks: gravity {k.g_fit:.2f} m/s^2 (9.81) | sideways {k.ax_rel_g:.0%} (0)",
+            f"Blind pairing: {pr['reason'][:90]}"], verdict.CANNOT_MEASURE, out / "units" / uid / "receipt.mp4",
+            takeoff_frame=k.takeoff_frame)
         return vrow
     rr = table.rows[pr["row_index"]]
     if not _finite(rr[speed_col["index"]]):
@@ -397,6 +534,8 @@ def _audit_unit(bundle: Path, u: dict, cp: planmod.CheckedPlan, table, et, id_co
             pm_note += f"; both readings give {v.label}, the narrower ± is shown"
         led.gate("G6 uncertainty", len(readings) == 1, pm_note + f"; verdict under both readings: {sorted(readings)}",
                  ref=uid)
+    if v.label == verdict.CANNOT_MEASURE and not m["self_ok"] and k.drag_like:
+        v.reason += f"; {k.drag_like}"
     # Sensitivity: which published values this measurement would have accepted (same kind of ±).
     if pm_val is not None and unc_col is not None and unc_col["uncertainty_kind"] == "relative" and published:
         r = pm_val / published

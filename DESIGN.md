@@ -14,9 +14,14 @@ check. Every model output is a ledger row together with the check that accepted 
    text; zips unpacked; scripts collected. The paper is the PDF that states a licence (longest text among those).
    **G0 licence:** no CC BY / CC0 / public-domain statement (dash variants normalised, NC/ND excluded) → stop; nothing
    is uploaded to the Model API, and the report says so.
-2. **Shots.** Cut detection per video; shots shorter than `video.min_shot_frames` are transitions. Muse Spark reads
-   frame 0 of every shot (in parallel): printed text, frame rate, scale reference, object box. Framed montage panels
-   are detected and logged; **the agent does not split montages yet** (the case-file pipeline does).
+2. **Shots and recordings.** Hard cuts and fades per video; shots shorter than `video.min_shot_frames` are
+   transitions. **G2:** for every shot of at least three times that length, Muse Spark reads a contact sheet (tiles
+   labelled with frame numbers) and proposes the separate recordings in it — a dissolve between two near-identical
+   scenes is invisible to pixel statistics; code accepts a split only if the recordings lie in the shot, do not
+   overlap and stay long enough after one tile is trimmed at each inner boundary. Muse Spark then reads every
+   recording (in parallel) from its first frame (object box) and a frame at 40 % (overlay text typed in later):
+   printed text, frame rate, scale reference. Framed montage panels are detected and logged; **the agent does not
+   split montages yet** (the case-file pipeline does).
 3. **Plan (Muse Spark, one call, strict JSON):** video labels and frame rates with quotes; the event table and the
    meaning and unit of every column (quantity types separate trajectory angle from body-posture angle); the meaning of
    any ± column (relative or absolute) with a quote; scale reference and size with a quote; object phrase; every
@@ -36,16 +41,22 @@ check. Every model output is a ledger row together with the check that accepted 
    Units the agent cannot convert, or statistics without a column → refused with a reason.
 6. **Per shot, before any tracking (G4):** an absolute take-off speed column must exist (else nothing to compare
    with); frame rate = Spark's reading only if that number is printed on the frame, else code parses the transcribed
-   text, else the paper's rate for the file if unique; feasibility from the table's airborne times (the shot must be
-   long enough to hold a flight; the flight must span `selfcheck.min_flight_frames` at this frame rate); scale = grid
-   measured by OpenCV (if Spark saw no grid, code accepts one only if ≥ 4 lines with < 2 % spacing spread), size from
-   the plan.
+   text, else the paper's rate for the file if unique; a printed "playback N x faster" means one video frame stands for
+   N camera frames (a slower or non-integer factor refuses the shot); feasibility from the table's airborne times (the
+   shot must be long enough to hold a flight; the flight must span `selfcheck.min_flight_frames` at this frame rate);
+   scale = a grid measured by OpenCV (if Spark saw no grid, code accepts one only if ≥ 4 lines with < 2 % spacing
+   spread), or the gap between the take-off platform and a landing platform or vertical target found on the shot's
+   median frame; the size comes from the plan.
 7. **Track (SAM 3.1, G5):** Spark's box, then the noun phrase, then up to two **box re-proposals** by Muse Spark given
    the rejection reason. Quality gate: no mask-area jump (object switch), real motion, track starts at rest.
 8. **Measure and self-check (code):** skipped-frame repair (periodic only), ballistic fit, take-off at the parabola
    root, block bootstrap, interval widened by scale, frame-rate and gravity misfit in quadrature; gravity within
-   `selfcheck.gravity_rel_tolerance`, sideways acceleration below `selfcheck.sideways_rel_tolerance`.
-9. **Blind pairing (code, G3):** trajectory geometry (angle, distance, height, airborne time; right-to-left jumps
+   `selfcheck.gravity_rel_tolerance`, sideways acceleration below `selfcheck.sideways_rel_tolerance`. The flight ends
+   where the body falls back below its take-off height or where its horizontal motion stops (a raised target). When a
+   check fails, the acceleration left after gravity is compared with the direction of motion; pointing against it
+   (within 30°) is reported as the direction air drag would have — a direction, not a proof of drag. This diagnosis never
+   changes a verdict.
+9. **Blind pairing (code, G3):** trajectory geometry (angle, distance, height, end height, airborne time; right-to-left jumps
    mirrored) against every row; z-scored distance; the published speed is never used; accepted only if the best row is
    `pairing.min_margin` times closer than the runner-up.
 10. **Verdict (code, G6):** the paired row's speed (finite, else CANNOT) ± its uncertainty (relative or absolute per
@@ -58,4 +69,5 @@ check. Every model output is a ledger row together with the check that accepted 
    exception inside one shot refuses that shot only.
 
 ## Not done (known)
-Montage panels and platform-gap scale in the agent; a replica check on the authors' raw points; a held-out paper.
+Montage panels in the agent; a flight model with air drag (tried, not adopted: see `DECISIONS.md`); a replica check on
+the authors' raw points.

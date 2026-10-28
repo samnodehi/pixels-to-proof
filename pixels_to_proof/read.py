@@ -53,7 +53,7 @@ PAPER_PROMPT = (
 
 FRAME_PROMPT = (
     "This is one frame of a scientific supplementary video. Pixel coordinates: origin top-left, "
-    "frame size {w}x{h}. Report the overlay text exactly, any capture/playback frame rates printed, the kind of "
+    "frame size {w}x{h}. Report the overlay text exactly, including small print in the corners (frame rate, playback speed, scale notes), any capture/playback frame rates printed, the kind of "
     "spatial reference visible, your estimate of one grid square in pixels if there is a grid, a band of rows "
     "where grid lines are clearly visible and not covered by the object, floor or text, and the moving object's "
     "box [x1, y1, x2, y2]. Do not invent values you cannot see; use null.")
@@ -80,11 +80,56 @@ def read_paper(pdf: Path) -> tuple[dict, dict]:
                        "paper_reading", PAPER_SCHEMA)
 
 
-def read_frame(png: Path, width: int, height: int) -> tuple[dict, dict]:
-    url = "data:image/png;base64," + base64.b64encode(png.read_bytes()).decode()
-    return _structured([{"type": "input_image", "image_url": url},
-                        {"type": "input_text", "text": FRAME_PROMPT.format(w=width, h=height)}],
-                       "frame_reading", FRAME_SCHEMA)
+TEXT_FRAME_NOTE = (
+    " A second image is attached: a later frame of the same recording, where overlay text that is typed in or faded "
+    "in after the first frame is complete. Report the overlay text of the recording from both images (each line "
+    "once); report the object box and the grid band for the FIRST image only.")
+
+
+def _png_url(png: Path) -> str:
+    mime = "image/jpeg" if png.suffix.lower() in (".jpg", ".jpeg") else "image/png"
+    return f"data:{mime};base64," + base64.b64encode(png.read_bytes()).decode()
+
+
+def read_frame(png: Path, width: int, height: int, text_png: Path | None = None) -> tuple[dict, dict]:
+    content = [{"type": "input_image", "image_url": _png_url(png)}]
+    prompt = FRAME_PROMPT.format(w=width, h=height)
+    if text_png is not None:
+        content.append({"type": "input_image", "image_url": _png_url(text_png)})
+        prompt += TEXT_FRAME_NOTE
+    return _structured(content + [{"type": "input_text", "text": prompt}], "frame_reading", FRAME_SCHEMA)
+
+
+SPLIT_SCHEMA = {"type": "object", "additionalProperties": False,
+                "properties": {"shots": {"type": "array", "items": {
+                    "type": "object", "additionalProperties": False,
+                    "properties": {
+                        "sheet": {"type": "integer", "description": "1-based number of the contact sheet"},
+                        "recordings": {"type": "array", "items": {
+                            "type": "object", "additionalProperties": False,
+                            "properties": {"first_frame": {"type": "integer"}, "last_frame": {"type": "integer"},
+                                           "what": {"type": "string"}},
+                            "required": ["first_frame", "last_frame", "what"]}},
+                        "evidence": {"type": "string",
+                                     "description": "what in the tiles shows where one recording ends and the next begins"}},
+                    "required": ["sheet", "recordings", "evidence"]}}},
+                "required": ["shots"]}
+
+SPLIT_PROMPT = (
+    "Each attached image is a contact sheet of one shot of a scientific supplementary video ({video}). Every tile is "
+    "labelled with its frame number (top-left, yellow); tiles are evenly spaced, left to right, top to bottom. A shot "
+    "found by cut detection can still contain several separate recordings joined by a dissolve, a wipe or a change of "
+    "title (for example one jump by a male, then one by a female). For each sheet, list the separate recordings with "
+    "the frame numbers of their first and last tiles, leaving out transition tiles (two scenes blended) and title "
+    "cards. If the sheet is one continuous recording, return exactly one recording spanning it. Say what shows the "
+    "boundaries. Sheets: {sheets}.")
+
+
+def split_shots(sheets: list[Path], video: str, ranges: list[tuple[int, int]]) -> tuple[dict, dict]:
+    desc = "; ".join(f"sheet {i + 1} = frames {a}-{b}" for i, (a, b) in enumerate(ranges))
+    content = [{"type": "input_image", "image_url": _png_url(p)} for p in sheets]
+    content.append({"type": "input_text", "text": SPLIT_PROMPT.format(video=video, sheets=desc)})
+    return _structured(content, "shot_split", SPLIT_SCHEMA)
 
 
 BOX_SCHEMA = {"type": "object", "additionalProperties": False,
@@ -101,8 +146,7 @@ REBOX_PROMPT = (
 
 
 def repropose_box(png: Path, width: int, height: int, phrase: str, reason: str, boxes: list) -> tuple[dict, dict]:
-    url = "data:image/png;base64," + base64.b64encode(png.read_bytes()).decode()
-    return _structured([{"type": "input_image", "image_url": url},
+    return _structured([{"type": "input_image", "image_url": _png_url(png)},
                         {"type": "input_text", "text": REBOX_PROMPT.format(w=width, h=height, phrase=phrase,
                                                                             reason=reason, boxes=boxes)}],
                        "rebox", BOX_SCHEMA)

@@ -85,8 +85,8 @@ def claims_html(rep: dict) -> str:
                     f"<td>{chip(c['outcome'])}</td><td style='max-width:380px;font-size:.9em'>{_e(c['reason'])}</td></tr>")
     counts = rep.get("summary", {}).get("claims", {})
     head = " · ".join(f"{chip(k)} {v}" for k, v in counts.items())
-    return (f"<div style='margin:6px 0'>{len(rep['claims'])} kinematic claims found in the paper: {head}</div>"
-            "<div style='overflow-x:auto'><table style='font-size:.92em'><tr><th>claim (verbatim from the PDF)</th>"
+    return (f"<div style='margin:6px 0'>{len(rep['claims'])} kinematic claims found in the paper and on its videos: {head}</div>"
+            "<div style='overflow-x:auto'><table style='font-size:.92em'><tr><th>claim (verbatim from the paper or its video)</th>"
             "<th>kind</th><th>value</th><th>outcome</th><th>why</th></tr>" + "".join(rows) + "</table></div>"
             "<div style='opacity:.75;font-size:.85em'>Statistics over many jumps are recomputed from the paper's own "
             "event table (arithmetic only). MATCHES OTHER COLUMN: the printed digits are reproduced by a different "
@@ -97,7 +97,7 @@ def claims_html(rep: dict) -> str:
 def videos_html(rep: dict) -> str:
     rows = []
     for v in rep["videos"]:
-        rows.append(f"<tr><td>{_e(v['video'])}</td><td>{v['shot']}</td><td>{v['frames']}</td>"
+        rows.append(f"<tr><td>{_e(v['video'])}</td><td>{_e(v.get('shot_label', v['shot']))}</td><td>{v['frames']}</td>"
                     f"<td>{chip(v['verdict'])}</td><td style='font-size:.9em'>{_e(v['reason'])}</td></tr>")
     return ("<div style='overflow-x:auto'><table style='font-size:.92em'><tr><th>video</th><th>shot</th><th>frames</th>"
             "<th>verdict</th><th>why</th></tr>" + "".join(rows) + "</table></div>")
@@ -153,14 +153,33 @@ def ledger_html(led: dict, limit: int = 400) -> str:
             "</table></div>" + more)
 
 
+def refusal_card(v: dict) -> str:
+    """A shot that was tracked and measured but refused: what the checks found."""
+    k, pr = v["kinematics"], v.get("pairing") or {}
+    col = COLOURS.get("CANNOT MEASURE", "#b7791f")
+    lines = [f"<div style='border-left:6px solid {col};padding:8px 14px'>",
+             f"<div style='font-size:1.5em;font-weight:700;color:{col}'>CANNOT MEASURE</div>",
+             f"<div>Shot <code>{_e(v['unit'])}</code> was tracked (SAM 3.1) and measured, and a check refused it.</div>",
+             f"<div><b>Self-checks</b>: gravity from the flight {k['g_fit']:.2f} m/s² (9.81 expected) · sideways "
+             f"acceleration {k['ax_rel_g']:.1%} of vertical (≈0 expected)</div>"]
+    if k.get("drag_like"):
+        lines.append(f"<div><b>Diagnosis</b>: {_e(k['drag_like'])}</div>")
+    if pr:
+        lines.append(f"<div><b>Blind pairing</b>: {_e(pr.get('reason', ''))}</div>")
+    lines.append(f"<div style='opacity:.8'><b>Why</b>: {_e(v['reason'])}</div></div>")
+    return "\n".join(lines)
+
+
 def render(d: Path, live: bool = False):
     rep, led, meta = load(d)
     vids = [v for v in rep["videos"] if v["verdict"] in ("REPRODUCED", "NOT REPRODUCED") or v.get("claim")]
-    hero = vids[0] if vids else None
+    tracked = [v for v in rep["videos"] if v.get("kinematics")]
+    hero = vids[0] if vids else (tracked[0] if tracked else None)
     rec = (d / "units" / hero["unit"] / "receipt.mp4") if hero else None
     ev = (d / "units" / hero["unit"] / "scale_evidence.png") if hero else None
-    return (header_md(rep, led, meta, live), str(rec) if rec and rec.exists() else None,
-            verdict_card(hero) if hero else "<i>No video jump could be measured in this bundle.</i>",
+    card = (verdict_card(hero) if vids else refusal_card(hero)) if hero else \
+        "<i>No video jump could be measured in this bundle.</i>"
+    return (header_md(rep, led, meta, live), str(rec) if rec and rec.exists() else None, card,
             str(ev) if ev and ev.exists() else None, claims_html(rep), videos_html(rep), ledger_html(led),
             meta.get("note", ""))
 

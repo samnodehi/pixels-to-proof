@@ -181,3 +181,80 @@ def test_merge_takes_a_corrected_value_from_the_same_sentence():
                               "value": 0.47}])
     m = plan.merge(base, new, [plan.Check("claim 'Larvae reached takeoff velocities of 0.57'", False, "")])
     assert [c["value"] for c in m["claims"]] == [0.47]
+
+
+def test_frame_step_from_overlay():
+    from pixels_to_proof.agent import _frame_step
+    assert _frame_step({"overlay_text": "Filmed at 5000 fps\nPlayback 4x faster"})[0] == 4
+    assert _frame_step({"overlay_text": "captured - 3,200 frames/second\nplayback - 30 frames/second"})[0] == 1
+    assert _frame_step({"overlay_text": "Filmed & Playback at 5000 fps"})[0] == 1
+    assert _frame_step({"overlay_text": "Playback 2x slower"})[0] is None
+    assert _frame_step({"overlay_text": "playback 2.5x faster"})[0] is None
+    assert _frame_step({"overlay_text": "playback 2x faster\nplayback 4x faster"})[0] is None
+
+
+def test_split_proposal_gate():
+    from pixels_to_proof.agent import check_split
+    sampled = list(range(173, 572, 8))
+    recs, _ = check_split([{"first_frame": 181, "last_frame": 365}, {"first_frame": 405, "last_frame": 563}],
+                          173, 571, sampled, 30)
+    assert recs == [(173, 357), (413, 571)]          # outer edges kept, inner boundaries trimmed by one tile
+    assert check_split([{"first_frame": 173, "last_frame": 571}], 173, 571, sampled, 30)[0] == [(173, 571)]
+    assert check_split([{"first_frame": 173, "last_frame": 400}, {"first_frame": 390, "last_frame": 571}],
+                       173, 571, sampled, 30)[0] == []                       # overlap
+    assert check_split([{"first_frame": 173, "last_frame": 200}, {"first_frame": 210, "last_frame": 571}],
+                       173, 571, sampled, 30)[0] == []                       # too short after trimming
+    assert check_split([{"first_frame": 100, "last_frame": 300}, {"first_frame": 320, "last_frame": 571}],
+                       173, 571, sampled, 30)[0] == []                       # outside the shot
+
+
+def test_wall_target_scale():
+    from pixels_to_proof import scale
+    img = np.full((400, 600), 180, np.uint8)
+    img[300:320, :100] = 40                     # take-off platform from the left border, tip at x=99
+    img[:, 560:] = 50                           # vertical landing target, face at x=560
+    g = scale.platform_gap(img)
+    assert g.right_kind == "wall" and abs(g.right_tip_px - 559.5) < 1.5 and abs(g.left_tip_px - 100) <= 3
+    img2 = np.full((400, 600), 180, np.uint8)
+    img2[300:320, :100] = 40
+    img2[310:330, 480:] = 40                    # a second platform, no wall
+    assert scale.platform_gap(img2).right_kind == "rod"
+
+
+def test_flight_ends_at_a_wall_and_drag_is_named():
+    from pixels_to_proof import measure
+    fps, g, n = 1250.0, 9.80665, 160
+    t = np.arange(n) / fps
+    t_off, t_hit = 0.02, 0.09
+    x = np.where(t < t_off, 0.0, np.minimum(0.6 * (t - t_off), 0.6 * (t_hit - t_off)))
+    tf = np.clip(t - t_off, 0, t_hit - t_off)
+    y = np.where(t < t_off, 0.0, 0.7 * tf - 0.5 * g * tf ** 2)
+    mm = 0.025
+    cx, cy = x * 1000 / mm + 100, 900 - y * 1000 / mm
+    k = measure.kinematics(np.arange(n), cx, cy, fps, mm)
+    assert abs(k.landing_frame - round(t_hit * fps)) <= 3              # stopped at the wall, not at the clip end
+    assert abs(k.g_fit_rel_err) < 0.02 and k.drag_like == ""
+    assert abs(k.end_height_mm - (0.7 * 0.07 - 0.5 * g * 0.07 ** 2) * 1000) < 0.3
+
+
+def test_near_vertical_flight_is_not_cut_by_jitter():
+    from pixels_to_proof import measure
+    rng = np.random.default_rng(3)
+    fps, n, mm = 500.0, 200, 0.03
+    t = np.arange(n) / fps
+    tf = np.clip(t - 0.04, 0, None)
+    y = np.where(t < 0.04, 0, 1.2 * tf - 0.5 * 9.81 * tf ** 2)
+    x = np.where(t < 0.04, 0, 0.02 * tf)
+    for _ in range(50):
+        cx = x * 1000 / mm + rng.normal(0, 2, n)
+        cy = 500 - y * 1000 / mm + rng.normal(0, 2, n)
+        _, X, Y = measure.to_metres(np.arange(n), cx, cy, mm)
+        assert measure.flight_window(Y, 0.0005, X) == measure.flight_window(Y, 0.0005)
+
+
+def test_black_pillarbox_is_not_a_wall():
+    from pixels_to_proof import scale
+    img = np.full((720, 1280), 170, np.uint8)
+    img[500:520, :200] = 40
+    img[:, 1120:] = 0
+    assert scale._wall_face(img.astype(np.float32)) is None

@@ -26,6 +26,8 @@ class Kinematics:
     v_max_range: tuple[float, float]  # same, over a range of smoothing strengths
     ax_fit: float = 0.0          # horizontal acceleration of the flight, m/s^2 (free flight: 0)
     ax_rel_g: float = 0.0        # |ax_fit| / |g_fit|: free-flight self-check, independent of scale and frame rate
+    end_height_mm: float = 0.0   # height at the end of the flight relative to the start (landing on a raised target)
+    drag_like: str = ""          # when the flight is not free: whether the extra acceleration opposes the motion
     notes: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict:
@@ -38,8 +40,13 @@ def to_metres(frames: np.ndarray, cx: np.ndarray, cy: np.ndarray, mm_per_px: flo
     return frames.astype(int), x, y
 
 
-def flight_window(y: np.ndarray, lift_m: float) -> tuple[int, int]:
-    """First index above `lift_m` and first index after the apex back below it."""
+def flight_window(y: np.ndarray, lift_m: float, x: np.ndarray | None = None,
+                  stop_frac: float = 0.35, min_dx: float = 2e-5) -> tuple[int, int]:
+    """First index above `lift_m`, and the end of the flight: the first index after the apex back below it or, when
+    `x` is given, the first of three consecutive frames whose horizontal step is below `stop_frac` of the early-flight
+    horizontal step (the object struck something above its take-off height, e.g. a vertical landing target), whichever
+    comes first. Horizontal motion is used because in flight it changes slowly (constant without drag), while the
+    total speed of a steep jump drops near the apex. Not applied when the early horizontal step is under min_dx."""
     up = np.where(y > lift_m)[0]
     if len(up) == 0:
         raise ValueError("The object never leaves the ground in this clip.")
@@ -47,6 +54,16 @@ def flight_window(y: np.ndarray, lift_m: float) -> tuple[int, int]:
     apex = int(np.argmax(y))
     down = np.where(y[apex:] < lift_m)[0]
     end = apex + int(down[0]) if len(down) else len(y) - 1
+    if x is not None and end - start > 16:
+        step = np.abs(np.diff(x))
+        ref = float(np.median(step[start + 3:start + 13]))
+        # x jitter from second differences over the flight (smooth motion has near-zero second differences)
+        jitter = 1.4826 * float(np.median(np.abs(np.diff(x[start:end], 2)))) / np.sqrt(6)
+        if ref >= max(min_dx, 10 * jitter):
+            for j in range(start + 10, end - 2):
+                if (step[j:j + 3] < stop_frac * ref).all() and np.mean(step[j:j + 8]) < stop_frac * ref:
+                    end = j
+                    break
     if end - start < 10:
         raise ValueError("Flight is shorter than 10 frames; too short to fit.")
     return start, end
@@ -60,13 +77,14 @@ def kinematics(frames: np.ndarray, cx: np.ndarray, cy: np.ndarray, capture_fps: 
     if (gaps != 1).any():
         notes.append(f"{int((gaps != 1).sum())} gaps in the track (missing frames); fits use true frame times.")
     t = (f - f[0]) / capture_fps
-    i0, i1 = flight_window(y, lift_mm / 1000.0)
+    i0, i1 = flight_window(y, lift_mm / 1000.0, x)
     a = slice(i0 + trim, i1 - trim)
     tt = t[a] - t[i0]
     py = np.polyfit(tt, y[a], 2)
     px = np.polyfit(tt, x[a], 1)
     g_fit = -2.0 * py[0]
     ax_fit = 2.0 * np.polyfit(tt, x[a], 2)[0]
+    drag_like = _drag_signature(ax_fit, g_fit, px[0], py[1] + 2 * py[0] * float(np.mean(tt)))
     resid = y[a] - np.polyval(py, tt)
     # Take-off = where the fitted parabola leaves the starting height (y = 0), which lies slightly before the
     # first frame above the lift threshold; evaluate the velocity there, not at the threshold crossing.
@@ -92,9 +110,24 @@ def kinematics(frames: np.ndarray, cx: np.ndarray, cy: np.ndarray, capture_fps: 
         takeoff_frame=int(f[i0]), landing_frame=int(f[i1]), airborne_s=float(t[i1] - t[i0]),
         g_fit=float(g_fit), g_fit_rel_err=float((g_fit - G) / G), fit_rms_mm=float(resid.std() * 1000),
         v0_ballistic=float(np.hypot(vx0, vy0)), v0_ci95=v0_ci, angle_deg=float(np.degrees(np.arctan2(vy0, vx0))),
-        height_mm=float(y.max() * 1000), distance_mm=float((x[i1] - x[i0]) * 1000),
+        height_mm=float(y[i0:i1 + 1].max() * 1000), distance_mm=float((x[i1] - x[i0]) * 1000),
         v_max_spline=float(vmax[1]), v_max_range=(min(vmax), max(vmax)), ax_fit=float(ax_fit),
-        ax_rel_g=float(abs(ax_fit) / max(abs(g_fit), 1e-9)), notes=notes)
+        ax_rel_g=float(abs(ax_fit) / max(abs(g_fit), 1e-9)), end_height_mm=float(y[i1] * 1000),
+        drag_like=drag_like, notes=notes)
+
+
+def _drag_signature(ax: float, g_fit: float, vx: float, vy: float) -> str:
+    """Diagnostic only (never changes a verdict): the acceleration left after removing true gravity, compared with the
+    direction of motion at mid-flight. Air drag on a small animal opposes the motion."""
+    res = np.array([ax, -g_fit + G])
+    v = np.array([vx, vy])
+    # a wrong scale or frame rate only rescales the vertical acceleration; drag also decelerates sideways
+    if np.hypot(*res) < 0.05 * G or abs(ax) < 0.05 * G or np.hypot(*v) == 0:
+        return ""
+    cos = float(-res @ v / (np.hypot(*res) * np.hypot(*v)))
+    ang = float(np.degrees(np.arccos(np.clip(cos, -1, 1))))
+    return (f"acceleration beyond gravity {np.hypot(*res) / G:.0%} of g, at {ang:.0f} deg from straight against the "
+            f"mid-flight motion" + (" (the direction air drag would have)" if ang < 30 else ""))
 
 
 def repair_dropped_frames(frames: np.ndarray, cx: np.ndarray, cy: np.ndarray, mm_per_px: float,

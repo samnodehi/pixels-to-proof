@@ -25,6 +25,64 @@ def cuts(video: Path, threshold: float = 8.0) -> tuple[list[int], int, float]:
     return starts, i, fps
 
 
+def ranges(video: Path, cut_threshold: float = 8.0, lag: int = 10, fade_changed: float = 0.5,
+           fade_brightness: float = 12.0) -> tuple[list[tuple[int, int]], int]:
+    """Shots as [first, last] frame ranges. Besides hard cuts, gradual transitions (fades and cross-fades between
+    recordings of different brightness) are found where, between frames i-lag and i+lag, most of the picture changes
+    AND its mean brightness moves; the frames of such a span belong to no shot. A span that contains a hard cut, or is
+    shorter than `lag` frames, is left to the cut detector. Handheld motion changes many pixels but not the mean
+    brightness, so it is not taken for a fade."""
+    cap = cv2.VideoCapture(str(video))
+    thumbs = []
+    while True:
+        ok, frame = cap.read()
+        if not ok:
+            break
+        thumbs.append(cv2.cvtColor(cv2.resize(frame, (160, 90)), cv2.COLOR_BGR2GRAY))
+    cap.release()
+    n = len(thumbs)
+    if n == 0:
+        return [], 0
+    T = np.stack(thumbs).astype(np.float32)     # 160x90 per frame; ~58 kB as float32
+    step = np.concatenate([[0.0], np.abs(np.diff(T, axis=0)).mean(axis=(1, 2))])
+    cut_at = set(np.where(step > cut_threshold)[0].tolist())
+    mean = T.mean(axis=(1, 2))
+    fade = np.zeros(n, bool)
+    for i in range(lag, n - lag):
+        fade[i] = (np.abs(T[i + lag] - T[i - lag]) > 12).mean() > fade_changed and \
+            abs(mean[i + lag] - mean[i - lag]) > fade_brightness
+    spans, i = [], 0
+    while i < n:
+        if fade[i]:
+            j = i
+            while j + 1 < n and (fade[j + 1] or (j + 3 < n and fade[j + 2:j + 4].any())):
+                j += 1
+            if j - i + 1 >= lag and not any(i <= c <= j for c in cut_at):
+                spans.append((i, j))
+            i = j + 1
+        else:
+            i += 1
+    # boundaries: hard cuts start a new shot; a fade span removes its own frames
+    blocked = np.zeros(n, bool)
+    for a, b in spans:
+        blocked[a:b + 1] = True
+    out, start = [], None
+    for f in range(n):
+        if blocked[f]:
+            if start is not None:
+                out.append((start, f - 1))
+                start = None
+            continue
+        if start is None:
+            start = f
+        elif f in cut_at:
+            out.append((start, f - 1))
+            start = f
+    if start is not None:
+        out.append((start, n - 1))
+    return out, n
+
+
 def shot_range(video: Path, shot: int) -> tuple[int, int]:
     """[first, last] frame of the 1-based shot number."""
     starts, total, _ = cuts(video)
@@ -89,3 +147,35 @@ def frame_at(video: Path, n: int, dst: Path) -> Path:
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(video), "-vf", f"select='eq(n\\,{n})'",
                     "-frames:v", "1", "-vsync", "0", str(dst)], check=True)
     return dst
+
+
+def contact_sheet(video: Path, first: int, last: int, dst: Path, tiles: int = 48, cols: int = 8,
+                  tile_w: int = 240) -> list[int]:
+    """Evenly spaced frames of [first, last] tiled into one image, each labelled with its frame number.
+    Returns the sampled frame numbers."""
+    n = last - first + 1
+    picks = sorted({first + round(i * (n - 1) / max(tiles - 1, 1)) for i in range(min(tiles, n))})
+    want, got = set(picks), {}
+    cap = cv2.VideoCapture(str(video))
+    i = 0
+    while i <= last:
+        ok, frame = cap.read()
+        if not ok:
+            break
+        if i in want:
+            h, w = frame.shape[:2]
+            t = cv2.resize(frame, (tile_w, round(h * tile_w / w)), interpolation=cv2.INTER_AREA)
+            cv2.putText(t, str(i), (5, 24), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 4, cv2.LINE_AA)
+            cv2.putText(t, str(i), (5, 24), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2, cv2.LINE_AA)
+            got[i] = t
+        i += 1
+    cap.release()
+    picks = [p for p in picks if p in got]
+    th = got[picks[0]].shape[0]
+    rows = []
+    for r in range(0, len(picks), cols):
+        row = [got[p] for p in picks[r:r + cols]]
+        row += [np.zeros_like(row[0])] * (cols - len(row))
+        rows.append(np.hstack(row))
+    cv2.imwrite(str(dst), np.vstack(rows), [cv2.IMWRITE_JPEG_QUALITY, 85])
+    return picks

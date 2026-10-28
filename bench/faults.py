@@ -35,7 +35,8 @@ def mutations(base: Path) -> list[tuple[str, str, callable]]:
     def col(raw, name):
         return next(c for c in raw["event_table"]["columns"] if c["name"] == name)
 
-    hero = next(d.name for d in (base / "units").iterdir() if (d / "receipt.mp4").exists())
+    hero = next(v["unit"] for v in _load(base / "report.json")["videos"]
+                if v["verdict"] in ("REPRODUCED", "NOT REPRODUCED"))
 
     def frame_edit(fn, unit=hero):
         def apply(run: Path):

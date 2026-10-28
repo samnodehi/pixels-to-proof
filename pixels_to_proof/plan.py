@@ -11,15 +11,17 @@ from pathlib import Path
 from . import ingest, meta, read
 
 # Fine-grained on purpose: pairing a video jump to a table row may only use the trajectory quantities.
-QUANTITIES = ["takeoff_speed", "speed_uncertainty", "takeoff_angle", "jump_distance", "jump_height", "airborne_time",
+QUANTITIES = ["takeoff_speed", "speed_uncertainty", "takeoff_angle", "jump_distance", "jump_height", "end_height",
+              "airborne_time",
               "body_angle", "other_angle", "other_length", "other_duration", "other_speed", "body_length", "mass",
               "frame_index", "event_id", "animal_id", "acceleration", "other"]
 QUANTITY_HELP = ("takeoff_speed = speed of the body at take-off; takeoff_angle = direction of the trajectory at take-off "
                  "(NOT a body posture angle); jump_distance = horizontal distance covered in the jump; jump_height = "
-                 "maximum height of the jump; airborne_time = time in the air; body_angle = posture or bending angle; "
+                 "maximum height of the jump; end_height = height of the body at the end of the flight relative to take-off (e.g. "
+                 "on a raised or vertical landing target); airborne_time = time in the air; body_angle = posture or bending angle; "
                  "other_* = any other quantity of that kind (e.g. displacement during loading).")
-PAIRING = {"takeoff_angle", "jump_distance", "jump_height", "airborne_time"}
-SI = {"takeoff_speed", "takeoff_angle", "jump_distance", "jump_height", "airborne_time", "other_duration",
+PAIRING = {"takeoff_angle", "jump_distance", "jump_height", "end_height", "airborne_time"}
+SI = {"takeoff_speed", "takeoff_angle", "jump_distance", "jump_height", "end_height", "airborne_time", "other_duration",
       "other_length", "other_speed", "acceleration", "body_angle", "other_angle", "body_length"}
 
 _COLUMN = {"type": "object", "additionalProperties": False,
@@ -298,7 +300,7 @@ def check(plan: dict, pdf_text: str, script_text: str, tables: list[ingest.Table
                         continue
                     si = [x * f for x in vals]
                     lo, hi = {"takeoff_speed": (1e-2, 30), "takeoff_angle": (-90, 180), "jump_distance": (1e-5, 10),
-                              "jump_height": (-10, 10), "airborne_time": (1e-4, 10)}[c["quantity"]]
+                              "jump_height": (-10, 10), "end_height": (-10, 10), "airborne_time": (1e-4, 10)}[c["quantity"]]
                     plausible = lo <= min(si) and max(si) <= hi
                     cp.checks.append(Check(f"column {c['name']} range", plausible,
                                            f"{min(si):.4g}..{max(si):.4g} in SI" + ("" if plausible else " outside plausible range; dropped")))

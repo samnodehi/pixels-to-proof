@@ -21,6 +21,7 @@ FEATURE_FROM_K = {
     "takeoff_angle": lambda k: _mirror(k)[0],
     "jump_distance": lambda k: _mirror(k)[1] / 1000.0,
     "jump_height": lambda k: k.height_mm / 1000.0,
+    "end_height": lambda k: k.end_height_mm / 1000.0,
     "airborne_time": lambda k: k.airborne_s,
 }
 

@@ -35,15 +35,22 @@ def _scale_evidence(frame_png: Path, grid: scale.GridScale, band, box, out: Path
 
 
 def _gap_evidence(frame_png: Path, gap: scale.GapScale, out: Path) -> None:
-    """Frame 0 with the two measured platform tips (green) and the gap between them."""
+    """Frame 0 with the measured platform tip and landing platform or target face (green) and the gap between them."""
     img = cv2.imread(str(frame_png))
-    for x, row in ((gap.left_tip_px, gap.left_row), (gap.right_tip_px, gap.right_row)):
-        cv2.line(img, (int(round(x)), row - 25), (int(round(x)), row + 25), (80, 220, 120), 2)
-    y = max(gap.left_row, gap.right_row) + 35
-    cv2.arrowedLine(img, (int(gap.left_tip_px), y), (int(gap.right_tip_px), y), (80, 220, 120), 2, tipLength=0.04)
-    cv2.arrowedLine(img, (int(gap.right_tip_px), y), (int(gap.left_tip_px), y), (80, 220, 120), 2, tipLength=0.04)
-    cv2.putText(img, f"gap {gap.gap_px:.0f} px", (int(gap.left_tip_px) + 10, y - 8), cv2.FONT_HERSHEY_SIMPLEX, 0.6,
-                (80, 220, 120), 2, cv2.LINE_AA)
+    h = img.shape[0]
+    fs, th = max(0.6, h / 1400), max(2, h // 400)
+    lx, rx = int(round(gap.left_tip_px)), int(round(gap.right_tip_px))
+    cv2.line(img, (lx, gap.left_row - 25), (lx, gap.left_row + 25), (80, 220, 120), th)
+    if gap.right_kind == "wall":
+        cv2.line(img, (rx, 0), (rx, h - 1), (80, 220, 120), th)
+        y = gap.left_row - 60
+    else:
+        cv2.line(img, (rx, gap.right_row - 25), (rx, gap.right_row + 25), (80, 220, 120), th)
+        y = min(max(gap.left_row, gap.right_row) + 35, h - 10)
+    cv2.arrowedLine(img, (lx, y), (rx, y), (80, 220, 120), th, tipLength=0.03)
+    cv2.arrowedLine(img, (rx, y), (lx, y), (80, 220, 120), th, tipLength=0.03)
+    cv2.putText(img, f"gap {gap.gap_px:.0f} px", ((lx + rx) // 2 - 60, y - 12), cv2.FONT_HERSHEY_SIMPLEX, fs, (80, 220, 120), th,
+                cv2.LINE_AA)
     cv2.imwrite(str(out), img)
 
 
