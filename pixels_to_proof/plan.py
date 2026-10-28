@@ -358,13 +358,13 @@ def needs(claim: dict) -> str:
     """Route by what a claim is (code, not the model): aggregates are checked against the event table; single events
     go to the video via pairing; everything else is refused with a reason."""
     if claim.get("si_factor") is None and not claim.get("table_column"):
-        return f"refuse: unit '{claim['unit']}' is not an absolute unit"
+        return f"refuse: unit '{claim['unit']}' is not one the agent can measure or convert"
     if claim["statistic"] in ("mean", "median", "max", "min") and claim.get("table_column"):
         return "table_check"
     if claim["statistic"] in ("mean", "median", "max", "min"):
         return "refuse: statistic over several events and no event-table column to recompute it"
     if claim["statistic"] == "single_event" and claim["quantity"] in SI and claim.get("si_factor") is None:
-        return f"refuse: unit '{claim['unit']}' is not an absolute unit"
+        return f"refuse: unit '{claim['unit']}' is not one the agent can measure or convert"
     if claim["statistic"] == "single_event":
         return "video" if claim["quantity"] in {"takeoff_speed"} | PAIRING else \
             f"refuse: {claim['quantity']} is not measurable from a centroid track"

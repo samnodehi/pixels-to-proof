@@ -461,8 +461,17 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
     am = cp.plan.get("authors_speed_method", {})
     lam = _spar(am) if am.get("family") == "smoothing_spline_max" else None
 
+    # The paper's own convention for '±', when it states one (e.g. "values are mean ± standard deviation").
+    conv = re.search(r"mean\s*(?:±|\+/-|\+-)\s*(standard deviation|s\.?d\.?\b|sd\b|standard error|s\.?e\.?m?\.?\b)",
+                     ingest.normalise(ing["pdf_text"]).replace("+/-", "±"), re.I)
+    paper_spread = None if not conv else ("sd" if conv.group(1).lower().startswith(("standard d", "s.d", "sd")) else "se")
+    if conv:
+        led.step("spread convention", f"the paper states '{conv.group(0)}': a '±' of unknown type is read as "
+                                      f"{paper_spread.upper()}")
     # claims from the PDF: routed by code
     for c in cp.claims:
+        if c.get("spread") == "unknown" and c.get("plus_minus") is not None and paper_spread:
+            c = dict(c, spread=paper_spread)
         route = planmod.needs(c)
         row = {"source": "paper", "quote": c["quote"], "quantity": c["quantity"], "value": c["value"],
                "plus_minus": c["plus_minus"], "unit": c["unit"], "statistic": c["statistic"], "route": route}
