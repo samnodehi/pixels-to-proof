@@ -26,7 +26,8 @@ pipeline (`pipeline.py`, `cases/`) remains for the synthetic benchmark and the h
   live re-run of bundled papers, rate limited; no uploads).
 - S5 Audit agent, hands-off on the beetle bundle: DONE 2026-10-28 (council → reviews → build → impact/doc review →
   hardening). Clean-commit recorded run `beetle-20261028-7a8c0e6`.
-- S6 Fault injection: harness done; final run on the clean base in progress (results to `showcase/faults.md`).
+- S6 Fault injection: DONE 2026-10-28 on the clean base (12 faults: caught 5, recovered 5, no effect 2, wrong 0,
+  errors 0; `showcase/faults.md`). Re-run at freeze.
 - S7 Second hands-off paper: NEXT. Spider (needs the main-paper PDF and montage splitting in the agent) and/or the
   peacock spider candidate (J Exp Biol 2025, CC BY; video on Zenodo, table on Dryad); downloads need Sam (the
   container's proxy blocks those hosts).
