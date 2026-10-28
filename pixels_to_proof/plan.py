@@ -48,7 +48,7 @@ PLAN_SCHEMA = {
                 "content": {"type": "string"}},
             "required": ["file", "label", "capture_fps", "fps_evidence", "content"]}},
         "event_table": {"type": ["object", "null"], "additionalProperties": False,
-                        "description": "the table in which each row is ONE recorded event (one jump), if any",
+                        "description": "the raw-data table whose rows are individual records (one event, trial or individual; not group summaries), if any",
                         "properties": {
                             "file": {"type": "string"}, "sheet": {"type": "string"},
                             "rows_are": {"type": "string"},
@@ -94,14 +94,16 @@ paper, and what is printed on the videos. The PDF is attached.
 
 Propose, strictly from what the material says:
 - each video: its label in the paper, its capture frame rate with the exact quote that states it, and what it shows;
-- the table in which each row is one recorded event (one jump), with the meaning and unit of EVERY column. For any
+- the raw-data table whose rows are individual records — one recorded event (e.g. one jump), one trial or one
+  individual, not group summaries — with the meaning and unit of EVERY column. For any
   column that is an uncertainty, say which column it belongs to and whether it is absolute or relative, with an exact
   quote (paper sentence or script line) that shows it; if nothing shows it, use 'unknown';
 - the spatial scale reference visible in the videos and its real size, with the quote;
 - a noun phrase for the moving animal;
 - how the authors computed speed (method family and parameters) with an exact quote from the paper or script;
-- every quantitative kinematic claim in the PDF and in the text printed on the videos (speeds, distances, heights,
-  durations, angles, accelerations; quote a video claim exactly as it is printed in the VIDEO INVENTORY below):
+- every quantitative claim about the measured movement or the animals in the PDF and in the text printed on the
+  videos (speeds, distances, heights, durations, angles, accelerations, forces, frequencies, body size; quote a video
+  claim exactly as it is printed in the VIDEO INVENTORY below):
   value, ±, unit, an exact quote, whether it is a single event or a statistic over events (mean, max, ...), the spread
   type, n if stated, which event-table column it summarises if any, and — if it covers only some events (for example
   one sex or one condition) — the column and cell value that select those rows.
