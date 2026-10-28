@@ -1,0 +1,156 @@
+{
+ "run_id": "reefescape_0346465-20261028",
+ "bundle": "reefescape_0346465",
+ "claims": [
+  {
+   "source": "paper",
+   "quote": "which ranged from 2.7 – 9.0 m s–1 (90th percentile; Fig 2B).",
+   "quantity": "other_speed",
+   "value": 2.7,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "min",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "the min of 'P90_Speed' over 61 rows is 2.762: the printed 2.7 is that value truncated, not rounded",
+   "evidence": {
+    "column": "P90_Speed",
+    "n_rows": 61,
+    "table_value": 2.7616933782069557,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "which ranged from 2.7 – 9.0 m s–1 (90th percentile; Fig 2B).",
+   "quantity": "other_speed",
+   "value": 9.0,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "max",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "max of 61 rows of 'P90_Speed' reproduces the printed digits",
+   "evidence": {
+    "column": "P90_Speed",
+    "n_rows": 61,
+    "table_value": 9.022067241306422,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "indicates routine speeds on the order of ≈ 1 m s–1 or less for similarly sized fishes.",
+   "quantity": "other_speed",
+   "value": 1.0,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "Escape responses were only observed when stimulus speed exceeded 2.0 m s–1",
+   "quantity": "other_speed",
+   "value": 2.0,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "min",
+   "route": "table_check",
+   "rows": "Response_Binary = 1",
+   "outcome": "MATCHES TABLE",
+   "reason": "min of 95 rows of 'Loom_Speed' (rows where Response_Binary = 1) reproduces the printed digits",
+   "evidence": {
+    "column": "Loom_Speed",
+    "n_rows": 95,
+    "table_value": 2.0,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "with the majority occurring at speeds of 3.0 m s–1 or higher (Fig 2A)",
+   "quantity": "other_speed",
+   "value": 3.0,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "Response_Binary = 1",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "showing a sharp rise above approximately ≈ 2.0 m s–1 (Fig 2A)",
+   "quantity": "other_speed",
+   "value": 2.0,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "together with any fish responding within five frames (20.83 ms) of them.",
+   "quantity": "other_duration",
+   "value": 20.83,
+   "plus_minus": null,
+   "unit": "ms",
+   "statistic": "single_event",
+   "route": "refuse: other_duration is not measurable from a centroid track",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "other_duration is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "Beyond a viewing angle of roughly 55°, the iPad becomes reflective through the Snell’s window effect [39] and the stimulus is no longer visible.",
+   "quantity": "other_angle",
+   "value": 55.0,
+   "plus_minus": null,
+   "unit": "deg",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "it became reflective at a large enough angle (≳ 50°) due to a Snell’s window effect [39].",
+   "quantity": "other_angle",
+   "value": 50.0,
+   "plus_minus": null,
+   "unit": "deg",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  }
+ ],
+ "videos": [],
+ "summary": {
+  "claims": {
+   "NOT CHECKED": 1,
+   "MATCHES TABLE": 2,
+   "REFUSED": 6
+  },
+  "videos": {},
+  "model_calls": 1,
+  "tokens": 77967,
+  "rejected_calls": 0
+ }
+}

@@ -1,0 +1,1278 @@
+{
+ "run_id": "pigeons_pbio3000299-20261028",
+ "started": "2026-10-28T19:53:12+00:00",
+ "commit": "7cf697ae7d51417a0cbfa02ba9dcbf8501a63b95",
+ "inputs": {
+  "Figure3_data.xlsx": "186e5be1d80b50cc354a8252a8b4cd1a00d2d07761d5ff680e856ac382cef93b",
+  "paper.pdf": "6f007f5b84479997920bf15a7d0e187f84e2bb01e4d1e7434f9657ac87f49c07",
+  "source.json": "3b86e62e7fe79026c16a96e65fb35ce139df331f37641e4df4e7f4cb441a4fd4"
+ },
+ "checks_sha256": "b8a6e7a11527dba91bd08e6891ef75bae5ba5223667255507e481d1721f43fda",
+ "events": [
+  {
+   "i": 0,
+   "t": 0.0,
+   "kind": "step",
+   "what": "inventory",
+   "note": "1 pdf, 0 video, 1 table, 0 archive files",
+   "ref": ""
+  },
+  {
+   "i": 1,
+   "t": 0.2,
+   "kind": "step",
+   "what": "paper",
+   "note": "paper.pdf chosen as the paper",
+   "ref": ""
+  },
+  {
+   "i": 2,
+   "t": 0.21,
+   "kind": "gate",
+   "gate": "G0 licence",
+   "ok": true,
+   "note": "CC BY: Taylor et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distributi",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 3,
+   "t": 0.22,
+   "kind": "step",
+   "what": "read files",
+   "note": "188123 chars of PDF text, 1 table sheets, 0 scripts",
+   "ref": ""
+  },
+  {
+   "i": 4,
+   "t": 50.37,
+   "kind": "model",
+   "role": "plan",
+   "model": "muse-spark-1.3",
+   "tokens": 79627,
+   "seconds": 50.2,
+   "proposal": "v1: 22 claims, event table table, 0 videos, authors' method finite_difference",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 5,
+   "t": 50.67,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The baseline solo means of the median wingbeat fre': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 6,
+   "t": 50.67,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The baseline solo means of the median wingbeat fre': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 7,
+   "t": 50.67,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'their median wingbeat frequency increased by 1.00 ': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 8,
+   "t": 50.67,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'this marked change in wingbeat frequency was assoc': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 9,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'the median peak‐to-peak amplitude of the dorsal bo': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 10,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'resulted in a net 22.5% reduction in the median pe': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 11,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'we found that birds reduced the median duration of': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 12,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'whereas the median duration of the downstroke phas': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 13,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'our birds flew with a median GPS spacing 12.12 ± 4': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 14,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'predicts that birds flying with no horizontal spac': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 15,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'with wingbeat frequency decreasing by 0.011 Hz for': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 16,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Flying in a pair resulted in a 7% increase in rout': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 17,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'birds flying in pairs increased their median wingb': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 18,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'birds flying in pairs increased their median wingb': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 19,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'birds flying in pairs increased their median wingb' rows: rows where 'Release_Type' = 'Pair'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 20,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'birds flying in pairs increased their median wingb': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 21,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'birds flying in pairs increased their median wingb' rows: rows where 'Release_Type' = 'Solo'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 22,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'the median peak-to-peak head displace‐ment simulta': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 23,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'because the birds’ median wingbeat frequency decre': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 24,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'those we measured in paired flight (6.5 ± 0.2 Hz) ': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 25,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'those we measured in paired flight (6.5 ± 0.2 Hz) ': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 26,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The release site was located 7.06 km from the loft': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 27,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'we conducted a second experiment using head-mounte': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 28,
+   "t": 50.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The release site was located 0.95 km from the loft': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 29,
+   "t": 138.4,
+   "kind": "model",
+   "role": "re-propose plan",
+   "model": "muse-spark-1.3",
+   "tokens": 88363,
+   "seconds": 87.7,
+   "proposal": "v2: 20 claims, event table table, 0 videos, authors' method unknown",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 30,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The baseline solo means of the median wingbeat fre': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 31,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The baseline solo means of the median wingbeat fre': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 32,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'this marked change in wingbeat frequency was assoc': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 33,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'the median peak‐to-peak amplitude of the dorsal bo': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 34,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'our birds flew with a median GPS spacing 12.12 ± 4': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 35,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'predicts that birds flying with no horizontal spac': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 36,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'with wingbeat frequency decreasing by 0.011 Hz for': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 37,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Flying in a pair resulted in a 7% increase in rout': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 38,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'birds flying in pairs increased their median wingb': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 39,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'birds flying in pairs increased their median wingb': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 40,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'birds flying in pairs increased their median wingb' rows: rows where 'Release_Type' = 'Pair'",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 41,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'birds flying in pairs increased their median wingb': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 42,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'birds flying in pairs increased their median wingb' rows: rows where 'Release_Type' = 'Solo'",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 43,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'the median peak-to-peak head displace‐ment simulta': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 44,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'because the birds’ median wingbeat frequency decre': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 45,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'those we measured in paired flight (6.5 ± 0.2 Hz) ': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 46,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'those we measured in paired flight (6.5 ± 0.2 Hz) ': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 47,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The release site was located 7.06 km from the loft': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 48,
+   "t": 138.72,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'we conducted a second experiment using head-mounte': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 49,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The release site was located 0.95 km from the loft': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 50,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'their median wingbeat frequency increased by 1.00 ': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 51,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'resulted in a net 22.5% reduction in the median pe': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 52,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim 'reduced the median duration of the upstroke phase ': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 53,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim 'median duration of the downstroke phase did not va': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 54,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Both individuals in a pair increased their wingbea': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 55,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'This sharp increase in wingbeat frequency caused j': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 56,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'This sharp increase in wingbeat frequency caused j': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 57,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim 'resulted in a net 22.5% reduction in the median pe': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 58,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'reduced the median duration of the upstroke phase ': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 59,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'representing a 30% reduction in the amplitude of o': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 60,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Flying in a pair resulted in a 7% increase in rout': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 61,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'which reduced flight distance by 7% and time by 9%': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 62,
+   "t": 138.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'which reduced flight distance by 7% and time by 9%': quote and value found in the PDF",
+   "ref": "",
+   "on": 29
+  },
+  {
+   "i": 63,
+   "t": 197.12,
+   "kind": "model",
+   "role": "re-propose plan",
+   "model": "muse-spark-1.3",
+   "tokens": 81242,
+   "seconds": 58.4,
+   "proposal": "v3: 16 claims, event table table, 0 videos, authors' method finite_difference",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 64,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The baseline solo means of the median wingbeat fre': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 65,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The baseline solo means of the median wingbeat fre': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 66,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'this marked change in wingbeat frequency was assoc': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 67,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'the median peak‐to-peak amplitude of the dorsal bo': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 68,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'our birds flew with a median GPS spacing 12.12 ± 4': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 69,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'predicts that birds flying with no horizontal spac': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 70,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'with wingbeat frequency decreasing by 0.011 Hz for': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 71,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Flying in a pair resulted in a 7% increase in rout': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 72,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'birds flying in pairs increased their median wingb': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 73,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'birds flying in pairs increased their median wingb': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 74,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'birds flying in pairs increased their median wingb' rows: rows where 'Release_Type' = 'Pair'",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 75,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'birds flying in pairs increased their median wingb': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 76,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'birds flying in pairs increased their median wingb' rows: rows where 'Release_Type' = 'Solo'",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 77,
+   "t": 197.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'the median peak-to-peak head displace‐ment simulta': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 78,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'because the birds’ median wingbeat frequency decre': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 79,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'those we measured in paired flight (6.5 ± 0.2 Hz) ': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 80,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'those we measured in paired flight (6.5 ± 0.2 Hz) ': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 81,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The release site was located 7.06 km from the loft': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 82,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'we conducted a second experiment using head-mounte': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 83,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The release site was located 0.95 km from the loft': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 84,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'their median wingbeat frequency increased by 1.00 ': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 85,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Both individuals in a pair increased their wingbea': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 86,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'This sharp increase in wingbeat frequency caused j': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 87,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'This sharp increase in wingbeat frequency caused j': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 88,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'representing a 30% reduction in the amplitude of o': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 89,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Flying in a pair resulted in a 7% increase in rout': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 90,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'which reduced flight distance by 7% and time by 9%': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 91,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'which reduced flight distance by 7% and time by 9%': quote and value found in the PDF",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 92,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim 'birds reduced the median duration of the upstroke ': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 93,
+   "t": 197.47,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim 'median duration of the downstroke phase did not va': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 94,
+   "t": 197.48,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim 'median peak-to-peak amplitude of dorsal body displ': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 63
+  },
+  {
+   "i": 95,
+   "t": 197.48,
+   "kind": "step",
+   "what": "plan accepted",
+   "note": "v2 (3 needed fields still rejected)",
+   "ref": ""
+  },
+  {
+   "i": 96,
+   "t": 197.49,
+   "kind": "step",
+   "what": "spread convention",
+   "note": "the paper states 'mean ± sd': a '±' of unknown type is read as SD",
+   "ref": ""
+  },
+  {
+   "i": 97,
+   "t": 197.51,
+   "kind": "step",
+   "what": "angle statistics",
+   "note": "the paper states 'circular statistic': a mean angle that arithmetic does not reproduce is also tried as a circular mean (circular SD = sqrt(-2 ln R))",
+   "ref": ""
+  },
+  {
+   "i": 98,
+   "t": 197.53,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The baseline solo means of the median wingbeat frequency and median do",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 99,
+   "t": 197.54,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The baseline solo means of the median wingbeat frequency and median do",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 100,
+   "t": 197.55,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: this marked change in wingbeat frequency was associated with a surpris",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 101,
+   "t": 197.56,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: the median peak‐to-peak amplitude of the dorsal body acceleration was ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 102,
+   "t": 197.56,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: our birds flew with a median GPS spacing 12.12 ± 4.76 m (mean of the m",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 103,
+   "t": 197.57,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: predicts that birds flying with no horizontal spacing have the highest",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 104,
+   "t": 197.58,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: with wingbeat frequency decreasing by 0.011 Hz for every metre increas",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 105,
+   "t": 197.59,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Flying in a pair resulted in a 7% increase in route accuracy relative ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 106,
+   "t": 197.6,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: birds flying in pairs increased their median wingbeat frequency by a m",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 107,
+   "t": 197.61,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: birds flying in pairs increased their median wingbeat frequency by a m",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 108,
+   "t": 197.62,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: birds flying in pairs increased their median wingbeat frequency by a m",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 109,
+   "t": 197.64,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: the median peak-to-peak head displace‐ment simultaneously decreased by",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 110,
+   "t": 197.65,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: because the birds’ median wingbeat frequency decreased by 1.01 ± 0.30 ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 111,
+   "t": 197.66,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: those we measured in paired flight (6.5 ± 0.2 Hz) and substantially fa",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 112,
+   "t": 197.67,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: those we measured in paired flight (6.5 ± 0.2 Hz) and substantially fa",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 113,
+   "t": 197.68,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The release site was located 7.06 km from the loft on a bearing of 282",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 114,
+   "t": 197.68,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: we conducted a second experiment using head-mounted accelerometers on ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 115,
+   "t": 197.69,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The release site was located 0.95 km from the loft on a bearing of 199",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 116,
+   "t": 197.7,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: their median wingbeat frequency increased by 1.00 Hz (95% Bayesian cre",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 117,
+   "t": 197.71,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: resulted in a net 22.5% reduction in the median peak-to-peak amplitude",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 118,
+   "t": 197.72,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Both individuals in a pair increased their wingbeat frequency by 18% b",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 119,
+   "t": 197.73,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: This sharp increase in wingbeat frequency caused just a 3% increase in",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 120,
+   "t": 197.73,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: This sharp increase in wingbeat frequency caused just a 3% increase in",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 121,
+   "t": 197.74,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: reduced the median duration of the upstroke phase by 21.4% (−28.63 ms,",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 122,
+   "t": 197.74,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: representing a 30% reduction in the amplitude of oscillatory head disp",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 123,
+   "t": 197.75,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Flying in a pair resulted in a 7% increase in route accuracy relative ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 124,
+   "t": 197.76,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: which reduced flight distance by 7% and time by 9%.",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 125,
+   "t": 197.77,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: which reduced flight distance by 7% and time by 9%.",
+   "ref": "",
+   "on": null
+  }
+ ],
+ "verdicts": [],
+ "summary": {
+  "status": "complete",
+  "claims": {
+   "REFUSED": 24,
+   "NOT CHECKED": 4
+  },
+  "videos": {},
+  "finished": "2026-10-28T19:56:30+00:00",
+  "wall_s": 197.8
+ }
+}

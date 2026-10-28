@@ -1,0 +1,223 @@
+{
+ "run_id": "pitch_0265525-20261028",
+ "bundle": "pitch_0265525",
+ "claims": [
+  {
+   "source": "paper",
+   "quote": "age: 23.9 ± 2.8 years",
+   "quantity": "other",
+   "value": 23.9,
+   "plus_minus": 2.8,
+   "unit": "years",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "height: 180.3 ± 5.9 cm",
+   "quantity": "body_length",
+   "value": 180.3,
+   "plus_minus": 5.9,
+   "unit": "cm",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "no column reproduces the printed digits; 'height' over 56 rows gives 179.7 ± 5.65 cm (the printed value may use another aggregation unit)",
+   "evidence": {
+    "column": "height",
+    "n_rows": 56,
+    "table_value": 179.6875,
+    "table_sd": 5.654895304874433,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "weight: 81.4 ± 10.9 kg",
+   "quantity": "mass",
+   "value": 81.4,
+   "plus_minus": 10.9,
+   "unit": "kg",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "ERROM (˚) 107.7 7.8",
+   "quantity": "body_angle",
+   "value": 107.7,
+   "plus_minus": 7.8,
+   "unit": "deg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "no column reproduces the printed digits; 'errom' over 56 rows gives 106.8 ± 7.71 deg (the printed value may use another aggregation unit)",
+   "evidence": {
+    "column": "errom",
+    "n_rows": 56,
+    "table_value": 106.76785714285714,
+    "table_sd": 7.714192519879591,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "IRROM (˚) 52.5 11.3",
+   "quantity": "body_angle",
+   "value": 52.5,
+   "plus_minus": 11.3,
+   "unit": "deg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "no column reproduces the printed digits; 'irrom' over 56 rows gives 51.71 ± 11 deg (the printed value may use another aggregation unit)",
+   "evidence": {
+    "column": "irrom",
+    "n_rows": 56,
+    "table_value": 51.705357142857146,
+    "table_sd": 10.998254731677074,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "Sprint10 (sec) 1.82 0.08",
+   "quantity": "other_duration",
+   "value": 1.82,
+   "plus_minus": 0.08,
+   "unit": "sec",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "no column reproduces the printed digits; 'sprint10' over 56 rows gives 1.816 ± 0.086 sec (the printed value may use another aggregation unit)",
+   "evidence": {
+    "column": "sprint10",
+    "n_rows": 56,
+    "table_value": 1.8160178571428571,
+    "table_sd": 0.08597050045249212,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "Sprint30 (sec) 4.05 0.17",
+   "quantity": "other_duration",
+   "value": 4.05,
+   "plus_minus": 0.17,
+   "unit": "sec",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 56 rows of 'sprint30' reproduces the printed digits",
+   "evidence": {
+    "column": "sprint30",
+    "n_rows": 56,
+    "table_value": 4.050357142857143,
+    "table_sd": 0.1704108861835714,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "Sprintratio 0.45 0.02",
+   "quantity": "other",
+   "value": 0.45,
+   "plus_minus": 0.02,
+   "unit": "ratio",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "CMJloaded (cm) 35.49 5.29",
+   "quantity": "jump_height",
+   "value": 35.49,
+   "plus_minus": 5.29,
+   "unit": "cm",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "no column reproduces the printed digits; 'cmjw' over 56 rows gives 35.23 ± 5.31 cm (the printed value may use another aggregation unit)",
+   "evidence": {
+    "column": "cmjw",
+    "n_rows": 56,
+    "table_value": 35.235,
+    "table_sd": 5.311635598125377,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "CMJloaded (cm) 42.97 2.83",
+   "quantity": "jump_height",
+   "value": 42.97,
+   "plus_minus": 2.83,
+   "unit": "cm",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "no column reproduces the printed digits; 'cmjnw' over 56 rows gives 42.54 ± 5.93 cm (the printed value may use another aggregation unit)",
+   "evidence": {
+    "column": "cmjnw",
+    "n_rows": 56,
+    "table_value": 42.541785714285716,
+    "table_sd": 5.9293596487441915,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "CMJratio 0.83 0.07",
+   "quantity": "other",
+   "value": 0.83,
+   "plus_minus": 0.07,
+   "unit": "ratio",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "they demonstrated a pitching velocity of less than 130 km/h",
+   "quantity": "other_speed",
+   "value": 130,
+   "plus_minus": null,
+   "unit": "km/h",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  }
+ ],
+ "videos": [],
+ "summary": {
+  "claims": {
+   "REFUSED": 5,
+   "NOT CHECKED": 6,
+   "MATCHES TABLE": 1
+  },
+  "videos": {},
+  "model_calls": 1,
+  "tokens": 49529,
+  "rejected_calls": 0
+ }
+}

@@ -1,0 +1,929 @@
+{
+  "plan": {
+    "authors_speed_method": {
+      "evidence": "Attack speed data were computed by calculating the magnitude of the change in position per frame and dividing it by the frame rate. The 90th percentile of the predator’s instantaneous speed was used as a proxy for maximum attack speed.",
+      "family": "finite_difference",
+      "parameters": "magnitude of change in position per frame divided by frame rate, 90th percentile as proxy for maximum attack speed"
+    },
+    "claims": [
+      {
+        "n_events": 61,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "which ranged from 2.7 – 9.0 m s–1 (90th percentile; Fig 2B).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "range",
+        "statistic": "min",
+        "table_column": "P90_Speed",
+        "unit": "m/s",
+        "value": 2.7
+      },
+      {
+        "n_events": 61,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "which ranged from 2.7 – 9.0 m s–1 (90th percentile; Fig 2B).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "range",
+        "statistic": "max",
+        "table_column": "P90_Speed",
+        "unit": "m/s",
+        "value": 9.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "indicates routine speeds on the order of ≈ 1 m s–1 or less for similarly sized fishes.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "unknown",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "m/s",
+        "value": 1.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "Escape responses were only observed when stimulus speed exceeded 2.0 m s–1",
+        "row_filter": {
+          "column": "Response_Binary",
+          "value": "1"
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": "Loom_Speed",
+        "unit": "m/s",
+        "value": 2.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "with the majority occurring at speeds of 3.0 m s–1 or higher (Fig 2A)",
+        "row_filter": {
+          "column": "Response_Binary",
+          "value": "1"
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "Loom_Speed",
+        "unit": "m/s",
+        "value": 3.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "showing a sharp rise above approximately ≈ 2.0 m s–1 (Fig 2A)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "Loom_Speed",
+        "unit": "m/s",
+        "value": 2.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "together with any fish responding within five frames (20.83 ms) of them.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": null,
+        "unit": "ms",
+        "value": 20.83
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_angle",
+        "quote": "Beyond a viewing angle of roughly 55°, the iPad becomes reflective through the Snell’s window effect [39] and the stimulus is no longer visible.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "Viewing_Angle",
+        "unit": "deg",
+        "value": 55.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_angle",
+        "quote": "it became reflective at a large enough angle (≳ 50°) due to a Snell’s window effect [39].",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "Viewing_Angle",
+        "unit": "deg",
+        "value": 50.0
+      }
+    ],
+    "event_table": {
+      "columns": [
+        {
+          "evidence": "All models included a random intercept for trial session ID",
+          "name": "Dep_ID",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "Each looming-stimulus presentation was recorded as a single video across the three cameras.",
+          "name": "Video_ID",
+          "quantity": "event_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "the dataset comprised 247 videos, 67 with at least one responding fish and 180 with no observed responses.",
+          "name": "Response_Video",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "Group_Size",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "The expansion rate of the disk was calibrated to match the optical expansion produced by a predator approaching at one of nine different speeds (0.5, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, or 8.0 m s–1 )",
+          "name": "Loom_Speed",
+          "quantity": "other_speed",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m/s"
+        },
+        {
+          "evidence": "A total of 12 trial sessions were conducted across 5 sites around the reef",
+          "name": "Site",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "with each site sampled on one to four separate occasions.",
+          "name": "Site_Rep",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "The order of stimulus presentations within a trial (trial event number; TEv) was included to test for habituation",
+          "name": "Trial_Event",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "Each fish was assigned a unique ID, and its species and response frame (if applicable) were recorded.",
+          "name": "Fish_ID",
+          "quantity": "animal_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "Species identity (Sp) was manually identified from the video footage and included to assess interspecific differences in escape behavior.",
+          "name": "Species",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "Size",
+          "quantity": "body_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "unknown"
+        },
+        {
+          "evidence": "all recordings were manually screened for the presence of escape responses.",
+          "name": "Response_Present",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "For each fish exhibiting an escape response, the frame corresponding to the C-start was recorded",
+          "name": "Responseframe_LF",
+          "quantity": "frame_index",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "For each fish exhibiting an escape response, the frame corresponding to the C-start was recorded",
+          "name": "Responseframe_cam3",
+          "quantity": "frame_index",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "together with any fish responding within five frames (20.83 ms) of them.",
+          "name": "After_FR",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "frames"
+        },
+        {
+          "evidence": "first responders (FR, n=95) were the fish that initiated the escape in each video",
+          "name": "Response_Rank",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "we classified fish by the information available to them, comparing first responders in the response videos (FR, Fig 1E) with fish that saw the stimulus but did not respond, in the non-response videos (NRL-NR, Fig 1F).",
+          "name": "Response_Category",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "Speed",
+          "quantity": "takeoff_speed",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "unknown"
+        },
+        {
+          "evidence": "Distance to coral (DCo) was measured as the shortest three-dimensional distance to the nearest coral patch, which serves as a potential refuge.",
+          "name": "Closest_Coral",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "Distance to coral (DCo) was measured as the shortest three-dimensional distance to the nearest coral patch, which serves as a potential refuge.",
+          "name": "Distance_to_Coral",
+          "quantity": "other_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "unknown"
+        },
+        {
+          "evidence": "Fish-specific variables, such as distance to coral, were calculated using the reconstructed 3D positions of the fish and the environment.",
+          "name": "X_Coral",
+          "quantity": "other_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "unknown"
+        },
+        {
+          "evidence": "Fish-specific variables, such as distance to coral, were calculated using the reconstructed 3D positions of the fish and the environment.",
+          "name": "Y_Coral",
+          "quantity": "other_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "unknown"
+        },
+        {
+          "evidence": "Fish-specific variables, such as distance to coral, were calculated using the reconstructed 3D positions of the fish and the environment.",
+          "name": "Z_Coral",
+          "quantity": "other_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "unknown"
+        },
+        {
+          "evidence": "The distance to the stimulus (DSt) was measured as the three-dimensional distance between the fish’s head and the center of the iPad screen.",
+          "name": "Distance_to_Stimulus",
+          "quantity": "other_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "unknown"
+        },
+        {
+          "evidence": "Neighbor Proximity (NPro) was calculated as the sum, over all neighboring fish, of the inverse squared distance to each neighbor.",
+          "name": "Neighbor_Proximity",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "Stimulus_Side",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "We also tested two alternative measures for social context (the total angular area of neighbors in the focal fish’s visual field (NAS) and in the visual hemisphere containing the stimulus (NASstim ).",
+          "name": "NAS",
+          "quantity": "other_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "unknown"
+        },
+        {
+          "evidence": "We also tested two alternative measures for social context (the total angular area of neighbors in the focal fish’s visual field (NAS) and in the visual hemisphere containing the stimulus (NASstim ).",
+          "name": "N",
+          "quantity": "other_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "unknown"
+        },
+        {
+          "evidence": "The orientation angle (OA) describes the fish’s body alignment relative to the stimulus, ranging from 0° when facing the iPad directly to 180° when facing directly away.",
+          "name": "Orientation_Angle",
+          "quantity": "body_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "deg"
+        },
+        {
+          "evidence": "The viewing angle described the angle at which the fish viewed the iPad screen. A viewing angle of 0° corresponds to a fish directly in front of the iPad screen",
+          "name": "Viewing_Angle",
+          "quantity": "other_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "deg"
+        },
+        {
+          "evidence": "We modeled whether an individual fish initiated an escape response, a binary outcome, using generalized linear mixed models (GLMMs) with a binomial error distribution",
+          "name": "Response_Binary",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        }
+      ],
+      "file": "filtered_observations.csv",
+      "rows_are": "one fish per stimulus presentation (individual fish observation, first responder or non-responder)",
+      "sheet": "filtered_observations"
+    },
+    "object_phrase": "reef fish",
+    "scale_reference": {
+      "evidence": "",
+      "kind": "none",
+      "size_mm": null
+    },
+    "title": "Reef fish escape responses selectively match predator attack speeds",
+    "videos": []
+  },
+  "checks": [
+    {
+      "field": "column Speed unit",
+      "ok": true,
+      "note": "unit 'unknown' is not absolute: kept for table checks, not used for pairing"
+    },
+    {
+      "field": "claim 'which ranged from 2.7 – 9.0 m s–1 (90th percentile'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'which ranged from 2.7 – 9.0 m s–1 (90th percentile'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'indicates routine speeds on the order of ≈ 1 m s–1'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Escape responses were only observed when stimulus '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Escape responses were only observed when stimulus ' rows",
+      "ok": true,
+      "note": "rows where 'Response_Binary' = '1'"
+    },
+    {
+      "field": "claim 'with the majority occurring at speeds of 3.0 m s–1'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'with the majority occurring at speeds of 3.0 m s–1' rows",
+      "ok": true,
+      "note": "rows where 'Response_Binary' = '1'"
+    },
+    {
+      "field": "claim 'showing a sharp rise above approximately ≈ 2.0 m s'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'together with any fish responding within five fram'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Beyond a viewing angle of roughly 55°, the iPad be'",
+      "ok": true,
+      "note": "quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)"
+    },
+    {
+      "field": "claim 'it became reflective at a large enough angle (≳ 50'",
+      "ok": true,
+      "note": "quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)"
+    }
+  ],
+  "columns": {
+    "Dep_ID": {
+      "evidence": "All models included a random intercept for trial session ID",
+      "name": "Dep_ID",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 0,
+      "si_factor": null
+    },
+    "Video_ID": {
+      "evidence": "Each looming-stimulus presentation was recorded as a single video across the three cameras.",
+      "name": "Video_ID",
+      "quantity": "event_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 1,
+      "si_factor": null
+    },
+    "Response_Video": {
+      "evidence": "the dataset comprised 247 videos, 67 with at least one responding fish and 180 with no observed responses.",
+      "name": "Response_Video",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 2,
+      "si_factor": null
+    },
+    "Group_Size": {
+      "evidence": "",
+      "name": "Group_Size",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 3,
+      "si_factor": null
+    },
+    "Loom_Speed": {
+      "evidence": "The expansion rate of the disk was calibrated to match the optical expansion produced by a predator approaching at one of nine different speeds (0.5, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, or 8.0 m s–1 )",
+      "name": "Loom_Speed",
+      "quantity": "other_speed",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m/s",
+      "index": 4,
+      "si_factor": 1.0
+    },
+    "Site": {
+      "evidence": "A total of 12 trial sessions were conducted across 5 sites around the reef",
+      "name": "Site",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 5,
+      "si_factor": null
+    },
+    "Site_Rep": {
+      "evidence": "with each site sampled on one to four separate occasions.",
+      "name": "Site_Rep",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 6,
+      "si_factor": null
+    },
+    "Trial_Event": {
+      "evidence": "The order of stimulus presentations within a trial (trial event number; TEv) was included to test for habituation",
+      "name": "Trial_Event",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 7,
+      "si_factor": null
+    },
+    "Fish_ID": {
+      "evidence": "Each fish was assigned a unique ID, and its species and response frame (if applicable) were recorded.",
+      "name": "Fish_ID",
+      "quantity": "animal_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 8,
+      "si_factor": null
+    },
+    "Species": {
+      "evidence": "Species identity (Sp) was manually identified from the video footage and included to assess interspecific differences in escape behavior.",
+      "name": "Species",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 9,
+      "si_factor": null
+    },
+    "Size": {
+      "evidence": "",
+      "name": "Size",
+      "quantity": "body_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "unknown",
+      "index": 10,
+      "si_factor": null
+    },
+    "Response_Present": {
+      "evidence": "all recordings were manually screened for the presence of escape responses.",
+      "name": "Response_Present",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 11,
+      "si_factor": null
+    },
+    "Responseframe_LF": {
+      "evidence": "For each fish exhibiting an escape response, the frame corresponding to the C-start was recorded",
+      "name": "Responseframe_LF",
+      "quantity": "frame_index",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 12,
+      "si_factor": null
+    },
+    "Responseframe_cam3": {
+      "evidence": "For each fish exhibiting an escape response, the frame corresponding to the C-start was recorded",
+      "name": "Responseframe_cam3",
+      "quantity": "frame_index",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 13,
+      "si_factor": null
+    },
+    "After_FR": {
+      "evidence": "together with any fish responding within five frames (20.83 ms) of them.",
+      "name": "After_FR",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "frames",
+      "index": 14,
+      "si_factor": null
+    },
+    "Response_Rank": {
+      "evidence": "first responders (FR, n=95) were the fish that initiated the escape in each video",
+      "name": "Response_Rank",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 15,
+      "si_factor": null
+    },
+    "Response_Category": {
+      "evidence": "we classified fish by the information available to them, comparing first responders in the response videos (FR, Fig 1E) with fish that saw the stimulus but did not respond, in the non-response videos (NRL-NR, Fig 1F).",
+      "name": "Response_Category",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 16,
+      "si_factor": null
+    },
+    "Speed": {
+      "evidence": "",
+      "name": "Speed",
+      "quantity": "takeoff_speed",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "unknown",
+      "index": 17,
+      "si_factor": null
+    },
+    "Closest_Coral": {
+      "evidence": "Distance to coral (DCo) was measured as the shortest three-dimensional distance to the nearest coral patch, which serves as a potential refuge.",
+      "name": "Closest_Coral",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 18,
+      "si_factor": null
+    },
+    "Distance_to_Coral": {
+      "evidence": "Distance to coral (DCo) was measured as the shortest three-dimensional distance to the nearest coral patch, which serves as a potential refuge.",
+      "name": "Distance_to_Coral",
+      "quantity": "other_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "unknown",
+      "index": 19,
+      "si_factor": null
+    },
+    "X_Coral": {
+      "evidence": "Fish-specific variables, such as distance to coral, were calculated using the reconstructed 3D positions of the fish and the environment.",
+      "name": "X_Coral",
+      "quantity": "other_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "unknown",
+      "index": 20,
+      "si_factor": null
+    },
+    "Y_Coral": {
+      "evidence": "Fish-specific variables, such as distance to coral, were calculated using the reconstructed 3D positions of the fish and the environment.",
+      "name": "Y_Coral",
+      "quantity": "other_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "unknown",
+      "index": 21,
+      "si_factor": null
+    },
+    "Z_Coral": {
+      "evidence": "Fish-specific variables, such as distance to coral, were calculated using the reconstructed 3D positions of the fish and the environment.",
+      "name": "Z_Coral",
+      "quantity": "other_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "unknown",
+      "index": 22,
+      "si_factor": null
+    },
+    "Distance_to_Stimulus": {
+      "evidence": "The distance to the stimulus (DSt) was measured as the three-dimensional distance between the fish’s head and the center of the iPad screen.",
+      "name": "Distance_to_Stimulus",
+      "quantity": "other_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "unknown",
+      "index": 23,
+      "si_factor": null
+    },
+    "Neighbor_Proximity": {
+      "evidence": "Neighbor Proximity (NPro) was calculated as the sum, over all neighboring fish, of the inverse squared distance to each neighbor.",
+      "name": "Neighbor_Proximity",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 24,
+      "si_factor": null
+    },
+    "Stimulus_Side": {
+      "evidence": "",
+      "name": "Stimulus_Side",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 25,
+      "si_factor": null
+    },
+    "NAS": {
+      "evidence": "We also tested two alternative measures for social context (the total angular area of neighbors in the focal fish’s visual field (NAS) and in the visual hemisphere containing the stimulus (NASstim ).",
+      "name": "NAS",
+      "quantity": "other_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "unknown",
+      "index": 26,
+      "si_factor": null
+    },
+    "N": {
+      "evidence": "We also tested two alternative measures for social context (the total angular area of neighbors in the focal fish’s visual field (NAS) and in the visual hemisphere containing the stimulus (NASstim ).",
+      "name": "N",
+      "quantity": "other_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "unknown",
+      "index": 27,
+      "si_factor": null
+    },
+    "Orientation_Angle": {
+      "evidence": "The orientation angle (OA) describes the fish’s body alignment relative to the stimulus, ranging from 0° when facing the iPad directly to 180° when facing directly away.",
+      "name": "Orientation_Angle",
+      "quantity": "body_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "deg",
+      "index": 28,
+      "si_factor": 1.0
+    },
+    "Viewing_Angle": {
+      "evidence": "The viewing angle described the angle at which the fish viewed the iPad screen. A viewing angle of 0° corresponds to a fish directly in front of the iPad screen",
+      "name": "Viewing_Angle",
+      "quantity": "other_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "deg",
+      "index": 29,
+      "si_factor": 1.0
+    },
+    "Response_Binary": {
+      "evidence": "We modeled whether an individual fish initiated an escape response, a binary outcome, using generalized linear mixed models (GLMMs) with a binomial error distribution",
+      "name": "Response_Binary",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 30,
+      "si_factor": null
+    }
+  },
+  "claims": [
+    {
+      "n_events": 61,
+      "plus_minus": null,
+      "quantity": "other_speed",
+      "quote": "which ranged from 2.7 – 9.0 m s–1 (90th percentile; Fig 2B).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "range",
+      "statistic": "min",
+      "table_column": "P90_Speed",
+      "unit": "m/s",
+      "value": 2.7,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 61,
+      "plus_minus": null,
+      "quantity": "other_speed",
+      "quote": "which ranged from 2.7 – 9.0 m s–1 (90th percentile; Fig 2B).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "range",
+      "statistic": "max",
+      "table_column": "P90_Speed",
+      "unit": "m/s",
+      "value": 9.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_speed",
+      "quote": "indicates routine speeds on the order of ≈ 1 m s–1 or less for similarly sized fishes.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "unknown",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "m/s",
+      "value": 1.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_speed",
+      "quote": "Escape responses were only observed when stimulus speed exceeded 2.0 m s–1",
+      "row_filter": {
+        "column": "Response_Binary",
+        "value": "1"
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": "Loom_Speed",
+      "unit": "m/s",
+      "value": 2.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_speed",
+      "quote": "with the majority occurring at speeds of 3.0 m s–1 or higher (Fig 2A)",
+      "row_filter": {
+        "column": "Response_Binary",
+        "value": "1"
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "Loom_Speed",
+      "unit": "m/s",
+      "value": 3.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_speed",
+      "quote": "showing a sharp rise above approximately ≈ 2.0 m s–1 (Fig 2A)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "Loom_Speed",
+      "unit": "m/s",
+      "value": 2.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "together with any fish responding within five frames (20.83 ms) of them.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": null,
+      "unit": "ms",
+      "value": 20.83,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_angle",
+      "quote": "Beyond a viewing angle of roughly 55°, the iPad becomes reflective through the Snell’s window effect [39] and the stimulus is no longer visible.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "Viewing_Angle",
+      "unit": "deg",
+      "value": 55.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_angle",
+      "quote": "it became reflective at a large enough angle (≳ 50°) due to a Snell’s window effect [39].",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "Viewing_Angle",
+      "unit": "deg",
+      "value": 50.0,
+      "si_factor": 1.0
+    }
+  ]
+}

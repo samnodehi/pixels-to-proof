@@ -1,0 +1,500 @@
+{
+ "run_id": "sprintpape_0332479-20261028",
+ "bundle": "sprintpape_0332479",
+ "claims": [
+  {
+   "source": "paper",
+   "quote": "age;18.10±0.71 years",
+   "quantity": "other",
+   "value": 18.1,
+   "plus_minus": 0.71,
+   "unit": "years",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 30 rows of 'Age' reproduces the printed digits",
+   "evidence": {
+    "column": "Age",
+    "n_rows": 30,
+    "table_value": 18.1,
+    "table_sd": 0.7119666788018509,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "height;180±5,7cm",
+   "quantity": "body_length",
+   "value": 180.0,
+   "plus_minus": 5.7,
+   "unit": "cm",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "no column reproduces the printed digits; 'Heigh' over 30 rows gives 180.2 ± 5.77 cm (the printed value may use another aggregation unit)",
+   "evidence": {
+    "column": "Heigh",
+    "n_rows": 30,
+    "table_value": 180.23333333333332,
+    "table_sd": 5.769619202956677,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "weight:73.23±6.82kg",
+   "quantity": "mass",
+   "value": 73.23,
+   "plus_minus": 6.82,
+   "unit": "kg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "'Weight' over 30 rows gives 73.2333 ± 6.8290: the printed values are these truncated, not rounded",
+   "evidence": {
+    "column": "Weight",
+    "n_rows": 30,
+    "table_value": 73.23333333333333,
+    "table_sd": 6.829011809833878,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "training age:5.0±1.0 years",
+   "quantity": "other",
+   "value": 5.0,
+   "plus_minus": 1.0,
+   "unit": "years",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "1RM;125±20.87",
+   "quantity": "mass",
+   "value": 125.0,
+   "plus_minus": 20.87,
+   "unit": "kg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "'RM' over 30 rows gives 125.53 ± 20.8752: the printed values are these truncated, not rounded",
+   "evidence": {
+    "column": "RM",
+    "n_rows": 30,
+    "table_value": 125.53333333333333,
+    "table_sd": 20.87521766697723,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "1.74±0.08",
+   "quantity": "other_duration",
+   "value": 1.74,
+   "plus_minus": 0.08,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 2",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm10_Pre' (rows where Grup = 2) reproduces the printed digits",
+   "evidence": {
+    "column": "m10_Pre",
+    "n_rows": 10,
+    "table_value": 1.738,
+    "table_sd": 0.07509993342207437,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "1.76±0.08",
+   "quantity": "other_duration",
+   "value": 1.76,
+   "plus_minus": 0.08,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 2",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm10_Post' (rows where Grup = 2) reproduces the printed digits",
+   "evidence": {
+    "column": "m10_Post",
+    "n_rows": 10,
+    "table_value": 1.7570000000000001,
+    "table_sd": 0.07902882737049538,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "2.92±0.25",
+   "quantity": "other_duration",
+   "value": 2.92,
+   "plus_minus": 0.25,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 2",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm20_Pre' (rows where Grup = 2) reproduces the printed digits",
+   "evidence": {
+    "column": "m20_Pre",
+    "n_rows": 10,
+    "table_value": 2.92,
+    "table_sd": 0.25219040425836986,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "2.89±0.24",
+   "quantity": "other_duration",
+   "value": 2.89,
+   "plus_minus": 0.24,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 2",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm20_Post' (rows where Grup = 2) reproduces the printed digits",
+   "evidence": {
+    "column": "m20_Post",
+    "n_rows": 10,
+    "table_value": 2.888,
+    "table_sd": 0.2399907405621217,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "4.44±0.21",
+   "quantity": "other_duration",
+   "value": 4.44,
+   "plus_minus": 0.21,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 2",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm30_Pre' (rows where Grup = 2) reproduces the printed digits",
+   "evidence": {
+    "column": "m30_Pre",
+    "n_rows": 10,
+    "table_value": 4.437,
+    "table_sd": 0.21494443726486884,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "4.45±0.22",
+   "quantity": "other_duration",
+   "value": 4.45,
+   "plus_minus": 0.22,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 2",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm30_Post' (rows where Grup = 2) reproduces the printed digits",
+   "evidence": {
+    "column": "m30_Post",
+    "n_rows": 10,
+    "table_value": 4.449,
+    "table_sd": 0.21789141026361422,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "1.74±0.07",
+   "quantity": "other_duration",
+   "value": 1.74,
+   "plus_minus": 0.07,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 1",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm10_Pre' (rows where Grup = 1) reproduces the printed digits",
+   "evidence": {
+    "column": "m10_Pre",
+    "n_rows": 10,
+    "table_value": 1.7429999999999999,
+    "table_sd": 0.06880729935438865,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "1.73±0.07",
+   "quantity": "other_duration",
+   "value": 1.73,
+   "plus_minus": 0.07,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 1",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm10_Post' (rows where Grup = 1) reproduces the printed digits",
+   "evidence": {
+    "column": "m10_Post",
+    "n_rows": 10,
+    "table_value": 1.7289999999999999,
+    "table_sd": 0.07030884249746501,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "3.07±0.11",
+   "quantity": "other_duration",
+   "value": 3.07,
+   "plus_minus": 0.11,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 1",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm20_Pre' (rows where Grup = 1) reproduces the printed digits",
+   "evidence": {
+    "column": "m20_Pre",
+    "n_rows": 10,
+    "table_value": 3.071,
+    "table_sd": 0.11069979423849186,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "3.05±0.10",
+   "quantity": "other_duration",
+   "value": 3.05,
+   "plus_minus": 0.1,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 1",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm20_Post' (rows where Grup = 1) reproduces the printed digits",
+   "evidence": {
+    "column": "m20_Post",
+    "n_rows": 10,
+    "table_value": 3.0469999999999997,
+    "table_sd": 0.10488618169764363,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "4.13±0.26",
+   "quantity": "other_duration",
+   "value": 4.13,
+   "plus_minus": 0.26,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 1",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm30_Pre' (rows where Grup = 1) reproduces the printed digits",
+   "evidence": {
+    "column": "m30_Pre",
+    "n_rows": 10,
+    "table_value": 4.1259999999999994,
+    "table_sd": 0.2596664527170706,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "4.10±0.26",
+   "quantity": "other_duration",
+   "value": 4.1,
+   "plus_minus": 0.26,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 1",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm30_Post' (rows where Grup = 1) reproduces the printed digits",
+   "evidence": {
+    "column": "m30_Post",
+    "n_rows": 10,
+    "table_value": 4.101999999999999,
+    "table_sd": 0.259734907592765,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "1.77±0.08",
+   "quantity": "other_duration",
+   "value": 1.77,
+   "plus_minus": 0.08,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 3",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm10_Pre' (rows where Grup = 3) reproduces the printed digits",
+   "evidence": {
+    "column": "m10_Pre",
+    "n_rows": 10,
+    "table_value": 1.768,
+    "table_sd": 0.07641989269817123,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "1.77±0.07",
+   "quantity": "other_duration",
+   "value": 1.77,
+   "plus_minus": 0.07,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 3",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm10_Post' (rows where Grup = 3) reproduces the printed digits",
+   "evidence": {
+    "column": "m10_Post",
+    "n_rows": 10,
+    "table_value": 1.7719999999999998,
+    "table_sd": 0.07067924416372577,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "3.08±0.08",
+   "quantity": "other_duration",
+   "value": 3.08,
+   "plus_minus": 0.08,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 3",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 10 rows of 'm20_Pre' (rows where Grup = 3) reproduces the printed digits",
+   "evidence": {
+    "column": "m20_Pre",
+    "n_rows": 10,
+    "table_value": 3.082,
+    "table_sd": 0.08189424074174362,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "4.38±0.27",
+   "quantity": "other_duration",
+   "value": 4.38,
+   "plus_minus": 0.27,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "Grup = 3",
+   "outcome": "MATCHES OTHER COLUMN",
+   "reason": "'m30_Post' (other_duration) reproduces the printed digits; the column proposed for this sentence ('m30_Pre') does not",
+   "evidence": {
+    "column": "m30_Post",
+    "n_rows": 10,
+    "table_value": 4.384,
+    "table_sd": 0.27309745920133033,
+    "stats": "arithmetic",
+    "proposed_column": "m30_Pre",
+    "proposed_quantity": "other_duration",
+    "column_quantity": "other_duration"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "The bar velocity during squats was set to be between 0.75–1.00 m/",
+   "quantity": "other_speed",
+   "value": 0.75,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "The bar velocity during squats was set to be between 0.75–1.00 m/",
+   "quantity": "other_speed",
+   "value": 1.0,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+   "quantity": "other_length",
+   "value": 10.0,
+   "plus_minus": null,
+   "unit": "m",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+   "quantity": "other_length",
+   "value": 20.0,
+   "plus_minus": null,
+   "unit": "m",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+   "quantity": "other_length",
+   "value": 30.0,
+   "plus_minus": null,
+   "unit": "m",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  }
+ ],
+ "videos": [],
+ "summary": {
+  "claims": {
+   "MATCHES TABLE": 16,
+   "NOT CHECKED": 3,
+   "REFUSED": 6,
+   "MATCHES OTHER COLUMN": 1
+  },
+  "videos": {},
+  "model_calls": 1,
+  "tokens": 52143,
+  "rejected_calls": 0
+ }
+}

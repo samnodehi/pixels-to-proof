@@ -1,0 +1,107 @@
+{
+ "run_id": "tadpole_0100623-20261028",
+ "bundle": "tadpole_0100623",
+ "claims": [
+  {
+   "source": "paper",
+   "quote": "escape by hatching up to 30% early [31,32].",
+   "quantity": "other_duration",
+   "value": 30,
+   "plus_minus": null,
+   "unit": "%",
+   "statistic": "max",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "Hatching age treatments were 4d post-oviposition or 6d post-oviposition (hereafter ‘‘early’’ or ‘‘late’’), simulating the effects of snake predators [31].",
+   "quantity": "other_duration",
+   "value": 4,
+   "plus_minus": null,
+   "unit": "d",
+   "statistic": "other",
+   "route": "refuse: unit 'd' is not one the agent can measure or convert",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "unit 'd' is not one the agent can measure or convert"
+  },
+  {
+   "source": "paper",
+   "quote": "Hatching age treatments were 4d post-oviposition or 6d post-oviposition (hereafter ‘‘early’’ or ‘‘late’’), simulating the effects of snake predators [31].",
+   "quantity": "other_duration",
+   "value": 6,
+   "plus_minus": null,
+   "unit": "d",
+   "statistic": "other",
+   "route": "refuse: unit 'd' is not one the agent can measure or convert",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "unit 'd' is not one the agent can measure or convert"
+  },
+  {
+   "source": "paper",
+   "quote": "were prevented from swimming for ~30 seconds by a barricade.",
+   "quantity": "other_duration",
+   "value": 30,
+   "plus_minus": null,
+   "unit": "s",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "a narrow swimming lane approximately 1.5 cm wide and 34 cm long (diagonal from corner to the other of the box).",
+   "quantity": "other_length",
+   "value": 1.5,
+   "plus_minus": null,
+   "unit": "cm",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "a narrow swimming lane approximately 1.5 cm wide and 34 cm long (diagonal from corner to the other of the box).",
+   "quantity": "other_length",
+   "value": 34.0,
+   "plus_minus": null,
+   "unit": "cm",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "containing aged tap water to a height of 2.5 cm,",
+   "quantity": "other_length",
+   "value": 2.5,
+   "plus_minus": null,
+   "unit": "cm",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  }
+ ],
+ "videos": [],
+ "summary": {
+  "claims": {
+   "REFUSED": 7
+  },
+  "videos": {},
+  "model_calls": 2,
+  "tokens": 105285,
+  "rejected_calls": 1
+ }
+}

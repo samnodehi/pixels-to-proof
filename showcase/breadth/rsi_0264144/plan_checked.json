@@ -1,0 +1,1923 @@
+{
+  "plan": {
+    "authors_speed_method": {
+      "evidence": "The jump height was calculated based on take-off velocity.",
+      "family": "unknown",
+      "parameters": "jump height from take-off velocity on force plate; RSI = height / contact time; RSImod = height / time to take-off"
+    },
+    "claims": [
+      {
+        "n_events": 40,
+        "plus_minus": 3.3,
+        "quantity": "other",
+        "quote": "For this study, we recruited 40 male volleyball players (age: 20.3 ± 3.3 years; body height: 187.4 ± 7.75 cm; body mass: 79.2 ± 8.6 kg).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Age",
+        "unit": "years",
+        "value": 20.3
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 7.75,
+        "quantity": "body_length",
+        "quote": "For this study, we recruited 40 male volleyball players (age: 20.3 ± 3.3 years; body height: 187.4 ± 7.75 cm; body mass: 79.2 ± 8.6 kg).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Height",
+        "unit": "cm",
+        "value": 187.4
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 8.6,
+        "quantity": "mass",
+        "quote": "For this study, we recruited 40 male volleyball players (age: 20.3 ± 3.3 years; body height: 187.4 ± 7.75 cm; body mass: 79.2 ± 8.6 kg).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Weight",
+        "unit": "kg",
+        "value": 79.2
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 4.1,
+        "quantity": "other_duration",
+        "quote": "They reported to be involved in regular training for 10.9 ± 4.1 years, to attend 5.7 ± 1.2 training sessions per week",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "years",
+        "value": 10.9
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 1.2,
+        "quantity": "other",
+        "quote": "They reported to be involved in regular training for 10.9 ± 4.1 years, to attend 5.7 ± 1.2 training sessions per week",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "sessions per week",
+        "value": 5.7
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 9.47,
+        "quantity": "jump_height",
+        "quote": "Approach jump (cm) 78.6 9.47 54.0 96.0",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "AJ_HeightBEST",
+        "unit": "cm",
+        "value": 78.6
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "jump_height",
+        "quote": "Approach jump (cm) 78.6 9.47 54.0 96.0",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": "AJ_HeightBEST",
+        "unit": "cm",
+        "value": 54.0
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "jump_height",
+        "quote": "Approach jump (cm) 78.6 9.47 54.0 96.0",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "AJ_HeightBEST",
+        "unit": "cm",
+        "value": 96.0
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.07,
+        "quantity": "jump_height",
+        "quote": "DJ—Jump Height (cm) 0.35 0.07 0.20 0.51",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "DJ_JumpHeight",
+        "unit": "cm",
+        "value": 0.35
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "jump_height",
+        "quote": "DJ—Jump Height (cm) 0.35 0.07 0.20 0.51",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": "DJ_JumpHeight",
+        "unit": "cm",
+        "value": 0.2
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "jump_height",
+        "quote": "DJ—Jump Height (cm) 0.35 0.07 0.20 0.51",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "DJ_JumpHeight",
+        "unit": "cm",
+        "value": 0.51
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.03,
+        "quantity": "other_duration",
+        "quote": "DJ—Contact Time (ms) 0.19 0.03 0.16 0.25",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "DJ_ContactTime",
+        "unit": "ms",
+        "value": 0.19
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "DJ—Contact Time (ms) 0.19 0.03 0.16 0.25",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": "DJ_ContactTime",
+        "unit": "ms",
+        "value": 0.16
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "DJ—Contact Time (ms) 0.19 0.03 0.16 0.25",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "DJ_ContactTime",
+        "unit": "ms",
+        "value": 0.25
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.44,
+        "quantity": "other",
+        "quote": "DJ—RSI 1.82 0.44 0.98 2.91",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "DJ_RSI",
+        "unit": "",
+        "value": 1.82
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "DJ—RSI 1.82 0.44 0.98 2.91",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": "DJ_RSI",
+        "unit": "",
+        "value": 0.98
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "DJ—RSI 1.82 0.44 0.98 2.91",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "DJ_RSI",
+        "unit": "",
+        "value": 2.91
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.06,
+        "quantity": "jump_height",
+        "quote": "CMJ BL—Jump Height (cm) 0.44 0.06 0.31 0.61",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "CMJ_Bilateral_JumpHeight",
+        "unit": "cm",
+        "value": 0.44
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "jump_height",
+        "quote": "CMJ BL—Jump Height (cm) 0.44 0.06 0.31 0.61",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": "CMJ_Bilateral_JumpHeight",
+        "unit": "cm",
+        "value": 0.31
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "jump_height",
+        "quote": "CMJ BL—Jump Height (cm) 0.44 0.06 0.31 0.61",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "CMJ_Bilateral_JumpHeight",
+        "unit": "cm",
+        "value": 0.61
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.09,
+        "quantity": "other_duration",
+        "quote": "CMJ BL—Jump Time (ms) 0.77 0.09 0.56 0.95",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "CMJ_Bilateral_JumpTime",
+        "unit": "ms",
+        "value": 0.77
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "CMJ BL—Jump Time (ms) 0.77 0.09 0.56 0.95",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": "CMJ_Bilateral_JumpTime",
+        "unit": "ms",
+        "value": 0.56
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "CMJ BL—Jump Time (ms) 0.77 0.09 0.56 0.95",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "CMJ_Bilateral_JumpTime",
+        "unit": "ms",
+        "value": 0.95
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.13,
+        "quantity": "other",
+        "quote": "CMJ BL—RSImod 0.58 0.13 0.39 0.97",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "RSI_MOD_Bilateral",
+        "unit": "",
+        "value": 0.58
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "CMJ BL—RSImod 0.58 0.13 0.39 0.97",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": "RSI_MOD_Bilateral",
+        "unit": "",
+        "value": 0.39
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "CMJ BL—RSImod 0.58 0.13 0.39 0.97",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "RSI_MOD_Bilateral",
+        "unit": "",
+        "value": 0.97
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.05,
+        "quantity": "jump_height",
+        "quote": "CMJ D—Jump Height (cm) 0.58 0.05 0.11 0.33",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "cm",
+        "value": 0.58
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "jump_height",
+        "quote": "CMJ D—Jump Height (cm) 0.58 0.05 0.11 0.33",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": null,
+        "unit": "cm",
+        "value": 0.11
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "jump_height",
+        "quote": "CMJ D—Jump Height (cm) 0.58 0.05 0.11 0.33",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": null,
+        "unit": "cm",
+        "value": 0.33
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.11,
+        "quantity": "other_duration",
+        "quote": "CMJ D—Jump Time (ms) 0.87 0.11 0.69 1.15",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ms",
+        "value": 0.87
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "CMJ D—Jump Time (ms) 0.87 0.11 0.69 1.15",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": null,
+        "unit": "ms",
+        "value": 0.69
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "CMJ D—Jump Time (ms) 0.87 0.11 0.69 1.15",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": null,
+        "unit": "ms",
+        "value": 1.15
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.07,
+        "quantity": "other",
+        "quote": "CMJ D—RSImod 0.27 0.07 0.15 0.45",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "",
+        "value": 0.27
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "CMJ D—RSImod 0.27 0.07 0.15 0.45",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": null,
+        "unit": "",
+        "value": 0.15
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "CMJ D—RSImod 0.27 0.07 0.15 0.45",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": null,
+        "unit": "",
+        "value": 0.45
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.05,
+        "quantity": "jump_height",
+        "quote": "CMJ ND–Jump Height (cm) 0.24 0.05 0.12 0.33",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "cm",
+        "value": 0.24
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "jump_height",
+        "quote": "CMJ ND–Jump Height (cm) 0.24 0.05 0.12 0.33",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": null,
+        "unit": "cm",
+        "value": 0.12
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "jump_height",
+        "quote": "CMJ ND–Jump Height (cm) 0.24 0.05 0.12 0.33",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": null,
+        "unit": "cm",
+        "value": 0.33
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.12,
+        "quantity": "other_duration",
+        "quote": "CMJ ND–Jump Time (ms) 0.86 0.12 0.68 1.16",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ms",
+        "value": 0.86
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "CMJ ND–Jump Time (ms) 0.86 0.12 0.68 1.16",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": null,
+        "unit": "ms",
+        "value": 0.68
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "CMJ ND–Jump Time (ms) 0.86 0.12 0.68 1.16",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": null,
+        "unit": "ms",
+        "value": 1.16
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.07,
+        "quantity": "other",
+        "quote": "CMJ ND—RSImod 0.28 0.07 0.15 0.44",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "",
+        "value": 0.28
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "CMJ ND—RSImod 0.28 0.07 0.15 0.44",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": null,
+        "unit": "",
+        "value": 0.15
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "CMJ ND—RSImod 0.28 0.07 0.15 0.44",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": null,
+        "unit": "",
+        "value": 0.44
+      }
+    ],
+    "event_table": {
+      "columns": [
+        {
+          "evidence": "we recruited 40 male volleyball players",
+          "name": "Subject ID",
+          "quantity": "animal_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "(age: 20.3 ± 3.3 years; body height: 187.4 ± 7.75 cm; body mass: 79.2 ± 8.6 kg).",
+          "name": "Age",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "years"
+        },
+        {
+          "evidence": "(age: 20.3 ± 3.3 years; body height: 187.4 ± 7.75 cm; body mass: 79.2 ± 8.6 kg).",
+          "name": "Height",
+          "quantity": "body_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "cm"
+        },
+        {
+          "evidence": "(age: 20.3 ± 3.3 years; body height: 187.4 ± 7.75 cm; body mass: 79.2 ± 8.6 kg).",
+          "name": "Weight",
+          "quantity": "mass",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "kg"
+        },
+        {
+          "evidence": "For this study, we recruited 40 male volleyball players",
+          "name": "Gender",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "Jumping height was calculated as a difference between standing reach and jumping reach. ... Approach jump (cm)",
+          "name": "AJ_HeightBEST",
+          "quantity": "jump_height",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "cm"
+        },
+        {
+          "evidence": "The jump height was calculated based on take-off velocity.",
+          "name": "DJ_JumpHeight",
+          "quantity": "jump_height",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m"
+        },
+        {
+          "evidence": "Ground contact time was defined as the time during which the force signal was > 10 N.",
+          "name": "DJ_ContactTime",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "subsequently, the RSI (RSIDJ) was calculated as the ratio between the jump height and the contact time.",
+          "name": "DJ_RSI",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m/s"
+        },
+        {
+          "evidence": "The jump height was calculated based on take-off velocity.",
+          "name": "CMJ_Bilateral_JumpHeight",
+          "quantity": "jump_height",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m"
+        },
+        {
+          "evidence": "Time to take off was determined as the time between the countermovement initiation (defined as the decrease in force signal larger than 3 standard deviations of the baseline signal) and the take-off (defined as the first instant of force < 10 N)",
+          "name": "CMJ_Bilateral_JumpTime",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "RSI was calculated by dividing the jump height with the time to take off.",
+          "name": "RSI_MOD_Bilateral",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m/s"
+        },
+        {
+          "evidence": "The jump height was calculated based on take-off velocity.",
+          "name": "CMJ_Left_JumpHeight",
+          "quantity": "jump_height",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m"
+        },
+        {
+          "evidence": "Time to take off was determined as the time between the countermovement initiation (defined as the decrease in force signal larger than 3 standard deviations of the baseline signal) and the take-off (defined as the first instant of force < 10 N)",
+          "name": "CMJ_Left_JumpTime",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "RSI was calculated by dividing the jump height with the time to take off.",
+          "name": "RSI_MOD_Left",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m/s"
+        },
+        {
+          "evidence": "The jump height was calculated based on take-off velocity.",
+          "name": "CMJ_Right_JumpHeight",
+          "quantity": "jump_height",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m"
+        },
+        {
+          "evidence": "Time to take off was determined as the time between the countermovement initiation (defined as the decrease in force signal larger than 3 standard deviations of the baseline signal) and the take-off (defined as the first instant of force < 10 N)",
+          "name": "CMJ_Right_JumpTime",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "RSI was calculated by dividing the jump height with the time to take off.",
+          "name": "RSI_MOD_Right",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m/s"
+        }
+      ],
+      "file": "Dataset_RSIStudy_PlesaEtAl.xlsx",
+      "rows_are": "one individual volleyball player (one row per subject, average of three trials)",
+      "sheet": "RSIStudyData"
+    },
+    "object_phrase": "volleyball player",
+    "scale_reference": {
+      "evidence": "",
+      "kind": "none",
+      "size_mm": null
+    },
+    "title": "The association between reactive strength index and reactive strength index modified with approach jump performance",
+    "videos": []
+  },
+  "checks": [
+    {
+      "field": "column AJ_HeightBEST range",
+      "ok": true,
+      "note": "0.54..0.96 in SI"
+    },
+    {
+      "field": "column DJ_JumpHeight range",
+      "ok": true,
+      "note": "0.201..0.51 in SI"
+    },
+    {
+      "field": "column CMJ_Bilateral_JumpHeight range",
+      "ok": true,
+      "note": "0.3123..0.613 in SI"
+    },
+    {
+      "field": "column CMJ_Left_JumpHeight range",
+      "ok": true,
+      "note": "0.107..0.3255 in SI"
+    },
+    {
+      "field": "column CMJ_Right_JumpHeight range",
+      "ok": true,
+      "note": "0.117..0.3345 in SI"
+    },
+    {
+      "field": "claim 'For this study, we recruited 40 male volleyball pl'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'For this study, we recruited 40 male volleyball pl'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'For this study, we recruited 40 male volleyball pl'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'They reported to be involved in regular training f'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'They reported to be involved in regular training f'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Approach jump (cm) 78.6 9.47 54.0 96.0'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Approach jump (cm) 78.6 9.47 54.0 96.0'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Approach jump (cm) 78.6 9.47 54.0 96.0'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'DJ—Jump Height (cm) 0.35 0.07 0.20 0.51'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'DJ—Jump Height (cm) 0.35 0.07 0.20 0.51'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'DJ—Jump Height (cm) 0.35 0.07 0.20 0.51'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'DJ—Contact Time (ms) 0.19 0.03 0.16 0.25'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'DJ—Contact Time (ms) 0.19 0.03 0.16 0.25'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'DJ—Contact Time (ms) 0.19 0.03 0.16 0.25'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'DJ—RSI 1.82 0.44 0.98 2.91'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'DJ—RSI 1.82 0.44 0.98 2.91'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'DJ—RSI 1.82 0.44 0.98 2.91'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ BL—Jump Height (cm) 0.44 0.06 0.31 0.61'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ BL—Jump Height (cm) 0.44 0.06 0.31 0.61'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ BL—Jump Height (cm) 0.44 0.06 0.31 0.61'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ BL—Jump Time (ms) 0.77 0.09 0.56 0.95'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ BL—Jump Time (ms) 0.77 0.09 0.56 0.95'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ BL—Jump Time (ms) 0.77 0.09 0.56 0.95'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ BL—RSImod 0.58 0.13 0.39 0.97'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ BL—RSImod 0.58 0.13 0.39 0.97'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ BL—RSImod 0.58 0.13 0.39 0.97'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ D—Jump Height (cm) 0.58 0.05 0.11 0.33'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ D—Jump Height (cm) 0.58 0.05 0.11 0.33'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ D—Jump Height (cm) 0.58 0.05 0.11 0.33'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ D—Jump Time (ms) 0.87 0.11 0.69 1.15'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ D—Jump Time (ms) 0.87 0.11 0.69 1.15'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ D—Jump Time (ms) 0.87 0.11 0.69 1.15'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ D—RSImod 0.27 0.07 0.15 0.45'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ D—RSImod 0.27 0.07 0.15 0.45'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ D—RSImod 0.27 0.07 0.15 0.45'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ ND–Jump Height (cm) 0.24 0.05 0.12 0.33'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ ND–Jump Height (cm) 0.24 0.05 0.12 0.33'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ ND–Jump Time (ms) 0.86 0.12 0.68 1.16'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ ND–Jump Time (ms) 0.86 0.12 0.68 1.16'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ ND–Jump Time (ms) 0.86 0.12 0.68 1.16'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ ND—RSImod 0.28 0.07 0.15 0.44'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJ ND—RSImod 0.28 0.07 0.15 0.44'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    }
+  ],
+  "columns": {
+    "Subject ID": {
+      "evidence": "we recruited 40 male volleyball players",
+      "name": "Subject ID",
+      "quantity": "animal_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 0,
+      "si_factor": null
+    },
+    "Age": {
+      "evidence": "(age: 20.3 ± 3.3 years; body height: 187.4 ± 7.75 cm; body mass: 79.2 ± 8.6 kg).",
+      "name": "Age",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "years",
+      "index": 1,
+      "si_factor": null
+    },
+    "Height": {
+      "evidence": "(age: 20.3 ± 3.3 years; body height: 187.4 ± 7.75 cm; body mass: 79.2 ± 8.6 kg).",
+      "name": "Height",
+      "quantity": "body_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "cm",
+      "index": 2,
+      "si_factor": 0.01
+    },
+    "Weight": {
+      "evidence": "(age: 20.3 ± 3.3 years; body height: 187.4 ± 7.75 cm; body mass: 79.2 ± 8.6 kg).",
+      "name": "Weight",
+      "quantity": "mass",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "kg",
+      "index": 3,
+      "si_factor": null
+    },
+    "Gender": {
+      "evidence": "For this study, we recruited 40 male volleyball players",
+      "name": "Gender",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 4,
+      "si_factor": null
+    },
+    "AJ_HeightBEST": {
+      "evidence": "Jumping height was calculated as a difference between standing reach and jumping reach. ... Approach jump (cm)",
+      "name": "AJ_HeightBEST",
+      "quantity": "jump_height",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "cm",
+      "index": 5,
+      "si_factor": 0.01
+    },
+    "DJ_JumpHeight": {
+      "evidence": "The jump height was calculated based on take-off velocity.",
+      "name": "DJ_JumpHeight",
+      "quantity": "jump_height",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m",
+      "index": 6,
+      "si_factor": 1.0
+    },
+    "DJ_ContactTime": {
+      "evidence": "Ground contact time was defined as the time during which the force signal was > 10 N.",
+      "name": "DJ_ContactTime",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 7,
+      "si_factor": 1.0
+    },
+    "DJ_RSI": {
+      "evidence": "subsequently, the RSI (RSIDJ) was calculated as the ratio between the jump height and the contact time.",
+      "name": "DJ_RSI",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m/s",
+      "index": 8,
+      "si_factor": 1.0
+    },
+    "CMJ_Bilateral_JumpHeight": {
+      "evidence": "The jump height was calculated based on take-off velocity.",
+      "name": "CMJ_Bilateral_JumpHeight",
+      "quantity": "jump_height",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m",
+      "index": 9,
+      "si_factor": 1.0
+    },
+    "CMJ_Bilateral_JumpTime": {
+      "evidence": "Time to take off was determined as the time between the countermovement initiation (defined as the decrease in force signal larger than 3 standard deviations of the baseline signal) and the take-off (defined as the first instant of force < 10 N)",
+      "name": "CMJ_Bilateral_JumpTime",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 10,
+      "si_factor": 1.0
+    },
+    "RSI_MOD_Bilateral": {
+      "evidence": "RSI was calculated by dividing the jump height with the time to take off.",
+      "name": "RSI_MOD_Bilateral",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m/s",
+      "index": 11,
+      "si_factor": 1.0
+    },
+    "CMJ_Left_JumpHeight": {
+      "evidence": "The jump height was calculated based on take-off velocity.",
+      "name": "CMJ_Left_JumpHeight",
+      "quantity": "jump_height",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m",
+      "index": 12,
+      "si_factor": 1.0
+    },
+    "CMJ_Left_JumpTime": {
+      "evidence": "Time to take off was determined as the time between the countermovement initiation (defined as the decrease in force signal larger than 3 standard deviations of the baseline signal) and the take-off (defined as the first instant of force < 10 N)",
+      "name": "CMJ_Left_JumpTime",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 13,
+      "si_factor": 1.0
+    },
+    "RSI_MOD_Left": {
+      "evidence": "RSI was calculated by dividing the jump height with the time to take off.",
+      "name": "RSI_MOD_Left",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m/s",
+      "index": 14,
+      "si_factor": 1.0
+    },
+    "CMJ_Right_JumpHeight": {
+      "evidence": "The jump height was calculated based on take-off velocity.",
+      "name": "CMJ_Right_JumpHeight",
+      "quantity": "jump_height",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m",
+      "index": 15,
+      "si_factor": 1.0
+    },
+    "CMJ_Right_JumpTime": {
+      "evidence": "Time to take off was determined as the time between the countermovement initiation (defined as the decrease in force signal larger than 3 standard deviations of the baseline signal) and the take-off (defined as the first instant of force < 10 N)",
+      "name": "CMJ_Right_JumpTime",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 16,
+      "si_factor": 1.0
+    },
+    "RSI_MOD_Right": {
+      "evidence": "RSI was calculated by dividing the jump height with the time to take off.",
+      "name": "RSI_MOD_Right",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m/s",
+      "index": 17,
+      "si_factor": 1.0
+    }
+  },
+  "claims": [
+    {
+      "n_events": 40,
+      "plus_minus": 3.3,
+      "quantity": "other",
+      "quote": "For this study, we recruited 40 male volleyball players (age: 20.3 ± 3.3 years; body height: 187.4 ± 7.75 cm; body mass: 79.2 ± 8.6 kg).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Age",
+      "unit": "years",
+      "value": 20.3,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 7.75,
+      "quantity": "body_length",
+      "quote": "For this study, we recruited 40 male volleyball players (age: 20.3 ± 3.3 years; body height: 187.4 ± 7.75 cm; body mass: 79.2 ± 8.6 kg).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Height",
+      "unit": "cm",
+      "value": 187.4,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 8.6,
+      "quantity": "mass",
+      "quote": "For this study, we recruited 40 male volleyball players (age: 20.3 ± 3.3 years; body height: 187.4 ± 7.75 cm; body mass: 79.2 ± 8.6 kg).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Weight",
+      "unit": "kg",
+      "value": 79.2,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 4.1,
+      "quantity": "other_duration",
+      "quote": "They reported to be involved in regular training for 10.9 ± 4.1 years, to attend 5.7 ± 1.2 training sessions per week",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "years",
+      "value": 10.9,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 1.2,
+      "quantity": "other",
+      "quote": "They reported to be involved in regular training for 10.9 ± 4.1 years, to attend 5.7 ± 1.2 training sessions per week",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "sessions per week",
+      "value": 5.7,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 9.47,
+      "quantity": "jump_height",
+      "quote": "Approach jump (cm) 78.6 9.47 54.0 96.0",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "AJ_HeightBEST",
+      "unit": "cm",
+      "value": 78.6,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "jump_height",
+      "quote": "Approach jump (cm) 78.6 9.47 54.0 96.0",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": "AJ_HeightBEST",
+      "unit": "cm",
+      "value": 54.0,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "jump_height",
+      "quote": "Approach jump (cm) 78.6 9.47 54.0 96.0",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "AJ_HeightBEST",
+      "unit": "cm",
+      "value": 96.0,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.07,
+      "quantity": "jump_height",
+      "quote": "DJ—Jump Height (cm) 0.35 0.07 0.20 0.51",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "DJ_JumpHeight",
+      "unit": "cm",
+      "value": 0.35,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "jump_height",
+      "quote": "DJ—Jump Height (cm) 0.35 0.07 0.20 0.51",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": "DJ_JumpHeight",
+      "unit": "cm",
+      "value": 0.2,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "jump_height",
+      "quote": "DJ—Jump Height (cm) 0.35 0.07 0.20 0.51",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "DJ_JumpHeight",
+      "unit": "cm",
+      "value": 0.51,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.03,
+      "quantity": "other_duration",
+      "quote": "DJ—Contact Time (ms) 0.19 0.03 0.16 0.25",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "DJ_ContactTime",
+      "unit": "ms",
+      "value": 0.19,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "DJ—Contact Time (ms) 0.19 0.03 0.16 0.25",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": "DJ_ContactTime",
+      "unit": "ms",
+      "value": 0.16,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "DJ—Contact Time (ms) 0.19 0.03 0.16 0.25",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "DJ_ContactTime",
+      "unit": "ms",
+      "value": 0.25,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.44,
+      "quantity": "other",
+      "quote": "DJ—RSI 1.82 0.44 0.98 2.91",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "DJ_RSI",
+      "unit": "",
+      "value": 1.82,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "DJ—RSI 1.82 0.44 0.98 2.91",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": "DJ_RSI",
+      "unit": "",
+      "value": 0.98,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "DJ—RSI 1.82 0.44 0.98 2.91",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "DJ_RSI",
+      "unit": "",
+      "value": 2.91,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.06,
+      "quantity": "jump_height",
+      "quote": "CMJ BL—Jump Height (cm) 0.44 0.06 0.31 0.61",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "CMJ_Bilateral_JumpHeight",
+      "unit": "cm",
+      "value": 0.44,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "jump_height",
+      "quote": "CMJ BL—Jump Height (cm) 0.44 0.06 0.31 0.61",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": "CMJ_Bilateral_JumpHeight",
+      "unit": "cm",
+      "value": 0.31,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "jump_height",
+      "quote": "CMJ BL—Jump Height (cm) 0.44 0.06 0.31 0.61",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "CMJ_Bilateral_JumpHeight",
+      "unit": "cm",
+      "value": 0.61,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.09,
+      "quantity": "other_duration",
+      "quote": "CMJ BL—Jump Time (ms) 0.77 0.09 0.56 0.95",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "CMJ_Bilateral_JumpTime",
+      "unit": "ms",
+      "value": 0.77,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "CMJ BL—Jump Time (ms) 0.77 0.09 0.56 0.95",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": "CMJ_Bilateral_JumpTime",
+      "unit": "ms",
+      "value": 0.56,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "CMJ BL—Jump Time (ms) 0.77 0.09 0.56 0.95",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "CMJ_Bilateral_JumpTime",
+      "unit": "ms",
+      "value": 0.95,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.13,
+      "quantity": "other",
+      "quote": "CMJ BL—RSImod 0.58 0.13 0.39 0.97",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "RSI_MOD_Bilateral",
+      "unit": "",
+      "value": 0.58,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "CMJ BL—RSImod 0.58 0.13 0.39 0.97",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": "RSI_MOD_Bilateral",
+      "unit": "",
+      "value": 0.39,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "CMJ BL—RSImod 0.58 0.13 0.39 0.97",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "RSI_MOD_Bilateral",
+      "unit": "",
+      "value": 0.97,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.05,
+      "quantity": "jump_height",
+      "quote": "CMJ D—Jump Height (cm) 0.58 0.05 0.11 0.33",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "cm",
+      "value": 0.58,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "jump_height",
+      "quote": "CMJ D—Jump Height (cm) 0.58 0.05 0.11 0.33",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": null,
+      "unit": "cm",
+      "value": 0.11,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "jump_height",
+      "quote": "CMJ D—Jump Height (cm) 0.58 0.05 0.11 0.33",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": null,
+      "unit": "cm",
+      "value": 0.33,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.11,
+      "quantity": "other_duration",
+      "quote": "CMJ D—Jump Time (ms) 0.87 0.11 0.69 1.15",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ms",
+      "value": 0.87,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "CMJ D—Jump Time (ms) 0.87 0.11 0.69 1.15",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": null,
+      "unit": "ms",
+      "value": 0.69,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "CMJ D—Jump Time (ms) 0.87 0.11 0.69 1.15",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": null,
+      "unit": "ms",
+      "value": 1.15,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.07,
+      "quantity": "other",
+      "quote": "CMJ D—RSImod 0.27 0.07 0.15 0.45",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "",
+      "value": 0.27,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "CMJ D—RSImod 0.27 0.07 0.15 0.45",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": null,
+      "unit": "",
+      "value": 0.15,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "CMJ D—RSImod 0.27 0.07 0.15 0.45",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": null,
+      "unit": "",
+      "value": 0.45,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.05,
+      "quantity": "jump_height",
+      "quote": "CMJ ND–Jump Height (cm) 0.24 0.05 0.12 0.33",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "cm",
+      "value": 0.24,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "jump_height",
+      "quote": "CMJ ND–Jump Height (cm) 0.24 0.05 0.12 0.33",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": null,
+      "unit": "cm",
+      "value": 0.12,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.12,
+      "quantity": "other_duration",
+      "quote": "CMJ ND–Jump Time (ms) 0.86 0.12 0.68 1.16",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ms",
+      "value": 0.86,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "CMJ ND–Jump Time (ms) 0.86 0.12 0.68 1.16",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": null,
+      "unit": "ms",
+      "value": 0.68,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "CMJ ND–Jump Time (ms) 0.86 0.12 0.68 1.16",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": null,
+      "unit": "ms",
+      "value": 1.16,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.07,
+      "quantity": "other",
+      "quote": "CMJ ND—RSImod 0.28 0.07 0.15 0.44",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "",
+      "value": 0.28,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "CMJ ND—RSImod 0.28 0.07 0.15 0.44",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": null,
+      "unit": "",
+      "value": 0.44,
+      "si_factor": null
+    }
+  ]
+}

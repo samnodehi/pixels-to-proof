@@ -1,0 +1,307 @@
+{
+ "run_id": "reefescape_0346465-20261028",
+ "started": "2026-10-28T19:56:24+00:00",
+ "commit": "7cf697ae7d51417a0cbfa02ba9dcbf8501a63b95",
+ "inputs": {
+  "all_observations.csv": "f0604446581228c086224a00f95ffb6af9eaf41be2b0f7fad04ea1cb62bcbf1e",
+  "filtered_observations.csv": "876aec6e6d8a427b3bc11adebe6f378da76625adca5c9aa28a64be394ee0fc43",
+  "paper.pdf": "04c55e12359003a1dca0fc487d924fecb13000ead88db34546d850c55f535150",
+  "predator_attack_speeds.csv": "3cc2b8738ce1a5b617f400384b3a1e2376f8b33ef0302f9d8acb8b901345ffb3",
+  "source.json": "fd8526f2fbba5ab4c66d427d88c99ee197b6dd5f9e0d91e620a7bc27f1e8722b"
+ },
+ "checks_sha256": "b8a6e7a11527dba91bd08e6891ef75bae5ba5223667255507e481d1721f43fda",
+ "events": [
+  {
+   "i": 0,
+   "t": 0.0,
+   "kind": "step",
+   "what": "inventory",
+   "note": "1 pdf, 0 video, 3 table, 0 archive files",
+   "ref": ""
+  },
+  {
+   "i": 1,
+   "t": 0.13,
+   "kind": "step",
+   "what": "paper",
+   "note": "paper.pdf chosen as the paper",
+   "ref": ""
+  },
+  {
+   "i": 2,
+   "t": 0.13,
+   "kind": "gate",
+   "gate": "G0 licence",
+   "ok": true,
+   "note": "CC BY: Neven et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distributio",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 3,
+   "t": 0.24,
+   "kind": "step",
+   "what": "read files",
+   "note": "113677 chars of PDF text, 3 table sheets, 0 scripts",
+   "ref": ""
+  },
+  {
+   "i": 4,
+   "t": 79.37,
+   "kind": "model",
+   "role": "plan",
+   "model": "muse-spark-1.3",
+   "tokens": 77967,
+   "seconds": 79.1,
+   "proposal": "v1: 9 claims, event table filtered_observations, 0 videos, authors' method finite_difference",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 5,
+   "t": 79.44,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 column Speed unit: unit 'unknown' is not absolute: kept for table checks, not used for pairing",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 6,
+   "t": 79.44,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'which ranged from 2.7 – 9.0 m s–1 (90th percentile': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 7,
+   "t": 79.44,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'which ranged from 2.7 – 9.0 m s–1 (90th percentile': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 8,
+   "t": 79.44,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'indicates routine speeds on the order of ≈ 1 m s–1': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 9,
+   "t": 79.44,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Escape responses were only observed when stimulus ': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 10,
+   "t": 79.44,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Escape responses were only observed when stimulus ' rows: rows where 'Response_Binary' = '1'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 11,
+   "t": 79.44,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'with the majority occurring at speeds of 3.0 m s–1': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 12,
+   "t": 79.44,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'with the majority occurring at speeds of 3.0 m s–1' rows: rows where 'Response_Binary' = '1'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 13,
+   "t": 79.44,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'showing a sharp rise above approximately ≈ 2.0 m s': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 14,
+   "t": 79.44,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'together with any fish responding within five fram': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 15,
+   "t": 79.45,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Beyond a viewing angle of roughly 55°, the iPad be': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 16,
+   "t": 79.45,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'it became reflective at a large enough angle (≳ 50': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 17,
+   "t": 79.45,
+   "kind": "step",
+   "what": "plan accepted",
+   "note": "v1 (0 needed fields still rejected)",
+   "ref": ""
+  },
+  {
+   "i": 18,
+   "t": 79.48,
+   "kind": "step",
+   "what": "other table",
+   "note": "'P90_Speed' is in predator_attack_speeds.csv/predator_attack_speeds, read in the claim's unit (m/s)",
+   "ref": ""
+  },
+  {
+   "i": 19,
+   "t": 79.48,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: which ranged from 2.7 – 9.0 m s–1 (90th percentile; Fig 2B).",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 20,
+   "t": 79.48,
+   "kind": "step",
+   "what": "other table",
+   "note": "'P90_Speed' is in predator_attack_speeds.csv/predator_attack_speeds, read in the claim's unit (m/s)",
+   "ref": ""
+  },
+  {
+   "i": 21,
+   "t": 79.48,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: which ranged from 2.7 – 9.0 m s–1 (90th percentile; Fig 2B).",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 22,
+   "t": 79.49,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: indicates routine speeds on the order of ≈ 1 m s–1 or less for similar",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 23,
+   "t": 79.49,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: Escape responses were only observed when stimulus speed exceeded 2.0 m",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 24,
+   "t": 79.5,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: with the majority occurring at speeds of 3.0 m s–1 or higher (Fig 2A)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 25,
+   "t": 79.5,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: showing a sharp rise above approximately ≈ 2.0 m s–1 (Fig 2A)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 26,
+   "t": 79.51,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: together with any fish responding within five frames (20.83 ms) of the",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 27,
+   "t": 79.51,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Beyond a viewing angle of roughly 55°, the iPad becomes reflective thr",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 28,
+   "t": 79.52,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: it became reflective at a large enough angle (≳ 50°) due to a Snell’s ",
+   "ref": "",
+   "on": null
+  }
+ ],
+ "verdicts": [],
+ "summary": {
+  "status": "complete",
+  "claims": {
+   "NOT CHECKED": 1,
+   "MATCHES TABLE": 2,
+   "REFUSED": 6
+  },
+  "videos": {},
+  "finished": "2026-10-28T19:57:43+00:00",
+  "wall_s": 79.5
+ }
+}

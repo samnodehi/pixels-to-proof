@@ -34,6 +34,10 @@ pipeline (`pipeline.py`, `cases/`) remains for the synthetic benchmark and the h
   landing, truncated-flight refusal, per-subset / circular / per-animal table statistics, truncation notes. Recorded
   run `peacock-20261028-49f237b`; beetle re-recorded on the same commit (`beetle-20261028-49f237b`, same verdict).
   Phidippus (Sci Rep 2018) main PDF now available: a third hands-off bundle needs montage splitting (not built).
+- S7b Breadth: DONE 2026-10-28 night — 11 more papers hands-off (10 PLOS + Zenodo data, Phidippus): 276 claims, 45
+  reproduced, 114 NOT CHECKED, 117 refused (`showcase/breadth.md`). Video hunt (two searches, ~30 more papers): no
+  third video paper meets all requirements; best near-miss = glass katydids (iScience 2025; video on PMC, data on
+  GitHub without a licence).
 - S8 Demo video (3 min, English AI voice "daniel", captions), README, submission: Nov 1–3; public repo and Space only
   with Sam's OK.
 

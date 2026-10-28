@@ -66,6 +66,14 @@ tracks):
   was extracted and reproduced only as a mean over spiders (each spider's jumps averaged first, n = 10 spiders), while
   the female "10.40 ± 2.05 mg, n = 12" gave 10.43 ± 2.05 and stayed NOT CHECKED.
 
+### Breadth: 11 more papers, one run each (`showcase/breadth.md`, app tab "Breadth")
+Ten PLOS papers with raw data on Zenodo (sprinting and jumping athletes, fish, ants, guinea fowl, pigeons, tadpoles) and
+the *Phidippus regius* jumping-spider paper (Sci Rep 2018). 276 claims: 45 reproduced to the printed digits, 114 NOT
+CHECKED (mostly tables the agent cannot read as laid out, or values that describe another aggregation; three are the
+table value truncated), 117 refused with a reason. Examples of what the code-side checks add: sprint times reproduced
+per training group although the plan named no group (the code found the subset); a body mass "73.23 ± 6.82 kg" that is
+the table's 73.2333 ± 6.8290 truncated.
+
 ## How it works
 
 | step | who | what is checked by code |
@@ -106,8 +114,9 @@ main thresholds are in `checks.toml`, whose hash is in every ledger. Design and 
 
 ## Limits (stated, not hidden)
 
-- Two papers audited hands-off so far, one verdict (REPRODUCED) among them; real papers with a high-speed video, a
-  visible scale, a stated frame rate and a per-event table are rare, and small animals can be slowed by air drag.
+- Two papers audited hands-off with their videos, one video verdict (REPRODUCED) among them; real papers with a
+  high-speed video, a visible scale, a stated frame rate and a per-event table are rare (two searches over ~70 papers
+  found no third), and small animals can be slowed by air drag. Table checks reach many more papers (breadth test).
 - The agent measures scale from a grid or a platform gap and treats a montage shot as one picture (montage panels
   exist only in the case-file pipeline).
 - Passing the self-checks shows the flight is physically consistent; it does not prove the number exact. The tracked

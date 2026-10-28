@@ -1,0 +1,518 @@
+{
+  "plan": {
+    "authors_speed_method": {
+      "evidence": "distance traveled from the start to the end of each swim was recorded as well as the time needed to travel that distance, which was used to calculate swimming speed (distance/time).",
+      "family": "linear_fit",
+      "parameters": "whole swim, distance/time"
+    },
+    "claims": [
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "escape by hatching up to 30% early [31,32].",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": null,
+        "unit": "%",
+        "value": 30
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "Hatching age treatments were 4d post-oviposition or 6d post-oviposition (hereafter ‘‘early’’ or ‘‘late’’), simulating the effects of snake predators [31].",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "d",
+        "value": 4
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "Hatching age treatments were 4d post-oviposition or 6d post-oviposition (hereafter ‘‘early’’ or ‘‘late’’), simulating the effects of snake predators [31].",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "d",
+        "value": 6
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "were prevented from swimming for ~30 seconds by a barricade.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "s",
+        "value": 30
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "a narrow swimming lane approximately 1.5 cm wide and 34 cm long (diagonal from corner to the other of the box).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "cm",
+        "value": 1.5
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "a narrow swimming lane approximately 1.5 cm wide and 34 cm long (diagonal from corner to the other of the box).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "cm",
+        "value": 34.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "containing aged tap water to a height of 2.5 cm,",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "cm",
+        "value": 2.5
+      }
+    ],
+    "event_table": {
+      "columns": [
+        {
+          "evidence": "distance traveled from the start to the end of each swim was recorded as well as the time needed to travel that distance, which was used to calculate swimming speed (distance/time).",
+          "name": "length.swam.cm",
+          "quantity": "other_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "cm"
+        },
+        {
+          "evidence": "",
+          "name": "tadpole",
+          "quantity": "animal_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "We chose 1–5 swims where the tadpole clearly responded to the probe for analyses of swimming performance (1.89±0.1 swims).",
+          "name": "num_swims",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "swims"
+        },
+        {
+          "evidence": "",
+          "name": "frames",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "frames"
+        },
+        {
+          "evidence": "we recorded the number of times the tadpole beat its tail during each swim, with each complete back and forth movement counted as two beats.",
+          "name": "tailbeats",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "beats"
+        },
+        {
+          "evidence": "we recorded the number of times the tadpole beat its tail during each swim, with each complete back and forth movement counted as two beats.",
+          "name": "beatrate",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "beats/s"
+        },
+        {
+          "evidence": "distance traveled from the start to the end of each swim was recorded as well as the time needed to travel that distance, which was used to calculate swimming speed (distance/time).",
+          "name": "speed",
+          "quantity": "other_speed",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "cm/s"
+        },
+        {
+          "evidence": "distance traveled from the start to the end of each swim was recorded as well as the time needed to travel that distance, which was used to calculate swimming speed (distance/time).",
+          "name": "length.time",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "we tested if tadpole speed or tail beats per cm swam were influenced by body length, and predator and hatching treatments.",
+          "name": "beats.per.cm",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "beats/cm"
+        },
+        {
+          "evidence": "Predator treatments were 1) no predator control, or three 2) fish [Gambusia nicaraguensis (Günther)], 3) dragonfly naiad [Pantala flavescens (Fabricius)], 4) small water bug [Belostoma sp.], or 5) all three predators in combination (one predator of each type for three total individuals).",
+          "name": "Predator",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "Hatching age treatments were 4d post-oviposition or 6d post-oviposition (hereafter ‘‘early’’ or ‘‘late’’), simulating the effects of snake predators [31].",
+          "name": "Hatch",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "Tanks were set up in six spatial blocks.",
+          "name": "Block",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "A. callidryas tadpoles were raised in sixty 400-L cattle tanks in an open field facility of the Smithsonian Tropical Research Institute in Gamboa, Panama during August–October 2009.",
+          "name": "Tank",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        }
+      ],
+      "file": "Tadpole swimming.csv",
+      "rows_are": "one tadpole (mean over its analysed swims)",
+      "sheet": "Tadpole swimming"
+    },
+    "object_phrase": "tadpole",
+    "scale_reference": {
+      "evidence": "",
+      "kind": "none",
+      "size_mm": null
+    },
+    "title": "Plastic Hatching Timing by Red-Eyed Treefrog Embryos Interacts with Larval Predator Identity and Sublethal Predation to Affect Prey Morphology but Not Performance",
+    "videos": []
+  },
+  "checks": [
+    {
+      "field": "claim 'escape by hatching up to 30% early [31,32].'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Hatching age treatments were 4d post-oviposition o'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Hatching age treatments were 4d post-oviposition o'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'were prevented from swimming for ~30 seconds by a '",
+      "ok": true,
+      "note": "quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)"
+    },
+    {
+      "field": "claim 'a narrow swimming lane approximately 1.5 cm wide a'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'a narrow swimming lane approximately 1.5 cm wide a'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'containing aged tap water to a height of 2.5 cm,'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    }
+  ],
+  "columns": {
+    "length.swam.cm": {
+      "evidence": "distance traveled from the start to the end of each swim was recorded as well as the time needed to travel that distance, which was used to calculate swimming speed (distance/time).",
+      "name": "length.swam.cm",
+      "quantity": "other_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "cm",
+      "index": 0,
+      "si_factor": 0.01
+    },
+    "tadpole": {
+      "evidence": "",
+      "name": "tadpole",
+      "quantity": "animal_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 1,
+      "si_factor": null
+    },
+    "num_swims": {
+      "evidence": "We chose 1–5 swims where the tadpole clearly responded to the probe for analyses of swimming performance (1.89±0.1 swims).",
+      "name": "num_swims",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "swims",
+      "index": 2,
+      "si_factor": null
+    },
+    "frames": {
+      "evidence": "",
+      "name": "frames",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "frames",
+      "index": 3,
+      "si_factor": null
+    },
+    "tailbeats": {
+      "evidence": "we recorded the number of times the tadpole beat its tail during each swim, with each complete back and forth movement counted as two beats.",
+      "name": "tailbeats",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "beats",
+      "index": 4,
+      "si_factor": null
+    },
+    "beatrate": {
+      "evidence": "we recorded the number of times the tadpole beat its tail during each swim, with each complete back and forth movement counted as two beats.",
+      "name": "beatrate",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "beats/s",
+      "index": 5,
+      "si_factor": null
+    },
+    "speed": {
+      "evidence": "distance traveled from the start to the end of each swim was recorded as well as the time needed to travel that distance, which was used to calculate swimming speed (distance/time).",
+      "name": "speed",
+      "quantity": "other_speed",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "cm/s",
+      "index": 6,
+      "si_factor": 0.01
+    },
+    "length.time": {
+      "evidence": "distance traveled from the start to the end of each swim was recorded as well as the time needed to travel that distance, which was used to calculate swimming speed (distance/time).",
+      "name": "length.time",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 7,
+      "si_factor": 1.0
+    },
+    "beats.per.cm": {
+      "evidence": "we tested if tadpole speed or tail beats per cm swam were influenced by body length, and predator and hatching treatments.",
+      "name": "beats.per.cm",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "beats/cm",
+      "index": 8,
+      "si_factor": null
+    },
+    "Predator": {
+      "evidence": "Predator treatments were 1) no predator control, or three 2) fish [Gambusia nicaraguensis (Günther)], 3) dragonfly naiad [Pantala flavescens (Fabricius)], 4) small water bug [Belostoma sp.], or 5) all three predators in combination (one predator of each type for three total individuals).",
+      "name": "Predator",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 9,
+      "si_factor": null
+    },
+    "Hatch": {
+      "evidence": "Hatching age treatments were 4d post-oviposition or 6d post-oviposition (hereafter ‘‘early’’ or ‘‘late’’), simulating the effects of snake predators [31].",
+      "name": "Hatch",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 10,
+      "si_factor": null
+    },
+    "Block": {
+      "evidence": "Tanks were set up in six spatial blocks.",
+      "name": "Block",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 11,
+      "si_factor": null
+    },
+    "Tank": {
+      "evidence": "A. callidryas tadpoles were raised in sixty 400-L cattle tanks in an open field facility of the Smithsonian Tropical Research Institute in Gamboa, Panama during August–October 2009.",
+      "name": "Tank",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 12,
+      "si_factor": null
+    }
+  },
+  "claims": [
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "escape by hatching up to 30% early [31,32].",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": null,
+      "unit": "%",
+      "value": 30,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "Hatching age treatments were 4d post-oviposition or 6d post-oviposition (hereafter ‘‘early’’ or ‘‘late’’), simulating the effects of snake predators [31].",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "d",
+      "value": 4,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "Hatching age treatments were 4d post-oviposition or 6d post-oviposition (hereafter ‘‘early’’ or ‘‘late’’), simulating the effects of snake predators [31].",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "d",
+      "value": 6,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "were prevented from swimming for ~30 seconds by a barricade.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "s",
+      "value": 30,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "a narrow swimming lane approximately 1.5 cm wide and 34 cm long (diagonal from corner to the other of the box).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "cm",
+      "value": 1.5,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "a narrow swimming lane approximately 1.5 cm wide and 34 cm long (diagonal from corner to the other of the box).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "cm",
+      "value": 34.0,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "containing aged tap water to a height of 2.5 cm,",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "cm",
+      "value": 2.5,
+      "si_factor": 0.01
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+{
+ "run_id": "tadpole_0100623-20261028",
+ "started": "2026-10-28T19:57:40+00:00",
+ "commit": "7cf697ae7d51417a0cbfa02ba9dcbf8501a63b95",
+ "inputs": {
+  "Tadpole swimming.csv": "786975170f7eaba3c10641f796ede3d9fef20f4af3654ea0f19ded1709e9579e",
+  "paper.pdf": "3ad5ebbabe32a72937ce7332f8f529a39050c1f64169db6b2f31ca9224ae9bff",
+  "source.json": "ffbb1cbd5a13200d0f575f597dc752cccd3a37817d86b30565480297420b214f"
+ },
+ "checks_sha256": "b8a6e7a11527dba91bd08e6891ef75bae5ba5223667255507e481d1721f43fda",
+ "events": [
+  {
+   "i": 0,
+   "t": 0.0,
+   "kind": "step",
+   "what": "inventory",
+   "note": "1 pdf, 0 video, 1 table, 0 archive files",
+   "ref": ""
+  },
+  {
+   "i": 1,
+   "t": 0.24,
+   "kind": "step",
+   "what": "paper",
+   "note": "paper.pdf chosen as the paper",
+   "ref": ""
+  },
+  {
+   "i": 2,
+   "t": 0.24,
+   "kind": "gate",
+   "gate": "G0 licence",
+   "ok": true,
+   "note": "CC BY: chon, Wojdak. This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distributi",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 3,
+   "t": 0.24,
+   "kind": "step",
+   "what": "read files",
+   "note": "118472 chars of PDF text, 1 table sheets, 0 scripts",
+   "ref": ""
+  },
+  {
+   "i": 4,
+   "t": 82.25,
+   "kind": "model",
+   "role": "plan",
+   "model": "muse-spark-1.3",
+   "tokens": 54127,
+   "seconds": 82.0,
+   "proposal": "v1: 7 claims, event table Tadpole swimming, 0 videos, authors' method linear_fit",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 5,
+   "t": 82.34,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'escape by hatching up to 30% early [31,32].': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 6,
+   "t": 82.34,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Hatching age treatments were 4d post-oviposition o': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 7,
+   "t": 82.34,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Hatching age treatments were 4d post-oviposition o': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 8,
+   "t": 82.34,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'For example, Touchon et al. [9] recently found tha': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 9,
+   "t": 82.34,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'Each tadpole was probed up to six times (mean ± SE': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 10,
+   "t": 82.34,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'We chose 1–5 swims where the tadpole clearly respo': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 11,
+   "t": 82.34,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'were prevented from swimming for ~30 seconds by a ': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 12,
+   "t": 150.83,
+   "kind": "model",
+   "role": "re-propose plan",
+   "model": "muse-spark-1.3",
+   "tokens": 51158,
+   "seconds": 68.5,
+   "proposal": "v2: 4 claims, event table Tadpole swimming, 0 videos, authors' method other",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 13,
+   "t": 150.9,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'escape by hatching up to 30% early [31,32].': quote and value found in the PDF",
+   "ref": "",
+   "on": 12
+  },
+  {
+   "i": 14,
+   "t": 150.9,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Hatching age treatments were 4d post-oviposition o': quote and value found in the PDF",
+   "ref": "",
+   "on": 12
+  },
+  {
+   "i": 15,
+   "t": 150.9,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Hatching age treatments were 4d post-oviposition o': quote and value found in the PDF",
+   "ref": "",
+   "on": 12
+  },
+  {
+   "i": 16,
+   "t": 150.9,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'were prevented from swimming for ~30 seconds by a ': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 12
+  },
+  {
+   "i": 17,
+   "t": 150.9,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'a narrow swimming lane approximately 1.5 cm wide a': quote and value found in the PDF",
+   "ref": "",
+   "on": 12
+  },
+  {
+   "i": 18,
+   "t": 150.9,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'a narrow swimming lane approximately 1.5 cm wide a': quote and value found in the PDF",
+   "ref": "",
+   "on": 12
+  },
+  {
+   "i": 19,
+   "t": 150.9,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'containing aged tap water to a height of 2.5 cm,': quote and value found in the PDF",
+   "ref": "",
+   "on": 12
+  },
+  {
+   "i": 20,
+   "t": 150.9,
+   "kind": "step",
+   "what": "plan accepted",
+   "note": "v2 (0 needed fields still rejected)",
+   "ref": ""
+  },
+  {
+   "i": 21,
+   "t": 150.95,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: escape by hatching up to 30% early [31,32].",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 22,
+   "t": 150.96,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Hatching age treatments were 4d post-oviposition or 6d post-ovipositio",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 23,
+   "t": 150.96,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Hatching age treatments were 4d post-oviposition or 6d post-ovipositio",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 24,
+   "t": 150.97,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: were prevented from swimming for ~30 seconds by a barricade.",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 25,
+   "t": 150.97,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: a narrow swimming lane approximately 1.5 cm wide and 34 cm long (diago",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 26,
+   "t": 150.98,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: a narrow swimming lane approximately 1.5 cm wide and 34 cm long (diago",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 27,
+   "t": 150.98,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: containing aged tap water to a height of 2.5 cm,",
+   "ref": "",
+   "on": null
+  }
+ ],
+ "verdicts": [],
+ "summary": {
+  "status": "complete",
+  "claims": {
+   "REFUSED": 7
+  },
+  "videos": {},
+  "finished": "2026-10-28T20:00:11+00:00",
+  "wall_s": 151.0
+ }
+}

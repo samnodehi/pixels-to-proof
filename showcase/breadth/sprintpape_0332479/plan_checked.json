@@ -1,0 +1,1276 @@
+{
+  "plan": {
+    "authors_speed_method": {
+      "evidence": "Sprint tests were measured using electronic timing gates (Witty Microgate, K_WIT001, Italy accuracy ±0.01s) placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+      "family": "unknown",
+      "parameters": "sprint times measured directly with timing gates; no video-derived speed computation"
+    },
+    "claims": [
+      {
+        "n_events": 30,
+        "plus_minus": 0.71,
+        "quantity": "other",
+        "quote": "age;18.10±0.71 years",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Age",
+        "unit": "years",
+        "value": 18.1
+      },
+      {
+        "n_events": 30,
+        "plus_minus": 5.7,
+        "quantity": "body_length",
+        "quote": "height;180±5,7cm",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Heigh",
+        "unit": "cm",
+        "value": 180.0
+      },
+      {
+        "n_events": 30,
+        "plus_minus": 6.82,
+        "quantity": "mass",
+        "quote": "weight:73.23±6.82kg",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Weight",
+        "unit": "kg",
+        "value": 73.23
+      },
+      {
+        "n_events": 30,
+        "plus_minus": 1.0,
+        "quantity": "other",
+        "quote": "training age:5.0±1.0 years",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "",
+        "unit": "years",
+        "value": 5.0
+      },
+      {
+        "n_events": 30,
+        "plus_minus": 20.87,
+        "quantity": "mass",
+        "quote": "1RM;125±20.87",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "RM",
+        "unit": "kg",
+        "value": 125.0
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.08,
+        "quantity": "other_duration",
+        "quote": "1.74±0.08",
+        "row_filter": {
+          "column": "Grup",
+          "value": "2"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m10_Pre",
+        "unit": "s",
+        "value": 1.74
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.08,
+        "quantity": "other_duration",
+        "quote": "1.76±0.08",
+        "row_filter": {
+          "column": "Grup",
+          "value": "2"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m10_Post",
+        "unit": "s",
+        "value": 1.76
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.25,
+        "quantity": "other_duration",
+        "quote": "2.92±0.25",
+        "row_filter": {
+          "column": "Grup",
+          "value": "2"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m20_Pre",
+        "unit": "s",
+        "value": 2.92
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.24,
+        "quantity": "other_duration",
+        "quote": "2.89±0.24",
+        "row_filter": {
+          "column": "Grup",
+          "value": "2"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m20_Post",
+        "unit": "s",
+        "value": 2.89
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.21,
+        "quantity": "other_duration",
+        "quote": "4.44±0.21",
+        "row_filter": {
+          "column": "Grup",
+          "value": "2"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m30_Pre",
+        "unit": "s",
+        "value": 4.44
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.22,
+        "quantity": "other_duration",
+        "quote": "4.45±0.22",
+        "row_filter": {
+          "column": "Grup",
+          "value": "2"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m30_Post",
+        "unit": "s",
+        "value": 4.45
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.07,
+        "quantity": "other_duration",
+        "quote": "1.74±0.07",
+        "row_filter": {
+          "column": "Grup",
+          "value": "1"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m10_Pre",
+        "unit": "s",
+        "value": 1.74
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.07,
+        "quantity": "other_duration",
+        "quote": "1.73±0.07",
+        "row_filter": {
+          "column": "Grup",
+          "value": "1"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m10_Post",
+        "unit": "s",
+        "value": 1.73
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.11,
+        "quantity": "other_duration",
+        "quote": "3.07±0.11",
+        "row_filter": {
+          "column": "Grup",
+          "value": "1"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m20_Pre",
+        "unit": "s",
+        "value": 3.07
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.1,
+        "quantity": "other_duration",
+        "quote": "3.05±0.10",
+        "row_filter": {
+          "column": "Grup",
+          "value": "1"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m20_Post",
+        "unit": "s",
+        "value": 3.05
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.26,
+        "quantity": "other_duration",
+        "quote": "4.13±0.26",
+        "row_filter": {
+          "column": "Grup",
+          "value": "1"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m30_Pre",
+        "unit": "s",
+        "value": 4.13
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.26,
+        "quantity": "other_duration",
+        "quote": "4.10±0.26",
+        "row_filter": {
+          "column": "Grup",
+          "value": "1"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m30_Post",
+        "unit": "s",
+        "value": 4.1
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.08,
+        "quantity": "other_duration",
+        "quote": "1.77±0.08",
+        "row_filter": {
+          "column": "Grup",
+          "value": "3"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m10_Pre",
+        "unit": "s",
+        "value": 1.77
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.07,
+        "quantity": "other_duration",
+        "quote": "1.77±0.07",
+        "row_filter": {
+          "column": "Grup",
+          "value": "3"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m10_Post",
+        "unit": "s",
+        "value": 1.77
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.08,
+        "quantity": "other_duration",
+        "quote": "3.08±0.08",
+        "row_filter": {
+          "column": "Grup",
+          "value": "3"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m20_Pre",
+        "unit": "s",
+        "value": 3.08
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.08,
+        "quantity": "other_duration",
+        "quote": "3.08±0.08",
+        "row_filter": {
+          "column": "Grup",
+          "value": "3"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m20_Post",
+        "unit": "s",
+        "value": 3.08
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.27,
+        "quantity": "other_duration",
+        "quote": "4.38±0.27",
+        "row_filter": {
+          "column": "Grup",
+          "value": "3"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m30_Pre",
+        "unit": "s",
+        "value": 4.38
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 0.27,
+        "quantity": "other_duration",
+        "quote": "4.38±0.27",
+        "row_filter": {
+          "column": "Grup",
+          "value": "3"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "m30_Post",
+        "unit": "s",
+        "value": 4.38
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "The bar velocity during squats was set to be between 0.75–1.00 m/",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m/s",
+        "value": 0.75
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "The bar velocity during squats was set to be between 0.75–1.00 m/",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m/s",
+        "value": 1.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m",
+        "value": 10.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m",
+        "value": 20.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m",
+        "value": 30.0
+      }
+    ],
+    "event_table": {
+      "columns": [
+        {
+          "evidence": "",
+          "name": "Grup",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": ""
+        },
+        {
+          "evidence": "The study included 30 licensed male football players (age;18.10±0.71 years, height;180±5,7cm, weight:73.23±6.82kg, training age:5.0±1.0 years, 1RM;125±20.87)",
+          "name": "Age",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "years"
+        },
+        {
+          "evidence": "The height of the players was measured in cm with a Mesilife (MC-210, Türkiye) device.",
+          "name": "Heigh",
+          "quantity": "body_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "cm"
+        },
+        {
+          "evidence": "The body mass (kg) and body fat ratios of the players were measured on the Tanita (BC418, Japan) device",
+          "name": "Weight",
+          "quantity": "mass",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "kg"
+        },
+        {
+          "evidence": "weights between 100kg and 20kg were added and the squat one rep was continued.",
+          "name": "RM",
+          "quantity": "mass",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "kg"
+        },
+        {
+          "evidence": "Sprint tests were measured using electronic timing gates (Witty Microgate, K_WIT001, Italy accuracy ±0.01s) placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+          "name": "m10_Pre",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "s"
+        },
+        {
+          "evidence": "Sprint tests were measured using electronic timing gates (Witty Microgate, K_WIT001, Italy accuracy ±0.01s) placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+          "name": "m20_Pre",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "s"
+        },
+        {
+          "evidence": "Sprint tests were measured using electronic timing gates (Witty Microgate, K_WIT001, Italy accuracy ±0.01s) placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+          "name": "m30_Pre",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "s"
+        },
+        {
+          "evidence": "Sprint tests were measured using electronic timing gates (Witty Microgate, K_WIT001, Italy accuracy ±0.01s) placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+          "name": "m10_Post",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "s"
+        },
+        {
+          "evidence": "Sprint tests were measured using electronic timing gates (Witty Microgate, K_WIT001, Italy accuracy ±0.01s) placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+          "name": "m20_Post",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "s"
+        },
+        {
+          "evidence": "Sprint tests were measured using electronic timing gates (Witty Microgate, K_WIT001, Italy accuracy ±0.01s) placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+          "name": "m30_Post",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "s"
+        }
+      ],
+      "file": "DATA_Velocity and Traditional PAPE.xlsx",
+      "rows_are": "one row per individual male football player with pre-test and post-test sprint times",
+      "sheet": "ANALIZ"
+    },
+    "object_phrase": "football player",
+    "scale_reference": {
+      "evidence": "",
+      "kind": "none",
+      "size_mm": null
+    },
+    "title": "Acute sprint performance responses to velocity-based versus traditional post activation performance enhancement interventions",
+    "videos": []
+  },
+  "checks": [
+    {
+      "field": "claim 'age;18.10±0.71 years'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'height;180±5,7cm'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'weight:73.23±6.82kg'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'training age:5.0±1.0 years'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1RM;125±20.87'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1.74±0.08'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1.74±0.08' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '2'"
+    },
+    {
+      "field": "claim '1.76±0.08'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1.76±0.08' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '2'"
+    },
+    {
+      "field": "claim '2.92±0.25'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '2.92±0.25' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '2'"
+    },
+    {
+      "field": "claim '2.89±0.24'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '2.89±0.24' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '2'"
+    },
+    {
+      "field": "claim '4.44±0.21'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '4.44±0.21' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '2'"
+    },
+    {
+      "field": "claim '4.45±0.22'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '4.45±0.22' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '2'"
+    },
+    {
+      "field": "claim '1.74±0.07'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1.74±0.07' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '1'"
+    },
+    {
+      "field": "claim '1.73±0.07'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1.73±0.07' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '1'"
+    },
+    {
+      "field": "claim '3.07±0.11'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '3.07±0.11' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '1'"
+    },
+    {
+      "field": "claim '3.05±0.10'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '3.05±0.10' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '1'"
+    },
+    {
+      "field": "claim '4.13±0.26'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '4.13±0.26' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '1'"
+    },
+    {
+      "field": "claim '4.10±0.26'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '4.10±0.26' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '1'"
+    },
+    {
+      "field": "claim '1.77±0.08'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1.77±0.08' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '3'"
+    },
+    {
+      "field": "claim '1.77±0.07'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1.77±0.07' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '3'"
+    },
+    {
+      "field": "claim '3.08±0.08'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '3.08±0.08' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '3'"
+    },
+    {
+      "field": "claim '4.38±0.27'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '4.38±0.27' rows",
+      "ok": true,
+      "note": "rows where 'Grup' = '3'"
+    },
+    {
+      "field": "claim 'The bar velocity during squats was set to be betwe'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The bar velocity during squats was set to be betwe'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'placed at the starting line (0 m) and at 10 m, 20 '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'placed at the starting line (0 m) and at 10 m, 20 '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'placed at the starting line (0 m) and at 10 m, 20 '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    }
+  ],
+  "columns": {
+    "Grup": {
+      "evidence": "",
+      "name": "Grup",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "",
+      "index": 0,
+      "si_factor": null
+    },
+    "Age": {
+      "evidence": "The study included 30 licensed male football players (age;18.10±0.71 years, height;180±5,7cm, weight:73.23±6.82kg, training age:5.0±1.0 years, 1RM;125±20.87)",
+      "name": "Age",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "years",
+      "index": 1,
+      "si_factor": null
+    },
+    "Heigh": {
+      "evidence": "The height of the players was measured in cm with a Mesilife (MC-210, Türkiye) device.",
+      "name": "Heigh",
+      "quantity": "body_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "cm",
+      "index": 2,
+      "si_factor": 0.01
+    },
+    "Weight": {
+      "evidence": "The body mass (kg) and body fat ratios of the players were measured on the Tanita (BC418, Japan) device",
+      "name": "Weight",
+      "quantity": "mass",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "kg",
+      "index": 3,
+      "si_factor": null
+    },
+    "RM": {
+      "evidence": "weights between 100kg and 20kg were added and the squat one rep was continued.",
+      "name": "RM",
+      "quantity": "mass",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "kg",
+      "index": 4,
+      "si_factor": null
+    },
+    "m10_Pre": {
+      "evidence": "Sprint tests were measured using electronic timing gates (Witty Microgate, K_WIT001, Italy accuracy ±0.01s) placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+      "name": "m10_Pre",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "s",
+      "index": 5,
+      "si_factor": 1.0
+    },
+    "m20_Pre": {
+      "evidence": "Sprint tests were measured using electronic timing gates (Witty Microgate, K_WIT001, Italy accuracy ±0.01s) placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+      "name": "m20_Pre",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "s",
+      "index": 6,
+      "si_factor": 1.0
+    },
+    "m30_Pre": {
+      "evidence": "Sprint tests were measured using electronic timing gates (Witty Microgate, K_WIT001, Italy accuracy ±0.01s) placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+      "name": "m30_Pre",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "s",
+      "index": 7,
+      "si_factor": 1.0
+    },
+    "m10_Post": {
+      "evidence": "Sprint tests were measured using electronic timing gates (Witty Microgate, K_WIT001, Italy accuracy ±0.01s) placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+      "name": "m10_Post",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "s",
+      "index": 8,
+      "si_factor": 1.0
+    },
+    "m20_Post": {
+      "evidence": "Sprint tests were measured using electronic timing gates (Witty Microgate, K_WIT001, Italy accuracy ±0.01s) placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+      "name": "m20_Post",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "s",
+      "index": 9,
+      "si_factor": 1.0
+    },
+    "m30_Post": {
+      "evidence": "Sprint tests were measured using electronic timing gates (Witty Microgate, K_WIT001, Italy accuracy ±0.01s) placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+      "name": "m30_Post",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "s",
+      "index": 10,
+      "si_factor": 1.0
+    }
+  },
+  "claims": [
+    {
+      "n_events": 30,
+      "plus_minus": 0.71,
+      "quantity": "other",
+      "quote": "age;18.10±0.71 years",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Age",
+      "unit": "years",
+      "value": 18.1,
+      "si_factor": null
+    },
+    {
+      "n_events": 30,
+      "plus_minus": 5.7,
+      "quantity": "body_length",
+      "quote": "height;180±5,7cm",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Heigh",
+      "unit": "cm",
+      "value": 180.0,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 30,
+      "plus_minus": 6.82,
+      "quantity": "mass",
+      "quote": "weight:73.23±6.82kg",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Weight",
+      "unit": "kg",
+      "value": 73.23,
+      "si_factor": null
+    },
+    {
+      "n_events": 30,
+      "plus_minus": 1.0,
+      "quantity": "other",
+      "quote": "training age:5.0±1.0 years",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "",
+      "unit": "years",
+      "value": 5.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 30,
+      "plus_minus": 20.87,
+      "quantity": "mass",
+      "quote": "1RM;125±20.87",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "RM",
+      "unit": "kg",
+      "value": 125.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.08,
+      "quantity": "other_duration",
+      "quote": "1.74±0.08",
+      "row_filter": {
+        "column": "Grup",
+        "value": "2"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m10_Pre",
+      "unit": "s",
+      "value": 1.74,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.08,
+      "quantity": "other_duration",
+      "quote": "1.76±0.08",
+      "row_filter": {
+        "column": "Grup",
+        "value": "2"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m10_Post",
+      "unit": "s",
+      "value": 1.76,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.25,
+      "quantity": "other_duration",
+      "quote": "2.92±0.25",
+      "row_filter": {
+        "column": "Grup",
+        "value": "2"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m20_Pre",
+      "unit": "s",
+      "value": 2.92,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.24,
+      "quantity": "other_duration",
+      "quote": "2.89±0.24",
+      "row_filter": {
+        "column": "Grup",
+        "value": "2"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m20_Post",
+      "unit": "s",
+      "value": 2.89,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.21,
+      "quantity": "other_duration",
+      "quote": "4.44±0.21",
+      "row_filter": {
+        "column": "Grup",
+        "value": "2"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m30_Pre",
+      "unit": "s",
+      "value": 4.44,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.22,
+      "quantity": "other_duration",
+      "quote": "4.45±0.22",
+      "row_filter": {
+        "column": "Grup",
+        "value": "2"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m30_Post",
+      "unit": "s",
+      "value": 4.45,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.07,
+      "quantity": "other_duration",
+      "quote": "1.74±0.07",
+      "row_filter": {
+        "column": "Grup",
+        "value": "1"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m10_Pre",
+      "unit": "s",
+      "value": 1.74,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.07,
+      "quantity": "other_duration",
+      "quote": "1.73±0.07",
+      "row_filter": {
+        "column": "Grup",
+        "value": "1"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m10_Post",
+      "unit": "s",
+      "value": 1.73,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.11,
+      "quantity": "other_duration",
+      "quote": "3.07±0.11",
+      "row_filter": {
+        "column": "Grup",
+        "value": "1"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m20_Pre",
+      "unit": "s",
+      "value": 3.07,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.1,
+      "quantity": "other_duration",
+      "quote": "3.05±0.10",
+      "row_filter": {
+        "column": "Grup",
+        "value": "1"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m20_Post",
+      "unit": "s",
+      "value": 3.05,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.26,
+      "quantity": "other_duration",
+      "quote": "4.13±0.26",
+      "row_filter": {
+        "column": "Grup",
+        "value": "1"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m30_Pre",
+      "unit": "s",
+      "value": 4.13,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.26,
+      "quantity": "other_duration",
+      "quote": "4.10±0.26",
+      "row_filter": {
+        "column": "Grup",
+        "value": "1"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m30_Post",
+      "unit": "s",
+      "value": 4.1,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.08,
+      "quantity": "other_duration",
+      "quote": "1.77±0.08",
+      "row_filter": {
+        "column": "Grup",
+        "value": "3"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m10_Pre",
+      "unit": "s",
+      "value": 1.77,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.07,
+      "quantity": "other_duration",
+      "quote": "1.77±0.07",
+      "row_filter": {
+        "column": "Grup",
+        "value": "3"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m10_Post",
+      "unit": "s",
+      "value": 1.77,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.08,
+      "quantity": "other_duration",
+      "quote": "3.08±0.08",
+      "row_filter": {
+        "column": "Grup",
+        "value": "3"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m20_Pre",
+      "unit": "s",
+      "value": 3.08,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 0.27,
+      "quantity": "other_duration",
+      "quote": "4.38±0.27",
+      "row_filter": {
+        "column": "Grup",
+        "value": "3"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "m30_Pre",
+      "unit": "s",
+      "value": 4.38,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_speed",
+      "quote": "The bar velocity during squats was set to be between 0.75–1.00 m/",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m/s",
+      "value": 0.75,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_speed",
+      "quote": "The bar velocity during squats was set to be between 0.75–1.00 m/",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m/s",
+      "value": 1.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m",
+      "value": 10.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m",
+      "value": 20.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the line.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m",
+      "value": 30.0,
+      "si_factor": 1.0
+    }
+  ]
+}

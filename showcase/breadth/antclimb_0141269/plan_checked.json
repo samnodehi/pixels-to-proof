@@ -1,0 +1,1513 @@
+{
+  "plan": {
+    "authors_speed_method": {
+      "evidence": "Force and video recordings were analysed frame by frame using custom-built Matlab scripts.",
+      "family": "unknown",
+      "parameters": "not stated"
+    },
+    "claims": [
+      {
+        "n_events": 48,
+        "plus_minus": 2.1,
+        "quantity": "mass",
+        "quote": "we used medium-sized ant workers (8.2 ± 2.1mg; N = 48; all values given in the text are means ± standard deviations,",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "bodyweight(mg)",
+        "unit": "mg",
+        "value": 8.2
+      },
+      {
+        "n_events": 20,
+        "plus_minus": 12.5,
+        "quantity": "other_speed",
+        "quote": "When weaver ants walked on a horizontal substrate (average speed 28.6 ± 12.5 mms-1;N = 20),",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "",
+        "unit": "mms-1",
+        "value": 28.6
+      },
+      {
+        "n_events": 21,
+        "plus_minus": 14.6,
+        "quantity": "other_speed",
+        "quote": "when ants walked on an inverted substrate (average speed 21.4 ± 14.6 mms-1; N = 21),",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "",
+        "unit": "mms-1",
+        "value": 21.4
+      },
+      {
+        "n_events": 14,
+        "plus_minus": 8.6,
+        "quantity": "other_speed",
+        "quote": "When climbing on a vertical surface (average speed 21.7 ± 8.6 mms-1; N = 14),",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "",
+        "unit": "mms-1",
+        "value": 21.7
+      },
+      {
+        "n_events": 35,
+        "plus_minus": null,
+        "quantity": "body_angle",
+        "quote": "the 5th tarsomere angle was mostly positive (front legs: 8°; middle legs: 4°; hind legs: 7°; all medians; Fig 2B; Nfront = 35;Nmiddle = 11;Nhind = 39)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "upsidedown_front  (deg)",
+        "unit": "deg",
+        "value": 8.0
+      },
+      {
+        "n_events": 11,
+        "plus_minus": null,
+        "quantity": "body_angle",
+        "quote": "the 5th tarsomere angle was mostly positive (front legs: 8°; middle legs: 4°; hind legs: 7°; all medians; Fig 2B; Nfront = 35;Nmiddle = 11;Nhind = 39)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "upsidedown_middle  (deg)",
+        "unit": "deg",
+        "value": 4.0
+      },
+      {
+        "n_events": 39,
+        "plus_minus": null,
+        "quantity": "body_angle",
+        "quote": "the 5th tarsomere angle was mostly positive (front legs: 8°; middle legs: 4°; hind legs: 7°; all medians; Fig 2B; Nfront = 35;Nmiddle = 11;Nhind = 39)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "upsidedown_hind  (deg)",
+        "unit": "deg",
+        "value": 7.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "On average, legs above the CoM produced negative normal forces of 0.29 times body weight (Fig 3A), whereas legs below the CoM produced positive (compressive) forces of 0.12 times body weight (medians).",
+        "row_filter": {
+          "column": "leg position (0=below CoM, 1=aboveCoM)",
+          "value": "1"
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "Fz (mN)",
+        "unit": "times body weight",
+        "value": 0.29
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "On average, legs above the CoM produced negative normal forces of 0.29 times body weight (Fig 3A), whereas legs below the CoM produced positive (compressive) forces of 0.12 times body weight (medians).",
+        "row_filter": {
+          "column": "leg position (0=below CoM, 1=aboveCoM)",
+          "value": "0"
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "Fz (mN)",
+        "unit": "times body weight",
+        "value": 0.12
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "but on average their contribution to vertical forces (median 0.12 times body weight) was significantly less than that of the legs above the CoM",
+        "row_filter": {
+          "column": "leg position (0=below CoM, 1=aboveCoM)",
+          "value": "0"
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "Fx (mN)",
+        "unit": "times body weight",
+        "value": 0.12
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "Some legs below the CoM contributed to upward forces by pushing (maxima up to 0.7 times body weight),",
+        "row_filter": {
+          "column": "leg position (0=below CoM, 1=aboveCoM)",
+          "value": "0"
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "Fx (mN)",
+        "unit": "times body weight",
+        "value": 0.7
+      },
+      {
+        "n_events": null,
+        "plus_minus": 26.0,
+        "quantity": "other_angle",
+        "quote": "the angle of the force vector to the horizontal was considerably lower for ‘pulling’ steps than for ‘pushing’ ones (pulling: 7 ± 26°, pushing: 46 ± 7°; Mann-Whitney U-test: R = 524, z = 4.75, P < 0.001;",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "",
+        "unit": "deg",
+        "value": 7.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": 7.0,
+        "quantity": "other_angle",
+        "quote": "the angle of the force vector to the horizontal was considerably lower for ‘pulling’ steps than for ‘pushing’ ones (pulling: 7 ± 26°, pushing: 46 ± 7°; Mann-Whitney U-test: R = 524, z = 4.75, P < 0.001;",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "",
+        "unit": "deg",
+        "value": 46.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": 7.0,
+        "quantity": "body_angle",
+        "quote": "The average angle of the 5th tarsomere measured from the video recordings was 12±7° for pulling legs,",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "",
+        "unit": "deg",
+        "value": 12.0
+      },
+      {
+        "n_events": 3,
+        "plus_minus": 5608.0,
+        "quantity": "other",
+        "quote": "The density of the hairs was approx. 29466 ± 5608 hairs per mm2 (mean ± SD of three analysed legs).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "",
+        "unit": "hairs/mm2",
+        "value": 29466.0
+      },
+      {
+        "n_events": 27,
+        "plus_minus": 10.0,
+        "quantity": "other_length",
+        "quote": "Each hair was around 36 ±10 μm long, 2.4±0.4 μm thick at the base and tapered towards the tip (27 hairs measured from two legs of two ants).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "",
+        "unit": "μm",
+        "value": 36.0
+      },
+      {
+        "n_events": 27,
+        "plus_minus": 0.4,
+        "quantity": "other_length",
+        "quote": "Each hair was around 36 ±10 μm long, 2.4±0.4 μm thick at the base and tapered towards the tip (27 hairs measured from two legs of two ants).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "",
+        "unit": "μm",
+        "value": 2.4
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "On the smooth surface, the friction forces generated by the tarsal hairs amounted to 3.1 times of an ant’s body weight (median),",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "Fx_smooth_push_100mN (µN)",
+        "unit": "times body weight",
+        "value": 3.1
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "The dashed line indicates the ants’ body weight (82 μN).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "μN",
+        "value": 82.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": 58.0,
+        "quantity": "other",
+        "quote": "The buckling forces on the smooth surface were 117±58 μN, 158±61 μN and 213±93 μN for 30, 60 and 100 μN, and 84±47 μN, 127±55 μN and 173±57 μN on the rough surface.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Fz_smooth_30mN (µN)",
+        "unit": "μN",
+        "value": 117.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": 61.0,
+        "quantity": "other",
+        "quote": "The buckling forces on the smooth surface were 117±58 μN, 158±61 μN and 213±93 μN for 30, 60 and 100 μN, and 84±47 μN, 127±55 μN and 173±57 μN on the rough surface.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Fz_smooth_60mN (µN)",
+        "unit": "μN",
+        "value": 158.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": 93.0,
+        "quantity": "other",
+        "quote": "The buckling forces on the smooth surface were 117±58 μN, 158±61 μN and 213±93 μN for 30, 60 and 100 μN, and 84±47 μN, 127±55 μN and 173±57 μN on the rough surface.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Fz_smooth_100mN (µN)",
+        "unit": "μN",
+        "value": 213.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": 47.0,
+        "quantity": "other",
+        "quote": "The buckling forces on the smooth surface were 117±58 μN, 158±61 μN and 213±93 μN for 30, 60 and 100 μN, and 84±47 μN, 127±55 μN and 173±57 μN on the rough surface.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Fz_rough_30mN (µN)",
+        "unit": "μN",
+        "value": 84.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": 55.0,
+        "quantity": "other",
+        "quote": "The buckling forces on the smooth surface were 117±58 μN, 158±61 μN and 213±93 μN for 30, 60 and 100 μN, and 84±47 μN, 127±55 μN and 173±57 μN on the rough surface.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Fz_rough_60mN (µN)",
+        "unit": "μN",
+        "value": 127.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": 57.0,
+        "quantity": "other",
+        "quote": "The buckling forces on the smooth surface were 117±58 μN, 158±61 μN and 213±93 μN for 30, 60 and 100 μN, and 84±47 μN, 127±55 μN and 173±57 μN on the rough surface.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Fz_rough_100mN (µN)",
+        "unit": "μN",
+        "value": 173.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "Freely walking ants produced pushing shear forces below 100 μN (maximum 86 μN; mean 32±22 μN) less than the buckling forces measured for ablated legs.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "Fx (mN)",
+        "unit": "μN",
+        "value": 86.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": 22.0,
+        "quantity": "other",
+        "quote": "Freely walking ants produced pushing shear forces below 100 μN (maximum 86 μN; mean 32±22 μN) less than the buckling forces measured for ablated legs.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Fx (mN)",
+        "unit": "μN",
+        "value": 32.0
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 7.7,
+        "quantity": "other_length",
+        "quote": "The contacts were up to 31.5 μm long (mean 23.8±7.7 μm) and tapered distally with an opening angle of 13.1±3.0° (N = 10 hairs from 2 ants).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "",
+        "unit": "μm",
+        "value": 23.8
+      },
+      {
+        "n_events": 10,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "The contacts were up to 31.5 μm long (mean 23.8±7.7 μm) and tapered distally with an opening angle of 13.1±3.0° (N = 10 hairs from 2 ants).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "",
+        "unit": "μm",
+        "value": 31.5
+      },
+      {
+        "n_events": 10,
+        "plus_minus": 3.0,
+        "quantity": "other_angle",
+        "quote": "The contacts were up to 31.5 μm long (mean 23.8±7.7 μm) and tapered distally with an opening angle of 13.1±3.0° (N = 10 hairs from 2 ants).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "",
+        "unit": "deg",
+        "value": 13.1
+      },
+      {
+        "n_events": null,
+        "plus_minus": 0.39,
+        "quantity": "other_length",
+        "quote": "Towards the hair base (>10 μm away from the tip) the contacts were up to 3.0 μm wide (mean 2.5 ±0.39 μm).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "",
+        "unit": "μm",
+        "value": 2.5
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "Towards the hair base (>10 μm away from the tip) the contacts were up to 3.0 μm wide (mean 2.5 ±0.39 μm).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "",
+        "unit": "μm",
+        "value": 3.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "The total area covered was approx. 45 μm2.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "μm2",
+        "value": 45.0
+      },
+      {
+        "n_events": 7,
+        "plus_minus": null,
+        "quantity": "body_angle",
+        "quote": "the last (5th) tarsal segment was mostly raised so that the pretarsal claws and arolium did not touch the surface (median 5th tarsomere angle -10° for front legs, -24° for the middle legs and -19° for the hind legs; Fig 2A; Nfront = 7;Nmiddle = 10;Nhind = 7;)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "upright_front (deg)",
+        "unit": "deg",
+        "value": -10.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "The ants held their body weight mainly by pulling with legs above the CoM (median 0.67 times",
+        "row_filter": {
+          "column": "leg position (0=below CoM, 1=aboveCoM)",
+          "value": "1"
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "Fx (mN)",
+        "unit": "body weights",
+        "value": 0.67
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "When weaver ants climbed upwards, their hind limbs produced peak anti-gravity forces of about 35% body",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "unknown",
+        "statistic": "max",
+        "table_column": "Fx (mN)",
+        "unit": "% body weight",
+        "value": 35.0
+      },
+      {
+        "n_events": 10,
+        "plus_minus": null,
+        "quantity": "body_angle",
+        "quote": "the last (5th) tarsal segment was mostly raised so that the pretarsal claws and arolium did not touch the surface (median 5th tarsomere angle -10° for front legs, -24° for the middle legs and -19° for the hind legs; Fig 2A; Nfront = 7;Nmiddle = 10;Nhind = 7;)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "upright_middle  (deg)",
+        "unit": "deg",
+        "value": -24.0
+      },
+      {
+        "n_events": 7,
+        "plus_minus": null,
+        "quantity": "body_angle",
+        "quote": "the last (5th) tarsal segment was mostly raised so that the pretarsal claws and arolium did not touch the surface (median 5th tarsomere angle -10° for front legs, -24° for the middle legs and -19° for the hind legs; Fig 2A; Nfront = 7;Nmiddle = 10;Nhind = 7;)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "upright_hind  (deg)",
+        "unit": "deg",
+        "value": -19.0
+      }
+    ],
+    "event_table": {
+      "columns": [
+        {
+          "evidence": "to see which leg (fore, middle or hind leg) stepped onto the force plate.",
+          "name": "filename",
+          "quantity": "event_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "we used medium-sized ant workers (8.2 ± 2.1mg; N = 48; all values given in the text are means ± standard deviations,",
+          "name": "bodyweight(mg)",
+          "quantity": "mass",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mg"
+        },
+        {
+          "evidence": "to see which leg (fore, middle or hind leg) stepped onto the force plate.",
+          "name": "leg (1=front,2=middle,3=hind)",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "and used to determine whether a foot was placed above or below the CoM.",
+          "name": "leg position (0=below CoM, 1=aboveCoM)",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "was used to record normal and vertical friction forces for single steps of climbing ants",
+          "name": "Fx (mN)",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mN"
+        },
+        {
+          "evidence": "This assumption allowed us to estimate shear forces along the projected axis of the leg.",
+          "name": "Fx_c (Fx/sin(angle)) (mN)",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mN"
+        },
+        {
+          "evidence": "was used to record normal and vertical friction forces for single steps of climbing ants",
+          "name": "Fz (mN)",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mN"
+        },
+        {
+          "evidence": "Leg orientation is given as an angle ranging from -90° (pointing downward; Nfront = 3, Nmiddle = 8, Nhind = 18) to 0° (horizontal) to +90° (pointing upward; Nfront = 9, Nmiddle = 10, Nhind = 8).",
+          "name": "Leg orientation angle",
+          "quantity": "other_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "deg"
+        },
+        {
+          "evidence": "Filled circles denote steps in which the arolium made visible surface contact, whereas steps with detached arolium are marked with open circles.",
+          "name": "pad in contact (0=not in contact, 1=in contact)",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        }
+      ],
+      "file": "EndleinFederle_Data_PONE-D-15-22788.xlsx",
+      "rows_are": "one single-leg step during vertical climbing (one ground-reaction-force recording)",
+      "sheet": "Fig3_4_5"
+    },
+    "object_phrase": "weaver ant",
+    "scale_reference": {
+      "evidence": "",
+      "kind": "none",
+      "size_mm": null
+    },
+    "title": "On Heels and Toes: How Ants Climb with Adhesive Pads and Tarsal Friction Hair Arrays",
+    "videos": []
+  },
+  "checks": [
+    {
+      "field": "claim 'we used medium-sized ant workers (8.2 ± 2.1mg; N ='",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'When weaver ants walked on a horizontal substrate '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'when ants walked on an inverted substrate (average'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'When climbing on a vertical surface (average speed'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'the 5th tarsomere angle was mostly positive (front'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'the 5th tarsomere angle was mostly positive (front'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'the 5th tarsomere angle was mostly positive (front'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'On average, legs above the CoM produced negative n'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'On average, legs above the CoM produced negative n' rows",
+      "ok": true,
+      "note": "rows where 'leg position (0=below CoM, 1=aboveCoM)' = '1'"
+    },
+    {
+      "field": "claim 'On average, legs above the CoM produced negative n'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'On average, legs above the CoM produced negative n' rows",
+      "ok": true,
+      "note": "rows where 'leg position (0=below CoM, 1=aboveCoM)' = '0'"
+    },
+    {
+      "field": "claim 'Some legs below the CoM contributed to upward forc'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Some legs below the CoM contributed to upward forc' rows",
+      "ok": true,
+      "note": "rows where 'leg position (0=below CoM, 1=aboveCoM)' = '0'"
+    },
+    {
+      "field": "claim 'the angle of the force vector to the horizontal wa'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'the angle of the force vector to the horizontal wa'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The average angle of the 5th tarsomere measured fr'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The density of the hairs was approx. 29466 ± 5608 '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Each hair was around 36 ±10 μm long, 2.4±0.4 μm th'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Each hair was around 36 ±10 μm long, 2.4±0.4 μm th'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'On the smooth surface, the friction forces generat'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The dashed line indicates the ants’ body weight (8'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The buckling forces on the smooth surface were 117'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The buckling forces on the smooth surface were 117'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The buckling forces on the smooth surface were 117'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The buckling forces on the smooth surface were 117'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The buckling forces on the smooth surface were 117'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The buckling forces on the smooth surface were 117'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Freely walking ants produced pushing shear forces '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Freely walking ants produced pushing shear forces '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The contacts were up to 31.5 μm long (mean 23.8±7.'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The contacts were up to 31.5 μm long (mean 23.8±7.'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The contacts were up to 31.5 μm long (mean 23.8±7.'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Towards the hair base (>10 μm away from the tip) t'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Towards the hair base (>10 μm away from the tip) t'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The total area covered was approx. 45 μm2.'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'the last (5th) tarsal segment was mostly raised so'",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    },
+    {
+      "field": "claim 'The ants held their body weight mainly by pulling '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The ants held their body weight mainly by pulling ' rows",
+      "ok": true,
+      "note": "rows where 'leg position (0=below CoM, 1=aboveCoM)' = '1'"
+    },
+    {
+      "field": "claim 'When weaver ants climbed upwards, their hind limbs'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'the last (5th) tarsal segment was mostly raised so'",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    },
+    {
+      "field": "claim 'the last (5th) tarsal segment was mostly raised so'",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    }
+  ],
+  "columns": {
+    "filename": {
+      "evidence": "to see which leg (fore, middle or hind leg) stepped onto the force plate.",
+      "name": "filename",
+      "quantity": "event_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 0,
+      "si_factor": null
+    },
+    "bodyweight(mg)": {
+      "evidence": "we used medium-sized ant workers (8.2 ± 2.1mg; N = 48; all values given in the text are means ± standard deviations,",
+      "name": "bodyweight(mg)",
+      "quantity": "mass",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mg",
+      "index": 1,
+      "si_factor": null
+    },
+    "leg (1=front,2=middle,3=hind)": {
+      "evidence": "to see which leg (fore, middle or hind leg) stepped onto the force plate.",
+      "name": "leg (1=front,2=middle,3=hind)",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 2,
+      "si_factor": null
+    },
+    "leg position (0=below CoM, 1=aboveCoM)": {
+      "evidence": "and used to determine whether a foot was placed above or below the CoM.",
+      "name": "leg position (0=below CoM, 1=aboveCoM)",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 3,
+      "si_factor": null
+    },
+    "Fx (mN)": {
+      "evidence": "was used to record normal and vertical friction forces for single steps of climbing ants",
+      "name": "Fx (mN)",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mN",
+      "index": 4,
+      "si_factor": null
+    },
+    "Fx_c (Fx/sin(angle)) (mN)": {
+      "evidence": "This assumption allowed us to estimate shear forces along the projected axis of the leg.",
+      "name": "Fx_c (Fx/sin(angle)) (mN)",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mN",
+      "index": 5,
+      "si_factor": null
+    },
+    "Fz (mN)": {
+      "evidence": "was used to record normal and vertical friction forces for single steps of climbing ants",
+      "name": "Fz (mN)",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mN",
+      "index": 6,
+      "si_factor": null
+    },
+    "Leg orientation angle": {
+      "evidence": "Leg orientation is given as an angle ranging from -90° (pointing downward; Nfront = 3, Nmiddle = 8, Nhind = 18) to 0° (horizontal) to +90° (pointing upward; Nfront = 9, Nmiddle = 10, Nhind = 8).",
+      "name": "Leg orientation angle",
+      "quantity": "other_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "deg",
+      "index": 7,
+      "si_factor": 1.0
+    },
+    "pad in contact (0=not in contact, 1=in contact)": {
+      "evidence": "Filled circles denote steps in which the arolium made visible surface contact, whereas steps with detached arolium are marked with open circles.",
+      "name": "pad in contact (0=not in contact, 1=in contact)",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 8,
+      "si_factor": null
+    }
+  },
+  "claims": [
+    {
+      "n_events": 48,
+      "plus_minus": 2.1,
+      "quantity": "mass",
+      "quote": "we used medium-sized ant workers (8.2 ± 2.1mg; N = 48; all values given in the text are means ± standard deviations,",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "bodyweight(mg)",
+      "unit": "mg",
+      "value": 8.2,
+      "si_factor": null
+    },
+    {
+      "n_events": 20,
+      "plus_minus": 12.5,
+      "quantity": "other_speed",
+      "quote": "When weaver ants walked on a horizontal substrate (average speed 28.6 ± 12.5 mms-1;N = 20),",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "",
+      "unit": "mms-1",
+      "value": 28.6,
+      "si_factor": null
+    },
+    {
+      "n_events": 21,
+      "plus_minus": 14.6,
+      "quantity": "other_speed",
+      "quote": "when ants walked on an inverted substrate (average speed 21.4 ± 14.6 mms-1; N = 21),",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "",
+      "unit": "mms-1",
+      "value": 21.4,
+      "si_factor": null
+    },
+    {
+      "n_events": 14,
+      "plus_minus": 8.6,
+      "quantity": "other_speed",
+      "quote": "When climbing on a vertical surface (average speed 21.7 ± 8.6 mms-1; N = 14),",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "",
+      "unit": "mms-1",
+      "value": 21.7,
+      "si_factor": null
+    },
+    {
+      "n_events": 35,
+      "plus_minus": null,
+      "quantity": "body_angle",
+      "quote": "the 5th tarsomere angle was mostly positive (front legs: 8°; middle legs: 4°; hind legs: 7°; all medians; Fig 2B; Nfront = 35;Nmiddle = 11;Nhind = 39)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "median",
+      "table_column": "upsidedown_front  (deg)",
+      "unit": "deg",
+      "value": 8.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 11,
+      "plus_minus": null,
+      "quantity": "body_angle",
+      "quote": "the 5th tarsomere angle was mostly positive (front legs: 8°; middle legs: 4°; hind legs: 7°; all medians; Fig 2B; Nfront = 35;Nmiddle = 11;Nhind = 39)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "median",
+      "table_column": "upsidedown_middle  (deg)",
+      "unit": "deg",
+      "value": 4.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 39,
+      "plus_minus": null,
+      "quantity": "body_angle",
+      "quote": "the 5th tarsomere angle was mostly positive (front legs: 8°; middle legs: 4°; hind legs: 7°; all medians; Fig 2B; Nfront = 35;Nmiddle = 11;Nhind = 39)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "median",
+      "table_column": "upsidedown_hind  (deg)",
+      "unit": "deg",
+      "value": 7.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "On average, legs above the CoM produced negative normal forces of 0.29 times body weight (Fig 3A), whereas legs below the CoM produced positive (compressive) forces of 0.12 times body weight (medians).",
+      "row_filter": {
+        "column": "leg position (0=below CoM, 1=aboveCoM)",
+        "value": "1"
+      },
+      "spread": "none",
+      "statistic": "median",
+      "table_column": "Fz (mN)",
+      "unit": "times body weight",
+      "value": 0.29,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "On average, legs above the CoM produced negative normal forces of 0.29 times body weight (Fig 3A), whereas legs below the CoM produced positive (compressive) forces of 0.12 times body weight (medians).",
+      "row_filter": {
+        "column": "leg position (0=below CoM, 1=aboveCoM)",
+        "value": "0"
+      },
+      "spread": "none",
+      "statistic": "median",
+      "table_column": "Fz (mN)",
+      "unit": "times body weight",
+      "value": 0.12,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "Some legs below the CoM contributed to upward forces by pushing (maxima up to 0.7 times body weight),",
+      "row_filter": {
+        "column": "leg position (0=below CoM, 1=aboveCoM)",
+        "value": "0"
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "Fx (mN)",
+      "unit": "times body weight",
+      "value": 0.7,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": 26.0,
+      "quantity": "other_angle",
+      "quote": "the angle of the force vector to the horizontal was considerably lower for ‘pulling’ steps than for ‘pushing’ ones (pulling: 7 ± 26°, pushing: 46 ± 7°; Mann-Whitney U-test: R = 524, z = 4.75, P < 0.001;",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "",
+      "unit": "deg",
+      "value": 7.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": 7.0,
+      "quantity": "other_angle",
+      "quote": "the angle of the force vector to the horizontal was considerably lower for ‘pulling’ steps than for ‘pushing’ ones (pulling: 7 ± 26°, pushing: 46 ± 7°; Mann-Whitney U-test: R = 524, z = 4.75, P < 0.001;",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "",
+      "unit": "deg",
+      "value": 46.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": 7.0,
+      "quantity": "body_angle",
+      "quote": "The average angle of the 5th tarsomere measured from the video recordings was 12±7° for pulling legs,",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "",
+      "unit": "deg",
+      "value": 12.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 3,
+      "plus_minus": 5608.0,
+      "quantity": "other",
+      "quote": "The density of the hairs was approx. 29466 ± 5608 hairs per mm2 (mean ± SD of three analysed legs).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "",
+      "unit": "hairs/mm2",
+      "value": 29466.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 27,
+      "plus_minus": 10.0,
+      "quantity": "other_length",
+      "quote": "Each hair was around 36 ±10 μm long, 2.4±0.4 μm thick at the base and tapered towards the tip (27 hairs measured from two legs of two ants).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "",
+      "unit": "μm",
+      "value": 36.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 27,
+      "plus_minus": 0.4,
+      "quantity": "other_length",
+      "quote": "Each hair was around 36 ±10 μm long, 2.4±0.4 μm thick at the base and tapered towards the tip (27 hairs measured from two legs of two ants).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "",
+      "unit": "μm",
+      "value": 2.4,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "On the smooth surface, the friction forces generated by the tarsal hairs amounted to 3.1 times of an ant’s body weight (median),",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "median",
+      "table_column": "Fx_smooth_push_100mN (µN)",
+      "unit": "times body weight",
+      "value": 3.1,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "The dashed line indicates the ants’ body weight (82 μN).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "μN",
+      "value": 82.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": 58.0,
+      "quantity": "other",
+      "quote": "The buckling forces on the smooth surface were 117±58 μN, 158±61 μN and 213±93 μN for 30, 60 and 100 μN, and 84±47 μN, 127±55 μN and 173±57 μN on the rough surface.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Fz_smooth_30mN (µN)",
+      "unit": "μN",
+      "value": 117.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": 61.0,
+      "quantity": "other",
+      "quote": "The buckling forces on the smooth surface were 117±58 μN, 158±61 μN and 213±93 μN for 30, 60 and 100 μN, and 84±47 μN, 127±55 μN and 173±57 μN on the rough surface.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Fz_smooth_60mN (µN)",
+      "unit": "μN",
+      "value": 158.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": 93.0,
+      "quantity": "other",
+      "quote": "The buckling forces on the smooth surface were 117±58 μN, 158±61 μN and 213±93 μN for 30, 60 and 100 μN, and 84±47 μN, 127±55 μN and 173±57 μN on the rough surface.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Fz_smooth_100mN (µN)",
+      "unit": "μN",
+      "value": 213.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": 47.0,
+      "quantity": "other",
+      "quote": "The buckling forces on the smooth surface were 117±58 μN, 158±61 μN and 213±93 μN for 30, 60 and 100 μN, and 84±47 μN, 127±55 μN and 173±57 μN on the rough surface.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Fz_rough_30mN (µN)",
+      "unit": "μN",
+      "value": 84.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": 55.0,
+      "quantity": "other",
+      "quote": "The buckling forces on the smooth surface were 117±58 μN, 158±61 μN and 213±93 μN for 30, 60 and 100 μN, and 84±47 μN, 127±55 μN and 173±57 μN on the rough surface.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Fz_rough_60mN (µN)",
+      "unit": "μN",
+      "value": 127.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": 57.0,
+      "quantity": "other",
+      "quote": "The buckling forces on the smooth surface were 117±58 μN, 158±61 μN and 213±93 μN for 30, 60 and 100 μN, and 84±47 μN, 127±55 μN and 173±57 μN on the rough surface.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Fz_rough_100mN (µN)",
+      "unit": "μN",
+      "value": 173.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "Freely walking ants produced pushing shear forces below 100 μN (maximum 86 μN; mean 32±22 μN) less than the buckling forces measured for ablated legs.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "Fx (mN)",
+      "unit": "μN",
+      "value": 86.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": 22.0,
+      "quantity": "other",
+      "quote": "Freely walking ants produced pushing shear forces below 100 μN (maximum 86 μN; mean 32±22 μN) less than the buckling forces measured for ablated legs.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Fx (mN)",
+      "unit": "μN",
+      "value": 32.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 7.7,
+      "quantity": "other_length",
+      "quote": "The contacts were up to 31.5 μm long (mean 23.8±7.7 μm) and tapered distally with an opening angle of 13.1±3.0° (N = 10 hairs from 2 ants).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "",
+      "unit": "μm",
+      "value": 23.8,
+      "si_factor": null
+    },
+    {
+      "n_events": 10,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "The contacts were up to 31.5 μm long (mean 23.8±7.7 μm) and tapered distally with an opening angle of 13.1±3.0° (N = 10 hairs from 2 ants).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "",
+      "unit": "μm",
+      "value": 31.5,
+      "si_factor": null
+    },
+    {
+      "n_events": 10,
+      "plus_minus": 3.0,
+      "quantity": "other_angle",
+      "quote": "The contacts were up to 31.5 μm long (mean 23.8±7.7 μm) and tapered distally with an opening angle of 13.1±3.0° (N = 10 hairs from 2 ants).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "",
+      "unit": "deg",
+      "value": 13.1,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": 0.39,
+      "quantity": "other_length",
+      "quote": "Towards the hair base (>10 μm away from the tip) the contacts were up to 3.0 μm wide (mean 2.5 ±0.39 μm).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "",
+      "unit": "μm",
+      "value": 2.5,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "Towards the hair base (>10 μm away from the tip) the contacts were up to 3.0 μm wide (mean 2.5 ±0.39 μm).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "",
+      "unit": "μm",
+      "value": 3.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "The total area covered was approx. 45 μm2.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "μm2",
+      "value": 45.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "The ants held their body weight mainly by pulling with legs above the CoM (median 0.67 times",
+      "row_filter": {
+        "column": "leg position (0=below CoM, 1=aboveCoM)",
+        "value": "1"
+      },
+      "spread": "none",
+      "statistic": "median",
+      "table_column": "Fx (mN)",
+      "unit": "body weights",
+      "value": 0.67,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "When weaver ants climbed upwards, their hind limbs produced peak anti-gravity forces of about 35% body",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "unknown",
+      "statistic": "max",
+      "table_column": "Fx (mN)",
+      "unit": "% body weight",
+      "value": 35.0,
+      "si_factor": null
+    }
+  ]
+}

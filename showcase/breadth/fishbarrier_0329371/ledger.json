@@ -1,0 +1,588 @@
+{
+ "run_id": "fishbarrier_0329371-20261028",
+ "started": "2026-10-28T19:49:09+00:00",
+ "commit": "7cf697ae7d51417a0cbfa02ba9dcbf8501a63b95",
+ "inputs": {
+  "Data for_Repeated exposure to a velocity barrier improves passage performance.xlsx": "ad82f4e6c8e794c9e98099a6562a0fed6bcc0182ff6d95a78b8e68a56c9c2893",
+  "paper.pdf": "316649598cddf2d60f63fd241f718259e0d7bd60e2b76e530e107c21a45622f3",
+  "source.json": "2ae749879a5a676d216e830365b73168f0299cee97430a09dc325ac759459a77"
+ },
+ "checks_sha256": "b8a6e7a11527dba91bd08e6891ef75bae5ba5223667255507e481d1721f43fda",
+ "events": [
+  {
+   "i": 0,
+   "t": 0.0,
+   "kind": "step",
+   "what": "inventory",
+   "note": "1 pdf, 0 video, 1 table, 0 archive files",
+   "ref": ""
+  },
+  {
+   "i": 1,
+   "t": 0.12,
+   "kind": "step",
+   "what": "paper",
+   "note": "paper.pdf chosen as the paper",
+   "ref": ""
+  },
+  {
+   "i": 2,
+   "t": 0.12,
+   "kind": "gate",
+   "gate": "G0 licence",
+   "ok": true,
+   "note": "CC BY: awford et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distributi",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 3,
+   "t": 0.31,
+   "kind": "step",
+   "what": "read files",
+   "note": "115371 chars of PDF text, 1 table sheets, 0 scripts",
+   "ref": ""
+  },
+  {
+   "i": 4,
+   "t": 77.32,
+   "kind": "model",
+   "role": "plan",
+   "model": "muse-spark-1.3",
+   "tokens": 72930,
+   "seconds": 77.0,
+   "proposal": "v1: 25 claims, event table Sheet1, 0 videos, authors' method unknown",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 5,
+   "t": 77.6,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'mean length of 51.7 mm±8.97': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 6,
+   "t": 77.63,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'mean weight 0.48 g±0.32': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 7,
+   "t": 77.66,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'mean condition factor 0.26±0.09': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 8,
+   "t": 77.7,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'individual fish were subjected to the same high-sp': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 9,
+   "t": 77.73,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'each 1.2 m in length, positioned at a 40° angle re': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 10,
+   "t": 77.75,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'each 1.2 m in length, positioned at a 40° angle re': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 11,
+   "t": 77.8,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The body of the raceway measured 2.9 m in length a': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 12,
+   "t": 77.82,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The body of the raceway measured 2.9 m in length a': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 13,
+   "t": 77.85,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The base of the raceway was marked with tape at 0.': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 14,
+   "t": 77.89,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Additional markings denoting the approach, entry, ': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 15,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Additional markings denoting the approach, entry, ': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 16,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Additional markings denoting the approach, entry, ': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 17,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'with all cameras set to a consistent frame rate of': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 18,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The impeller motor was set to 31 Hz': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 19,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'were collected for 40 s at each height, with a sam': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 20,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'were collected for 40 s at each height, with a sam': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 21,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Trial duration was set to a maximum of 30 minutes': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 22,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'where the water speed was maintained at 0.0 m s-1,': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 23,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Day 1 fish had a median approach time of 325 s and': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 24,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Day 1 fish had a median approach time of 325 s and' rows: rows where 'Day' = '1'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 25,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Day 1 fish had a median approach time of 325 s and': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 26,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Day 1 fish had a median approach time of 325 s and' rows: rows where 'Day' = '5'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 27,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Day 1 fish had a median entry time of 548 s and Da': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 28,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Day 1 fish had a median entry time of 548 s and Da' rows: rows where 'Day' = '1'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 29,
+   "t": 77.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Day 1 fish had a median entry time of 548 s and Da': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 30,
+   "t": 77.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Day 1 fish had a median entry time of 548 s and Da' rows: rows where 'Day' = '5'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 31,
+   "t": 77.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Day 5 fish had a median time of 42 s': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 32,
+   "t": 77.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Day 5 fish had a median time of 42 s' rows: rows where 'Day' = '5'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 33,
+   "t": 77.92,
+   "kind": "step",
+   "what": "plan accepted",
+   "note": "v1 (0 needed fields still rejected)",
+   "ref": ""
+  },
+  {
+   "i": 34,
+   "t": 77.96,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: mean length of 51.7 mm±8.97",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 35,
+   "t": 77.96,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: mean weight 0.48 g±0.32",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 36,
+   "t": 77.97,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: mean condition factor 0.26±0.09",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 37,
+   "t": 77.99,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: individual fish were subjected to the same high-speed (0.45–0.5 m s-1)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 38,
+   "t": 78.02,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: each 1.2 m in length, positioned at a 40° angle relative to the flume ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 39,
+   "t": 78.06,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: each 1.2 m in length, positioned at a 40° angle relative to the flume ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 40,
+   "t": 78.07,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The body of the raceway measured 2.9 m in length and 0.2 m in width",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 41,
+   "t": 78.09,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The body of the raceway measured 2.9 m in length and 0.2 m in width",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 42,
+   "t": 78.13,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The base of the raceway was marked with tape at 0.1 m intervals",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 43,
+   "t": 78.17,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Additional markings denoting the approach, entry, and passage threshol",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 44,
+   "t": 78.22,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Additional markings denoting the approach, entry, and passage threshol",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 45,
+   "t": 78.23,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Additional markings denoting the approach, entry, and passage threshol",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 46,
+   "t": 78.27,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: with all cameras set to a consistent frame rate of 30 frames per secon",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 47,
+   "t": 78.3,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The impeller motor was set to 31 Hz",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 48,
+   "t": 78.33,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: were collected for 40 s at each height, with a sampling frequency of 1",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 49,
+   "t": 78.35,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: were collected for 40 s at each height, with a sampling frequency of 1",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 50,
+   "t": 78.35,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Trial duration was set to a maximum of 30 minutes",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 51,
+   "t": 78.36,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: where the water speed was maintained at 0.0 m s-1, for a duration of 3",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 52,
+   "t": 78.36,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: Day 1 fish had a median approach time of 325 s and Day 5 fish had a me",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 53,
+   "t": 78.37,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: Day 1 fish had a median approach time of 325 s and Day 5 fish had a me",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 54,
+   "t": 78.37,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: Day 1 fish had a median entry time of 548 s and Day 5 fish had a media",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 55,
+   "t": 78.38,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: Day 1 fish had a median entry time of 548 s and Day 5 fish had a media",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 56,
+   "t": 78.38,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: Day 5 fish had a median time of 42 s",
+   "ref": "",
+   "on": null
+  }
+ ],
+ "verdicts": [],
+ "summary": {
+  "status": "complete",
+  "claims": {
+   "NOT CHECKED": 8,
+   "REFUSED": 15
+  },
+  "videos": {},
+  "finished": "2026-10-28T19:50:28+00:00",
+  "wall_s": 78.4
+ }
+}

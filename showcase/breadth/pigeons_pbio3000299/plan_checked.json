@@ -1,0 +1,1182 @@
+{
+  "plan": {
+    "authors_speed_method": {
+      "evidence": "For each GPS point, the orthodromic (great-circular) distance travelled and birds’ final bearing from the previous point were calculated using the haversine formula and forward azimuth, respectively. ... Wind support, crosswind, and airspeed were calculated using the methods described in Safi and colleagues [40] using the measurements from the weather station and speed derived from the GPS devices.",
+      "family": "finite_difference",
+      "parameters": "5 Hz GPS, haversine distance between successive fixes divided by time, airspeed derived from GPS speed plus weather-station wind via Safi et al. method"
+    },
+    "claims": [
+      {
+        "n_events": 20,
+        "plus_minus": 0.19,
+        "quantity": "other",
+        "quote": "The baseline solo means of the median wingbeat frequency and median dorsal body displacement in Phases 1 and 4 were 5.48 ± 0.19 Hz and 20.68 ± 1.17 mm (mean of the means for each individual ± SD), respec‐tively",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "Hz",
+        "value": 5.48
+      },
+      {
+        "n_events": 20,
+        "plus_minus": 1.17,
+        "quantity": "other_length",
+        "quote": "The baseline solo means of the median wingbeat frequency and median dorsal body displacement in Phases 1 and 4 were 5.48 ± 0.19 Hz and 20.68 ± 1.17 mm (mean of the means for each individual ± SD), respec‐tively",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "mm",
+        "value": 20.68
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "this marked change in wingbeat frequency was associated with a surprisingly small (3.3%) increase in airspeed (0.63 ms−1 , 95% credible interval [0.07, 1.19]).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "ci",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "m/s",
+        "value": 0.63
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "acceleration",
+        "quote": "the median peak‐to-peak amplitude of the dorsal body acceleration was similar in both solo and paired flights (difference of 0.16g, where g is gravitational acceleration; 95% credible interval [−0.16, 0.47]",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "ci",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "g",
+        "value": 0.16
+      },
+      {
+        "n_events": null,
+        "plus_minus": 4.76,
+        "quantity": "other_length",
+        "quote": "our birds flew with a median GPS spacing 12.12 ± 4.76 m (mean of the means ± SD for each pair)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "m",
+        "value": 12.12
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "predicts that birds flying with no horizontal spacing have the highest wingbeat frequency (increase of 1.21 Hz relative to flying solo; 95% credible interval [0.81, 1.61], 21.6%)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "ci",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "Hz",
+        "value": 1.21
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "with wingbeat frequency decreasing by 0.011 Hz for every metre increase in horizontal spacing (95% credible interval [−0.012, −0.009]).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "ci",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "Hz/m",
+        "value": 0.011
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "Flying in a pair resulted in a 7% increase in route accuracy relative to both the Phase 1 and Phase 4 solo releases (0.06, 95% credible interval [0.01, 0.10]; Fig 1)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "ci",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ratio",
+        "value": 0.06
+      },
+      {
+        "n_events": 6,
+        "plus_minus": 0.26,
+        "quantity": "other",
+        "quote": "birds flying in pairs increased their median wingbeat frequency by a mean of 1.10 Hz ± 0.26 relative to flying solo (6.6 ± 0.42 Hz mean ± SD for pairs; 5.5 ± 0.46 Hz for solo).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "WingbeatFrequency_Median_Hz",
+        "unit": "Hz",
+        "value": 1.1
+      },
+      {
+        "n_events": 6,
+        "plus_minus": 0.42,
+        "quantity": "other",
+        "quote": "birds flying in pairs increased their median wingbeat frequency by a mean of 1.10 Hz ± 0.26 relative to flying solo (6.6 ± 0.42 Hz mean ± SD for pairs; 5.5 ± 0.46 Hz for solo).",
+        "row_filter": {
+          "column": "Release_Type",
+          "value": "Pair"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "WingbeatFrequency_Median_Hz",
+        "unit": "Hz",
+        "value": 6.6
+      },
+      {
+        "n_events": 6,
+        "plus_minus": 0.46,
+        "quantity": "other",
+        "quote": "birds flying in pairs increased their median wingbeat frequency by a mean of 1.10 Hz ± 0.26 relative to flying solo (6.6 ± 0.42 Hz mean ± SD for pairs; 5.5 ± 0.46 Hz for solo).",
+        "row_filter": {
+          "column": "Release_Type",
+          "value": "Solo"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "WingbeatFrequency_Median_Hz",
+        "unit": "Hz",
+        "value": 5.5
+      },
+      {
+        "n_events": 6,
+        "plus_minus": 0.00066,
+        "quantity": "other_length",
+        "quote": "the median peak-to-peak head displace‐ment simultaneously decreased by 5.3 × 10−3 m ± 6.6 × 10−4 m between solo and paired flight,",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "unknown",
+        "statistic": "mean",
+        "table_column": "HeadDisplacement_Median_m",
+        "unit": "m",
+        "value": 0.0053
+      },
+      {
+        "n_events": null,
+        "plus_minus": 0.3,
+        "quantity": "other",
+        "quote": "because the birds’ median wingbeat frequency decreased by 1.01 ± 0.30 Hz (mean ± SD) after they separated and flew solo (raw values with no covariates; Fig 2E–2H).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "Hz",
+        "value": 1.01
+      },
+      {
+        "n_events": null,
+        "plus_minus": 0.2,
+        "quantity": "other",
+        "quote": "those we measured in paired flight (6.5 ± 0.2 Hz) and substantially faster than those we measured in solo flight (5.5 ± 0.2 Hz).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "Hz",
+        "value": 6.5
+      },
+      {
+        "n_events": null,
+        "plus_minus": 0.2,
+        "quantity": "other",
+        "quote": "those we measured in paired flight (6.5 ± 0.2 Hz) and substantially faster than those we measured in solo flight (5.5 ± 0.2 Hz).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "Hz",
+        "value": 5.5
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "The release site was located 7.06 km from the loft on a bearing of 282˚ (Barnard Gate; 51˚47’48.1” N, 1˚25’3.3” W).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": null,
+        "unit": "km",
+        "value": 7.06
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "we conducted a second experiment using head-mounted accelerometers on 6 homing pigeons on short-range flights (950 m), flying solo and in pairs",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": null,
+        "unit": "m",
+        "value": 950.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "The release site was located 0.95 km from the loft on a bearing of 199˚ (Wytham Woods; 51˚46’29.4” N, 1˚19’18.7” W).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": null,
+        "unit": "km",
+        "value": 0.95
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "their median wingbeat frequency increased by 1.00 Hz (95% Bayesian credible interval [0.60, 1.38]) relative to flying solo",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "ci",
+        "statistic": "median",
+        "table_column": null,
+        "unit": "Hz",
+        "value": 1.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "resulted in a net 22.5% reduction in the median peak-to-peak amplitude of dorsal body displacement (−4.65 mm, 95% credible interval [−6.21, −3.06])",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "ci",
+        "statistic": "median",
+        "table_column": null,
+        "unit": "%",
+        "value": 22.5
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "reduced the median duration of the upstroke phase by 21.4% (−28.63 ms, 95% credible interval [−36.66, −20.36]) when flying in pairs",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "ci",
+        "statistic": "median",
+        "table_column": null,
+        "unit": "ms",
+        "value": -28.63
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "median duration of the downstroke phase did not vary significantly (−3.55 ms, 95% credible interval [−8.60, 1.67]; Fig 2C and 2D)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "ci",
+        "statistic": "median",
+        "table_column": null,
+        "unit": "ms",
+        "value": -3.55
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "Both individuals in a pair increased their wingbeat frequency by 18% by decreasing the duration of their upstroke.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "%",
+        "value": 18.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "This sharp increase in wingbeat frequency caused just a 3% increase in airspeed but reduced the oscillatory displacement of the body by 22%",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "%",
+        "value": 3.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "This sharp increase in wingbeat frequency caused just a 3% increase in airspeed but reduced the oscillatory displacement of the body by 22%",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "%",
+        "value": 22.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "resulted in a net 22.5% reduction in the median peak-to-peak amplitude of dorsal body displacement (−4.65 mm, 95% credible interval [−6.21, −3.06])",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "ci",
+        "statistic": "median",
+        "table_column": null,
+        "unit": "mm",
+        "value": -4.65
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "reduced the median duration of the upstroke phase by 21.4% (−28.63 ms, 95% credible interval [−36.66, −20.36]) when flying in pairs",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "ci",
+        "statistic": "median",
+        "table_column": null,
+        "unit": "%",
+        "value": 21.4
+      },
+      {
+        "n_events": 6,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "representing a 30% reduction in the amplitude of oscillatory head displacement and the retinal slip this causes (Fig 3)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": null,
+        "unit": "%",
+        "value": 30.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "Flying in a pair resulted in a 7% increase in route accuracy relative to both the Phase 1 and Phase 4 solo releases (0.06, 95% credible interval [0.01, 0.10]; Fig 1)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "ci",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "%",
+        "value": 7.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "which reduced flight distance by 7% and time by 9%.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "%",
+        "value": 7.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "which reduced flight distance by 7% and time by 9%.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "%",
+        "value": 9.0
+      }
+    ],
+    "event_table": {
+      "columns": [
+        {
+          "evidence": "",
+          "name": "Bird_ID",
+          "quantity": "animal_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "Release_Type",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "The wingbeat frequency (number of wingbeats per second; Hz)",
+          "name": "WingbeatFrequency_Median_Hz",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "Hz"
+        },
+        {
+          "evidence": "Fig 3. Box plot of median vertical peak-to-peak head displacement across 6 birds, each flying once solo and once in a pair. ... The peak-to-peak vertical head displacement was calculated by the double integration of the vertical accelerometer measurements.",
+          "name": "HeadDisplacement_Median_m",
+          "quantity": "other_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m"
+        }
+      ],
+      "file": "Figure3_data.xlsx",
+      "rows_are": "one row per bird per release type (one trial median per flight); 6 birds each flown once solo and once in a pair",
+      "sheet": "table"
+    },
+    "object_phrase": "homing pigeon",
+    "scale_reference": {
+      "evidence": "",
+      "kind": "none",
+      "size_mm": null
+    },
+    "title": "Birds invest wingbeats to keep a steady head and reap the ultimate benefits of flying together",
+    "videos": []
+  },
+  "checks": [
+    {
+      "field": "claim 'The baseline solo means of the median wingbeat fre'",
+      "ok": true,
+      "note": "quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)"
+    },
+    {
+      "field": "claim 'The baseline solo means of the median wingbeat fre'",
+      "ok": true,
+      "note": "quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)"
+    },
+    {
+      "field": "claim 'this marked change in wingbeat frequency was assoc'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'the median peak‐to-peak amplitude of the dorsal bo'",
+      "ok": true,
+      "note": "quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)"
+    },
+    {
+      "field": "claim 'our birds flew with a median GPS spacing 12.12 ± 4'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'predicts that birds flying with no horizontal spac'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'with wingbeat frequency decreasing by 0.011 Hz for'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Flying in a pair resulted in a 7% increase in rout'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'birds flying in pairs increased their median wingb'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'birds flying in pairs increased their median wingb'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'birds flying in pairs increased their median wingb' rows",
+      "ok": true,
+      "note": "rows where 'Release_Type' = 'Pair'"
+    },
+    {
+      "field": "claim 'birds flying in pairs increased their median wingb'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'birds flying in pairs increased their median wingb' rows",
+      "ok": true,
+      "note": "rows where 'Release_Type' = 'Solo'"
+    },
+    {
+      "field": "claim 'the median peak-to-peak head displace‐ment simulta'",
+      "ok": true,
+      "note": "quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)"
+    },
+    {
+      "field": "claim 'because the birds’ median wingbeat frequency decre'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'those we measured in paired flight (6.5 ± 0.2 Hz) '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'those we measured in paired flight (6.5 ± 0.2 Hz) '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The release site was located 7.06 km from the loft'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'we conducted a second experiment using head-mounte'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The release site was located 0.95 km from the loft'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'their median wingbeat frequency increased by 1.00 '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'resulted in a net 22.5% reduction in the median pe'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'reduced the median duration of the upstroke phase '",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    },
+    {
+      "field": "claim 'median duration of the downstroke phase did not va'",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    },
+    {
+      "field": "claim 'Both individuals in a pair increased their wingbea'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'This sharp increase in wingbeat frequency caused j'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'This sharp increase in wingbeat frequency caused j'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'resulted in a net 22.5% reduction in the median pe'",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    },
+    {
+      "field": "claim 'reduced the median duration of the upstroke phase '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'representing a 30% reduction in the amplitude of o'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Flying in a pair resulted in a 7% increase in rout'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'which reduced flight distance by 7% and time by 9%'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'which reduced flight distance by 7% and time by 9%'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    }
+  ],
+  "columns": {
+    "Bird_ID": {
+      "evidence": "",
+      "name": "Bird_ID",
+      "quantity": "animal_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 0,
+      "si_factor": null
+    },
+    "Release_Type": {
+      "evidence": "",
+      "name": "Release_Type",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 1,
+      "si_factor": null
+    },
+    "WingbeatFrequency_Median_Hz": {
+      "evidence": "The wingbeat frequency (number of wingbeats per second; Hz)",
+      "name": "WingbeatFrequency_Median_Hz",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "Hz",
+      "index": 2,
+      "si_factor": null
+    },
+    "HeadDisplacement_Median_m": {
+      "evidence": "Fig 3. Box plot of median vertical peak-to-peak head displacement across 6 birds, each flying once solo and once in a pair. ... The peak-to-peak vertical head displacement was calculated by the double integration of the vertical accelerometer measurements.",
+      "name": "HeadDisplacement_Median_m",
+      "quantity": "other_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m",
+      "index": 3,
+      "si_factor": 1.0
+    }
+  },
+  "claims": [
+    {
+      "n_events": 20,
+      "plus_minus": 0.19,
+      "quantity": "other",
+      "quote": "The baseline solo means of the median wingbeat frequency and median dorsal body displacement in Phases 1 and 4 were 5.48 ± 0.19 Hz and 20.68 ± 1.17 mm (mean of the means for each individual ± SD), respec‐tively",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "Hz",
+      "value": 5.48,
+      "si_factor": null
+    },
+    {
+      "n_events": 20,
+      "plus_minus": 1.17,
+      "quantity": "other_length",
+      "quote": "The baseline solo means of the median wingbeat frequency and median dorsal body displacement in Phases 1 and 4 were 5.48 ± 0.19 Hz and 20.68 ± 1.17 mm (mean of the means for each individual ± SD), respec‐tively",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "mm",
+      "value": 20.68,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_speed",
+      "quote": "this marked change in wingbeat frequency was associated with a surprisingly small (3.3%) increase in airspeed (0.63 ms−1 , 95% credible interval [0.07, 1.19]).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "ci",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "m/s",
+      "value": 0.63,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "acceleration",
+      "quote": "the median peak‐to-peak amplitude of the dorsal body acceleration was similar in both solo and paired flights (difference of 0.16g, where g is gravitational acceleration; 95% credible interval [−0.16, 0.47]",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "ci",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "g",
+      "value": 0.16,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": 4.76,
+      "quantity": "other_length",
+      "quote": "our birds flew with a median GPS spacing 12.12 ± 4.76 m (mean of the means ± SD for each pair)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "m",
+      "value": 12.12,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "predicts that birds flying with no horizontal spacing have the highest wingbeat frequency (increase of 1.21 Hz relative to flying solo; 95% credible interval [0.81, 1.61], 21.6%)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "ci",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "Hz",
+      "value": 1.21,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "with wingbeat frequency decreasing by 0.011 Hz for every metre increase in horizontal spacing (95% credible interval [−0.012, −0.009]).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "ci",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "Hz/m",
+      "value": 0.011,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "Flying in a pair resulted in a 7% increase in route accuracy relative to both the Phase 1 and Phase 4 solo releases (0.06, 95% credible interval [0.01, 0.10]; Fig 1)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "ci",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ratio",
+      "value": 0.06,
+      "si_factor": null
+    },
+    {
+      "n_events": 6,
+      "plus_minus": 0.26,
+      "quantity": "other",
+      "quote": "birds flying in pairs increased their median wingbeat frequency by a mean of 1.10 Hz ± 0.26 relative to flying solo (6.6 ± 0.42 Hz mean ± SD for pairs; 5.5 ± 0.46 Hz for solo).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "WingbeatFrequency_Median_Hz",
+      "unit": "Hz",
+      "value": 1.1,
+      "si_factor": null
+    },
+    {
+      "n_events": 6,
+      "plus_minus": 0.42,
+      "quantity": "other",
+      "quote": "birds flying in pairs increased their median wingbeat frequency by a mean of 1.10 Hz ± 0.26 relative to flying solo (6.6 ± 0.42 Hz mean ± SD for pairs; 5.5 ± 0.46 Hz for solo).",
+      "row_filter": {
+        "column": "Release_Type",
+        "value": "Pair"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "WingbeatFrequency_Median_Hz",
+      "unit": "Hz",
+      "value": 6.6,
+      "si_factor": null
+    },
+    {
+      "n_events": 6,
+      "plus_minus": 0.46,
+      "quantity": "other",
+      "quote": "birds flying in pairs increased their median wingbeat frequency by a mean of 1.10 Hz ± 0.26 relative to flying solo (6.6 ± 0.42 Hz mean ± SD for pairs; 5.5 ± 0.46 Hz for solo).",
+      "row_filter": {
+        "column": "Release_Type",
+        "value": "Solo"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "WingbeatFrequency_Median_Hz",
+      "unit": "Hz",
+      "value": 5.5,
+      "si_factor": null
+    },
+    {
+      "n_events": 6,
+      "plus_minus": 0.00066,
+      "quantity": "other_length",
+      "quote": "the median peak-to-peak head displace‐ment simultaneously decreased by 5.3 × 10−3 m ± 6.6 × 10−4 m between solo and paired flight,",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "unknown",
+      "statistic": "mean",
+      "table_column": "HeadDisplacement_Median_m",
+      "unit": "m",
+      "value": 0.0053,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": 0.3,
+      "quantity": "other",
+      "quote": "because the birds’ median wingbeat frequency decreased by 1.01 ± 0.30 Hz (mean ± SD) after they separated and flew solo (raw values with no covariates; Fig 2E–2H).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "Hz",
+      "value": 1.01,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": 0.2,
+      "quantity": "other",
+      "quote": "those we measured in paired flight (6.5 ± 0.2 Hz) and substantially faster than those we measured in solo flight (5.5 ± 0.2 Hz).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "Hz",
+      "value": 6.5,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": 0.2,
+      "quantity": "other",
+      "quote": "those we measured in paired flight (6.5 ± 0.2 Hz) and substantially faster than those we measured in solo flight (5.5 ± 0.2 Hz).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "Hz",
+      "value": 5.5,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "The release site was located 7.06 km from the loft on a bearing of 282˚ (Barnard Gate; 51˚47’48.1” N, 1˚25’3.3” W).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": null,
+      "unit": "km",
+      "value": 7.06,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "we conducted a second experiment using head-mounted accelerometers on 6 homing pigeons on short-range flights (950 m), flying solo and in pairs",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": null,
+      "unit": "m",
+      "value": 950.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "The release site was located 0.95 km from the loft on a bearing of 199˚ (Wytham Woods; 51˚46’29.4” N, 1˚19’18.7” W).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": null,
+      "unit": "km",
+      "value": 0.95,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "their median wingbeat frequency increased by 1.00 Hz (95% Bayesian credible interval [0.60, 1.38]) relative to flying solo",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "ci",
+      "statistic": "median",
+      "table_column": null,
+      "unit": "Hz",
+      "value": 1.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "resulted in a net 22.5% reduction in the median peak-to-peak amplitude of dorsal body displacement (−4.65 mm, 95% credible interval [−6.21, −3.06])",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "ci",
+      "statistic": "median",
+      "table_column": null,
+      "unit": "%",
+      "value": 22.5,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "Both individuals in a pair increased their wingbeat frequency by 18% by decreasing the duration of their upstroke.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "%",
+      "value": 18.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_speed",
+      "quote": "This sharp increase in wingbeat frequency caused just a 3% increase in airspeed but reduced the oscillatory displacement of the body by 22%",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "%",
+      "value": 3.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "This sharp increase in wingbeat frequency caused just a 3% increase in airspeed but reduced the oscillatory displacement of the body by 22%",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "%",
+      "value": 22.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "reduced the median duration of the upstroke phase by 21.4% (−28.63 ms, 95% credible interval [−36.66, −20.36]) when flying in pairs",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "ci",
+      "statistic": "median",
+      "table_column": null,
+      "unit": "%",
+      "value": 21.4,
+      "si_factor": null
+    },
+    {
+      "n_events": 6,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "representing a 30% reduction in the amplitude of oscillatory head displacement and the retinal slip this causes (Fig 3)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "median",
+      "table_column": null,
+      "unit": "%",
+      "value": 30.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "Flying in a pair resulted in a 7% increase in route accuracy relative to both the Phase 1 and Phase 4 solo releases (0.06, 95% credible interval [0.01, 0.10]; Fig 1)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "ci",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "%",
+      "value": 7.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "which reduced flight distance by 7% and time by 9%.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "%",
+      "value": 7.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "which reduced flight distance by 7% and time by 9%.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "%",
+      "value": 9.0,
+      "si_factor": null
+    }
+  ]
+}

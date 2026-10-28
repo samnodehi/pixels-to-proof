@@ -1,0 +1,1525 @@
+{
+ "run_id": "phidippus_srep2018-20261028",
+ "started": "2026-10-28T19:50:28+00:00",
+ "commit": "7cf697ae7d51417a0cbfa02ba9dcbf8501a63b95",
+ "inputs": {
+  "MOESM1_ESM.pdf": "3b9bda6ad9929450be2e08fdd8136d5bb78ee7cc7065aa312b92f9c331b9f1c6",
+  "MOESM2_ESM.mp4": "dbc2c3a473d760bcc24fd839bcd010229ad9db4beb7e9d0ba91a9b3f4b48652f",
+  "MOESM3_ESM.xlsx": "127fad5a23aa17314af6cd99409062ed686f3ce9ed2937b09873658734a728a1",
+  "s41598-018-25227-9.pdf": "fef1813b880aa4a6510099128e5f0e5ffbffdede4a9b7eb36a41662669568e4b",
+  "source.json": "4e92497c1eb28ddd877e255c1d0ead29f20c4408ee89a28848ac2ed701033981"
+ },
+ "checks_sha256": "b8a6e7a11527dba91bd08e6891ef75bae5ba5223667255507e481d1721f43fda",
+ "events": [
+  {
+   "i": 0,
+   "t": 0.03,
+   "kind": "step",
+   "what": "inventory",
+   "note": "2 pdf, 1 video, 1 table, 0 archive files",
+   "ref": ""
+  },
+  {
+   "i": 1,
+   "t": 0.63,
+   "kind": "step",
+   "what": "paper",
+   "note": "s41598-018-25227-9.pdf chosen as the paper (of 2 PDFs)",
+   "ref": ""
+  },
+  {
+   "i": 2,
+   "t": 0.64,
+   "kind": "gate",
+   "gate": "G0 licence",
+   "ok": true,
+   "note": "CC BY: www.nature.com/scientificreports/ Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharin",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 3,
+   "t": 0.67,
+   "kind": "step",
+   "what": "read files",
+   "note": "141986 chars of PDF text, 5 table sheets, 0 scripts",
+   "ref": ""
+  },
+  {
+   "i": 4,
+   "t": 9.29,
+   "kind": "step",
+   "what": "shots",
+   "note": "MOESM2_ESM.mp4: 9 shots of >= 30 frames (cuts and fades)",
+   "ref": "MOESM2_ESM.mp4"
+  },
+  {
+   "i": 5,
+   "t": 66.83,
+   "kind": "model",
+   "role": "split shots",
+   "model": "muse-spark-1.3",
+   "tokens": 21167,
+   "seconds": 22.2,
+   "proposal": "MOESM2_ESM.mp4: shot 1: 1 recording(s); shot 2: 1 recording(s); shot 3: 1 recording(s); shot 4: 1 recording(s); shot 5: 1 recording(s); shot 6: 1 recording(s); shot 7: 1 recording(s); shot 8: 1 recording(s)",
+   "ref": "MOESM2_ESM.mp4",
+   "cached": false
+  },
+  {
+   "i": 6,
+   "t": 66.83,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 1 (0-192): one recording: the shot is kept as it is; Spark: Consistent top-down view of spider and white platform with smooth motion from crouched to take-off to empty platform; ov",
+   "ref": "MOESM2_ESM.mp4",
+   "on": 5
+  },
+  {
+   "i": 7,
+   "t": 66.83,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 2 (193-838): one recording: the shot is kept as it is; Spark: Tiles 207-262 show static species info card with spider photo, tile 275 is blank gray transition, tile 289 shows first a",
+   "ref": "MOESM2_ESM.mp4",
+   "on": 5
+  },
+  {
+   "i": 8,
+   "t": 66.83,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 3 (839-972): one recording: the shot is kept as it is; Spark: Same schematic of cameras and platforms in all tiles with same Experimental setup header; only progressive type-on capti",
+   "ref": "MOESM2_ESM.mp4",
+   "on": 5
+  },
+  {
+   "i": 9,
+   "t": 66.83,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 4 (973-1069): one recording: the shot is kept as it is; Spark: Same take-off / landing platform diagram and Experimental procedure header throughout; caption builds word-by-word about",
+   "ref": "MOESM2_ESM.mp4",
+   "on": 5
+  },
+  {
+   "i": 10,
+   "t": 66.83,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 5 (1070-1385): one recording: the shot is kept as it is; Spark: Four-panel synchronized views with x_gap/L and z_gap/L axes show continuous progression from perched to airborne to land",
+   "ref": "MOESM2_ESM.mp4",
+   "on": 5
+  },
+  {
+   "i": 11,
+   "t": 66.83,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 6 (1386-1659): one recording: the shot is kept as it is; Spark: Three side-view panels with x_gap/L 2-4 and z_gap/L show smooth continuous take-off, mid-air and landing progression; sa",
+   "ref": "MOESM2_ESM.mp4",
+   "on": 5
+  },
+  {
+   "i": 12,
+   "t": 66.83,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 7 (1660-1879): one recording: the shot is kept as it is; Spark: Four-panel views labeled short distance with x_gap/L 2-3 show one continuous take-off to landing motion; camera layout, ",
+   "ref": "MOESM2_ESM.mp4",
+   "on": 5
+  },
+  {
+   "i": 13,
+   "t": 66.83,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 8 (1880-2146): one recording: the shot is kept as it is; Spark: Four-panel views labeled long distance with x_gap/L 4-5 show one continuous progression from empty platforms to spider i",
+   "ref": "MOESM2_ESM.mp4",
+   "on": 5
+  },
+  {
+   "i": 14,
+   "t": 149.14,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 7629,
+   "seconds": 10.5,
+   "proposal": "printed text 'Supplementary Movie for the Paper / Energy and time optimal trajectories in exploratory ju', fps None, scale reference none, object box [92, 392, 392, 594]",
+   "ref": "MOESM2_ESM_s1",
+   "cached": false
+  },
+  {
+   "i": 15,
+   "t": 149.16,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 7896,
+   "seconds": 11.3,
+   "proposal": "printed text 'P. regius's anatomy / High resolution CT scan was performed at the Manchester X-ray / Imag', fps None, scale reference none, object box []",
+   "ref": "MOESM2_ESM_s2",
+   "cached": false
+  },
+  {
+   "i": 16,
+   "t": 149.17,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 10313,
+   "seconds": 19.6,
+   "proposal": "printed text 'Experimental setup / Up to 500 W lights / Top view / Phantom v310 / Spider / Height / adju', fps 3200, scale reference ruler, object box [583, 571, 669, 601]",
+   "ref": "MOESM2_ESM_s3",
+   "cached": false
+  },
+  {
+   "i": 17,
+   "t": 149.19,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 8470,
+   "seconds": 13.0,
+   "proposal": "printed text 'Experimental procedure / Take-off platform / Landing platform / L / Xgap / Zgap / Jumps of', fps None, scale reference none, object box [805, 412, 1095, 595]",
+   "ref": "MOESM2_ESM_s4",
+   "cached": false
+  },
+  {
+   "i": 18,
+   "t": 149.23,
+   "kind": "step",
+   "what": "montage",
+   "note": "MOESM2_ESM_s5: 4 framed panels",
+   "ref": "MOESM2_ESM_s5"
+  },
+  {
+   "i": 19,
+   "t": 149.23,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 8978,
+   "seconds": 15.7,
+   "proposal": "printed text 'Ascending jumps / Z_gap / L / 2 / 1 / X_gap / L / 2 / 3', fps None, scale reference none, object box [522, 860, 736, 948]",
+   "ref": "MOESM2_ESM_s5",
+   "cached": false
+  },
+  {
+   "i": 20,
+   "t": 149.24,
+   "kind": "step",
+   "what": "montage",
+   "note": "MOESM2_ESM_s6: 3 framed panels",
+   "ref": "MOESM2_ESM_s6"
+  },
+  {
+   "i": 21,
+   "t": 149.24,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 7915,
+   "seconds": 11.4,
+   "proposal": "printed text 'Level jumps / Z_gap / L / 0 / 2 / 3 / 4 / X_gap / L', fps None, scale reference none, object box [178, 622, 367, 693]",
+   "ref": "MOESM2_ESM_s6",
+   "cached": false
+  },
+  {
+   "i": 22,
+   "t": 149.26,
+   "kind": "step",
+   "what": "montage",
+   "note": "MOESM2_ESM_s7: 4 framed panels",
+   "ref": "MOESM2_ESM_s7"
+  },
+  {
+   "i": 23,
+   "t": 149.26,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 8887,
+   "seconds": 14.6,
+   "proposal": "printed text 'Descending jumps / (short distance) / Z_gap / L / -1 / -2 / X_gap / L / 2 / 3', fps None, scale reference none, object box [555, 292, 785, 380]",
+   "ref": "MOESM2_ESM_s7",
+   "cached": false
+  },
+  {
+   "i": 24,
+   "t": 149.28,
+   "kind": "step",
+   "what": "montage",
+   "note": "MOESM2_ESM_s8: 4 framed panels",
+   "ref": "MOESM2_ESM_s8"
+  },
+  {
+   "i": 25,
+   "t": 149.28,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 10071,
+   "seconds": 19.2,
+   "proposal": "printed text 'Descending jumps / (long distance) / -1 / Z_gap / L / -2 / 4 / X_gap / L / 5', fps None, scale reference none, object box [528, 369, 675, 425]",
+   "ref": "MOESM2_ESM_s8",
+   "cached": false
+  },
+  {
+   "i": 26,
+   "t": 149.29,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 8092,
+   "seconds": 11.1,
+   "proposal": "printed text 'Energy and time optimal trajectories in exploratory jumps of the spider Phidippus regius /', fps None, scale reference none, object box []",
+   "ref": "MOESM2_ESM_s9",
+   "cached": false
+  },
+  {
+   "i": 27,
+   "t": 234.3,
+   "kind": "model",
+   "role": "plan",
+   "model": "muse-spark-1.3",
+   "tokens": 81282,
+   "seconds": 85.0,
+   "proposal": "v1: 24 claims, event table Regius, 1 videos, authors' method ballistic_fit",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 28,
+   "t": 234.54,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 video MOESM2_ESM.mp4 fps: fps quote found and states the number",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 29,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 column Take-off Velocity, v (m/sec) range: 0.519..0.965 in SI",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 30,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 column Take-off Angle, θ (deg) range: -10.5..53.5 in SI",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 31,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'only one individual (female, body mass 150 mg, L =': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 32,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'only one individual (female, body mass 150 mg, L =': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 33,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The velocity at take-off varies between 0.52m/s an': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 34,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The velocity at take-off varies between 0.52m/s an': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 35,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The time to take-off varies between 18.1 ms and 31': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 36,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The time to take-off varies between 18.1 ms and 31': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 37,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'The take-off angle varies between −10.5 degrees an': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 38,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The take-off angle varies between −10.5 degrees an': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 39,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The minimum and maximum values of acceleration are': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 40,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The minimum and maximum values of acceleration are': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 41,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Parry and Brown19 assessed the jumping performance': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 42,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Parry and Brown19 assessed the jumping performance': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 43,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Parry and Brown19 assessed the jumping performance': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 44,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'Hill reported a maximum horizontal jump distance o': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 45,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'Hill reported a maximum horizontal jump distance o': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 46,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'Hill reported a maximum horizontal jump distance o': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 47,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The former is 4.1 mm long in the scanned specimen ': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 48,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The latter (length 7.6 mm) is separated from the p': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 49,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'leg 1 (10.4 mm total length) and 4 (10.5 mm) are t': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 50,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'leg 1 (10.4 mm total length) and 4 (10.5 mm) are t': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 51,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'leg 1 (10.4 mm total length) and 4 (10.5 mm) are t': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 52,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The reference maximum take-off velocity used here ': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 53,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The drag coefficient calculated based on the relat': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 54,
+   "t": 234.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Based on these values, the maximum aerodynamic dra': quote and value found in the PDF",
+   "ref": "",
+   "on": 27
+  },
+  {
+   "i": 55,
+   "t": 286.74,
+   "kind": "model",
+   "role": "re-propose plan",
+   "model": "muse-spark-1.3",
+   "tokens": 77654,
+   "seconds": 52.2,
+   "proposal": "v2: 19 claims, event table Regius, 1 videos, authors' method ballistic_fit",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 56,
+   "t": 287.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 video MOESM2_ESM.mp4 fps: fps quote found and states the number",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 57,
+   "t": 287.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'only one individual (female, body mass 150 mg, L =': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 58,
+   "t": 287.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'only one individual (female, body mass 150 mg, L =': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 59,
+   "t": 287.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The velocity at take-off varies between 0.52m/s an': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 60,
+   "t": 287.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The velocity at take-off varies between 0.52m/s an': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 61,
+   "t": 287.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The time to take-off varies between 18.1 ms and 31': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 62,
+   "t": 287.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The time to take-off varies between 18.1 ms and 31': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 63,
+   "t": 287.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The minimum and maximum values of acceleration are': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 64,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The minimum and maximum values of acceleration are': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 65,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Parry and Brown19 assessed the jumping performance': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 66,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Parry and Brown19 assessed the jumping performance': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 67,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Parry and Brown19 assessed the jumping performance': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 68,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The former is 4.1 mm long in the scanned specimen ': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 69,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The latter (length 7.6 mm) is separated from the p': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 70,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'leg 1 (10.4 mm total length) and 4 (10.5 mm) are t': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 71,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'leg 1 (10.4 mm total length) and 4 (10.5 mm) are t': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 72,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'leg 1 (10.4 mm total length) and 4 (10.5 mm) are t': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 73,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The reference maximum take-off velocity used here ': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 74,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The drag coefficient calculated based on the relat': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 75,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Based on these values, the maximum aerodynamic dra': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 76,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim 'The take-off angle varies between −10.5 degrees an': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 77,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim 'Hill reported a maximum horizontal jump distance o': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 78,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim 'Hill reported a maximum horizontal jump distance o': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 79,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim 'Hill reported a maximum horizontal jump distance o': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 80,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The take-off angle varies between −10.5 degrees an': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 81,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Frame Rate: 3,200 FPS': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 82,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Up to 500 W lights': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 83,
+   "t": 287.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Resolution: 1280 x 800': quote and value found in the PDF",
+   "ref": "",
+   "on": 55
+  },
+  {
+   "i": 84,
+   "t": 381.48,
+   "kind": "model",
+   "role": "re-propose plan",
+   "model": "muse-spark-1.3",
+   "tokens": 81919,
+   "seconds": 94.5,
+   "proposal": "v3: 13 claims, event table Regius, 1 videos, authors' method ballistic_fit",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 85,
+   "t": 381.67,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 video MOESM2_ESM.mp4 fps: fps quote found and states the number",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 86,
+   "t": 381.67,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'only one individual (female, body mass 150 mg, L =': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 87,
+   "t": 381.67,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'only one individual (female, body mass 150 mg, L =': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 88,
+   "t": 381.67,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The velocity at take-off varies between 0.52m/s an': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 89,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The velocity at take-off varies between 0.52m/s an': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 90,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The time to take-off varies between 18.1 ms and 31': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 91,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The time to take-off varies between 18.1 ms and 31': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 92,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The minimum and maximum values of acceleration are': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 93,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The minimum and maximum values of acceleration are': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 94,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Parry and Brown19 assessed the jumping performance': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 95,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Parry and Brown19 assessed the jumping performance': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 96,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Parry and Brown19 assessed the jumping performance': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 97,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The former is 4.1 mm long in the scanned specimen ': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 98,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The latter (length 7.6 mm) is separated from the p': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 99,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'leg 1 (10.4 mm total length) and 4 (10.5 mm) are t': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 100,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'leg 1 (10.4 mm total length) and 4 (10.5 mm) are t': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 101,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'leg 1 (10.4 mm total length) and 4 (10.5 mm) are t': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 102,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The reference maximum take-off velocity used here ': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 103,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The drag coefficient calculated based on the relat': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 104,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Based on these values, the maximum aerodynamic dra': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 105,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The take-off angle varies between −10.5 degrees an': quote and value found in the PDF",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 106,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim 'Hill reported a maximum horizontal jump distance o': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 107,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim 'Hill reported a maximum horizontal jump distance o': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 108,
+   "t": 381.68,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim 'Hill reported a maximum horizontal jump distance o': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 84
+  },
+  {
+   "i": 109,
+   "t": 381.68,
+   "kind": "step",
+   "what": "plan accepted",
+   "note": "v3 (3 needed fields still rejected)",
+   "ref": ""
+  },
+  {
+   "i": 110,
+   "t": 381.72,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: only one individual (female, body mass 150 mg, L = 15 mm) showed any i",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 111,
+   "t": 381.73,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: only one individual (female, body mass 150 mg, L = 15 mm) showed any i",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 112,
+   "t": 381.73,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: The velocity at take-off varies between 0.52m/s and 0.97m/s.",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 113,
+   "t": 381.73,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: The velocity at take-off varies between 0.52m/s and 0.97m/s.",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 114,
+   "t": 381.74,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: The time to take-off varies between 18.1 ms and 31.6 ms.",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 115,
+   "t": 381.74,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: The time to take-off varies between 18.1 ms and 31.6 ms.",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 116,
+   "t": 381.75,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: The minimum and maximum values of acceleration are 1.68 g and 5.43 g",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 117,
+   "t": 381.75,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: The minimum and maximum values of acceleration are 1.68 g and 5.43 g",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 118,
+   "t": 381.76,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "see video route: Parry and Brown19 assessed the jumping performance of Sitticus pubesce",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 119,
+   "t": 381.76,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "see video route: Parry and Brown19 assessed the jumping performance of Sitticus pubesce",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 120,
+   "t": 381.77,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Parry and Brown19 assessed the jumping performance of Sitticus pubesce",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 121,
+   "t": 381.77,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The former is 4.1 mm long in the scanned specimen and bears prominent ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 122,
+   "t": 381.78,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The latter (length 7.6 mm) is separated from the prosoma by a narrow, ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 123,
+   "t": 381.78,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: leg 1 (10.4 mm total length) and 4 (10.5 mm) are the longest, with leg",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 124,
+   "t": 381.79,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: leg 1 (10.4 mm total length) and 4 (10.5 mm) are the longest, with leg",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 125,
+   "t": 381.79,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: leg 1 (10.4 mm total length) and 4 (10.5 mm) are the longest, with leg",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 126,
+   "t": 381.8,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: The reference maximum take-off velocity used here is equal to 1 m/s ba",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 127,
+   "t": 381.8,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: The drag coefficient calculated based on the relation recommended in22",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 128,
+   "t": 381.81,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: Based on these values, the maximum aerodynamic drag for the highest sp",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 129,
+   "t": 381.81,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: The take-off angle varies between −10.5 degrees and 53.5 degrees.",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 130,
+   "t": 381.81,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "3200 video frames per second of real time, stated in the paper for this video file",
+   "ref": "MOESM2_ESM_s1",
+   "on": null
+  },
+  {
+   "i": 131,
+   "t": 381.83,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": false,
+   "note": "no measurable grid on this shot (Spark saw: none; code: Grid spacing is not regular enough to measure.)",
+   "ref": "MOESM2_ESM_s1",
+   "on": null
+  },
+  {
+   "i": 132,
+   "t": 381.83,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "3200 video frames per second of real time, stated in the paper for this video file",
+   "ref": "MOESM2_ESM_s2",
+   "on": null
+  },
+  {
+   "i": 133,
+   "t": 381.84,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": false,
+   "note": "no measurable grid on this shot (Spark saw: none; code: Found 1 grid lines on axis x; need at least 3.)",
+   "ref": "MOESM2_ESM_s2",
+   "on": null
+  },
+  {
+   "i": 134,
+   "t": 381.84,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "3200 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
+   "ref": "MOESM2_ESM_s3",
+   "on": null
+  },
+  {
+   "i": 135,
+   "t": 381.85,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": false,
+   "note": "Spark reported 'ruler', code found 7 lines at 167.7 px (sd 19.04); not regular enough",
+   "ref": "MOESM2_ESM_s3",
+   "on": null
+  },
+  {
+   "i": 136,
+   "t": 381.85,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "3200 video frames per second of real time, stated in the paper for this video file",
+   "ref": "MOESM2_ESM_s4",
+   "on": null
+  },
+  {
+   "i": 137,
+   "t": 381.86,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": false,
+   "note": "Spark reported 'none', code found 28 lines at 18.7 px (sd 0.75); not regular enough",
+   "ref": "MOESM2_ESM_s4",
+   "on": null
+  },
+  {
+   "i": 138,
+   "t": 381.87,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "3200 video frames per second of real time, stated in the paper for this video file",
+   "ref": "MOESM2_ESM_s5",
+   "on": null
+  },
+  {
+   "i": 139,
+   "t": 381.89,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": false,
+   "note": "no measurable grid on this shot (Spark saw: none; code: Grid spacing is not regular enough to measure.)",
+   "ref": "MOESM2_ESM_s5",
+   "on": null
+  },
+  {
+   "i": 140,
+   "t": 381.89,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "3200 video frames per second of real time, stated in the paper for this video file",
+   "ref": "MOESM2_ESM_s6",
+   "on": null
+  },
+  {
+   "i": 141,
+   "t": 381.9,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": false,
+   "note": "no measurable grid on this shot (Spark saw: none; code: Grid spacing is not regular enough to measure.)",
+   "ref": "MOESM2_ESM_s6",
+   "on": null
+  },
+  {
+   "i": 142,
+   "t": 381.9,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "3200 video frames per second of real time, stated in the paper for this video file",
+   "ref": "MOESM2_ESM_s7",
+   "on": null
+  },
+  {
+   "i": 143,
+   "t": 381.91,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": false,
+   "note": "Spark reported 'none', code found 4 lines at 532.7 px (sd 21.57); not regular enough",
+   "ref": "MOESM2_ESM_s7",
+   "on": null
+  },
+  {
+   "i": 144,
+   "t": 381.91,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "3200 video frames per second of real time, stated in the paper for this video file",
+   "ref": "MOESM2_ESM_s8",
+   "on": null
+  },
+  {
+   "i": 145,
+   "t": 381.93,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": false,
+   "note": "no measurable grid on this shot (Spark saw: none; code: Grid spacing is not regular enough to measure.)",
+   "ref": "MOESM2_ESM_s8",
+   "on": null
+  },
+  {
+   "i": 146,
+   "t": 381.93,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "3200 video frames per second of real time, stated in the paper for this video file",
+   "ref": "MOESM2_ESM_s9",
+   "on": null
+  },
+  {
+   "i": 147,
+   "t": 381.94,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": false,
+   "note": "no measurable grid on this shot (Spark saw: none; code: Found 1 grid lines on axis x; need at least 3.)",
+   "ref": "MOESM2_ESM_s9",
+   "on": null
+  }
+ ],
+ "verdicts": [],
+ "summary": {
+  "status": "complete",
+  "claims": {
+   "REFUSED": 8,
+   "MATCHES TABLE": 9,
+   "NOT CHECKED": 3
+  },
+  "videos": {
+   "MOESM2_ESM_s1": "CANNOT MEASURE",
+   "MOESM2_ESM_s2": "CANNOT MEASURE",
+   "MOESM2_ESM_s3": "CANNOT MEASURE",
+   "MOESM2_ESM_s4": "CANNOT MEASURE",
+   "MOESM2_ESM_s5": "CANNOT MEASURE",
+   "MOESM2_ESM_s6": "CANNOT MEASURE",
+   "MOESM2_ESM_s7": "CANNOT MEASURE",
+   "MOESM2_ESM_s8": "CANNOT MEASURE",
+   "MOESM2_ESM_s9": "CANNOT MEASURE"
+  },
+  "finished": "2026-10-28T19:56:50+00:00",
+  "wall_s": 381.9
+ }
+}

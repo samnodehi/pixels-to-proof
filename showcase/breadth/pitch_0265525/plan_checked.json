@@ -1,0 +1,690 @@
+{
+  "plan": {
+    "authors_speed_method": {
+      "evidence": "During the tryout, pitching velocity was measured using Rapsodo Pitching 2.0.",
+      "family": "other",
+      "parameters": "Rapsodo Pitching 2.0, 5 to 10 fastballs, unit not moved during tryout"
+    },
+    "claims": [
+      {
+        "n_events": 64,
+        "plus_minus": 2.8,
+        "quantity": "other",
+        "quote": "age: 23.9 ± 2.8 years",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "years",
+        "value": 23.9
+      },
+      {
+        "n_events": 64,
+        "plus_minus": 5.9,
+        "quantity": "body_length",
+        "quote": "height: 180.3 ± 5.9 cm",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "height",
+        "unit": "cm",
+        "value": 180.3
+      },
+      {
+        "n_events": 64,
+        "plus_minus": 10.9,
+        "quantity": "mass",
+        "quote": "weight: 81.4 ± 10.9 kg",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "kg",
+        "value": 81.4
+      },
+      {
+        "n_events": null,
+        "plus_minus": 7.8,
+        "quantity": "body_angle",
+        "quote": "ERROM (˚) 107.7 7.8",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "errom",
+        "unit": "deg",
+        "value": 107.7
+      },
+      {
+        "n_events": null,
+        "plus_minus": 11.3,
+        "quantity": "body_angle",
+        "quote": "IRROM (˚) 52.5 11.3",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "irrom",
+        "unit": "deg",
+        "value": 52.5
+      },
+      {
+        "n_events": null,
+        "plus_minus": 0.08,
+        "quantity": "other_duration",
+        "quote": "Sprint10 (sec) 1.82 0.08",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "sprint10",
+        "unit": "sec",
+        "value": 1.82
+      },
+      {
+        "n_events": null,
+        "plus_minus": 0.17,
+        "quantity": "other_duration",
+        "quote": "Sprint30 (sec) 4.05 0.17",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "sprint30",
+        "unit": "sec",
+        "value": 4.05
+      },
+      {
+        "n_events": null,
+        "plus_minus": 0.02,
+        "quantity": "other",
+        "quote": "Sprintratio 0.45 0.02",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ratio",
+        "value": 0.45
+      },
+      {
+        "n_events": null,
+        "plus_minus": 5.29,
+        "quantity": "jump_height",
+        "quote": "CMJloaded (cm) 35.49 5.29",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "cmjw",
+        "unit": "cm",
+        "value": 35.49
+      },
+      {
+        "n_events": null,
+        "plus_minus": 2.83,
+        "quantity": "jump_height",
+        "quote": "CMJloaded (cm) 42.97 2.83",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "cmjnw",
+        "unit": "cm",
+        "value": 42.97
+      },
+      {
+        "n_events": null,
+        "plus_minus": 0.07,
+        "quantity": "other",
+        "quote": "CMJratio 0.83 0.07",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ratio",
+        "value": 0.83
+      },
+      {
+        "n_events": 9,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "they demonstrated a pitching velocity of less than 130 km/h",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "velocity",
+        "unit": "km/h",
+        "value": 130
+      }
+    ],
+    "event_table": {
+      "columns": [
+        {
+          "evidence": "They know their try out ID number, and the numbers are called in order",
+          "name": "id",
+          "quantity": "animal_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "Height (cm)",
+          "name": "height",
+          "quantity": "body_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "cm"
+        },
+        {
+          "evidence": "maximum internal shoulder rotation",
+          "name": "irrom",
+          "quantity": "body_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "deg"
+        },
+        {
+          "evidence": "maximum external shoulder rotation",
+          "name": "errom",
+          "quantity": "body_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "deg"
+        },
+        {
+          "evidence": "",
+          "name": "lthorax",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "rthorax",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "unloaded CMJ (CMJunloaded)",
+          "name": "cmjnw",
+          "quantity": "jump_height",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "cm"
+        },
+        {
+          "evidence": "loaded CMJ (CMJloaded)",
+          "name": "cmjw",
+          "quantity": "jump_height",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "cm"
+        },
+        {
+          "evidence": "first 10-m sprint time (sprint10)",
+          "name": "sprint10",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "sec"
+        },
+        {
+          "evidence": "30-m sprint time (sprint30)",
+          "name": "sprint30",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "sec"
+        },
+        {
+          "evidence": "pitching velocity was measured using Rapsodo Pitching 2.0",
+          "name": "velocity",
+          "quantity": "other_speed",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "km/h"
+        },
+        {
+          "evidence": "",
+          "name": "handedness",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        }
+      ],
+      "file": "baseball__Dataset.csv",
+      "rows_are": "one individual pitcher per row",
+      "sheet": "baseball__Dataset"
+    },
+    "object_phrase": "baseball pitcher",
+    "scale_reference": {
+      "evidence": "",
+      "kind": "none",
+      "size_mm": null
+    },
+    "title": "Correlation of pitching velocity with anthropometric measurements for adult male baseball pitchers in tryout settings",
+    "videos": []
+  },
+  "checks": [
+    {
+      "field": "column cmjnw range",
+      "ok": true,
+      "note": "0.2111..0.5293 in SI"
+    },
+    {
+      "field": "column cmjw range",
+      "ok": true,
+      "note": "0.2142..0.4713 in SI"
+    },
+    {
+      "field": "claim 'age: 23.9 ± 2.8 years'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'height: 180.3 ± 5.9 cm'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'weight: 81.4 ± 10.9 kg'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'ERROM (˚) 107.7 7.8'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'IRROM (˚) 52.5 11.3'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Sprint10 (sec) 1.82 0.08'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Sprint30 (sec) 4.05 0.17'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Sprintratio 0.45 0.02'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJloaded (cm) 35.49 5.29'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJloaded (cm) 42.97 2.83'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'CMJratio 0.83 0.07'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'they demonstrated a pitching velocity of less than'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    }
+  ],
+  "columns": {
+    "id": {
+      "evidence": "They know their try out ID number, and the numbers are called in order",
+      "name": "id",
+      "quantity": "animal_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 0,
+      "si_factor": null
+    },
+    "height": {
+      "evidence": "Height (cm)",
+      "name": "height",
+      "quantity": "body_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "cm",
+      "index": 1,
+      "si_factor": 0.01
+    },
+    "irrom": {
+      "evidence": "maximum internal shoulder rotation",
+      "name": "irrom",
+      "quantity": "body_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "deg",
+      "index": 2,
+      "si_factor": 1.0
+    },
+    "errom": {
+      "evidence": "maximum external shoulder rotation",
+      "name": "errom",
+      "quantity": "body_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "deg",
+      "index": 3,
+      "si_factor": 1.0
+    },
+    "lthorax": {
+      "evidence": "",
+      "name": "lthorax",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 4,
+      "si_factor": null
+    },
+    "rthorax": {
+      "evidence": "",
+      "name": "rthorax",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 5,
+      "si_factor": null
+    },
+    "cmjnw": {
+      "evidence": "unloaded CMJ (CMJunloaded)",
+      "name": "cmjnw",
+      "quantity": "jump_height",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "cm",
+      "index": 6,
+      "si_factor": 0.01
+    },
+    "cmjw": {
+      "evidence": "loaded CMJ (CMJloaded)",
+      "name": "cmjw",
+      "quantity": "jump_height",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "cm",
+      "index": 7,
+      "si_factor": 0.01
+    },
+    "sprint10": {
+      "evidence": "first 10-m sprint time (sprint10)",
+      "name": "sprint10",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "sec",
+      "index": 8,
+      "si_factor": 1.0
+    },
+    "sprint30": {
+      "evidence": "30-m sprint time (sprint30)",
+      "name": "sprint30",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "sec",
+      "index": 9,
+      "si_factor": 1.0
+    },
+    "velocity": {
+      "evidence": "pitching velocity was measured using Rapsodo Pitching 2.0",
+      "name": "velocity",
+      "quantity": "other_speed",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "km/h",
+      "index": 10,
+      "si_factor": null
+    },
+    "handedness": {
+      "evidence": "",
+      "name": "handedness",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 11,
+      "si_factor": null
+    }
+  },
+  "claims": [
+    {
+      "n_events": 64,
+      "plus_minus": 2.8,
+      "quantity": "other",
+      "quote": "age: 23.9 ± 2.8 years",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "years",
+      "value": 23.9,
+      "si_factor": null
+    },
+    {
+      "n_events": 64,
+      "plus_minus": 5.9,
+      "quantity": "body_length",
+      "quote": "height: 180.3 ± 5.9 cm",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "height",
+      "unit": "cm",
+      "value": 180.3,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 64,
+      "plus_minus": 10.9,
+      "quantity": "mass",
+      "quote": "weight: 81.4 ± 10.9 kg",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "kg",
+      "value": 81.4,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": 7.8,
+      "quantity": "body_angle",
+      "quote": "ERROM (˚) 107.7 7.8",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "errom",
+      "unit": "deg",
+      "value": 107.7,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": 11.3,
+      "quantity": "body_angle",
+      "quote": "IRROM (˚) 52.5 11.3",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "irrom",
+      "unit": "deg",
+      "value": 52.5,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": 0.08,
+      "quantity": "other_duration",
+      "quote": "Sprint10 (sec) 1.82 0.08",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "sprint10",
+      "unit": "sec",
+      "value": 1.82,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": 0.17,
+      "quantity": "other_duration",
+      "quote": "Sprint30 (sec) 4.05 0.17",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "sprint30",
+      "unit": "sec",
+      "value": 4.05,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": 0.02,
+      "quantity": "other",
+      "quote": "Sprintratio 0.45 0.02",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ratio",
+      "value": 0.45,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": 5.29,
+      "quantity": "jump_height",
+      "quote": "CMJloaded (cm) 35.49 5.29",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "cmjw",
+      "unit": "cm",
+      "value": 35.49,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": null,
+      "plus_minus": 2.83,
+      "quantity": "jump_height",
+      "quote": "CMJloaded (cm) 42.97 2.83",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "cmjnw",
+      "unit": "cm",
+      "value": 42.97,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": null,
+      "plus_minus": 0.07,
+      "quantity": "other",
+      "quote": "CMJratio 0.83 0.07",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ratio",
+      "value": 0.83,
+      "si_factor": null
+    },
+    {
+      "n_events": 9,
+      "plus_minus": null,
+      "quantity": "other_speed",
+      "quote": "they demonstrated a pitching velocity of less than 130 km/h",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "velocity",
+      "unit": "km/h",
+      "value": 130,
+      "si_factor": null
+    }
+  ]
+}

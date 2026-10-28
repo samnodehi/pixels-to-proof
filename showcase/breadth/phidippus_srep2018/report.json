@@ -1,0 +1,443 @@
+{
+ "run_id": "phidippus_srep2018-20261028",
+ "bundle": "phidippus_srep2018",
+ "claims": [
+  {
+   "source": "paper",
+   "quote": "only one individual (female, body mass 150 mg, L = 15 mm) showed any inclination to jump as required",
+   "quantity": "mass",
+   "value": 150.0,
+   "plus_minus": null,
+   "unit": "mg",
+   "statistic": "single_event",
+   "route": "refuse: mass is not measurable from a centroid track",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "mass is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "only one individual (female, body mass 150 mg, L = 15 mm) showed any inclination to jump as required",
+   "quantity": "body_length",
+   "value": 15.0,
+   "plus_minus": null,
+   "unit": "mm",
+   "statistic": "single_event",
+   "route": "refuse: body_length is not measurable from a centroid track",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "body_length is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "The velocity at take-off varies between 0.52m/s and 0.97m/s.",
+   "quantity": "takeoff_speed",
+   "value": 0.52,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "min",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "min of 15 rows of 'Take-off Velocity, v (m/sec)' reproduces the printed digits",
+   "evidence": {
+    "column": "Take-off Velocity, v (m/sec)",
+    "n_rows": 15,
+    "table_value": 0.519,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "The velocity at take-off varies between 0.52m/s and 0.97m/s.",
+   "quantity": "takeoff_speed",
+   "value": 0.97,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "max",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "max of 15 rows of 'Take-off Velocity, v (m/sec)' reproduces the printed digits",
+   "evidence": {
+    "column": "Take-off Velocity, v (m/sec)",
+    "n_rows": 15,
+    "table_value": 0.965,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "The time to take-off varies between 18.1 ms and 31.6 ms.",
+   "quantity": "other_duration",
+   "value": 18.1,
+   "plus_minus": null,
+   "unit": "ms",
+   "statistic": "min",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "min of 15 rows of 'Time to Take-off, t (ms)' reproduces the printed digits",
+   "evidence": {
+    "column": "Time to Take-off, t (ms)",
+    "n_rows": 15,
+    "table_value": 18.125,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "The time to take-off varies between 18.1 ms and 31.6 ms.",
+   "quantity": "other_duration",
+   "value": 31.6,
+   "plus_minus": null,
+   "unit": "ms",
+   "statistic": "max",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "max of 15 rows of 'Time to Take-off, t (ms)' reproduces the printed digits",
+   "evidence": {
+    "column": "Time to Take-off, t (ms)",
+    "n_rows": 15,
+    "table_value": 31.5625,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "The minimum and maximum values of acceleration are 1.68 g and 5.43 g",
+   "quantity": "acceleration",
+   "value": 1.68,
+   "plus_minus": null,
+   "unit": "g",
+   "statistic": "min",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "min of 15 rows of 'g-force, g-f [g-f=a/9.81]' reproduces the printed digits",
+   "evidence": {
+    "column": "g-force, g-f [g-f=a/9.81]",
+    "n_rows": 15,
+    "table_value": 1.6767170751948244,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "The minimum and maximum values of acceleration are 1.68 g and 5.43 g",
+   "quantity": "acceleration",
+   "value": 5.43,
+   "plus_minus": null,
+   "unit": "g",
+   "statistic": "max",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "max of 15 rows of 'g-force, g-f [g-f=a/9.81]' reproduces the printed digits",
+   "evidence": {
+    "column": "g-force, g-f [g-f=a/9.81]",
+    "n_rows": 15,
+    "table_value": 5.428916010028024,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "Parry and Brown19 assessed the jumping performance of Sitticus pubescens jumping across a horizontal gap of approximately 50 mm (around 10 body lengths) reporting a take-off speed of 0.67 m/s, and acceleration of 5.23 g.",
+   "quantity": "jump_distance",
+   "value": 50.0,
+   "plus_minus": null,
+   "unit": "mm",
+   "statistic": "single_event",
+   "route": "video",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "a single jump: no measured video shot was paired to it, so there is nothing to compare it with"
+  },
+  {
+   "source": "paper",
+   "quote": "Parry and Brown19 assessed the jumping performance of Sitticus pubescens jumping across a horizontal gap of approximately 50 mm (around 10 body lengths) reporting a take-off speed of 0.67 m/s, and acceleration of 5.23 g.",
+   "quantity": "takeoff_speed",
+   "value": 0.67,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "single_event",
+   "route": "video",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "a single jump: no measured video shot was paired to it, so there is nothing to compare it with"
+  },
+  {
+   "source": "paper",
+   "quote": "Parry and Brown19 assessed the jumping performance of Sitticus pubescens jumping across a horizontal gap of approximately 50 mm (around 10 body lengths) reporting a take-off speed of 0.67 m/s, and acceleration of 5.23 g.",
+   "quantity": "acceleration",
+   "value": 5.23,
+   "plus_minus": null,
+   "unit": "g",
+   "statistic": "single_event",
+   "route": "refuse: unit 'g' is not one the agent can measure or convert",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "unit 'g' is not one the agent can measure or convert"
+  },
+  {
+   "source": "paper",
+   "quote": "The former is 4.1 mm long in the scanned specimen and bears prominent eyes",
+   "quantity": "other_length",
+   "value": 4.1,
+   "plus_minus": null,
+   "unit": "mm",
+   "statistic": "single_event",
+   "route": "refuse: other_length is not measurable from a centroid track",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "other_length is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "The latter (length 7.6 mm) is separated from the prosoma by a narrow, flexible portion",
+   "quantity": "other_length",
+   "value": 7.6,
+   "plus_minus": null,
+   "unit": "mm",
+   "statistic": "single_event",
+   "route": "refuse: other_length is not measurable from a centroid track",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "other_length is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "leg 1 (10.4 mm total length) and 4 (10.5 mm) are the longest, with leg 2 and 3 both totalling 8.4 mm in length.",
+   "quantity": "other_length",
+   "value": 10.4,
+   "plus_minus": null,
+   "unit": "mm",
+   "statistic": "single_event",
+   "route": "refuse: other_length is not measurable from a centroid track",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "other_length is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "leg 1 (10.4 mm total length) and 4 (10.5 mm) are the longest, with leg 2 and 3 both totalling 8.4 mm in length.",
+   "quantity": "other_length",
+   "value": 10.5,
+   "plus_minus": null,
+   "unit": "mm",
+   "statistic": "single_event",
+   "route": "refuse: other_length is not measurable from a centroid track",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "other_length is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "leg 1 (10.4 mm total length) and 4 (10.5 mm) are the longest, with leg 2 and 3 both totalling 8.4 mm in length.",
+   "quantity": "other_length",
+   "value": 8.4,
+   "plus_minus": null,
+   "unit": "mm",
+   "statistic": "single_event",
+   "route": "refuse: other_length is not measurable from a centroid track",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "other_length is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "The reference maximum take-off velocity used here is equal to 1 m/s based on the take-off velocity values shown in Fig. 6a.",
+   "quantity": "takeoff_speed",
+   "value": 1.0,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "max",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "max of 15 rows of 'Take-off Velocity, v (m/sec)' reproduces the printed digits",
+   "evidence": {
+    "column": "Take-off Velocity, v (m/sec)",
+    "n_rows": 15,
+    "table_value": 0.965,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "The drag coefficient calculated based on the relation recommended in22,30 is approximately 0.63 ± 0.03 (see Supplementary Dataset S3).",
+   "quantity": "other",
+   "value": 0.63,
+   "plus_minus": 0.03,
+   "unit": "ratio",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "spread type 'unknown' is not a standard deviation",
+   "evidence": {}
+  },
+  {
+   "source": "paper",
+   "quote": "Based on these values, the maximum aerodynamic drag for the highest speed take-offs is less than 4.2% of the weight of the spider (see Supplementary Dataset S3)",
+   "quantity": "other",
+   "value": 4.2,
+   "plus_minus": null,
+   "unit": "%",
+   "statistic": "max",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "max of 17 rows of 'Drag Force to Spider Weight (%)' reproduces the printed digits",
+   "evidence": {
+    "column": "Drag Force to Spider Weight (%)",
+    "n_rows": 17,
+    "table_value": 4.168335876510189,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "The take-off angle varies between −10.5 degrees and 53.5 degrees.",
+   "quantity": "takeoff_angle",
+   "value": 53.5,
+   "plus_minus": null,
+   "unit": "deg",
+   "statistic": "max",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "max of 15 rows of 'Take-off Angle, θ (deg)' reproduces the printed digits",
+   "evidence": {
+    "column": "Take-off Angle, θ (deg)",
+    "n_rows": 15,
+    "table_value": 53.5,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  }
+ ],
+ "videos": [
+  {
+   "unit": "MOESM2_ESM_s1",
+   "video": "MOESM2_ESM.mp4",
+   "shot": 1,
+   "frames": 193,
+   "shot_label": "1",
+   "verdict": "CANNOT MEASURE",
+   "reason": "no measurable grid on this shot (seen: none)",
+   "stage": "inputs"
+  },
+  {
+   "unit": "MOESM2_ESM_s2",
+   "video": "MOESM2_ESM.mp4",
+   "shot": 2,
+   "frames": 646,
+   "shot_label": "2",
+   "verdict": "CANNOT MEASURE",
+   "reason": "no measurable grid on this shot (seen: none)",
+   "stage": "inputs"
+  },
+  {
+   "unit": "MOESM2_ESM_s3",
+   "video": "MOESM2_ESM.mp4",
+   "shot": 3,
+   "frames": 134,
+   "shot_label": "3",
+   "verdict": "CANNOT MEASURE",
+   "reason": "no measurable grid on this shot (seen: ruler)",
+   "stage": "inputs"
+  },
+  {
+   "unit": "MOESM2_ESM_s4",
+   "video": "MOESM2_ESM.mp4",
+   "shot": 4,
+   "frames": 97,
+   "shot_label": "4",
+   "verdict": "CANNOT MEASURE",
+   "reason": "no measurable grid on this shot (seen: none)",
+   "stage": "inputs"
+  },
+  {
+   "unit": "MOESM2_ESM_s5",
+   "video": "MOESM2_ESM.mp4",
+   "shot": 5,
+   "frames": 316,
+   "shot_label": "5",
+   "verdict": "CANNOT MEASURE",
+   "reason": "no measurable grid on this shot (seen: none)",
+   "stage": "inputs"
+  },
+  {
+   "unit": "MOESM2_ESM_s6",
+   "video": "MOESM2_ESM.mp4",
+   "shot": 6,
+   "frames": 274,
+   "shot_label": "6",
+   "verdict": "CANNOT MEASURE",
+   "reason": "no measurable grid on this shot (seen: none)",
+   "stage": "inputs"
+  },
+  {
+   "unit": "MOESM2_ESM_s7",
+   "video": "MOESM2_ESM.mp4",
+   "shot": 7,
+   "frames": 220,
+   "shot_label": "7",
+   "verdict": "CANNOT MEASURE",
+   "reason": "no measurable grid on this shot (seen: none)",
+   "stage": "inputs"
+  },
+  {
+   "unit": "MOESM2_ESM_s8",
+   "video": "MOESM2_ESM.mp4",
+   "shot": 8,
+   "frames": 267,
+   "shot_label": "8",
+   "verdict": "CANNOT MEASURE",
+   "reason": "no measurable grid on this shot (seen: none)",
+   "stage": "inputs"
+  },
+  {
+   "unit": "MOESM2_ESM_s9",
+   "video": "MOESM2_ESM.mp4",
+   "shot": 9,
+   "frames": 37,
+   "shot_label": "9",
+   "verdict": "CANNOT MEASURE",
+   "reason": "no measurable grid on this shot (seen: none)",
+   "stage": "inputs"
+  }
+ ],
+ "summary": {
+  "claims": {
+   "REFUSED": 8,
+   "MATCHES TABLE": 9,
+   "NOT CHECKED": 3
+  },
+  "videos": {
+   "MOESM2_ESM_s1": "CANNOT MEASURE",
+   "MOESM2_ESM_s2": "CANNOT MEASURE",
+   "MOESM2_ESM_s3": "CANNOT MEASURE",
+   "MOESM2_ESM_s4": "CANNOT MEASURE",
+   "MOESM2_ESM_s5": "CANNOT MEASURE",
+   "MOESM2_ESM_s6": "CANNOT MEASURE",
+   "MOESM2_ESM_s7": "CANNOT MEASURE",
+   "MOESM2_ESM_s8": "CANNOT MEASURE",
+   "MOESM2_ESM_s9": "CANNOT MEASURE"
+  },
+  "model_calls": 13,
+  "tokens": 340273,
+  "rejected_calls": 3
+ }
+}

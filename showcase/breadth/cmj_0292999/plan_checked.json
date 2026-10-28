@@ -1,0 +1,2294 @@
+{
+  "plan": {
+    "authors_speed_method": {
+      "evidence": "The countermovement jump performance was measured using force plates (Force Decks, Vald Performance, Australia). ... The impulse-momentum theorem was used to calculate jump height.",
+      "family": "other",
+      "parameters": "force plates (Force Decks); impulse-momentum theorem for jump height; peak velocity, RSImod, contraction time, countermovement depth, peak force evaluated"
+    },
+    "claims": [
+      {
+        "n_events": 12,
+        "plus_minus": 4.0,
+        "quantity": "other",
+        "quote": "age: 23 ± 4 yrs",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "yrs",
+        "value": 23.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 10.6,
+        "quantity": "mass",
+        "quote": "body mass: 84.7 ± 10.6 kg",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "kg",
+        "value": 84.7
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 6.0,
+        "quantity": "body_length",
+        "quote": "body height: 192 ± 6 cm",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "cm",
+        "value": 192.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 4.0,
+        "quantity": "other",
+        "quote": "basketball training experience: 11 ± 4 yrs",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "yrs",
+        "value": 11.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 3.1,
+        "quantity": "jump_height",
+        "quote": "36.2 ± 3.1 (34.2 to 38.2)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_B_CA",
+        "unit": "cm",
+        "value": 36.2
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 2.9,
+        "quantity": "jump_height",
+        "quote": "38.4 ± 2.9* (36.6 to 40.2)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_B_CA",
+        "unit": "cm",
+        "value": 38.4
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 4.0,
+        "quantity": "jump_height",
+        "quote": "36.5 ± 4.0 (33.9 to 39.0)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_S_CA",
+        "unit": "cm",
+        "value": 36.5
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 4.3,
+        "quantity": "jump_height",
+        "quote": "36.8 ± 4.3 (34.1 to 39.5)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_S_CA",
+        "unit": "cm",
+        "value": 36.8
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 4.0,
+        "quantity": "jump_height",
+        "quote": "36.7 ± 4.0 (34.2 to 39.2)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_W_CA",
+        "unit": "cm",
+        "value": 36.7
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 4.3,
+        "quantity": "jump_height",
+        "quote": "36.3 ± 4.3 (33.5 to 39.0)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_W_CA",
+        "unit": "cm",
+        "value": 36.3
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 3.7,
+        "quantity": "jump_height",
+        "quote": "36.0 ± 3.7 (33.7 to 38.4)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_CTRL",
+        "unit": "cm",
+        "value": 36.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 3.7,
+        "quantity": "jump_height",
+        "quote": "36.4 ± 3.7 (34.0 to 38.7)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_CTRL",
+        "unit": "cm",
+        "value": 36.4
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.13,
+        "quantity": "other_speed",
+        "quote": "2.75 ± 0.13 (2.67 to 2.83)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_B_CA",
+        "unit": "m/s",
+        "value": 2.75
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.16,
+        "quantity": "other_speed",
+        "quote": "2.82 ± 0.16 (2.73 to 2.92)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_B_CA",
+        "unit": "m/s",
+        "value": 2.82
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.12,
+        "quantity": "other_speed",
+        "quote": "2.79 ± 0.12 (2.71 to 2.86)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_S_CA",
+        "unit": "m/s",
+        "value": 2.79
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.16,
+        "quantity": "other_speed",
+        "quote": "2.80 ± 0.16 (2.70 to 2.90)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_S_CA",
+        "unit": "m/s",
+        "value": 2.8
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.12,
+        "quantity": "other_speed",
+        "quote": "2.80 ± 0.12 (2.72 to 2.87)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_W_CA",
+        "unit": "m/s",
+        "value": 2.8
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.19,
+        "quantity": "other_speed",
+        "quote": "2.78 ± 0.19 (2.66 to 2.90)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_W_CA",
+        "unit": "m/s",
+        "value": 2.78
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.14,
+        "quantity": "other_speed",
+        "quote": "2.80 ± 0.14 (2.71 to 2.89)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_CTRL",
+        "unit": "m/s",
+        "value": 2.8
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.12,
+        "quantity": "other_speed",
+        "quote": "2.80 ± 0.12 (2.72 to 2.88)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_CTRL",
+        "unit": "m/s",
+        "value": 2.8
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.12,
+        "quantity": "other",
+        "quote": "0.46 ± 0.12 (0.38 to 0.54)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_B_CA",
+        "unit": "",
+        "value": 0.46
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.14,
+        "quantity": "other",
+        "quote": "0.54 ± 0.14* (0.45 to 0.63)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_B_CA",
+        "unit": "",
+        "value": 0.54
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.09,
+        "quantity": "other",
+        "quote": "0.47 ± 0.09 (0.41 to 0.53)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_S_CA",
+        "unit": "",
+        "value": 0.47
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.15,
+        "quantity": "other",
+        "quote": "0.50 ± 0.15 (0.40 to 0.59)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_S_CA",
+        "unit": "",
+        "value": 0.5
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.12,
+        "quantity": "other",
+        "quote": "0.48 ± 0.12 (0.40 to 0.56)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_W_CA",
+        "unit": "",
+        "value": 0.48
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.16,
+        "quantity": "other",
+        "quote": "0.48 ± 0.16 (0.38 to 0.59)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_W_CA",
+        "unit": "",
+        "value": 0.48
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.11,
+        "quantity": "other",
+        "quote": "0.47 ± 0.11 (0.41 to 0.54)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_CTRL",
+        "unit": "",
+        "value": 0.47
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 0.11,
+        "quantity": "other",
+        "quote": "0.47 ± 0.11 (0.40 to 0.54)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_CTRL",
+        "unit": "",
+        "value": 0.47
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 145.0,
+        "quantity": "other_duration",
+        "quote": "815 ± 145 (723 to 907)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_B_CA",
+        "unit": "ms",
+        "value": 815.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 138.0,
+        "quantity": "other_duration",
+        "quote": "744 ± 138 (656 to 832)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_B_CA",
+        "unit": "ms",
+        "value": 744.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 144.0,
+        "quantity": "other_duration",
+        "quote": "793 ± 144 (702 to 884)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_S_CA",
+        "unit": "ms",
+        "value": 793.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 191.0,
+        "quantity": "other_duration",
+        "quote": "782 ± 191 (661 to 903)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_S_CA",
+        "unit": "ms",
+        "value": 782.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 160.0,
+        "quantity": "other_duration",
+        "quote": "797 ± 160 (695 to 899)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_W_CA",
+        "unit": "ms",
+        "value": 797.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 188.0,
+        "quantity": "other_duration",
+        "quote": "796 ± 188 (677 to 916)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_W_CA",
+        "unit": "ms",
+        "value": 796.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 145.0,
+        "quantity": "other_duration",
+        "quote": "789 ± 145 (697 to 881)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_CTRL",
+        "unit": "ms",
+        "value": 789.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 185.0,
+        "quantity": "other_duration",
+        "quote": "810 ± 185 (692 to 928)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_CTRL",
+        "unit": "ms",
+        "value": 810.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 5.2,
+        "quantity": "other_length",
+        "quote": "26.4 ± 5.2 (23.1 to 29.6)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_B_CA",
+        "unit": "cm",
+        "value": 26.4
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 5.8,
+        "quantity": "other_length",
+        "quote": "28.3 ± 5.8 (24.6 to 32.0)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_B_CA",
+        "unit": "cm",
+        "value": 28.3
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 4.4,
+        "quantity": "other_length",
+        "quote": "26.4 ± 4.4 (23.6 to 29.2)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_S_CA",
+        "unit": "cm",
+        "value": 26.4
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 3.1,
+        "quantity": "other_length",
+        "quote": "26.7 ± 3.1 (24.7 to 28.7)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_S_CA",
+        "unit": "cm",
+        "value": 26.7
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 4.2,
+        "quantity": "other_length",
+        "quote": "25.3 ± 4.2 (22.6 to 28.0)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_W_CA",
+        "unit": "cm",
+        "value": 25.3
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 3.7,
+        "quantity": "other_length",
+        "quote": "25.9 ± 3.7 (23.6 to 28.3)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_W_CA",
+        "unit": "cm",
+        "value": 25.9
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 5.3,
+        "quantity": "other_length",
+        "quote": "26.3 ± 5.3 (22.9 to 29.6)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_CTRL",
+        "unit": "cm",
+        "value": 26.3
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 6.5,
+        "quantity": "other_length",
+        "quote": "26.8 ± 6.5 (22.9 to 31.0)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_CTRL",
+        "unit": "cm",
+        "value": 26.8
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 161.0,
+        "quantity": "other",
+        "quote": "1125 ± 161# (1023 to 1228)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_B_CA",
+        "unit": "N",
+        "value": 1125.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 179.0,
+        "quantity": "other",
+        "quote": "1186 ± 179# (1072 to 1299)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_B_CA",
+        "unit": "N",
+        "value": 1186.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 163.0,
+        "quantity": "other",
+        "quote": "1206 ± 163# (1102 to 1309)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_S_CA",
+        "unit": "N",
+        "value": 1206.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 196.0,
+        "quantity": "other",
+        "quote": "1250 ± 196# (1125 to 1375)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_S_CA",
+        "unit": "N",
+        "value": 1250.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 171.0,
+        "quantity": "other",
+        "quote": "1181 ± 171# (1073 to 1290)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_W_CA",
+        "unit": "N",
+        "value": 1181.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 167.0,
+        "quantity": "other",
+        "quote": "1177 ± 167# (1071 to 1284)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_W_CA",
+        "unit": "N",
+        "value": 1177.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 155.0,
+        "quantity": "other",
+        "quote": "1184 ± 155# (1085 to 1282)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_CTRL",
+        "unit": "N",
+        "value": 1184.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 120.0,
+        "quantity": "other",
+        "quote": "1193 ± 120# (1116 to 1269)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_CTRL",
+        "unit": "N",
+        "value": 1193.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 145.0,
+        "quantity": "other",
+        "quote": "1066 ± 145 (974 to 1158)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_B_CA",
+        "unit": "N",
+        "value": 1066.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 157.0,
+        "quantity": "other",
+        "quote": "1121 ± 157 (1022 to 1221)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_B_CA",
+        "unit": "N",
+        "value": 1121.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 141.0,
+        "quantity": "other",
+        "quote": "1136 ± 141 (1047 to 1226)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_S_CA",
+        "unit": "N",
+        "value": 1136.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 162.0,
+        "quantity": "other",
+        "quote": "1178 ± 162 (1075 to 1281)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_S_CA",
+        "unit": "N",
+        "value": 1178.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 135.0,
+        "quantity": "other",
+        "quote": "1117 ± 135 (1031 to 1202)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_W_CA",
+        "unit": "N",
+        "value": 1117.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 132.0,
+        "quantity": "other",
+        "quote": "1120 ± 132 (1036 to 1204)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_W_CA",
+        "unit": "N",
+        "value": 1120.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 138.0,
+        "quantity": "other",
+        "quote": "1102 ± 138 (1015 to 1189)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "PRE_CTRL",
+        "unit": "N",
+        "value": 1102.0
+      },
+      {
+        "n_events": 12,
+        "plus_minus": 144.0,
+        "quantity": "other",
+        "quote": "1103 ± 144 (1011 to 1195)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "POST_CTRL",
+        "unit": "N",
+        "value": 1103.0
+      }
+    ],
+    "event_table": {
+      "columns": [
+        {
+          "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+          "name": "PRE_B_CA",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+          "name": "POST_B_CA",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+          "name": "PRE_S_CA",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+          "name": "POST_S_CA",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+          "name": "PRE_W_CA",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+          "name": "POST_W_CA",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+          "name": "PRE_CTRL",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        },
+        {
+          "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+          "name": "POST_CTRL",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "s"
+        }
+      ],
+      "file": "database_B-CA vs U-CA.xlsx",
+      "rows_are": "one participant per row (best of two attempts); last two rows are group mean and SD",
+      "sheet": "10m"
+    },
+    "object_phrase": "basketball player",
+    "scale_reference": {
+      "evidence": "",
+      "kind": "none",
+      "size_mm": null
+    },
+    "title": "Acute effects of unilateral and bilateral conditioning activity on countermovement jump, linear speed, and muscle stiffness: A randomized crossover study",
+    "videos": []
+  },
+  "checks": [
+    {
+      "field": "claim 'age: 23 ± 4 yrs'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'body mass: 84.7 ± 10.6 kg'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'body height: 192 ± 6 cm'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'basketball training experience: 11 ± 4 yrs'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '36.2 ± 3.1 (34.2 to 38.2)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '38.4 ± 2.9* (36.6 to 40.2)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '36.5 ± 4.0 (33.9 to 39.0)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '36.8 ± 4.3 (34.1 to 39.5)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '36.7 ± 4.0 (34.2 to 39.2)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '36.3 ± 4.3 (33.5 to 39.0)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '36.0 ± 3.7 (33.7 to 38.4)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '36.4 ± 3.7 (34.0 to 38.7)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '2.75 ± 0.13 (2.67 to 2.83)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '2.82 ± 0.16 (2.73 to 2.92)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '2.79 ± 0.12 (2.71 to 2.86)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '2.80 ± 0.16 (2.70 to 2.90)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '2.80 ± 0.12 (2.72 to 2.87)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '2.78 ± 0.19 (2.66 to 2.90)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '2.80 ± 0.14 (2.71 to 2.89)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '0.46 ± 0.12 (0.38 to 0.54)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '0.54 ± 0.14* (0.45 to 0.63)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '0.47 ± 0.09 (0.41 to 0.53)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '0.50 ± 0.15 (0.40 to 0.59)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '0.48 ± 0.12 (0.40 to 0.56)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '0.48 ± 0.16 (0.38 to 0.59)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '0.47 ± 0.11 (0.41 to 0.54)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '815 ± 145 (723 to 907)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '744 ± 138 (656 to 832)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '793 ± 144 (702 to 884)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '782 ± 191 (661 to 903)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '797 ± 160 (695 to 899)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '796 ± 188 (677 to 916)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '789 ± 145 (697 to 881)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '810 ± 185 (692 to 928)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '26.4 ± 5.2 (23.1 to 29.6)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '28.3 ± 5.8 (24.6 to 32.0)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '26.4 ± 4.4 (23.6 to 29.2)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '26.7 ± 3.1 (24.7 to 28.7)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '25.3 ± 4.2 (22.6 to 28.0)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '25.9 ± 3.7 (23.6 to 28.3)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '26.3 ± 5.3 (22.9 to 29.6)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '26.8 ± 6.5 (22.9 to 31.0)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1125 ± 161# (1023 to 1228)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1186 ± 179# (1072 to 1299)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1206 ± 163# (1102 to 1309)'",
+      "ok": true,
+      "note": "quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)"
+    },
+    {
+      "field": "claim '1250 ± 196# (1125 to 1375)'",
+      "ok": true,
+      "note": "quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)"
+    },
+    {
+      "field": "claim '1181 ± 171# (1073 to 1290)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1177 ± 167# (1071 to 1284)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1184 ± 155# (1085 to 1282)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1193 ± 120# (1116 to 1269)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1066 ± 145 (974 to 1158)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1121 ± 157 (1022 to 1221)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1136 ± 141 (1047 to 1226)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1178 ± 162 (1075 to 1281)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1117 ± 135 (1031 to 1202)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1120 ± 132 (1036 to 1204)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1102 ± 138 (1015 to 1189)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1103 ± 144 (1011 to 1195)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    }
+  ],
+  "columns": {
+    "PRE_B_CA": {
+      "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+      "name": "PRE_B_CA",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 0,
+      "si_factor": 1.0
+    },
+    "POST_B_CA": {
+      "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+      "name": "POST_B_CA",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 1,
+      "si_factor": 1.0
+    },
+    "PRE_S_CA": {
+      "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+      "name": "PRE_S_CA",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 2,
+      "si_factor": 1.0
+    },
+    "POST_S_CA": {
+      "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+      "name": "POST_S_CA",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 3,
+      "si_factor": 1.0
+    },
+    "PRE_W_CA": {
+      "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+      "name": "PRE_W_CA",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 4,
+      "si_factor": 1.0
+    },
+    "POST_W_CA": {
+      "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+      "name": "POST_W_CA",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 5,
+      "si_factor": 1.0
+    },
+    "PRE_CTRL": {
+      "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+      "name": "PRE_CTRL",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 6,
+      "si_factor": 1.0
+    },
+    "POST_CTRL": {
+      "evidence": "Measurement of 10m sprint time. ... Times were measured to the nearest 0.001 seconds.",
+      "name": "POST_CTRL",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "s",
+      "index": 7,
+      "si_factor": 1.0
+    }
+  },
+  "claims": [
+    {
+      "n_events": 12,
+      "plus_minus": 4.0,
+      "quantity": "other",
+      "quote": "age: 23 ± 4 yrs",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "yrs",
+      "value": 23.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 10.6,
+      "quantity": "mass",
+      "quote": "body mass: 84.7 ± 10.6 kg",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "kg",
+      "value": 84.7,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 6.0,
+      "quantity": "body_length",
+      "quote": "body height: 192 ± 6 cm",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "cm",
+      "value": 192.0,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 4.0,
+      "quantity": "other",
+      "quote": "basketball training experience: 11 ± 4 yrs",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "yrs",
+      "value": 11.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 3.1,
+      "quantity": "jump_height",
+      "quote": "36.2 ± 3.1 (34.2 to 38.2)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_B_CA",
+      "unit": "cm",
+      "value": 36.2,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 2.9,
+      "quantity": "jump_height",
+      "quote": "38.4 ± 2.9* (36.6 to 40.2)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_B_CA",
+      "unit": "cm",
+      "value": 38.4,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 4.0,
+      "quantity": "jump_height",
+      "quote": "36.5 ± 4.0 (33.9 to 39.0)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_S_CA",
+      "unit": "cm",
+      "value": 36.5,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 4.3,
+      "quantity": "jump_height",
+      "quote": "36.8 ± 4.3 (34.1 to 39.5)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_S_CA",
+      "unit": "cm",
+      "value": 36.8,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 4.0,
+      "quantity": "jump_height",
+      "quote": "36.7 ± 4.0 (34.2 to 39.2)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_W_CA",
+      "unit": "cm",
+      "value": 36.7,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 4.3,
+      "quantity": "jump_height",
+      "quote": "36.3 ± 4.3 (33.5 to 39.0)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_W_CA",
+      "unit": "cm",
+      "value": 36.3,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 3.7,
+      "quantity": "jump_height",
+      "quote": "36.0 ± 3.7 (33.7 to 38.4)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_CTRL",
+      "unit": "cm",
+      "value": 36.0,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 3.7,
+      "quantity": "jump_height",
+      "quote": "36.4 ± 3.7 (34.0 to 38.7)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_CTRL",
+      "unit": "cm",
+      "value": 36.4,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.13,
+      "quantity": "other_speed",
+      "quote": "2.75 ± 0.13 (2.67 to 2.83)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_B_CA",
+      "unit": "m/s",
+      "value": 2.75,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.16,
+      "quantity": "other_speed",
+      "quote": "2.82 ± 0.16 (2.73 to 2.92)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_B_CA",
+      "unit": "m/s",
+      "value": 2.82,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.12,
+      "quantity": "other_speed",
+      "quote": "2.79 ± 0.12 (2.71 to 2.86)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_S_CA",
+      "unit": "m/s",
+      "value": 2.79,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.16,
+      "quantity": "other_speed",
+      "quote": "2.80 ± 0.16 (2.70 to 2.90)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_S_CA",
+      "unit": "m/s",
+      "value": 2.8,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.12,
+      "quantity": "other_speed",
+      "quote": "2.80 ± 0.12 (2.72 to 2.87)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_W_CA",
+      "unit": "m/s",
+      "value": 2.8,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.19,
+      "quantity": "other_speed",
+      "quote": "2.78 ± 0.19 (2.66 to 2.90)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_W_CA",
+      "unit": "m/s",
+      "value": 2.78,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.14,
+      "quantity": "other_speed",
+      "quote": "2.80 ± 0.14 (2.71 to 2.89)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_CTRL",
+      "unit": "m/s",
+      "value": 2.8,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.12,
+      "quantity": "other",
+      "quote": "0.46 ± 0.12 (0.38 to 0.54)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_B_CA",
+      "unit": "",
+      "value": 0.46,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.14,
+      "quantity": "other",
+      "quote": "0.54 ± 0.14* (0.45 to 0.63)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_B_CA",
+      "unit": "",
+      "value": 0.54,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.09,
+      "quantity": "other",
+      "quote": "0.47 ± 0.09 (0.41 to 0.53)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_S_CA",
+      "unit": "",
+      "value": 0.47,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.15,
+      "quantity": "other",
+      "quote": "0.50 ± 0.15 (0.40 to 0.59)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_S_CA",
+      "unit": "",
+      "value": 0.5,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.12,
+      "quantity": "other",
+      "quote": "0.48 ± 0.12 (0.40 to 0.56)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_W_CA",
+      "unit": "",
+      "value": 0.48,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.16,
+      "quantity": "other",
+      "quote": "0.48 ± 0.16 (0.38 to 0.59)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_W_CA",
+      "unit": "",
+      "value": 0.48,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 0.11,
+      "quantity": "other",
+      "quote": "0.47 ± 0.11 (0.41 to 0.54)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_CTRL",
+      "unit": "",
+      "value": 0.47,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 145.0,
+      "quantity": "other_duration",
+      "quote": "815 ± 145 (723 to 907)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_B_CA",
+      "unit": "ms",
+      "value": 815.0,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 138.0,
+      "quantity": "other_duration",
+      "quote": "744 ± 138 (656 to 832)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_B_CA",
+      "unit": "ms",
+      "value": 744.0,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 144.0,
+      "quantity": "other_duration",
+      "quote": "793 ± 144 (702 to 884)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_S_CA",
+      "unit": "ms",
+      "value": 793.0,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 191.0,
+      "quantity": "other_duration",
+      "quote": "782 ± 191 (661 to 903)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_S_CA",
+      "unit": "ms",
+      "value": 782.0,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 160.0,
+      "quantity": "other_duration",
+      "quote": "797 ± 160 (695 to 899)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_W_CA",
+      "unit": "ms",
+      "value": 797.0,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 188.0,
+      "quantity": "other_duration",
+      "quote": "796 ± 188 (677 to 916)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_W_CA",
+      "unit": "ms",
+      "value": 796.0,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 145.0,
+      "quantity": "other_duration",
+      "quote": "789 ± 145 (697 to 881)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_CTRL",
+      "unit": "ms",
+      "value": 789.0,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 185.0,
+      "quantity": "other_duration",
+      "quote": "810 ± 185 (692 to 928)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_CTRL",
+      "unit": "ms",
+      "value": 810.0,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 5.2,
+      "quantity": "other_length",
+      "quote": "26.4 ± 5.2 (23.1 to 29.6)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_B_CA",
+      "unit": "cm",
+      "value": 26.4,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 5.8,
+      "quantity": "other_length",
+      "quote": "28.3 ± 5.8 (24.6 to 32.0)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_B_CA",
+      "unit": "cm",
+      "value": 28.3,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 4.4,
+      "quantity": "other_length",
+      "quote": "26.4 ± 4.4 (23.6 to 29.2)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_S_CA",
+      "unit": "cm",
+      "value": 26.4,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 3.1,
+      "quantity": "other_length",
+      "quote": "26.7 ± 3.1 (24.7 to 28.7)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_S_CA",
+      "unit": "cm",
+      "value": 26.7,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 4.2,
+      "quantity": "other_length",
+      "quote": "25.3 ± 4.2 (22.6 to 28.0)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_W_CA",
+      "unit": "cm",
+      "value": 25.3,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 3.7,
+      "quantity": "other_length",
+      "quote": "25.9 ± 3.7 (23.6 to 28.3)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_W_CA",
+      "unit": "cm",
+      "value": 25.9,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 5.3,
+      "quantity": "other_length",
+      "quote": "26.3 ± 5.3 (22.9 to 29.6)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_CTRL",
+      "unit": "cm",
+      "value": 26.3,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 6.5,
+      "quantity": "other_length",
+      "quote": "26.8 ± 6.5 (22.9 to 31.0)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_CTRL",
+      "unit": "cm",
+      "value": 26.8,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 161.0,
+      "quantity": "other",
+      "quote": "1125 ± 161# (1023 to 1228)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_B_CA",
+      "unit": "N",
+      "value": 1125.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 179.0,
+      "quantity": "other",
+      "quote": "1186 ± 179# (1072 to 1299)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_B_CA",
+      "unit": "N",
+      "value": 1186.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 163.0,
+      "quantity": "other",
+      "quote": "1206 ± 163# (1102 to 1309)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_S_CA",
+      "unit": "N",
+      "value": 1206.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 196.0,
+      "quantity": "other",
+      "quote": "1250 ± 196# (1125 to 1375)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_S_CA",
+      "unit": "N",
+      "value": 1250.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 171.0,
+      "quantity": "other",
+      "quote": "1181 ± 171# (1073 to 1290)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_W_CA",
+      "unit": "N",
+      "value": 1181.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 167.0,
+      "quantity": "other",
+      "quote": "1177 ± 167# (1071 to 1284)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_W_CA",
+      "unit": "N",
+      "value": 1177.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 155.0,
+      "quantity": "other",
+      "quote": "1184 ± 155# (1085 to 1282)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_CTRL",
+      "unit": "N",
+      "value": 1184.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 120.0,
+      "quantity": "other",
+      "quote": "1193 ± 120# (1116 to 1269)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_CTRL",
+      "unit": "N",
+      "value": 1193.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 145.0,
+      "quantity": "other",
+      "quote": "1066 ± 145 (974 to 1158)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_B_CA",
+      "unit": "N",
+      "value": 1066.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 157.0,
+      "quantity": "other",
+      "quote": "1121 ± 157 (1022 to 1221)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_B_CA",
+      "unit": "N",
+      "value": 1121.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 141.0,
+      "quantity": "other",
+      "quote": "1136 ± 141 (1047 to 1226)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_S_CA",
+      "unit": "N",
+      "value": 1136.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 162.0,
+      "quantity": "other",
+      "quote": "1178 ± 162 (1075 to 1281)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_S_CA",
+      "unit": "N",
+      "value": 1178.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 135.0,
+      "quantity": "other",
+      "quote": "1117 ± 135 (1031 to 1202)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_W_CA",
+      "unit": "N",
+      "value": 1117.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 132.0,
+      "quantity": "other",
+      "quote": "1120 ± 132 (1036 to 1204)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_W_CA",
+      "unit": "N",
+      "value": 1120.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 138.0,
+      "quantity": "other",
+      "quote": "1102 ± 138 (1015 to 1189)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "PRE_CTRL",
+      "unit": "N",
+      "value": 1102.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 12,
+      "plus_minus": 144.0,
+      "quantity": "other",
+      "quote": "1103 ± 144 (1011 to 1195)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "POST_CTRL",
+      "unit": "N",
+      "value": 1103.0,
+      "si_factor": null
+    }
+  ]
+}

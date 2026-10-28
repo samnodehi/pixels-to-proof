@@ -1,0 +1,1203 @@
+{
+  "plan": {
+    "authors_speed_method": {
+      "evidence": "Throughout the trial, the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+      "family": "unknown",
+      "parameters": "no fish body speed computed; crossing times from time-stamped video to nearest second, water speed from ADV"
+    },
+    "claims": [
+      {
+        "n_events": 40,
+        "plus_minus": 8.97,
+        "quantity": "body_length",
+        "quote": "mean length of 51.7 mm±8.97",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "unknown",
+        "statistic": "mean",
+        "table_column": "Length (mm)",
+        "unit": "mm",
+        "value": 51.7
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.32,
+        "quantity": "mass",
+        "quote": "mean weight 0.48 g±0.32",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "unknown",
+        "statistic": "mean",
+        "table_column": "Weight (g)",
+        "unit": "g",
+        "value": 0.48
+      },
+      {
+        "n_events": 40,
+        "plus_minus": 0.09,
+        "quantity": "other",
+        "quote": "mean condition factor 0.26±0.09",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "unknown",
+        "statistic": "mean",
+        "table_column": "Condition factor",
+        "unit": "ratio",
+        "value": 0.26
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "individual fish were subjected to the same high-speed (0.45–0.5 m s-1) conditions within the raceway",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "range",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m s-1",
+        "value": 0.45
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "which demonstrated that 90% of G. maculatus individuals had critical swimming speeds of 0.45 m s-1 or less.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m s-1",
+        "value": 0.45
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_angle",
+        "quote": "each 1.2 m in length, positioned at a 40° angle relative to the flume wall",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "deg",
+        "value": 40.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "each 1.2 m in length, positioned at a 40° angle relative to the flume wall",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m",
+        "value": 1.2
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "The body of the raceway measured 2.9 m in length and 0.2 m in width",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m",
+        "value": 2.9
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "The body of the raceway measured 2.9 m in length and 0.2 m in width",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m",
+        "value": 0.2
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "with a consistent water depth of 0.2 m maintained throughout all trials.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m",
+        "value": 0.2
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "The base of the raceway was marked with tape at 0.1 m intervals",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m",
+        "value": 0.1
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "Additional markings denoting the approach, entry, and passage thresholds within the raceway (0.6, 1.8, and 4.7 m, respectively)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m",
+        "value": 0.6
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "Additional markings denoting the approach, entry, and passage thresholds within the raceway (0.6, 1.8, and 4.7 m, respectively)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m",
+        "value": 1.8
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "Additional markings denoting the approach, entry, and passage thresholds within the raceway (0.6, 1.8, and 4.7 m, respectively)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m",
+        "value": 4.7
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "with all cameras set to a consistent frame rate of 30 frames per second.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "fps",
+        "value": 30.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "The impeller motor was set to 31 Hz",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "Hz",
+        "value": 31.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "were collected for 40 s at each height, with a sampling frequency of 10.0 MHz.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "s",
+        "value": 40.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "were collected for 40 s at each height, with a sampling frequency of 10.0 MHz.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "MHz",
+        "value": 10.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "Trial duration was set to a maximum of 30 minutes",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "min",
+        "value": 30.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_speed",
+        "quote": "where the water speed was maintained at 0.0 m s-1, for a duration of 30 minutes",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": "",
+        "unit": "m s-1",
+        "value": 0.0
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "Day 1 fish had a median approach time of 325 s and Day 5 fish had a median time of 312 s",
+        "row_filter": {
+          "column": "Day",
+          "value": "1"
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "Time approach (s)",
+        "unit": "s",
+        "value": 325.0
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "Day 1 fish had a median approach time of 325 s and Day 5 fish had a median time of 312 s",
+        "row_filter": {
+          "column": "Day",
+          "value": "5"
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "Time approach (s)",
+        "unit": "s",
+        "value": 312.0
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "Day 1 fish had a median entry time of 548 s and Day 5 fish had a median time of 207 s",
+        "row_filter": {
+          "column": "Day",
+          "value": "1"
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "Time to entry (s)",
+        "unit": "s",
+        "value": 548.0
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "Day 1 fish had a median entry time of 548 s and Day 5 fish had a median time of 207 s",
+        "row_filter": {
+          "column": "Day",
+          "value": "5"
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "Time to entry (s)",
+        "unit": "s",
+        "value": 207.0
+      },
+      {
+        "n_events": 40,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "Day 5 fish had a median time of 42 s",
+        "row_filter": {
+          "column": "Day",
+          "value": "5"
+        },
+        "spread": "none",
+        "statistic": "median",
+        "table_column": "Time to passage (s)",
+        "unit": "s",
+        "value": 42.0
+      }
+    ],
+    "event_table": {
+      "columns": [
+        {
+          "evidence": "each trial consisted of an individual fish and no fish were reused",
+          "name": "Fish",
+          "quantity": "animal_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "Date",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": ""
+        },
+        {
+          "evidence": "day (representing number of exposures) and fish length were fixed predictor variables",
+          "name": "Day",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": ""
+        },
+        {
+          "evidence": "mean length of 51.7 mm±8.97",
+          "name": "Length (mm)",
+          "quantity": "body_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "mm"
+        },
+        {
+          "evidence": "mean weight 0.48 g±0.32",
+          "name": "Weight (g)",
+          "quantity": "mass",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "g"
+        },
+        {
+          "evidence": "The condition factor of each fish was calculated using Fulton’s condition factor formula [41].",
+          "name": "Condition factor",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "ratio"
+        },
+        {
+          "evidence": "Across all trials, flume water temperatures ranged from 17.9°C to 22.2°C",
+          "name": "Temp",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "C"
+        },
+        {
+          "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+          "name": "Time approach (s)",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "s"
+        },
+        {
+          "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+          "name": "Time to entry (s)",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "s"
+        },
+        {
+          "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+          "name": "Time to passage (s)",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "s"
+        },
+        {
+          "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+          "name": "Time_Start",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": ""
+        },
+        {
+          "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+          "name": "Time_approach",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": ""
+        },
+        {
+          "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+          "name": "Time_attempt",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": ""
+        },
+        {
+          "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+          "name": "Time_1m",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": ""
+        },
+        {
+          "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+          "name": "Time_final",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": ""
+        },
+        {
+          "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+          "name": "Time_comp",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": ""
+        }
+      ],
+      "file": "Data for_Repeated exposure to a velocity barrier improves passage performance.xlsx",
+      "rows_are": "one row per fish per exposure day (40 individual fish x 5 consecutive days = 200 trials)",
+      "sheet": "Sheet1"
+    },
+    "object_phrase": "fish",
+    "scale_reference": {
+      "evidence": "The base of the raceway was marked with tape at 0.1 m intervals, starting from 0.0 at the entrance to the downstream wingwalls.",
+      "kind": "ruler",
+      "size_mm": 100.0
+    },
+    "title": "Teaching fish new tricks: Repeated exposure to a velocity barrier improves passage performance",
+    "videos": []
+  },
+  "checks": [
+    {
+      "field": "claim 'mean length of 51.7 mm±8.97'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'mean weight 0.48 g±0.32'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'mean condition factor 0.26±0.09'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'individual fish were subjected to the same high-sp'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'each 1.2 m in length, positioned at a 40° angle re'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'each 1.2 m in length, positioned at a 40° angle re'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The body of the raceway measured 2.9 m in length a'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The body of the raceway measured 2.9 m in length a'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The base of the raceway was marked with tape at 0.'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Additional markings denoting the approach, entry, '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Additional markings denoting the approach, entry, '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Additional markings denoting the approach, entry, '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'with all cameras set to a consistent frame rate of'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The impeller motor was set to 31 Hz'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'were collected for 40 s at each height, with a sam'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'were collected for 40 s at each height, with a sam'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Trial duration was set to a maximum of 30 minutes'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'where the water speed was maintained at 0.0 m s-1,'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Day 1 fish had a median approach time of 325 s and'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Day 1 fish had a median approach time of 325 s and' rows",
+      "ok": true,
+      "note": "rows where 'Day' = '1'"
+    },
+    {
+      "field": "claim 'Day 1 fish had a median approach time of 325 s and'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Day 1 fish had a median approach time of 325 s and' rows",
+      "ok": true,
+      "note": "rows where 'Day' = '5'"
+    },
+    {
+      "field": "claim 'Day 1 fish had a median entry time of 548 s and Da'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Day 1 fish had a median entry time of 548 s and Da' rows",
+      "ok": true,
+      "note": "rows where 'Day' = '1'"
+    },
+    {
+      "field": "claim 'Day 1 fish had a median entry time of 548 s and Da'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Day 1 fish had a median entry time of 548 s and Da' rows",
+      "ok": true,
+      "note": "rows where 'Day' = '5'"
+    },
+    {
+      "field": "claim 'Day 5 fish had a median time of 42 s'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Day 5 fish had a median time of 42 s' rows",
+      "ok": true,
+      "note": "rows where 'Day' = '5'"
+    }
+  ],
+  "columns": {
+    "Fish": {
+      "evidence": "each trial consisted of an individual fish and no fish were reused",
+      "name": "Fish",
+      "quantity": "animal_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "",
+      "index": 0,
+      "si_factor": null
+    },
+    "Date": {
+      "evidence": "",
+      "name": "Date",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "",
+      "index": 1,
+      "si_factor": null
+    },
+    "Day": {
+      "evidence": "day (representing number of exposures) and fish length were fixed predictor variables",
+      "name": "Day",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "",
+      "index": 2,
+      "si_factor": null
+    },
+    "Length (mm)": {
+      "evidence": "mean length of 51.7 mm±8.97",
+      "name": "Length (mm)",
+      "quantity": "body_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "mm",
+      "index": 3,
+      "si_factor": 0.001
+    },
+    "Weight (g)": {
+      "evidence": "mean weight 0.48 g±0.32",
+      "name": "Weight (g)",
+      "quantity": "mass",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "g",
+      "index": 4,
+      "si_factor": null
+    },
+    "Condition factor": {
+      "evidence": "The condition factor of each fish was calculated using Fulton’s condition factor formula [41].",
+      "name": "Condition factor",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "ratio",
+      "index": 5,
+      "si_factor": null
+    },
+    "Temp": {
+      "evidence": "Across all trials, flume water temperatures ranged from 17.9°C to 22.2°C",
+      "name": "Temp",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "C",
+      "index": 6,
+      "si_factor": null
+    },
+    "Time approach (s)": {
+      "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+      "name": "Time approach (s)",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "s",
+      "index": 7,
+      "si_factor": 1.0
+    },
+    "Time to entry (s)": {
+      "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+      "name": "Time to entry (s)",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "s",
+      "index": 8,
+      "si_factor": 1.0
+    },
+    "Time to passage (s)": {
+      "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+      "name": "Time to passage (s)",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "s",
+      "index": 9,
+      "si_factor": 1.0
+    },
+    "Time_Start": {
+      "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+      "name": "Time_Start",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "",
+      "index": 10,
+      "si_factor": null
+    },
+    "Time_approach": {
+      "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+      "name": "Time_approach",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "",
+      "index": 11,
+      "si_factor": null
+    },
+    "Time_attempt": {
+      "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+      "name": "Time_attempt",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "",
+      "index": 12,
+      "si_factor": null
+    },
+    "Time_1m": {
+      "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+      "name": "Time_1m",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "",
+      "index": 13,
+      "si_factor": null
+    },
+    "Time_final": {
+      "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+      "name": "Time_final",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "",
+      "index": 14,
+      "si_factor": null
+    },
+    "Time_comp": {
+      "evidence": "the times at which fish crossed the approach, entry, and passage threshold were recorded, based on time-stamped video footage to the nearest second.",
+      "name": "Time_comp",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "",
+      "index": 15,
+      "si_factor": null
+    }
+  },
+  "claims": [
+    {
+      "n_events": 40,
+      "plus_minus": 8.97,
+      "quantity": "body_length",
+      "quote": "mean length of 51.7 mm±8.97",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "unknown",
+      "statistic": "mean",
+      "table_column": "Length (mm)",
+      "unit": "mm",
+      "value": 51.7,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.32,
+      "quantity": "mass",
+      "quote": "mean weight 0.48 g±0.32",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "unknown",
+      "statistic": "mean",
+      "table_column": "Weight (g)",
+      "unit": "g",
+      "value": 0.48,
+      "si_factor": null
+    },
+    {
+      "n_events": 40,
+      "plus_minus": 0.09,
+      "quantity": "other",
+      "quote": "mean condition factor 0.26±0.09",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "unknown",
+      "statistic": "mean",
+      "table_column": "Condition factor",
+      "unit": "ratio",
+      "value": 0.26,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_speed",
+      "quote": "individual fish were subjected to the same high-speed (0.45–0.5 m s-1) conditions within the raceway",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "range",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m s-1",
+      "value": 0.45,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_angle",
+      "quote": "each 1.2 m in length, positioned at a 40° angle relative to the flume wall",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "deg",
+      "value": 40.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "each 1.2 m in length, positioned at a 40° angle relative to the flume wall",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m",
+      "value": 1.2,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "The body of the raceway measured 2.9 m in length and 0.2 m in width",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m",
+      "value": 2.9,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "The body of the raceway measured 2.9 m in length and 0.2 m in width",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m",
+      "value": 0.2,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "The base of the raceway was marked with tape at 0.1 m intervals",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m",
+      "value": 0.1,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "Additional markings denoting the approach, entry, and passage thresholds within the raceway (0.6, 1.8, and 4.7 m, respectively)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m",
+      "value": 0.6,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "Additional markings denoting the approach, entry, and passage thresholds within the raceway (0.6, 1.8, and 4.7 m, respectively)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m",
+      "value": 1.8,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "Additional markings denoting the approach, entry, and passage thresholds within the raceway (0.6, 1.8, and 4.7 m, respectively)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m",
+      "value": 4.7,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "with all cameras set to a consistent frame rate of 30 frames per second.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "fps",
+      "value": 30.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "The impeller motor was set to 31 Hz",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "Hz",
+      "value": 31.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "were collected for 40 s at each height, with a sampling frequency of 10.0 MHz.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "s",
+      "value": 40.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "were collected for 40 s at each height, with a sampling frequency of 10.0 MHz.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "MHz",
+      "value": 10.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "Trial duration was set to a maximum of 30 minutes",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "min",
+      "value": 30.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_speed",
+      "quote": "where the water speed was maintained at 0.0 m s-1, for a duration of 30 minutes",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": "",
+      "unit": "m s-1",
+      "value": 0.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "Day 1 fish had a median approach time of 325 s and Day 5 fish had a median time of 312 s",
+      "row_filter": {
+        "column": "Day",
+        "value": "1"
+      },
+      "spread": "none",
+      "statistic": "median",
+      "table_column": "Time approach (s)",
+      "unit": "s",
+      "value": 325.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "Day 1 fish had a median approach time of 325 s and Day 5 fish had a median time of 312 s",
+      "row_filter": {
+        "column": "Day",
+        "value": "5"
+      },
+      "spread": "none",
+      "statistic": "median",
+      "table_column": "Time approach (s)",
+      "unit": "s",
+      "value": 312.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "Day 1 fish had a median entry time of 548 s and Day 5 fish had a median time of 207 s",
+      "row_filter": {
+        "column": "Day",
+        "value": "1"
+      },
+      "spread": "none",
+      "statistic": "median",
+      "table_column": "Time to entry (s)",
+      "unit": "s",
+      "value": 548.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "Day 1 fish had a median entry time of 548 s and Day 5 fish had a median time of 207 s",
+      "row_filter": {
+        "column": "Day",
+        "value": "5"
+      },
+      "spread": "none",
+      "statistic": "median",
+      "table_column": "Time to entry (s)",
+      "unit": "s",
+      "value": 207.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 40,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "Day 5 fish had a median time of 42 s",
+      "row_filter": {
+        "column": "Day",
+        "value": "5"
+      },
+      "spread": "none",
+      "statistic": "median",
+      "table_column": "Time to passage (s)",
+      "unit": "s",
+      "value": 42.0,
+      "si_factor": 1.0
+    }
+  ]
+}

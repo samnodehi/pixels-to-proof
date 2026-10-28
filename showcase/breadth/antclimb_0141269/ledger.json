@@ -1,0 +1,1841 @@
+{
+ "run_id": "antclimb_0141269-20261028",
+ "started": "2026-10-28T19:49:09+00:00",
+ "commit": "7cf697ae7d51417a0cbfa02ba9dcbf8501a63b95",
+ "inputs": {
+  "EndleinFederle_Data_PONE-D-15-22788.xlsx": "6773566f9f09d4a423b9ebb84e21413787f3ffd93f59d7ba35dbb5dd58740340",
+  "paper.pdf": "285cca664b185920cb4d682e5dd8a19578e88aa39455925cac86ecc3c1afcee5",
+  "source.json": "544e6915cbd71baa2d235a23b0d91edce5a81eb117770f0e192af762daeeee68"
+ },
+ "checks_sha256": "b8a6e7a11527dba91bd08e6891ef75bae5ba5223667255507e481d1721f43fda",
+ "events": [
+  {
+   "i": 0,
+   "t": 0.0,
+   "kind": "step",
+   "what": "inventory",
+   "note": "1 pdf, 0 video, 1 table, 0 archive files",
+   "ref": ""
+  },
+  {
+   "i": 1,
+   "t": 0.27,
+   "kind": "step",
+   "what": "paper",
+   "note": "paper.pdf chosen as the paper",
+   "ref": ""
+  },
+  {
+   "i": 2,
+   "t": 0.27,
+   "kind": "gate",
+   "gate": "G0 licence",
+   "ok": true,
+   "note": "CC BY: ein, Federle. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distributi",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 3,
+   "t": 0.4,
+   "kind": "step",
+   "what": "read files",
+   "note": "116632 chars of PDF text, 5 table sheets, 0 scripts",
+   "ref": ""
+  },
+  {
+   "i": 4,
+   "t": 77.97,
+   "kind": "model",
+   "role": "plan",
+   "model": "muse-spark-1.3",
+   "tokens": 81618,
+   "seconds": 77.6,
+   "proposal": "v1: 38 claims, event table Fig3_4_5, 0 videos, authors' method unknown",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 5,
+   "t": 78.34,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'we used medium-sized ant workers (8.2 ± 2.1mg; N =': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 6,
+   "t": 78.34,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'When weaver ants walked on a horizontal substrate ': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 7,
+   "t": 78.35,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'when ants walked on an inverted substrate (average': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 8,
+   "t": 78.36,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'When climbing on a vertical surface (average speed': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 9,
+   "t": 78.36,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'the last (5th) tarsal segment was mostly raised so': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 10,
+   "t": 78.37,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'the last (5th) tarsal segment was mostly raised so': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 11,
+   "t": 78.37,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'the last (5th) tarsal segment was mostly raised so': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 12,
+   "t": 78.38,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'the 5th tarsomere angle was mostly positive (front': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 13,
+   "t": 78.38,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'the 5th tarsomere angle was mostly positive (front': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 14,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'the 5th tarsomere angle was mostly positive (front': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 15,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'On average, legs above the CoM produced negative n': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 16,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'On average, legs above the CoM produced negative n' rows: rows where 'leg position (0=below CoM, 1=aboveCoM)' = '1'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 17,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'On average, legs above the CoM produced negative n': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 18,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'On average, legs above the CoM produced negative n' rows: rows where 'leg position (0=below CoM, 1=aboveCoM)' = '0'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 19,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'The ants held their body weight mainly by pulling ': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 20,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Some legs below the CoM contributed to upward forc': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 21,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Some legs below the CoM contributed to upward forc' rows: rows where 'leg position (0=below CoM, 1=aboveCoM)' = '0'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 22,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'the angle of the force vector to the horizontal wa': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 23,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'the angle of the force vector to the horizontal wa': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 24,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The average angle of the 5th tarsomere measured fr': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 25,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The density of the hairs was approx. 29466 ± 5608 ': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 26,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Each hair was around 36 ±10 μm long, 2.4±0.4 μm th': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 27,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Each hair was around 36 ±10 μm long, 2.4±0.4 μm th': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 28,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'On the smooth surface, the friction forces generat': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 29,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The dashed line indicates the ants’ body weight (8': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 30,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 31,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 32,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 33,
+   "t": 78.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 34,
+   "t": 78.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 35,
+   "t": 78.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 36,
+   "t": 78.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Freely walking ants produced pushing shear forces ': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 37,
+   "t": 78.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Freely walking ants produced pushing shear forces ': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 38,
+   "t": 78.43,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The contacts were up to 31.5 μm long (mean 23.8±7.': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 39,
+   "t": 78.44,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The contacts were up to 31.5 μm long (mean 23.8±7.': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 40,
+   "t": 78.45,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The contacts were up to 31.5 μm long (mean 23.8±7.': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 41,
+   "t": 78.45,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Towards the hair base (>10 μm away from the tip) t': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 42,
+   "t": 78.45,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Towards the hair base (>10 μm away from the tip) t': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 43,
+   "t": 78.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The total area covered was approx. 45 μm2.': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 44,
+   "t": 78.46,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'When weaver ants climbed upwards, their hind limbs': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 45,
+   "t": 140.5,
+   "kind": "model",
+   "role": "re-propose plan",
+   "model": "muse-spark-1.3",
+   "tokens": 80648,
+   "seconds": 62.0,
+   "proposal": "v2: 37 claims, event table Fig3_4_5, 0 videos, authors' method unknown",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 46,
+   "t": 140.75,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'we used medium-sized ant workers (8.2 ± 2.1mg; N =': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 47,
+   "t": 140.75,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'When weaver ants walked on a horizontal substrate ': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 48,
+   "t": 140.75,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'when ants walked on an inverted substrate (average': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 49,
+   "t": 140.75,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'When climbing on a vertical surface (average speed': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 50,
+   "t": 140.75,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'the 5th tarsomere angle was mostly positive (front': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 51,
+   "t": 140.75,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'the 5th tarsomere angle was mostly positive (front': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 52,
+   "t": 140.75,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'the 5th tarsomere angle was mostly positive (front': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 53,
+   "t": 140.75,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'On average, legs above the CoM produced negative n': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 54,
+   "t": 140.75,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'On average, legs above the CoM produced negative n' rows: rows where 'leg position (0=below CoM, 1=aboveCoM)' = '1'",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 55,
+   "t": 140.75,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'On average, legs above the CoM produced negative n': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 56,
+   "t": 140.75,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'On average, legs above the CoM produced negative n' rows: rows where 'leg position (0=below CoM, 1=aboveCoM)' = '0'",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 57,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Some legs below the CoM contributed to upward forc': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 58,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Some legs below the CoM contributed to upward forc' rows: rows where 'leg position (0=below CoM, 1=aboveCoM)' = '0'",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 59,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'the angle of the force vector to the horizontal wa': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 60,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'the angle of the force vector to the horizontal wa': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 61,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The average angle of the 5th tarsomere measured fr': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 62,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The density of the hairs was approx. 29466 ± 5608 ': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 63,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Each hair was around 36 ±10 μm long, 2.4±0.4 μm th': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 64,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Each hair was around 36 ±10 μm long, 2.4±0.4 μm th': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 65,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'On the smooth surface, the friction forces generat': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 66,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The dashed line indicates the ants’ body weight (8': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 67,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 68,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 69,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 70,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 71,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 72,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 73,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Freely walking ants produced pushing shear forces ': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 74,
+   "t": 140.76,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Freely walking ants produced pushing shear forces ': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 75,
+   "t": 140.77,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The contacts were up to 31.5 μm long (mean 23.8±7.': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 76,
+   "t": 140.77,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The contacts were up to 31.5 μm long (mean 23.8±7.': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 77,
+   "t": 140.77,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The contacts were up to 31.5 μm long (mean 23.8±7.': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 78,
+   "t": 140.77,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Towards the hair base (>10 μm away from the tip) t': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 79,
+   "t": 140.77,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Towards the hair base (>10 μm away from the tip) t': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 80,
+   "t": 140.77,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The total area covered was approx. 45 μm2.': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 81,
+   "t": 140.77,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim 'the last (5th) tarsal segment was mostly raised so': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 82,
+   "t": 140.77,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The ants held their body weight mainly by pulling ': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 83,
+   "t": 140.77,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The ants held their body weight mainly by pulling ' rows: rows where 'leg position (0=below CoM, 1=aboveCoM)' = '1'",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 84,
+   "t": 140.77,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'When weaver ants climbed upwards, their hind limbs': quote and value found in the PDF",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 85,
+   "t": 140.77,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim 'the last (5th) tarsal segment was mostly raised so': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 86,
+   "t": 140.77,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim 'the last (5th) tarsal segment was mostly raised so': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 45
+  },
+  {
+   "i": 87,
+   "t": 350.03,
+   "kind": "model",
+   "role": "re-propose plan",
+   "model": "muse-spark-1.3",
+   "tokens": 86185,
+   "seconds": 209.3,
+   "proposal": "v3: 47 claims, event table Fig3_4_5, 0 videos, authors' method unknown",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 88,
+   "t": 350.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'we used medium-sized ant workers (8.2 ± 2.1mg; N =': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 89,
+   "t": 350.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'When weaver ants walked on a horizontal substrate ': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 90,
+   "t": 350.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'when ants walked on an inverted substrate (average': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 91,
+   "t": 350.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'When climbing on a vertical surface (average speed': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 92,
+   "t": 350.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'the 5th tarsomere angle was mostly positive (front': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 93,
+   "t": 350.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'the 5th tarsomere angle was mostly positive (front': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 94,
+   "t": 350.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'the 5th tarsomere angle was mostly positive (front': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 95,
+   "t": 350.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'On average, legs above the CoM produced negative n': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 96,
+   "t": 350.39,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'On average, legs above the CoM produced negative n' rows: rows where 'leg position (0=below CoM, 1=aboveCoM)' = '1'",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 97,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'On average, legs above the CoM produced negative n': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 98,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'On average, legs above the CoM produced negative n' rows: rows where 'leg position (0=below CoM, 1=aboveCoM)' = '0'",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 99,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Some legs below the CoM contributed to upward forc': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 100,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Some legs below the CoM contributed to upward forc' rows: rows where 'leg position (0=below CoM, 1=aboveCoM)' = '0'",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 101,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'the angle of the force vector to the horizontal wa': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 102,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'the angle of the force vector to the horizontal wa': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 103,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The average angle of the 5th tarsomere measured fr': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 104,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The density of the hairs was approx. 29466 ± 5608 ': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 105,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Each hair was around 36 ±10 μm long, 2.4±0.4 μm th': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 106,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Each hair was around 36 ±10 μm long, 2.4±0.4 μm th': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 107,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'On the smooth surface, the friction forces generat': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 108,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The dashed line indicates the ants’ body weight (8': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 109,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 110,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 111,
+   "t": 350.4,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 112,
+   "t": 350.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 113,
+   "t": 350.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 114,
+   "t": 350.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The buckling forces on the smooth surface were 117': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 115,
+   "t": 350.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Freely walking ants produced pushing shear forces ': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 116,
+   "t": 350.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Freely walking ants produced pushing shear forces ': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 117,
+   "t": 350.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The contacts were up to 31.5 μm long (mean 23.8±7.': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 118,
+   "t": 350.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The contacts were up to 31.5 μm long (mean 23.8±7.': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 119,
+   "t": 350.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The contacts were up to 31.5 μm long (mean 23.8±7.': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 120,
+   "t": 350.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Towards the hair base (>10 μm away from the tip) t': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 121,
+   "t": 350.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Towards the hair base (>10 μm away from the tip) t': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 122,
+   "t": 350.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The total area covered was approx. 45 μm2.': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 123,
+   "t": 350.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The ants held their body weight mainly by pulling ': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 124,
+   "t": 350.41,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The ants held their body weight mainly by pulling ' rows: rows where 'leg position (0=below CoM, 1=aboveCoM)' = '1'",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 125,
+   "t": 350.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'When weaver ants climbed upwards, their hind limbs': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 126,
+   "t": 350.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim '(median 5th tarsomere angle -10° for front legs, -': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 127,
+   "t": 350.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim '(median 5th tarsomere angle -10° for front legs, -': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 128,
+   "t": 350.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim '(median 5th tarsomere angle -10° for front legs, -': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 129,
+   "t": 350.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The values correspond to a load-dependent effectiv': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 130,
+   "t": 350.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The values correspond to a load-dependent effectiv': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 131,
+   "t": 350.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The values correspond to a load-dependent effectiv': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 132,
+   "t": 350.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The values correspond to a load-dependent effectiv': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 133,
+   "t": 350.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'suggesting an adhesive force of FA = 86.76 μN/1.94': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 134,
+   "t": 350.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim '(for the smooth surface atan(1/2.8) = 19.7°; for t': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 135,
+   "t": 350.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim '(for the smooth surface atan(1/2.8) = 19.7°; for t': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 136,
+   "t": 350.42,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Our ground reaction force measurements on freely c': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 137,
+   "t": 350.43,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The noise level for both normal and friction force': quote and value found in the PDF",
+   "ref": "",
+   "on": 87
+  },
+  {
+   "i": 138,
+   "t": 350.43,
+   "kind": "step",
+   "what": "plan accepted",
+   "note": "v2 (3 needed fields still rejected)",
+   "ref": ""
+  },
+  {
+   "i": 139,
+   "t": 350.44,
+   "kind": "step",
+   "what": "spread convention",
+   "note": "the paper states 'means ± standard deviation': a '±' of unknown type is read as SD",
+   "ref": ""
+  },
+  {
+   "i": 140,
+   "t": 350.47,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: we used medium-sized ant workers (8.2 ± 2.1mg; N = 48; all values give",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 141,
+   "t": 350.48,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: When weaver ants walked on a horizontal substrate (average speed 28.6 ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 142,
+   "t": 350.48,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: when ants walked on an inverted substrate (average speed 21.4 ± 14.6 m",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 143,
+   "t": 350.49,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: When climbing on a vertical surface (average speed 21.7 ± 8.6 mms-1; N",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 144,
+   "t": 350.5,
+   "kind": "step",
+   "what": "other table",
+   "note": "'upsidedown_front  (deg)' is in EndleinFederle_Data_PONE-D-15-22788.xlsx/Fig2, read in the claim's unit (deg)",
+   "ref": ""
+  },
+  {
+   "i": 145,
+   "t": 350.5,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: the 5th tarsomere angle was mostly positive (front legs: 8°; middle le",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 146,
+   "t": 350.51,
+   "kind": "step",
+   "what": "other table",
+   "note": "'upsidedown_middle  (deg)' is in EndleinFederle_Data_PONE-D-15-22788.xlsx/Fig2, read in the claim's unit (deg)",
+   "ref": ""
+  },
+  {
+   "i": 147,
+   "t": 350.51,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: the 5th tarsomere angle was mostly positive (front legs: 8°; middle le",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 148,
+   "t": 350.51,
+   "kind": "step",
+   "what": "other table",
+   "note": "'upsidedown_hind  (deg)' is in EndleinFederle_Data_PONE-D-15-22788.xlsx/Fig2, read in the claim's unit (deg)",
+   "ref": ""
+  },
+  {
+   "i": 149,
+   "t": 350.52,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: the 5th tarsomere angle was mostly positive (front legs: 8°; middle le",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 150,
+   "t": 350.52,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: On average, legs above the CoM produced negative normal forces of 0.29",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 151,
+   "t": 350.53,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: On average, legs above the CoM produced negative normal forces of 0.29",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 152,
+   "t": 350.54,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: Some legs below the CoM contributed to upward forces by pushing (maxim",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 153,
+   "t": 350.54,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: the angle of the force vector to the horizontal was considerably lower",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 154,
+   "t": 350.55,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: the angle of the force vector to the horizontal was considerably lower",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 155,
+   "t": 350.55,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The average angle of the 5th tarsomere measured from the video recordi",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 156,
+   "t": 350.55,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The density of the hairs was approx. 29466 ± 5608 hairs per mm2 (mean ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 157,
+   "t": 350.56,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Each hair was around 36 ±10 μm long, 2.4±0.4 μm thick at the base and ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 158,
+   "t": 350.56,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Each hair was around 36 ±10 μm long, 2.4±0.4 μm thick at the base and ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 159,
+   "t": 350.57,
+   "kind": "step",
+   "what": "other table",
+   "note": "'Fx_smooth_push_100mN (µN)' is in EndleinFederle_Data_PONE-D-15-22788.xlsx/Fig6_7_8, read in the claim's unit (times body weight)",
+   "ref": ""
+  },
+  {
+   "i": 160,
+   "t": 350.57,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: On the smooth surface, the friction forces generated by the tarsal hai",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 161,
+   "t": 350.57,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The dashed line indicates the ants’ body weight (82 μN).",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 162,
+   "t": 350.58,
+   "kind": "step",
+   "what": "other table",
+   "note": "'Fz_smooth_30mN (µN)' is in EndleinFederle_Data_PONE-D-15-22788.xlsx/Fig6_7_8, read in the claim's unit (μN)",
+   "ref": ""
+  },
+  {
+   "i": 163,
+   "t": 350.58,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: The buckling forces on the smooth surface were 117±58 μN, 158±61 μN an",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 164,
+   "t": 350.58,
+   "kind": "step",
+   "what": "other table",
+   "note": "'Fz_smooth_60mN (µN)' is in EndleinFederle_Data_PONE-D-15-22788.xlsx/Fig6_7_8, read in the claim's unit (μN)",
+   "ref": ""
+  },
+  {
+   "i": 165,
+   "t": 350.58,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: The buckling forces on the smooth surface were 117±58 μN, 158±61 μN an",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 166,
+   "t": 350.59,
+   "kind": "step",
+   "what": "other table",
+   "note": "'Fz_smooth_100mN (µN)' is in EndleinFederle_Data_PONE-D-15-22788.xlsx/Fig6_7_8, read in the claim's unit (μN)",
+   "ref": ""
+  },
+  {
+   "i": 167,
+   "t": 350.59,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: The buckling forces on the smooth surface were 117±58 μN, 158±61 μN an",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 168,
+   "t": 350.59,
+   "kind": "step",
+   "what": "other table",
+   "note": "'Fz_rough_30mN (µN)' is in EndleinFederle_Data_PONE-D-15-22788.xlsx/Fig6_7_8, read in the claim's unit (μN)",
+   "ref": ""
+  },
+  {
+   "i": 169,
+   "t": 350.6,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: The buckling forces on the smooth surface were 117±58 μN, 158±61 μN an",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 170,
+   "t": 350.6,
+   "kind": "step",
+   "what": "other table",
+   "note": "'Fz_rough_60mN (µN)' is in EndleinFederle_Data_PONE-D-15-22788.xlsx/Fig6_7_8, read in the claim's unit (μN)",
+   "ref": ""
+  },
+  {
+   "i": 171,
+   "t": 350.6,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: The buckling forces on the smooth surface were 117±58 μN, 158±61 μN an",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 172,
+   "t": 350.61,
+   "kind": "step",
+   "what": "other table",
+   "note": "'Fz_rough_100mN (µN)' is in EndleinFederle_Data_PONE-D-15-22788.xlsx/Fig6_7_8, read in the claim's unit (μN)",
+   "ref": ""
+  },
+  {
+   "i": 173,
+   "t": 350.61,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: The buckling forces on the smooth surface were 117±58 μN, 158±61 μN an",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 174,
+   "t": 350.62,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: Freely walking ants produced pushing shear forces below 100 μN (maximu",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 175,
+   "t": 350.63,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: Freely walking ants produced pushing shear forces below 100 μN (maximu",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 176,
+   "t": 350.63,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The contacts were up to 31.5 μm long (mean 23.8±7.7 μm) and tapered di",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 177,
+   "t": 350.64,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The contacts were up to 31.5 μm long (mean 23.8±7.7 μm) and tapered di",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 178,
+   "t": 350.65,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The contacts were up to 31.5 μm long (mean 23.8±7.7 μm) and tapered di",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 179,
+   "t": 350.65,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Towards the hair base (>10 μm away from the tip) the contacts were up ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 180,
+   "t": 350.66,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Towards the hair base (>10 μm away from the tip) the contacts were up ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 181,
+   "t": 350.66,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The total area covered was approx. 45 μm2.",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 182,
+   "t": 350.67,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: The ants held their body weight mainly by pulling with legs above the ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 183,
+   "t": 350.67,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: When weaver ants climbed upwards, their hind limbs produced peak anti-",
+   "ref": "",
+   "on": null
+  }
+ ],
+ "verdicts": [],
+ "summary": {
+  "status": "complete",
+  "claims": {
+   "MATCHES TABLE": 4,
+   "REFUSED": 16,
+   "NOT CHECKED": 14
+  },
+  "videos": {},
+  "finished": "2026-10-28T19:55:00+00:00",
+  "wall_s": 350.7
+ }
+}

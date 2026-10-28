@@ -1,0 +1,768 @@
+{
+ "run_id": "sprintpape_0332479-20261028",
+ "started": "2026-10-28T19:56:50+00:00",
+ "commit": "7cf697ae7d51417a0cbfa02ba9dcbf8501a63b95",
+ "inputs": {
+  "DATA_Velocity and Traditional PAPE.xlsx": "f778822a7aea2a12752713520e34d0f2558d182df8b6fb274286e2b2ece6d434",
+  "paper.pdf": "55606e92f43ba648317c367a8e99354bed3bb179d0e413f09dd58e5c04181f6c",
+  "source.json": "b7333220a1bb2cdffcd204e90e95671fec856c8220f28e3c6a7b9b0d0719eb5b"
+ },
+ "checks_sha256": "b8a6e7a11527dba91bd08e6891ef75bae5ba5223667255507e481d1721f43fda",
+ "events": [
+  {
+   "i": 0,
+   "t": 0.0,
+   "kind": "step",
+   "what": "inventory",
+   "note": "1 pdf, 0 video, 1 table, 0 archive files",
+   "ref": ""
+  },
+  {
+   "i": 1,
+   "t": 0.1,
+   "kind": "step",
+   "what": "paper",
+   "note": "paper.pdf chosen as the paper",
+   "ref": ""
+  },
+  {
+   "i": 2,
+   "t": 0.1,
+   "kind": "gate",
+   "gate": "G0 licence",
+   "ok": true,
+   "note": "CC BY: Tutar et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distributio",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 3,
+   "t": 0.11,
+   "kind": "step",
+   "what": "read files",
+   "note": "91327 chars of PDF text, 1 table sheets, 0 scripts",
+   "ref": ""
+  },
+  {
+   "i": 4,
+   "t": 53.41,
+   "kind": "model",
+   "role": "plan",
+   "model": "muse-spark-1.3",
+   "tokens": 52143,
+   "seconds": 53.3,
+   "proposal": "v1: 28 claims, event table ANALIZ, 0 videos, authors' method unknown",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 5,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'age;18.10±0.71 years': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 6,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'height;180±5,7cm': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 7,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'weight:73.23±6.82kg': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 8,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'training age:5.0±1.0 years': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 9,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1RM;125±20.87': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 10,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.74±0.08': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 11,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.74±0.08' rows: rows where 'Grup' = '2'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 12,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.76±0.08': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 13,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.76±0.08' rows: rows where 'Grup' = '2'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 14,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '2.92±0.25': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 15,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '2.92±0.25' rows: rows where 'Grup' = '2'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 16,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '2.89±0.24': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 17,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '2.89±0.24' rows: rows where 'Grup' = '2'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 18,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '4.44±0.21': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 19,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '4.44±0.21' rows: rows where 'Grup' = '2'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 20,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '4.45±0.22': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 21,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '4.45±0.22' rows: rows where 'Grup' = '2'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 22,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.74±0.07': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 23,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.74±0.07' rows: rows where 'Grup' = '1'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 24,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.73±0.07': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 25,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.73±0.07' rows: rows where 'Grup' = '1'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 26,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '3.07±0.11': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 27,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '3.07±0.11' rows: rows where 'Grup' = '1'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 28,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '3.05±0.10': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 29,
+   "t": 53.55,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '3.05±0.10' rows: rows where 'Grup' = '1'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 30,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '4.13±0.26': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 31,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '4.13±0.26' rows: rows where 'Grup' = '1'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 32,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '4.10±0.26': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 33,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '4.10±0.26' rows: rows where 'Grup' = '1'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 34,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.77±0.08': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 35,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.77±0.08' rows: rows where 'Grup' = '3'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 36,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.77±0.07': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 37,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.77±0.07' rows: rows where 'Grup' = '3'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 38,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '3.08±0.08': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 39,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '3.08±0.08' rows: rows where 'Grup' = '3'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 40,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '4.38±0.27': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 41,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '4.38±0.27' rows: rows where 'Grup' = '3'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 42,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The bar velocity during squats was set to be betwe': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 43,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The bar velocity during squats was set to be betwe': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 44,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'placed at the starting line (0 m) and at 10 m, 20 ': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 45,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'placed at the starting line (0 m) and at 10 m, 20 ': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 46,
+   "t": 53.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'placed at the starting line (0 m) and at 10 m, 20 ': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 47,
+   "t": 53.56,
+   "kind": "step",
+   "what": "plan accepted",
+   "note": "v1 (0 needed fields still rejected)",
+   "ref": ""
+  },
+  {
+   "i": 48,
+   "t": 53.56,
+   "kind": "step",
+   "what": "spread convention",
+   "note": "the paper states 'mean ± standard deviation': a '±' of unknown type is read as SD",
+   "ref": ""
+  },
+  {
+   "i": 49,
+   "t": 53.58,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: age;18.10±0.71 years",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 50,
+   "t": 53.58,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: height;180±5,7cm",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 51,
+   "t": 53.59,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: weight:73.23±6.82kg",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 52,
+   "t": 53.59,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: training age:5.0±1.0 years",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 53,
+   "t": 53.59,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: 1RM;125±20.87",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 54,
+   "t": 53.6,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 1.74±0.08",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 55,
+   "t": 53.6,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 1.76±0.08",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 56,
+   "t": 53.61,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 2.92±0.25",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 57,
+   "t": 53.61,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 2.89±0.24",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 58,
+   "t": 53.61,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 4.44±0.21",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 59,
+   "t": 53.62,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 4.45±0.22",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 60,
+   "t": 53.62,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 1.74±0.07",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 61,
+   "t": 53.62,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 1.73±0.07",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 62,
+   "t": 53.63,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 3.07±0.11",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 63,
+   "t": 53.63,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 3.05±0.10",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 64,
+   "t": 53.63,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 4.13±0.26",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 65,
+   "t": 53.64,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 4.10±0.26",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 66,
+   "t": 53.64,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 1.77±0.08",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 67,
+   "t": 53.64,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 1.77±0.07",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 68,
+   "t": 53.65,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 3.08±0.08",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 69,
+   "t": 53.65,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES OTHER COLUMN: 4.38±0.27",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 70,
+   "t": 53.65,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The bar velocity during squats was set to be between 0.75–1.00 m/",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 71,
+   "t": 53.66,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The bar velocity during squats was set to be between 0.75–1.00 m/",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 72,
+   "t": 53.66,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 73,
+   "t": 53.66,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 74,
+   "t": 53.67,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: placed at the starting line (0 m) and at 10 m, 20 m and 30 m from the ",
+   "ref": "",
+   "on": null
+  }
+ ],
+ "verdicts": [],
+ "summary": {
+  "status": "complete",
+  "claims": {
+   "MATCHES TABLE": 16,
+   "NOT CHECKED": 3,
+   "REFUSED": 6,
+   "MATCHES OTHER COLUMN": 1
+  },
+  "videos": {},
+  "finished": "2026-10-28T19:57:44+00:00",
+  "wall_s": 53.7
+ }
+}

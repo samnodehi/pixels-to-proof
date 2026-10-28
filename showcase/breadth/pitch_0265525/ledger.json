@@ -1,0 +1,339 @@
+{
+ "run_id": "pitch_0265525-20261028",
+ "started": "2026-10-28T19:55:00+00:00",
+ "commit": "7cf697ae7d51417a0cbfa02ba9dcbf8501a63b95",
+ "inputs": {
+  "baseball__Dataset.csv": "bd478bad3c5d2e62b3f86727dec26564e2c9304a8476f1ab323dc585bf494ad1",
+  "paper.pdf": "bf506458a39744ab5d4361aeed0c3fb523df7acf3a4339c9a2dc3013b6ed6e70",
+  "source.json": "4b664ca78a42f43445bc9e667b2b18d80a059aeff5413edc3f93c1a1c6433702"
+ },
+ "checks_sha256": "b8a6e7a11527dba91bd08e6891ef75bae5ba5223667255507e481d1721f43fda",
+ "events": [
+  {
+   "i": 0,
+   "t": 0.0,
+   "kind": "step",
+   "what": "inventory",
+   "note": "1 pdf, 0 video, 1 table, 0 archive files",
+   "ref": ""
+  },
+  {
+   "i": 1,
+   "t": 0.12,
+   "kind": "step",
+   "what": "paper",
+   "note": "paper.pdf chosen as the paper",
+   "ref": ""
+  },
+  {
+   "i": 2,
+   "t": 0.12,
+   "kind": "gate",
+   "gate": "G0 licence",
+   "ok": true,
+   "note": "CC BY: Huang et al. This is an open access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distributio",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 3,
+   "t": 0.12,
+   "kind": "step",
+   "what": "read files",
+   "note": "85983 chars of PDF text, 1 table sheets, 0 scripts",
+   "ref": ""
+  },
+  {
+   "i": 4,
+   "t": 83.85,
+   "kind": "model",
+   "role": "plan",
+   "model": "muse-spark-1.3",
+   "tokens": 49529,
+   "seconds": 83.7,
+   "proposal": "v1: 12 claims, event table baseball__Dataset, 0 videos, authors' method other",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 5,
+   "t": 83.9,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 column cmjnw range: 0.2111..0.5293 in SI",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 6,
+   "t": 83.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 column cmjw range: 0.2142..0.4713 in SI",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 7,
+   "t": 83.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'age: 23.9 ± 2.8 years': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 8,
+   "t": 83.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'height: 180.3 ± 5.9 cm': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 9,
+   "t": 83.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'weight: 81.4 ± 10.9 kg': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 10,
+   "t": 83.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'ERROM (˚) 107.7 7.8': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 11,
+   "t": 83.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'IRROM (˚) 52.5 11.3': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 12,
+   "t": 83.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Sprint10 (sec) 1.82 0.08': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 13,
+   "t": 83.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Sprint30 (sec) 4.05 0.17': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 14,
+   "t": 83.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Sprintratio 0.45 0.02': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 15,
+   "t": 83.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'CMJloaded (cm) 35.49 5.29': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 16,
+   "t": 83.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'CMJloaded (cm) 42.97 2.83': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 17,
+   "t": 83.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'CMJratio 0.83 0.07': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 18,
+   "t": 83.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'they demonstrated a pitching velocity of less than': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 19,
+   "t": 83.91,
+   "kind": "step",
+   "what": "plan accepted",
+   "note": "v1 (0 needed fields still rejected)",
+   "ref": ""
+  },
+  {
+   "i": 20,
+   "t": 83.93,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: age: 23.9 ± 2.8 years",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 21,
+   "t": 83.93,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: height: 180.3 ± 5.9 cm",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 22,
+   "t": 83.93,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: weight: 81.4 ± 10.9 kg",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 23,
+   "t": 83.94,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: ERROM (˚) 107.7 7.8",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 24,
+   "t": 83.94,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: IRROM (˚) 52.5 11.3",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 25,
+   "t": 83.94,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: Sprint10 (sec) 1.82 0.08",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 26,
+   "t": 83.95,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: Sprint30 (sec) 4.05 0.17",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 27,
+   "t": 83.95,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Sprintratio 0.45 0.02",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 28,
+   "t": 83.95,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: CMJloaded (cm) 35.49 5.29",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 29,
+   "t": 83.96,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: CMJloaded (cm) 42.97 2.83",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 30,
+   "t": 83.96,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: CMJratio 0.83 0.07",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 31,
+   "t": 83.97,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: they demonstrated a pitching velocity of less than 130 km/h",
+   "ref": "",
+   "on": null
+  }
+ ],
+ "verdicts": [],
+ "summary": {
+  "status": "complete",
+  "claims": {
+   "REFUSED": 5,
+   "NOT CHECKED": 6,
+   "MATCHES TABLE": 1
+  },
+  "videos": {},
+  "finished": "2026-10-28T19:56:24+00:00",
+  "wall_s": 84.0
+ }
+}

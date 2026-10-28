@@ -1,0 +1,831 @@
+{
+ "run_id": "guineafowl_0100399-20261028",
+ "started": "2026-10-28T19:50:28+00:00",
+ "commit": "7cf697ae7d51417a0cbfa02ba9dcbf8501a63b95",
+ "inputs": {
+  "GFData_stepVariables.csv": "6dd1a263530828bd8c01164e5a3a14f397c86bfb38f388ebca8d5a5d9f3ee2cc",
+  "paper.pdf": "b9288f8e748b8c08f754efdcca3e957643ebfbd2b8921e3f9e7b3ce7633f9e5c",
+  "source.json": "a67a9d23888063696d8af8f0c123bf285029ef7744f227d516f680acec3778f3"
+ },
+ "checks_sha256": "b8a6e7a11527dba91bd08e6891ef75bae5ba5223667255507e481d1721f43fda",
+ "events": [
+  {
+   "i": 0,
+   "t": 0.0,
+   "kind": "step",
+   "what": "inventory",
+   "note": "1 pdf, 0 video, 1 table, 0 archive files",
+   "ref": ""
+  },
+  {
+   "i": 1,
+   "t": 0.16,
+   "kind": "step",
+   "what": "paper",
+   "note": "paper.pdf chosen as the paper",
+   "ref": ""
+  },
+  {
+   "i": 2,
+   "t": 0.17,
+   "kind": "gate",
+   "gate": "G0 licence",
+   "ok": true,
+   "note": "CC BY: 4 Blum et al. This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distributi",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 3,
+   "t": 0.26,
+   "kind": "step",
+   "what": "read files",
+   "note": "177129 chars of PDF text, 1 table sheets, 0 scripts",
+   "ref": ""
+  },
+  {
+   "i": 4,
+   "t": 62.73,
+   "kind": "model",
+   "role": "plan",
+   "model": "muse-spark-1.3",
+   "tokens": 69013,
+   "seconds": 62.4,
+   "proposal": "v1: 18 claims, event table GFData_stepVariables, 0 videos, authors' method other",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 5,
+   "t": 62.91,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'body mass m=1.39±0.24 kg': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 6,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'touch down (TD) leg length during level running LT': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 7,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'touch down (TD) leg length during level running LT' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 8,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'We analyzed a total of 367 running steps at speeds': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 9,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'We analyzed a total of 367 running steps at speeds': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 10,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'a runway with a 4 cm drop': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 11,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'a runway with a 4 cm drop' rows: rows where 'dropHeight' = '4 cm'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 12,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'a runway with a 6 cm drop': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 13,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'a runway with a 6 cm drop' rows: rows where 'dropHeight' = '6 cm'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 14,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'horizontal offset xoffset=0.032±0.015 m': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 15,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'vertical offset yoffset= −0.040±0.016 m': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 16,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'predicted by the model simulations for one forward': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 17,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '122.6 (5.4)': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 18,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '122.6 (5.4)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 19,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '-80.9 (15.5)': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 20,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.00 (0.03)': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 21,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.00 (0.03)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 22,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.25 (0.22)': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 23,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.25 (0.22)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 24,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '11.9 (3.8)': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 25,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '11.9 (3.8)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 26,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '2.21 (0.36)': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 27,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '2.21 (0.36)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 28,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.01 (0.20)': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 29,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '1.01 (0.20)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 30,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '0.01 (0.08)': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 31,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '0.01 (0.08)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 32,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '0.02 (0.17)': quote and value found in the PDF",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 33,
+   "t": 62.92,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '0.02 (0.17)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 4
+  },
+  {
+   "i": 34,
+   "t": 164.06,
+   "kind": "model",
+   "role": "re-propose plan",
+   "model": "muse-spark-1.3",
+   "tokens": 77553,
+   "seconds": 101.1,
+   "proposal": "v2: 12 claims, event table GFData_stepVariables, 0 videos, authors' method other",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 35,
+   "t": 164.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'body mass m=1.39±0.24 kg': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 36,
+   "t": 164.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'touch down (TD) leg length during level running LT': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 37,
+   "t": 164.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'touch down (TD) leg length during level running LT' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 38,
+   "t": 164.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'a runway with a 4 cm drop': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 39,
+   "t": 164.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'a runway with a 4 cm drop' rows: rows where 'dropHeight' = '4 cm'",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 40,
+   "t": 164.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'a runway with a 6 cm drop': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 41,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'a runway with a 6 cm drop' rows: rows where 'dropHeight' = '6 cm'",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 42,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'horizontal offset xoffset=0.032±0.015 m': quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 43,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '122.6 (5.4)': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 44,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '122.6 (5.4)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 45,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '1.00 (0.03)': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 46,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '1.00 (0.03)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 47,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '1.25 (0.22)': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 48,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '1.25 (0.22)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 49,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '11.9 (3.8)': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 50,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '11.9 (3.8)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 51,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '2.21 (0.36)': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 52,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '2.21 (0.36)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 53,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '1.01 (0.20)': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 54,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '1.01 (0.20)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 55,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '0.01 (0.08)': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 56,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '0.01 (0.08)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 57,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '0.02 (0.17)': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 58,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '0.02 (0.17)' rows: rows where 'stepType' = 'Level'",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 59,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '(sampling frequency 500 Hz)': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 60,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '(sampling frequency of 250 Hz)': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 61,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'We used three experimental terrain conditions: a l': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 62,
+   "t": 164.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'We used three experimental terrain conditions: a l': quote and value found in the PDF",
+   "ref": "",
+   "on": 34
+  },
+  {
+   "i": 63,
+   "t": 164.24,
+   "kind": "step",
+   "what": "plan accepted",
+   "note": "v2 (0 needed fields still rejected)",
+   "ref": ""
+  },
+  {
+   "i": 64,
+   "t": 164.28,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: body mass m=1.39±0.24 kg",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 65,
+   "t": 164.29,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: touch down (TD) leg length during level running LTD,Level=0.21±0.02 m",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 66,
+   "t": 164.3,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: a runway with a 4 cm drop",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 67,
+   "t": 164.3,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: a runway with a 6 cm drop",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 68,
+   "t": 164.31,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: horizontal offset xoffset=0.032±0.015 m",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 69,
+   "t": 164.32,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 122.6 (5.4)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 70,
+   "t": 164.32,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 1.00 (0.03)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 71,
+   "t": 164.33,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 1.25 (0.22)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 72,
+   "t": 164.34,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 11.9 (3.8)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 73,
+   "t": 164.34,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 2.21 (0.36)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 74,
+   "t": 164.35,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 1.01 (0.20)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 75,
+   "t": 164.35,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 0.01 (0.08)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 76,
+   "t": 164.36,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: 0.02 (0.17)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 77,
+   "t": 164.37,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: (sampling frequency 500 Hz)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 78,
+   "t": 164.37,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: (sampling frequency of 250 Hz)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 79,
+   "t": 164.38,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: We used three experimental terrain conditions: a level runway, a runwa",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 80,
+   "t": 164.38,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: We used three experimental terrain conditions: a level runway, a runwa",
+   "ref": "",
+   "on": null
+  }
+ ],
+ "verdicts": [],
+ "summary": {
+  "status": "complete",
+  "claims": {
+   "REFUSED": 8,
+   "NOT CHECKED": 1,
+   "MATCHES TABLE": 8
+  },
+  "videos": {},
+  "finished": "2026-10-28T19:53:12+00:00",
+  "wall_s": 164.4
+ }
+}

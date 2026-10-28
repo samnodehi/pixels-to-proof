@@ -1,0 +1,1195 @@
+{
+  "plan": {
+    "authors_speed_method": {
+      "evidence": "This was done by identifying the ballistic velocity and take-off angle that would allow minimum Root Mean Square Deviation between the real trajectory and the theoretical ballistic trajectory.",
+      "family": "ballistic_fit",
+      "parameters": "track nominal centre of mass in PCC 2.7, export x-z-t to Matlab, derive velocities/angles along trajectory, then best-fit ballistic velocity and take-off angle by minimum RMS deviation between real and theoretical ballistic trajectory over whole track"
+    },
+    "claims": [
+      {
+        "n_events": 1,
+        "plus_minus": null,
+        "quantity": "mass",
+        "quote": "only one individual (female, body mass 150 mg, L = 15 mm) showed any inclination to jump as required",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": "Body Mass, m (mg)",
+        "unit": "mg",
+        "value": 150.0
+      },
+      {
+        "n_events": 1,
+        "plus_minus": null,
+        "quantity": "body_length",
+        "quote": "only one individual (female, body mass 150 mg, L = 15 mm) showed any inclination to jump as required",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": "Body Length, L (mm)",
+        "unit": "mm",
+        "value": 15.0
+      },
+      {
+        "n_events": 15,
+        "plus_minus": null,
+        "quantity": "takeoff_speed",
+        "quote": "The velocity at take-off varies between 0.52m/s and 0.97m/s.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": "Take-off Velocity, v (m/sec)",
+        "unit": "m/s",
+        "value": 0.52
+      },
+      {
+        "n_events": 15,
+        "plus_minus": null,
+        "quantity": "takeoff_speed",
+        "quote": "The velocity at take-off varies between 0.52m/s and 0.97m/s.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "Take-off Velocity, v (m/sec)",
+        "unit": "m/s",
+        "value": 0.97
+      },
+      {
+        "n_events": 15,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "The time to take-off varies between 18.1 ms and 31.6 ms.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": "Time to Take-off, t (ms)",
+        "unit": "ms",
+        "value": 18.1
+      },
+      {
+        "n_events": 15,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "The time to take-off varies between 18.1 ms and 31.6 ms.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "Time to Take-off, t (ms)",
+        "unit": "ms",
+        "value": 31.6
+      },
+      {
+        "n_events": 15,
+        "plus_minus": null,
+        "quantity": "acceleration",
+        "quote": "The minimum and maximum values of acceleration are 1.68 g and 5.43 g",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": "g-force, g-f [g-f=a/9.81]",
+        "unit": "g",
+        "value": 1.68
+      },
+      {
+        "n_events": 15,
+        "plus_minus": null,
+        "quantity": "acceleration",
+        "quote": "The minimum and maximum values of acceleration are 1.68 g and 5.43 g",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "g-force, g-f [g-f=a/9.81]",
+        "unit": "g",
+        "value": 5.43
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "jump_distance",
+        "quote": "Parry and Brown19 assessed the jumping performance of Sitticus pubescens jumping across a horizontal gap of approximately 50 mm (around 10 body lengths) reporting a take-off speed of 0.67 m/s, and acceleration of 5.23 g.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": null,
+        "unit": "mm",
+        "value": 50.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "takeoff_speed",
+        "quote": "Parry and Brown19 assessed the jumping performance of Sitticus pubescens jumping across a horizontal gap of approximately 50 mm (around 10 body lengths) reporting a take-off speed of 0.67 m/s, and acceleration of 5.23 g.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": null,
+        "unit": "m/s",
+        "value": 0.67
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "acceleration",
+        "quote": "Parry and Brown19 assessed the jumping performance of Sitticus pubescens jumping across a horizontal gap of approximately 50 mm (around 10 body lengths) reporting a take-off speed of 0.67 m/s, and acceleration of 5.23 g.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": null,
+        "unit": "g",
+        "value": 5.23
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "The former is 4.1 mm long in the scanned specimen and bears prominent eyes",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": null,
+        "unit": "mm",
+        "value": 4.1
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "The latter (length 7.6 mm) is separated from the prosoma by a narrow, flexible portion",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": null,
+        "unit": "mm",
+        "value": 7.6
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "leg 1 (10.4 mm total length) and 4 (10.5 mm) are the longest, with leg 2 and 3 both totalling 8.4 mm in length.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": null,
+        "unit": "mm",
+        "value": 10.4
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "leg 1 (10.4 mm total length) and 4 (10.5 mm) are the longest, with leg 2 and 3 both totalling 8.4 mm in length.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": null,
+        "unit": "mm",
+        "value": 10.5
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "leg 1 (10.4 mm total length) and 4 (10.5 mm) are the longest, with leg 2 and 3 both totalling 8.4 mm in length.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": null,
+        "unit": "mm",
+        "value": 8.4
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "takeoff_speed",
+        "quote": "The reference maximum take-off velocity used here is equal to 1 m/s based on the take-off velocity values shown in Fig. 6a.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "Take-off Velocity, v (m/sec)",
+        "unit": "m/s",
+        "value": 1.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": 0.03,
+        "quantity": "other",
+        "quote": "The drag coefficient calculated based on the relation recommended in22,30 is approximately 0.63 ± 0.03 (see Supplementary Dataset S3).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "unknown",
+        "statistic": "mean",
+        "table_column": "Drag Coefficient",
+        "unit": "ratio",
+        "value": 0.63
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "Based on these values, the maximum aerodynamic drag for the highest speed take-offs is less than 4.2% of the weight of the spider (see Supplementary Dataset S3)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "Drag Force to Spider Weight (%)",
+        "unit": "%",
+        "value": 4.2
+      },
+      {
+        "n_events": 15,
+        "plus_minus": null,
+        "quantity": "takeoff_angle",
+        "quote": "The take-off angle varies between −10.5 degrees and 53.5 degrees.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "range",
+        "statistic": "max",
+        "table_column": "Take-off Angle, θ (deg)",
+        "unit": "deg",
+        "value": 53.5
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "jump_distance",
+        "quote": "Hill reported a maximum horizontal jump distance of 60 mm (around 4 body lengths) for which a take-off speed of 0.83 m/s, and an acceleration of 5.24 g were measured.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "Reported Level Jump Distance, R (mm)",
+        "unit": "mm",
+        "value": 60
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "takeoff_speed",
+        "quote": "Hill reported a maximum horizontal jump distance of 60 mm (around 4 body lengths) for which a take-off speed of 0.83 m/s, and an acceleration of 5.24 g were measured.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": "Take-off Velocity, v (m/sec)",
+        "unit": "m/s",
+        "value": 0.83
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "acceleration",
+        "quote": "Hill reported a maximum horizontal jump distance of 60 mm (around 4 body lengths) for which a take-off speed of 0.83 m/s, and an acceleration of 5.24 g were measured.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": "Acceleration, a (m/sec2) [a=v/t]",
+        "unit": "g",
+        "value": 5.24
+      }
+    ],
+    "event_table": {
+      "columns": [
+        {
+          "evidence": "",
+          "name": "S/N",
+          "quantity": "event_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "Animal",
+          "quantity": "animal_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "Species",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "The horizontal displacement was varied between 2L and 5L, and the vertical displacement between negative 2L and positive 2L",
+          "name": "Gap x-Distance, x (mm)",
+          "quantity": "other_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mm"
+        },
+        {
+          "evidence": "The horizontal displacement was varied between 2L and 5L, and the vertical displacement between negative 2L and positive 2L",
+          "name": "Gap y-Distance, y (mm)",
+          "quantity": "other_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mm"
+        },
+        {
+          "evidence": "only one individual (female, body mass 150 mg, L = 15 mm) showed any inclination to jump as required",
+          "name": "Body Mass, m (mg)",
+          "quantity": "mass",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mg"
+        },
+        {
+          "evidence": "only one individual (female, body mass 150 mg, L = 15 mm) showed any inclination to jump as required",
+          "name": "Body Length, L (mm)",
+          "quantity": "body_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mm"
+        },
+        {
+          "evidence": "The velocity at take-off varies between 0.52m/s and 0.97m/s.",
+          "name": "Take-off Velocity, v (m/sec)",
+          "quantity": "takeoff_speed",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m/s"
+        },
+        {
+          "evidence": "The time to take-off varies between 18.1 ms and 31.6 ms.",
+          "name": "Time to Take-off, t (ms)",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "ms"
+        },
+        {
+          "evidence": "The take-off angle varies between −10.5 degrees and 53.5 degrees.",
+          "name": "Take-off Angle, θ (deg)",
+          "quantity": "takeoff_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "deg"
+        },
+        {
+          "evidence": "The minimum and maximum values of acceleration are 1.68 g and 5.43 g",
+          "name": "Acceleration, a (m/sec2) [a=v/t]",
+          "quantity": "acceleration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m/s^2"
+        },
+        {
+          "evidence": "The minimum and maximum values of acceleration are 1.68 g and 5.43 g",
+          "name": "g-force, g-f [g-f=a/9.81]",
+          "quantity": "acceleration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "g"
+        },
+        {
+          "evidence": "",
+          "name": "Force at Take-off, F (mN) [F=ma]",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mN"
+        },
+        {
+          "evidence": "",
+          "name": "Reynolds Number at Take-off",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "ratio"
+        },
+        {
+          "evidence": "The drag coefficient calculated based on the relation recommended in22,30 is approximately 0.63 ± 0.03 (see Supplementary Dataset S3).",
+          "name": "Drag Coefficient",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "ratio"
+        },
+        {
+          "evidence": "",
+          "name": "Drag Force at Take-off (mN)",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mN"
+        },
+        {
+          "evidence": "Based on these values, the maximum aerodynamic drag for the highest speed take-offs is less than 4.2% of the weight of the spider (see Supplementary Dataset S3)",
+          "name": "Drag Force to Spider Weight (%)",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "%"
+        },
+        {
+          "evidence": "",
+          "name": "Kinetic Energy, KE (μJ) [KE=0.5mv2]",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "μJ"
+        },
+        {
+          "evidence": "",
+          "name": "Jumping Power, P (mW)   [P=KE/t]",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mW"
+        },
+        {
+          "evidence": "",
+          "name": "Power / Mass, SP (W/kg) [P/m]",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "W/kg"
+        }
+      ],
+      "file": "MOESM3_ESM.xlsx",
+      "rows_are": "one row per jumping task / jump (15 jumps by single Phidippus regius individual)",
+      "sheet": "Regius"
+    },
+    "object_phrase": "jumping spider",
+    "scale_reference": {
+      "evidence": "Background grid squares have dimensions L × L where L is the spider reference length (L = 15 mm).",
+      "kind": "grid",
+      "size_mm": 15.0
+    },
+    "title": "Energy and time optimal trajectories in exploratory jumps of the spider Phidippus regius",
+    "videos": [
+      {
+        "capture_fps": 3200,
+        "content": "title card, high-resolution CT anatomy, experimental setup diagram, procedure diagram and side-view high-speed montages of ascending jumps, level jumps, short-distance descending jumps and long-distance descending jumps (15 tasks total)",
+        "file": "MOESM2_ESM.mp4",
+        "fps_evidence": "operating at 3,200 frames per second with 1280 × 800 resolution",
+        "label": "Supplementary Movie S2"
+      }
+    ]
+  },
+  "checks": [
+    {
+      "field": "video MOESM2_ESM.mp4 fps",
+      "ok": true,
+      "note": "fps quote found and states the number"
+    },
+    {
+      "field": "column Take-off Velocity, v (m/sec) range",
+      "ok": true,
+      "note": "0.519..0.965 in SI"
+    },
+    {
+      "field": "column Take-off Angle, θ (deg) range",
+      "ok": true,
+      "note": "-10.5..53.5 in SI"
+    },
+    {
+      "field": "claim 'only one individual (female, body mass 150 mg, L ='",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'only one individual (female, body mass 150 mg, L ='",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The velocity at take-off varies between 0.52m/s an'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The velocity at take-off varies between 0.52m/s an'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The time to take-off varies between 18.1 ms and 31'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The time to take-off varies between 18.1 ms and 31'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The minimum and maximum values of acceleration are'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The minimum and maximum values of acceleration are'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Parry and Brown19 assessed the jumping performance'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Parry and Brown19 assessed the jumping performance'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Parry and Brown19 assessed the jumping performance'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The former is 4.1 mm long in the scanned specimen '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The latter (length 7.6 mm) is separated from the p'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'leg 1 (10.4 mm total length) and 4 (10.5 mm) are t'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'leg 1 (10.4 mm total length) and 4 (10.5 mm) are t'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'leg 1 (10.4 mm total length) and 4 (10.5 mm) are t'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The reference maximum take-off velocity used here '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The drag coefficient calculated based on the relat'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Based on these values, the maximum aerodynamic dra'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The take-off angle varies between −10.5 degrees an'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Hill reported a maximum horizontal jump distance o'",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    },
+    {
+      "field": "claim 'Hill reported a maximum horizontal jump distance o'",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    },
+    {
+      "field": "claim 'Hill reported a maximum horizontal jump distance o'",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    }
+  ],
+  "columns": {
+    "S/N": {
+      "evidence": "",
+      "name": "S/N",
+      "quantity": "event_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 0,
+      "si_factor": null
+    },
+    "Animal": {
+      "evidence": "",
+      "name": "Animal",
+      "quantity": "animal_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 1,
+      "si_factor": null
+    },
+    "Species": {
+      "evidence": "",
+      "name": "Species",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 2,
+      "si_factor": null
+    },
+    "Gap x-Distance, x (mm)": {
+      "evidence": "The horizontal displacement was varied between 2L and 5L, and the vertical displacement between negative 2L and positive 2L",
+      "name": "Gap x-Distance, x (mm)",
+      "quantity": "other_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mm",
+      "index": 3,
+      "si_factor": 0.001
+    },
+    "Gap y-Distance, y (mm)": {
+      "evidence": "The horizontal displacement was varied between 2L and 5L, and the vertical displacement between negative 2L and positive 2L",
+      "name": "Gap y-Distance, y (mm)",
+      "quantity": "other_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mm",
+      "index": 4,
+      "si_factor": 0.001
+    },
+    "Body Mass, m (mg)": {
+      "evidence": "only one individual (female, body mass 150 mg, L = 15 mm) showed any inclination to jump as required",
+      "name": "Body Mass, m (mg)",
+      "quantity": "mass",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mg",
+      "index": 5,
+      "si_factor": null
+    },
+    "Body Length, L (mm)": {
+      "evidence": "only one individual (female, body mass 150 mg, L = 15 mm) showed any inclination to jump as required",
+      "name": "Body Length, L (mm)",
+      "quantity": "body_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mm",
+      "index": 6,
+      "si_factor": 0.001
+    },
+    "Take-off Velocity, v (m/sec)": {
+      "evidence": "The velocity at take-off varies between 0.52m/s and 0.97m/s.",
+      "name": "Take-off Velocity, v (m/sec)",
+      "quantity": "takeoff_speed",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m/s",
+      "index": 7,
+      "si_factor": 1.0
+    },
+    "Time to Take-off, t (ms)": {
+      "evidence": "The time to take-off varies between 18.1 ms and 31.6 ms.",
+      "name": "Time to Take-off, t (ms)",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "ms",
+      "index": 8,
+      "si_factor": 0.001
+    },
+    "Take-off Angle, θ (deg)": {
+      "evidence": "The take-off angle varies between −10.5 degrees and 53.5 degrees.",
+      "name": "Take-off Angle, θ (deg)",
+      "quantity": "takeoff_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "deg",
+      "index": 9,
+      "si_factor": 1.0
+    },
+    "Acceleration, a (m/sec2) [a=v/t]": {
+      "evidence": "The minimum and maximum values of acceleration are 1.68 g and 5.43 g",
+      "name": "Acceleration, a (m/sec2) [a=v/t]",
+      "quantity": "acceleration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m/s^2",
+      "index": 10,
+      "si_factor": 1.0
+    },
+    "g-force, g-f [g-f=a/9.81]": {
+      "evidence": "The minimum and maximum values of acceleration are 1.68 g and 5.43 g",
+      "name": "g-force, g-f [g-f=a/9.81]",
+      "quantity": "acceleration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "g",
+      "index": 11,
+      "si_factor": null
+    },
+    "Force at Take-off, F (mN) [F=ma]": {
+      "evidence": "",
+      "name": "Force at Take-off, F (mN) [F=ma]",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mN",
+      "index": 12,
+      "si_factor": null
+    },
+    "Reynolds Number at Take-off": {
+      "evidence": "",
+      "name": "Reynolds Number at Take-off",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "ratio",
+      "index": 13,
+      "si_factor": null
+    },
+    "Drag Coefficient": {
+      "evidence": "The drag coefficient calculated based on the relation recommended in22,30 is approximately 0.63 ± 0.03 (see Supplementary Dataset S3).",
+      "name": "Drag Coefficient",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "ratio",
+      "index": 14,
+      "si_factor": null
+    },
+    "Drag Force at Take-off (mN)": {
+      "evidence": "",
+      "name": "Drag Force at Take-off (mN)",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mN",
+      "index": 15,
+      "si_factor": null
+    },
+    "Drag Force to Spider Weight (%)": {
+      "evidence": "Based on these values, the maximum aerodynamic drag for the highest speed take-offs is less than 4.2% of the weight of the spider (see Supplementary Dataset S3)",
+      "name": "Drag Force to Spider Weight (%)",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "%",
+      "index": 16,
+      "si_factor": null
+    },
+    "Kinetic Energy, KE (μJ) [KE=0.5mv2]": {
+      "evidence": "",
+      "name": "Kinetic Energy, KE (μJ) [KE=0.5mv2]",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "μJ",
+      "index": 17,
+      "si_factor": null
+    },
+    "Jumping Power, P (mW)   [P=KE/t]": {
+      "evidence": "",
+      "name": "Jumping Power, P (mW)   [P=KE/t]",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mW",
+      "index": 18,
+      "si_factor": null
+    },
+    "Power / Mass, SP (W/kg) [P/m]": {
+      "evidence": "",
+      "name": "Power / Mass, SP (W/kg) [P/m]",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "W/kg",
+      "index": 19,
+      "si_factor": null
+    }
+  },
+  "claims": [
+    {
+      "n_events": 1,
+      "plus_minus": null,
+      "quantity": "mass",
+      "quote": "only one individual (female, body mass 150 mg, L = 15 mm) showed any inclination to jump as required",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": "Body Mass, m (mg)",
+      "unit": "mg",
+      "value": 150.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 1,
+      "plus_minus": null,
+      "quantity": "body_length",
+      "quote": "only one individual (female, body mass 150 mg, L = 15 mm) showed any inclination to jump as required",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": "Body Length, L (mm)",
+      "unit": "mm",
+      "value": 15.0,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 15,
+      "plus_minus": null,
+      "quantity": "takeoff_speed",
+      "quote": "The velocity at take-off varies between 0.52m/s and 0.97m/s.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": "Take-off Velocity, v (m/sec)",
+      "unit": "m/s",
+      "value": 0.52,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 15,
+      "plus_minus": null,
+      "quantity": "takeoff_speed",
+      "quote": "The velocity at take-off varies between 0.52m/s and 0.97m/s.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "Take-off Velocity, v (m/sec)",
+      "unit": "m/s",
+      "value": 0.97,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 15,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "The time to take-off varies between 18.1 ms and 31.6 ms.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": "Time to Take-off, t (ms)",
+      "unit": "ms",
+      "value": 18.1,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 15,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "The time to take-off varies between 18.1 ms and 31.6 ms.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "Time to Take-off, t (ms)",
+      "unit": "ms",
+      "value": 31.6,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 15,
+      "plus_minus": null,
+      "quantity": "acceleration",
+      "quote": "The minimum and maximum values of acceleration are 1.68 g and 5.43 g",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": "g-force, g-f [g-f=a/9.81]",
+      "unit": "g",
+      "value": 1.68,
+      "si_factor": null
+    },
+    {
+      "n_events": 15,
+      "plus_minus": null,
+      "quantity": "acceleration",
+      "quote": "The minimum and maximum values of acceleration are 1.68 g and 5.43 g",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "g-force, g-f [g-f=a/9.81]",
+      "unit": "g",
+      "value": 5.43,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "jump_distance",
+      "quote": "Parry and Brown19 assessed the jumping performance of Sitticus pubescens jumping across a horizontal gap of approximately 50 mm (around 10 body lengths) reporting a take-off speed of 0.67 m/s, and acceleration of 5.23 g.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": null,
+      "unit": "mm",
+      "value": 50.0,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "takeoff_speed",
+      "quote": "Parry and Brown19 assessed the jumping performance of Sitticus pubescens jumping across a horizontal gap of approximately 50 mm (around 10 body lengths) reporting a take-off speed of 0.67 m/s, and acceleration of 5.23 g.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": null,
+      "unit": "m/s",
+      "value": 0.67,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "acceleration",
+      "quote": "Parry and Brown19 assessed the jumping performance of Sitticus pubescens jumping across a horizontal gap of approximately 50 mm (around 10 body lengths) reporting a take-off speed of 0.67 m/s, and acceleration of 5.23 g.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": null,
+      "unit": "g",
+      "value": 5.23,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "The former is 4.1 mm long in the scanned specimen and bears prominent eyes",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": null,
+      "unit": "mm",
+      "value": 4.1,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "The latter (length 7.6 mm) is separated from the prosoma by a narrow, flexible portion",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": null,
+      "unit": "mm",
+      "value": 7.6,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "leg 1 (10.4 mm total length) and 4 (10.5 mm) are the longest, with leg 2 and 3 both totalling 8.4 mm in length.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": null,
+      "unit": "mm",
+      "value": 10.4,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "leg 1 (10.4 mm total length) and 4 (10.5 mm) are the longest, with leg 2 and 3 both totalling 8.4 mm in length.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": null,
+      "unit": "mm",
+      "value": 10.5,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "leg 1 (10.4 mm total length) and 4 (10.5 mm) are the longest, with leg 2 and 3 both totalling 8.4 mm in length.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": null,
+      "unit": "mm",
+      "value": 8.4,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "takeoff_speed",
+      "quote": "The reference maximum take-off velocity used here is equal to 1 m/s based on the take-off velocity values shown in Fig. 6a.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "Take-off Velocity, v (m/sec)",
+      "unit": "m/s",
+      "value": 1.0,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": 0.03,
+      "quantity": "other",
+      "quote": "The drag coefficient calculated based on the relation recommended in22,30 is approximately 0.63 ± 0.03 (see Supplementary Dataset S3).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "unknown",
+      "statistic": "mean",
+      "table_column": "Drag Coefficient",
+      "unit": "ratio",
+      "value": 0.63,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "Based on these values, the maximum aerodynamic drag for the highest speed take-offs is less than 4.2% of the weight of the spider (see Supplementary Dataset S3)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "Drag Force to Spider Weight (%)",
+      "unit": "%",
+      "value": 4.2,
+      "si_factor": null
+    },
+    {
+      "n_events": 15,
+      "plus_minus": null,
+      "quantity": "takeoff_angle",
+      "quote": "The take-off angle varies between −10.5 degrees and 53.5 degrees.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "range",
+      "statistic": "max",
+      "table_column": "Take-off Angle, θ (deg)",
+      "unit": "deg",
+      "value": 53.5,
+      "si_factor": 1.0
+    }
+  ]
+}

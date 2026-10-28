@@ -1,0 +1,296 @@
+{
+ "run_id": "guineafowl_0100399-20261028",
+ "bundle": "guineafowl_0100399",
+ "claims": [
+  {
+   "source": "paper",
+   "quote": "body mass m=1.39±0.24 kg",
+   "quantity": "mass",
+   "value": 1.39,
+   "plus_minus": 0.24,
+   "unit": "kg",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "touch down (TD) leg length during level running LTD,Level=0.21±0.02 m",
+   "quantity": "other_length",
+   "value": 0.21,
+   "plus_minus": 0.02,
+   "unit": "m",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "stepType = Level",
+   "outcome": "NOT CHECKED",
+   "reason": "no column of this dimension reproduces the printed digits",
+   "evidence": {}
+  },
+  {
+   "source": "paper",
+   "quote": "a runway with a 4 cm drop",
+   "quantity": "end_height",
+   "value": 4.0,
+   "plus_minus": null,
+   "unit": "cm",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "dropHeight = 4 cm",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "a runway with a 6 cm drop",
+   "quantity": "end_height",
+   "value": 6.0,
+   "plus_minus": null,
+   "unit": "cm",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "dropHeight = 6 cm",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "horizontal offset xoffset=0.032±0.015 m",
+   "quantity": "other_length",
+   "value": 0.032,
+   "plus_minus": 0.015,
+   "unit": "m",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "122.6 (5.4)",
+   "quantity": "body_angle",
+   "value": 122.6,
+   "plus_minus": 5.4,
+   "unit": "deg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "stepType = Level",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 167 rows of 'aTD' (rows where stepType = Level) reproduces the printed digits",
+   "evidence": {
+    "column": "aTD",
+    "n_rows": 167,
+    "table_value": 122.6065165976048,
+    "table_sd": 5.447312475874157,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "1.00 (0.03)",
+   "quantity": "other_length",
+   "value": 1.0,
+   "plus_minus": 0.03,
+   "unit": "L0",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "stepType = Level",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 167 rows of 'LTD' (rows where stepType = Level) reproduces the printed digits",
+   "evidence": {
+    "column": "LTD",
+    "n_rows": 167,
+    "table_value": 0.9999999999640719,
+    "table_sd": 0.031017809750657963,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "1.25 (0.22)",
+   "quantity": "other_speed",
+   "value": 1.25,
+   "plus_minus": 0.22,
+   "unit": "L0/T",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "stepType = Level",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 167 rows of 'LdotTD_sc' (rows where stepType = Level) reproduces the printed digits",
+   "evidence": {
+    "column": "LdotTD_sc",
+    "n_rows": 167,
+    "table_value": 1.2520944386586825,
+    "table_sd": 0.21615000656565994,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "11.9 (3.8)",
+   "quantity": "other",
+   "value": 11.9,
+   "plus_minus": 3.8,
+   "unit": "BW/L0",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "stepType = Level",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 167 rows of 'kLeg' (rows where stepType = Level) reproduces the printed digits",
+   "evidence": {
+    "column": "kLeg",
+    "n_rows": 167,
+    "table_value": 11.93557959754491,
+    "table_sd": 3.7826996723056436,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "2.21 (0.36)",
+   "quantity": "other",
+   "value": 2.21,
+   "plus_minus": 0.36,
+   "unit": "BW",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "stepType = Level",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 167 rows of 'FmaxLeg_sc' (rows where stepType = Level) reproduces the printed digits",
+   "evidence": {
+    "column": "FmaxLeg_sc",
+    "n_rows": 167,
+    "table_value": 2.209788029389222,
+    "table_sd": 0.3597459636124921,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "1.01 (0.20)",
+   "quantity": "other",
+   "value": 1.01,
+   "plus_minus": 0.2,
+   "unit": "BW T",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "stepType = Level",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 167 rows of 'ILeg' (rows where stepType = Level) reproduces the printed digits",
+   "evidence": {
+    "column": "ILeg",
+    "n_rows": 167,
+    "table_value": 1.0143077556347306,
+    "table_sd": 0.1959190486381014,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "0.01 (0.08)",
+   "quantity": "other",
+   "value": 0.01,
+   "plus_minus": 0.08,
+   "unit": "BW T",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "stepType = Level",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 167 rows of 'Ix' (rows where stepType = Level) reproduces the printed digits",
+   "evidence": {
+    "column": "Ix",
+    "n_rows": 167,
+    "table_value": 0.013511242808383235,
+    "table_sd": 0.07890467136911074,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "0.02 (0.17)",
+   "quantity": "other",
+   "value": 0.02,
+   "plus_minus": 0.17,
+   "unit": "BW L0",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "stepType = Level",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 167 rows of 'dECoM' (rows where stepType = Level) reproduces the printed digits",
+   "evidence": {
+    "column": "dECoM",
+    "n_rows": 167,
+    "table_value": 0.01685169417964072,
+    "table_sd": 0.17315761507953256,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "(sampling frequency 500 Hz)",
+   "quantity": "other",
+   "value": 500.0,
+   "plus_minus": null,
+   "unit": "Hz",
+   "statistic": "other",
+   "route": "refuse: unit 'Hz' is not one the agent can measure or convert",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "unit 'Hz' is not one the agent can measure or convert"
+  },
+  {
+   "source": "paper",
+   "quote": "(sampling frequency of 250 Hz)",
+   "quantity": "other",
+   "value": 250.0,
+   "plus_minus": null,
+   "unit": "Hz",
+   "statistic": "other",
+   "route": "refuse: unit 'Hz' is not one the agent can measure or convert",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "unit 'Hz' is not one the agent can measure or convert"
+  },
+  {
+   "source": "paper",
+   "quote": "We used three experimental terrain conditions: a level runway, a runway with a 4 cm drop and a runway with a 6 cm drop (figure 1(A)).",
+   "quantity": "other_length",
+   "value": 4.0,
+   "plus_minus": null,
+   "unit": "cm",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  },
+  {
+   "source": "paper",
+   "quote": "We used three experimental terrain conditions: a level runway, a runway with a 4 cm drop and a runway with a 6 cm drop (figure 1(A)).",
+   "quantity": "other_length",
+   "value": 6.0,
+   "plus_minus": null,
+   "unit": "cm",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  }
+ ],
+ "videos": [],
+ "summary": {
+  "claims": {
+   "REFUSED": 8,
+   "NOT CHECKED": 1,
+   "MATCHES TABLE": 8
+  },
+  "videos": {},
+  "model_calls": 2,
+  "tokens": 146566,
+  "rejected_calls": 1
+ }
+}

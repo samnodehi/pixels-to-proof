@@ -1,0 +1,966 @@
+{
+  "plan": {
+    "authors_speed_method": {
+      "evidence": "the initial velocity condition was derived from kinematics using the path-match optimization technique as described by [17]. ... We then calculated the CoM position trajectories by integrating the ground reaction forces twice.",
+      "family": "other",
+      "parameters": "initial CoM velocity from kinematics via path-match optimization, CoM trajectory by double integration of ground reaction forces, interpolated to 500 Hz"
+    },
+    "claims": [
+      {
+        "n_events": 5,
+        "plus_minus": 0.24,
+        "quantity": "mass",
+        "quote": "body mass m=1.39±0.24 kg",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "kg",
+        "value": 1.39
+      },
+      {
+        "n_events": 167,
+        "plus_minus": 0.02,
+        "quantity": "other_length",
+        "quote": "touch down (TD) leg length during level running LTD,Level=0.21±0.02 m",
+        "row_filter": {
+          "column": "stepType",
+          "value": "Level"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "LTD",
+        "unit": "m",
+        "value": 0.21
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "end_height",
+        "quote": "a runway with a 4 cm drop",
+        "row_filter": {
+          "column": "dropHeight",
+          "value": "4 cm"
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "cm",
+        "value": 4.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "end_height",
+        "quote": "a runway with a 6 cm drop",
+        "row_filter": {
+          "column": "dropHeight",
+          "value": "6 cm"
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "cm",
+        "value": 6.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": 0.015,
+        "quantity": "other_length",
+        "quote": "horizontal offset xoffset=0.032±0.015 m",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "m",
+        "value": 0.032
+      },
+      {
+        "n_events": 167,
+        "plus_minus": 5.4,
+        "quantity": "body_angle",
+        "quote": "122.6 (5.4)",
+        "row_filter": {
+          "column": "stepType",
+          "value": "Level"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "aTD",
+        "unit": "deg",
+        "value": 122.6
+      },
+      {
+        "n_events": 167,
+        "plus_minus": 0.03,
+        "quantity": "other_length",
+        "quote": "1.00 (0.03)",
+        "row_filter": {
+          "column": "stepType",
+          "value": "Level"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "LTD",
+        "unit": "L0",
+        "value": 1.0
+      },
+      {
+        "n_events": 167,
+        "plus_minus": 0.22,
+        "quantity": "other_speed",
+        "quote": "1.25 (0.22)",
+        "row_filter": {
+          "column": "stepType",
+          "value": "Level"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "LdotTD_sc",
+        "unit": "L0/T",
+        "value": 1.25
+      },
+      {
+        "n_events": 167,
+        "plus_minus": 3.8,
+        "quantity": "other",
+        "quote": "11.9 (3.8)",
+        "row_filter": {
+          "column": "stepType",
+          "value": "Level"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "kLeg",
+        "unit": "BW/L0",
+        "value": 11.9
+      },
+      {
+        "n_events": 167,
+        "plus_minus": 0.36,
+        "quantity": "other",
+        "quote": "2.21 (0.36)",
+        "row_filter": {
+          "column": "stepType",
+          "value": "Level"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "FmaxLeg_sc",
+        "unit": "BW",
+        "value": 2.21
+      },
+      {
+        "n_events": 167,
+        "plus_minus": 0.2,
+        "quantity": "other",
+        "quote": "1.01 (0.20)",
+        "row_filter": {
+          "column": "stepType",
+          "value": "Level"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "ILeg",
+        "unit": "BW T",
+        "value": 1.01
+      },
+      {
+        "n_events": 167,
+        "plus_minus": 0.08,
+        "quantity": "other",
+        "quote": "0.01 (0.08)",
+        "row_filter": {
+          "column": "stepType",
+          "value": "Level"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Ix",
+        "unit": "BW T",
+        "value": 0.01
+      },
+      {
+        "n_events": 167,
+        "plus_minus": 0.17,
+        "quantity": "other",
+        "quote": "0.02 (0.17)",
+        "row_filter": {
+          "column": "stepType",
+          "value": "Level"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "dECoM",
+        "unit": "BW L0",
+        "value": 0.02
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "(sampling frequency 500 Hz)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "Hz",
+        "value": 500.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "(sampling frequency of 250 Hz)",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "Hz",
+        "value": 250.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "both force data and kinematic data were interpolated to a frequency of 500 Hz.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "Hz",
+        "value": 500.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "We used three experimental terrain conditions: a level runway, a runway with a 4 cm drop and a runway with a 6 cm drop (figure 1(A)).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "cm",
+        "value": 4.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_length",
+        "quote": "We used three experimental terrain conditions: a level runway, a runway with a 4 cm drop and a runway with a 6 cm drop (figure 1(A)).",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "cm",
+        "value": 6.0
+      }
+    ],
+    "event_table": {
+      "columns": [
+        {
+          "evidence": "The steps were categorized into four step types: level running (Level), two steps before drop (step −2), the pre-drop step (step −1), the drop step itself (step 0) and the first post-drop step (step +1).",
+          "name": "stepType",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": ""
+        },
+        {
+          "evidence": "We used three experimental terrain conditions: a level runway, a runway with a 4 cm drop and a runway with a 6 cm drop (figure 1(A)).",
+          "name": "dropHeight",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": ""
+        },
+        {
+          "evidence": "with fixed effects 'step type' nested within 'drop height', 'individual' as a random effect",
+          "name": "individual",
+          "quantity": "animal_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": ""
+        },
+        {
+          "evidence": "the virtual leg angle α, which is measured anti-clockwise with respect to the horizontal",
+          "name": "aTD",
+          "quantity": "body_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "deg"
+        },
+        {
+          "evidence": "and its derivative, leg angular velocity α.",
+          "name": "adotTD",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "deg/T"
+        },
+        {
+          "evidence": "the length of the virtual leg L, which is defined as the distance between the CoM and the foot point",
+          "name": "LTD",
+          "quantity": "other_length",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "L0"
+        },
+        {
+          "evidence": "its derivative, leg length velocity L. (figure 1(B))",
+          "name": "LdotTD",
+          "quantity": "other_speed",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "L0/T"
+        },
+        {
+          "evidence": "for further analysis we used the speed-corrected leg length velocity L.TD (R2=0.43, p<0.001)",
+          "name": "LdotTD_sc",
+          "quantity": "other_speed",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "L0/T"
+        },
+        {
+          "evidence": "To estimate appropriate SLIP model leg stiffness k",
+          "name": "kLeg",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "BW/L0"
+        },
+        {
+          "evidence": "the axial peak force Faxial,max",
+          "name": "FmaxLeg",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "BW"
+        },
+        {
+          "evidence": "and the speed-corrected axial peak force F.axial,max (R2=0.29, p<0.001)",
+          "name": "FmaxLeg_sc",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "BW"
+        },
+        {
+          "evidence": "the axial and fore-aft impulse Iaxial and Ix, respectively, which are calculated by integrating the corresponding force trajectories over stance time",
+          "name": "Ix",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "BW T"
+        },
+        {
+          "evidence": "the axial and fore-aft impulse Iaxial and Ix, respectively, which are calculated by integrating the corresponding force trajectories over stance time",
+          "name": "ILeg",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "BW T"
+        },
+        {
+          "evidence": "and the net CoM work ΔECoM, which is the net change in CoM Energy over the course of stance.",
+          "name": "dECoM",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": "",
+          "unit": "BW L0"
+        }
+      ],
+      "file": "GFData_stepVariables.csv",
+      "rows_are": "one recorded running step (one step record: Level, -1, 0 or +1)",
+      "sheet": "GFData_stepVariables"
+    },
+    "object_phrase": "guinea fowl",
+    "scale_reference": {
+      "evidence": "",
+      "kind": "none",
+      "size_mm": null
+    },
+    "title": "Swing-Leg Trajectory of Running Guinea Fowl Suggests Task-Level Priority of Force Regulation Rather than Disturbance Rejection",
+    "videos": []
+  },
+  "checks": [
+    {
+      "field": "claim 'body mass m=1.39±0.24 kg'",
+      "ok": true,
+      "note": "quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)"
+    },
+    {
+      "field": "claim 'touch down (TD) leg length during level running LT'",
+      "ok": true,
+      "note": "quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)"
+    },
+    {
+      "field": "claim 'touch down (TD) leg length during level running LT' rows",
+      "ok": true,
+      "note": "rows where 'stepType' = 'Level'"
+    },
+    {
+      "field": "claim 'a runway with a 4 cm drop'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'a runway with a 4 cm drop' rows",
+      "ok": true,
+      "note": "rows where 'dropHeight' = '4 cm'"
+    },
+    {
+      "field": "claim 'a runway with a 6 cm drop'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'a runway with a 6 cm drop' rows",
+      "ok": true,
+      "note": "rows where 'dropHeight' = '6 cm'"
+    },
+    {
+      "field": "claim 'horizontal offset xoffset=0.032±0.015 m'",
+      "ok": true,
+      "note": "quote and value found in the PDF (letters and digits only: the PDF's text layer garbles symbols)"
+    },
+    {
+      "field": "claim '122.6 (5.4)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '122.6 (5.4)' rows",
+      "ok": true,
+      "note": "rows where 'stepType' = 'Level'"
+    },
+    {
+      "field": "claim '1.00 (0.03)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1.00 (0.03)' rows",
+      "ok": true,
+      "note": "rows where 'stepType' = 'Level'"
+    },
+    {
+      "field": "claim '1.25 (0.22)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1.25 (0.22)' rows",
+      "ok": true,
+      "note": "rows where 'stepType' = 'Level'"
+    },
+    {
+      "field": "claim '11.9 (3.8)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '11.9 (3.8)' rows",
+      "ok": true,
+      "note": "rows where 'stepType' = 'Level'"
+    },
+    {
+      "field": "claim '2.21 (0.36)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '2.21 (0.36)' rows",
+      "ok": true,
+      "note": "rows where 'stepType' = 'Level'"
+    },
+    {
+      "field": "claim '1.01 (0.20)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '1.01 (0.20)' rows",
+      "ok": true,
+      "note": "rows where 'stepType' = 'Level'"
+    },
+    {
+      "field": "claim '0.01 (0.08)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '0.01 (0.08)' rows",
+      "ok": true,
+      "note": "rows where 'stepType' = 'Level'"
+    },
+    {
+      "field": "claim '0.02 (0.17)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '0.02 (0.17)' rows",
+      "ok": true,
+      "note": "rows where 'stepType' = 'Level'"
+    },
+    {
+      "field": "claim '(sampling frequency 500 Hz)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim '(sampling frequency of 250 Hz)'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'We used three experimental terrain conditions: a l'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'We used three experimental terrain conditions: a l'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    }
+  ],
+  "columns": {
+    "stepType": {
+      "evidence": "The steps were categorized into four step types: level running (Level), two steps before drop (step −2), the pre-drop step (step −1), the drop step itself (step 0) and the first post-drop step (step +1).",
+      "name": "stepType",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "",
+      "index": 0,
+      "si_factor": null
+    },
+    "dropHeight": {
+      "evidence": "We used three experimental terrain conditions: a level runway, a runway with a 4 cm drop and a runway with a 6 cm drop (figure 1(A)).",
+      "name": "dropHeight",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "",
+      "index": 1,
+      "si_factor": null
+    },
+    "individual": {
+      "evidence": "with fixed effects 'step type' nested within 'drop height', 'individual' as a random effect",
+      "name": "individual",
+      "quantity": "animal_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "",
+      "index": 2,
+      "si_factor": null
+    },
+    "aTD": {
+      "evidence": "the virtual leg angle α, which is measured anti-clockwise with respect to the horizontal",
+      "name": "aTD",
+      "quantity": "body_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "deg",
+      "index": 3,
+      "si_factor": 1.0
+    },
+    "adotTD": {
+      "evidence": "and its derivative, leg angular velocity α.",
+      "name": "adotTD",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "deg/T",
+      "index": 4,
+      "si_factor": null
+    },
+    "LTD": {
+      "evidence": "the length of the virtual leg L, which is defined as the distance between the CoM and the foot point",
+      "name": "LTD",
+      "quantity": "other_length",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "L0",
+      "index": 5,
+      "si_factor": null
+    },
+    "LdotTD": {
+      "evidence": "its derivative, leg length velocity L. (figure 1(B))",
+      "name": "LdotTD",
+      "quantity": "other_speed",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "L0/T",
+      "index": 6,
+      "si_factor": null
+    },
+    "LdotTD_sc": {
+      "evidence": "for further analysis we used the speed-corrected leg length velocity L.TD (R2=0.43, p<0.001)",
+      "name": "LdotTD_sc",
+      "quantity": "other_speed",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "L0/T",
+      "index": 7,
+      "si_factor": null
+    },
+    "kLeg": {
+      "evidence": "To estimate appropriate SLIP model leg stiffness k",
+      "name": "kLeg",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "BW/L0",
+      "index": 8,
+      "si_factor": null
+    },
+    "FmaxLeg": {
+      "evidence": "the axial peak force Faxial,max",
+      "name": "FmaxLeg",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "BW",
+      "index": 9,
+      "si_factor": null
+    },
+    "FmaxLeg_sc": {
+      "evidence": "and the speed-corrected axial peak force F.axial,max (R2=0.29, p<0.001)",
+      "name": "FmaxLeg_sc",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "BW",
+      "index": 10,
+      "si_factor": null
+    },
+    "Ix": {
+      "evidence": "the axial and fore-aft impulse Iaxial and Ix, respectively, which are calculated by integrating the corresponding force trajectories over stance time",
+      "name": "Ix",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "BW T",
+      "index": 11,
+      "si_factor": null
+    },
+    "ILeg": {
+      "evidence": "the axial and fore-aft impulse Iaxial and Ix, respectively, which are calculated by integrating the corresponding force trajectories over stance time",
+      "name": "ILeg",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "BW T",
+      "index": 12,
+      "si_factor": null
+    },
+    "dECoM": {
+      "evidence": "and the net CoM work ΔECoM, which is the net change in CoM Energy over the course of stance.",
+      "name": "dECoM",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": "",
+      "unit": "BW L0",
+      "index": 13,
+      "si_factor": null
+    }
+  },
+  "claims": [
+    {
+      "n_events": 5,
+      "plus_minus": 0.24,
+      "quantity": "mass",
+      "quote": "body mass m=1.39±0.24 kg",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "kg",
+      "value": 1.39,
+      "si_factor": null
+    },
+    {
+      "n_events": 167,
+      "plus_minus": 0.02,
+      "quantity": "other_length",
+      "quote": "touch down (TD) leg length during level running LTD,Level=0.21±0.02 m",
+      "row_filter": {
+        "column": "stepType",
+        "value": "Level"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "LTD",
+      "unit": "m",
+      "value": 0.21,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "end_height",
+      "quote": "a runway with a 4 cm drop",
+      "row_filter": {
+        "column": "dropHeight",
+        "value": "4 cm"
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "cm",
+      "value": 4.0,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "end_height",
+      "quote": "a runway with a 6 cm drop",
+      "row_filter": {
+        "column": "dropHeight",
+        "value": "6 cm"
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "cm",
+      "value": 6.0,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": null,
+      "plus_minus": 0.015,
+      "quantity": "other_length",
+      "quote": "horizontal offset xoffset=0.032±0.015 m",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "m",
+      "value": 0.032,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 167,
+      "plus_minus": 5.4,
+      "quantity": "body_angle",
+      "quote": "122.6 (5.4)",
+      "row_filter": {
+        "column": "stepType",
+        "value": "Level"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "aTD",
+      "unit": "deg",
+      "value": 122.6,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 167,
+      "plus_minus": 0.03,
+      "quantity": "other_length",
+      "quote": "1.00 (0.03)",
+      "row_filter": {
+        "column": "stepType",
+        "value": "Level"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "LTD",
+      "unit": "L0",
+      "value": 1.0,
+      "si_factor": null
+    },
+    {
+      "n_events": 167,
+      "plus_minus": 0.22,
+      "quantity": "other_speed",
+      "quote": "1.25 (0.22)",
+      "row_filter": {
+        "column": "stepType",
+        "value": "Level"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "LdotTD_sc",
+      "unit": "L0/T",
+      "value": 1.25,
+      "si_factor": null
+    },
+    {
+      "n_events": 167,
+      "plus_minus": 3.8,
+      "quantity": "other",
+      "quote": "11.9 (3.8)",
+      "row_filter": {
+        "column": "stepType",
+        "value": "Level"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "kLeg",
+      "unit": "BW/L0",
+      "value": 11.9,
+      "si_factor": null
+    },
+    {
+      "n_events": 167,
+      "plus_minus": 0.36,
+      "quantity": "other",
+      "quote": "2.21 (0.36)",
+      "row_filter": {
+        "column": "stepType",
+        "value": "Level"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "FmaxLeg_sc",
+      "unit": "BW",
+      "value": 2.21,
+      "si_factor": null
+    },
+    {
+      "n_events": 167,
+      "plus_minus": 0.2,
+      "quantity": "other",
+      "quote": "1.01 (0.20)",
+      "row_filter": {
+        "column": "stepType",
+        "value": "Level"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "ILeg",
+      "unit": "BW T",
+      "value": 1.01,
+      "si_factor": null
+    },
+    {
+      "n_events": 167,
+      "plus_minus": 0.08,
+      "quantity": "other",
+      "quote": "0.01 (0.08)",
+      "row_filter": {
+        "column": "stepType",
+        "value": "Level"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Ix",
+      "unit": "BW T",
+      "value": 0.01,
+      "si_factor": null
+    },
+    {
+      "n_events": 167,
+      "plus_minus": 0.17,
+      "quantity": "other",
+      "quote": "0.02 (0.17)",
+      "row_filter": {
+        "column": "stepType",
+        "value": "Level"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "dECoM",
+      "unit": "BW L0",
+      "value": 0.02,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "(sampling frequency 500 Hz)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "Hz",
+      "value": 500.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "(sampling frequency of 250 Hz)",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "Hz",
+      "value": 250.0,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "We used three experimental terrain conditions: a level runway, a runway with a 4 cm drop and a runway with a 6 cm drop (figure 1(A)).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "cm",
+      "value": 4.0,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_length",
+      "quote": "We used three experimental terrain conditions: a level runway, a runway with a 4 cm drop and a runway with a 6 cm drop (figure 1(A)).",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "cm",
+      "value": 6.0,
+      "si_factor": 0.01
+    }
+  ]
+}
