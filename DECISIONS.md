@@ -92,3 +92,19 @@ hands-off beetle run gives the same verdict.
   the take-off speed it returns is not constrained.
 - Not changed, on purpose: a split keeps the outer ends of a shot as they are (only inner boundaries are trimmed), so a
   shot that Spark calls one recording is never shortened.
+- **Table checks on the second paper.** Its statistics are mostly per sex, per animal or circular, which the first
+  version could not express (every such claim came out NOT CHECKED):
+  - *Subset of rows:* Muse Spark proposes the column and cell value that select the events a claim covers (e.g.
+    sex = male); code accepts the filter only if that value occurs in that column, else the claim is checked against
+    all rows.
+  - *Circular statistics:* when the paper states them (code finds "mean vector", "circular mean", "Watson–Williams"
+    or "Rayleigh test" in the PDF), a mean angle that arithmetic does not reproduce is also tried as a circular mean
+    with circular SD sqrt(−2 ln R). On the peacock paper both sexes' take-off angles then reproduce to the printed digits.
+  - *Per-animal statistics:* when a claim states its n and n is not the number of rows, each animal's rows are averaged
+    first; the animal is the animal-id column alone or with one categorical column (IDs are reused across conditions),
+    and a grouping is used only if it yields exactly the stated n. Male mass (n = 10 spiders) then reproduces; female
+    mass (n = 12) gives 10.43 ± 2.05 against the printed 10.40 ± 2.05 and stays NOT CHECKED.
+  - *Truncation:* for a maximum or minimum that the table reproduces only when truncated instead of rounded, the reason
+    says so (e.g. 90.069 printed as 90.06); the outcome stays NOT CHECKED.
+  - *Captions:* claims printed on the videos are proposed too (quoted from the transcribed overlay text) and marked as
+    such in the report. A single-event claim that no measured shot was paired to ends as NOT CHECKED, not "see video".

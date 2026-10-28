@@ -285,3 +285,22 @@ def test_flight_cut_by_the_shot_end_is_flagged():
     x, y = 0.6 * tf, 0.7 * tf - 0.5 * 9.80665 * tf ** 2          # still rising when the clip ends
     k = measure.kinematics(np.arange(n), x * 1000 / mm + 100, 900 - y * 1000 / mm, fps, mm)
     assert k.truncated
+
+
+def test_table_check_per_animal_and_truncation():
+    rows = [["a", "full", 4.0, 90.069], ["a", "full", 4.0, 120.0], ["b", "full", 6.0, 130.0],
+            ["a", "takeoff", 9.0, 140.0], ["c", "takeoff", 3.0, 125.0]]
+    t = ingest.Table(file="t.csv", sheet="t", header=["id", "cond", "mass", "acc"], rows=rows, header_row=0)
+    cols = {"id": {"name": "id", "quantity": "animal_id", "unit": "", "index": 0, "si_factor": None},
+            "mass": {"name": "mass", "quantity": "mass", "unit": "mg", "index": 2, "si_factor": None},
+            "acc": {"name": "acc", "quantity": "acceleration", "unit": "m/s2", "index": 3, "si_factor": 1.0}}
+    claim = {"quantity": "mass", "value": 5.5, "plus_minus": None, "unit": "mg", "quote": "mass 5.5 mg, n=4",
+             "statistic": "mean", "spread": "none", "table_column": "mass", "si_factor": None, "n_events": 4,
+             "row_filter": {"column": None, "value": None}}
+    r = tablecheck.check(claim, t, cols)       # rows: 5.2; per (id, cond): (4 + 6 + 9 + 3) / 4 = 5.5
+    assert r["outcome"] == tablecheck.MATCHES and r["stats"] == "per_animal"
+    low = {"quantity": "acceleration", "value": 90.06, "plus_minus": None, "unit": "m/s2", "quote": "lowest 90.06 m s-2",
+           "statistic": "min", "spread": "none", "table_column": "acc", "si_factor": 1.0, "n_events": None,
+           "row_filter": {"column": None, "value": None}}
+    r = tablecheck.check(low, t, cols)
+    assert r["outcome"] == tablecheck.NOT_CHECKED and "truncated" in r["reason"]

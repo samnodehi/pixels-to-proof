@@ -80,7 +80,9 @@ def claims_html(rep: dict) -> str:
     rows = []
     for c in rep["claims"]:
         pm = f" ± {c['plus_minus']:g}" if c.get("plus_minus") is not None else ""
-        rows.append(f"<tr><td style='max-width:420px'>“{_e(c['quote'])}”</td>"
+        src = "" if c.get("source", "paper") == "paper" else \
+            "<br><span style='opacity:.7;font-size:.85em'>printed on the video</span>"
+        rows.append(f"<tr><td style='max-width:420px'>“{_e(c['quote'])}”{src}</td>"
                     f"<td>{_e(c['statistic'])}{('<br><span style=\'opacity:.7;font-size:.85em\'>' + _e(c['rows']) + '</span>') if c.get('rows') not in (None, 'all') else ''}</td><td>{_e(c['value'])}{_e(pm)} {_e(c['unit'])}</td>"
                     f"<td>{chip(c['outcome'])}</td><td style='max-width:380px;font-size:.9em'>{_e(c['reason'])}</td></tr>")
     counts = rep.get("summary", {}).get("claims", {})

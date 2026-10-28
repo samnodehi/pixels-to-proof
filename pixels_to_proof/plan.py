@@ -100,7 +100,8 @@ Propose, strictly from what the material says:
 - the spatial scale reference visible in the videos and its real size, with the quote;
 - a noun phrase for the moving animal;
 - how the authors computed speed (method family and parameters) with an exact quote from the paper or script;
-- every quantitative kinematic claim in the PDF (speeds, distances, heights, durations, angles, accelerations):
+- every quantitative kinematic claim in the PDF and in the text printed on the videos (speeds, distances, heights,
+  durations, angles, accelerations; quote a video claim exactly as it is printed in the VIDEO INVENTORY below):
   value, ±, unit, an exact quote, whether it is a single event or a statistic over events (mean, max, ...), the spread
   type, n if stated, which event-table column it summarises if any, and — if it covers only some events (for example
   one sex or one condition) — the column and cell value that select those rows.

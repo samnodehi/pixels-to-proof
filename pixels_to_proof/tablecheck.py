@@ -65,7 +65,34 @@ def _rows(claim: dict, table: Table) -> list:
     return [r for r in table.rows if str(r[j]).strip().lower() == str(rf.get("value")).strip().lower()]
 
 
-def _try(claim: dict, col: dict, table: Table, circular: bool = False) -> dict:
+def _per_animal(claim: dict, col: dict, table: Table, columns: dict[str, dict], conv: float) -> tuple[list, str] | None:
+    """When a claim states its n and that n is not the number of rows, it may be a statistic over animals: each animal's
+    rows are averaged first. The animal is the animal-id column, alone or together with one categorical column (IDs
+    are often reused across conditions); a grouping is used only if it yields exactly the stated n."""
+    n = claim.get("n_events")
+    ids = [c for c in columns.values() if c.get("quantity") == "animal_id" and c["name"] in table.header]
+    if not n or not ids:
+        return None
+    rows = _rows(claim, table)
+    num = lambda v: isinstance(v, (int, float)) and not isinstance(v, bool)
+    rf = (claim.get("row_filter") or {}).get("column")
+    cats = [h for j, h in enumerate(table.header)
+            if h not in (rf, ids[0]["name"]) and rows and not any(num(r[j]) for r in rows)
+            and columns.get(h, {}).get("quantity") != "event_id"]
+    a = table.header.index(ids[0]["name"])
+    for extra in [None] + cats:
+        e = table.header.index(extra) if extra else None
+        groups: dict = {}
+        for r in rows:
+            if num(r[col["index"]]):
+                groups.setdefault((r[a], r[e] if e is not None else None), []).append(r[col["index"]] * conv)
+        if len(groups) == n:
+            key = ids[0]["name"] + (f" + {extra}" if extra else "")
+            return [statistics.fmean(v) for v in groups.values()], key
+    return None
+
+
+def _try(claim: dict, col: dict, table: Table, circular: bool = False, columns: dict | None = None) -> dict:
     cf, kf = col.get("si_factor"), claim.get("si_factor")
     conv = (cf / kf) if (cf is not None and kf is not None) else 1.0      # column value -> claim unit
     vals = [r[col["index"]] * conv for r in _rows(claim, table)
@@ -88,6 +115,14 @@ def _try(claim: dict, col: dict, table: Table, circular: bool = False) -> dict:
         c_mean, c_sd = _circular(vals)
         if judge(c_mean, c_sd):
             out.update(ok=True, table_value=c_mean, table_sd=c_sd, stats="circular")
+    if not out["ok"] and claim["statistic"] == "mean" and claim.get("n_events") and claim["n_events"] != len(vals):
+        pa = _per_animal(claim, col, table, columns or {}, conv)
+        if pa:
+            means, key = pa
+            c, sd = _stats(means, "mean")
+            out.update(per_animal={"groups": len(means), "key": key, "value": c, "sd": sd})
+            if judge(c, sd):
+                out.update(ok=True, table_value=c, table_sd=sd, stats="per_animal", n_rows=len(means))
     return out
 
 
@@ -101,15 +136,16 @@ def check(claim: dict, table: Table, columns: dict[str, dict], circular: bool = 
     named = columns.get(claim.get("table_column") or "")
     tried = []
     if named is not None and unit_dim(named["unit"]) == dim:
-        r = _try(claim, named, table, circular)
+        r = _try(claim, named, table, circular, columns)
         tried.append(r)
         if r["ok"]:
-            return {**r, "outcome": MATCHES, "reason": f"{_how(claim, r)} of {r['n_rows']} rows of '{r['column']}'"
+            rows = "" if r.get("stats") == "per_animal" else f"{r['n_rows']} rows of "
+            return {**r, "outcome": MATCHES, "reason": f"{_how(claim, r)} of {rows}'{r['column']}'"
                                                        f"{_subset(claim)} reproduces the printed digits"}
     for name, col in columns.items():
         if col is named or unit_dim(col["unit"]) != dim:
             continue
-        r = _try(claim, col, table, circular)
+        r = _try(claim, col, table, circular, columns)
         if r["ok"]:
             return {**r, "outcome": OTHER_COLUMN, "proposed_column": claim.get("table_column"),
                     "proposed_quantity": claim["quantity"], "column_quantity": col["quantity"],
@@ -119,16 +155,33 @@ def check(claim: dict, table: Table, columns: dict[str, dict], circular: bool = 
         r = tried[0]
         shown = f"{r['table_value']:.4g}" + (f" ± {r['table_sd']:.3g}" if r["table_sd"] is not None and
                                              claim.get("plus_minus") is not None else "")
+        vt, vs = _printed(claim["value"], claim["quote"])
+        if vt is not None and r.get("table_value") is not None and claim["statistic"] in ("max", "min", "median"):
+            d = len(vt.split(".")[1]) if "." in vt else 0
+            q = 10 ** d / vs
+            if math.trunc(r["table_value"] * q) / q == math.trunc(claim["value"] * q) / q and \
+                    abs(r["table_value"] - claim["value"]) < 1 / q:
+                return {**r, "outcome": NOT_CHECKED,
+                        "reason": f"'{r['column']}' over {r['n_rows']} rows{_subset(claim)} gives "
+                                  f"{r['table_value']:.{d + 3}g}: the printed {vt} is that value truncated, not rounded"}
+        pa = r.get("per_animal")
+        extra = (f"; averaged per animal ({pa['groups']} animals, the n printed) it gives {pa['value']:.4g}"
+                 + (f" ± {pa['sd']:.3g}" if pa["sd"] is not None and claim.get("plus_minus") is not None else "")
+                 if pa else "")
         return {**r, "outcome": NOT_CHECKED,
-                "reason": f"no column reproduces the printed digits; '{r['column']}' over {r['n_rows']} rows"
+                "reason": f"no column reproduces the printed digits{extra}; '{r['column']}' over {r['n_rows']} rows"
                           f"{_subset(claim)} gives "
                           f"{shown} {claim['unit']} (the printed value may use another aggregation unit)"}
     return {"outcome": NOT_CHECKED, "reason": "no column of this dimension reproduces the printed digits"}
 
 
 def _how(claim: dict, r: dict) -> str:
-    return ("circular mean (the paper uses circular statistics)" if r.get("stats") == "circular"
-            else claim["statistic"])
+    if r.get("stats") == "circular":
+        return "circular mean (the paper uses circular statistics)"
+    if r.get("stats") == "per_animal":
+        return (f"mean over animals (each animal's rows averaged first; animal = {r['per_animal']['key']}; "
+                f"{r['per_animal']['groups']} animals = the n printed)")
+    return claim["statistic"]
 
 
 def _subset(claim: dict) -> str:

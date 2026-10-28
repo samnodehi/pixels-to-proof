@@ -625,12 +625,14 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
     if circ:
         led.step("angle statistics", f"the paper states '{circ.group(0)}': a mean angle that arithmetic does not "
                                      "reproduce is also tried as a circular mean (circular SD = sqrt(-2 ln R))")
-    # claims from the PDF: routed by code
+    pdf_norm = ingest.normalise(ing["pdf_text"])
+    # claims from the PDF and the video captions: routed by code
     for c in cp.claims:
         if c.get("spread") == "unknown" and c.get("plus_minus") is not None and paper_spread:
             c = dict(c, spread=paper_spread)
         route = planmod.needs(c)
-        row = {"source": "paper", "quote": c["quote"], "quantity": c["quantity"], "value": c["value"],
+        src = "paper" if ingest.quote_in_text(c["quote"], pdf_norm, min_len=8) else "video overlay"
+        row = {"source": src, "quote": c["quote"], "quantity": c["quantity"], "value": c["value"],
                "plus_minus": c["plus_minus"], "unit": c["unit"], "statistic": c["statistic"], "route": route,
                "rows": (f"{c['row_filter']['column']} = {c['row_filter']['value']}"
                         if (c.get("row_filter") or {}).get("column") else "all")}
@@ -668,6 +670,10 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
                                      "frames": u["n_frames"], "verdict": verdict.CANNOT_MEASURE,
                                      "reason": f"processing error: {type(exc).__name__}: {exc}", "stage": "error"})
 
+    for r in report["claims"]:
+        if r["outcome"] == "see video route":
+            r.update(outcome="NOT CHECKED", reason="a single jump: no measured video shot was paired to it, so there is "
+                                                   "nothing to compare it with")
     counts = {}
     for r in report["claims"]:
         counts[r["outcome"]] = counts.get(r["outcome"], 0) + 1

@@ -37,6 +37,10 @@ check. Every model output is a ledger row together with the check that accepted 
    (`tablecheck.py`: mean with sample SD, max, min, median, compared at the printed digits; if the proposed column fails,
    every other column of the same dimension is tried → MATCHES OTHER COLUMN; else NOT CHECKED with the closest values).
    A '±' of unknown type is read with the paper's own stated convention ("mean ± standard deviation") if it states one.
+   A claim about a subset of events (e.g. one sex) uses the rows selected by Spark's proposed filter (checked to exist);
+   a mean angle is also tried as a circular mean when the paper states circular statistics; a mean whose stated n is
+   not the number of rows is also tried per animal (each animal's rows averaged first, accepted only if the number of
+   animals equals n). Claims printed on the videos are checked the same way.
    A claim labelled single-event that equals a column statistic (≥ 2 significant digits) is routed to the table check.
    Units the agent cannot convert, or statistics without a column → refused with a reason.
 6. **Per shot, before any tracking (G4):** an absolute take-off speed column must exist (else nothing to compare
