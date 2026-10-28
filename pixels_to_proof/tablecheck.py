@@ -168,11 +168,40 @@ def check(claim: dict, table: Table, columns: dict[str, dict], circular: bool = 
                 return {**r, "outcome": MATCHES, "statistic_used": stat,
                         "reason": f"the {stat} (not the proposed {claim['statistic']}) of {r['n_rows']} rows of "
                                   f"'{r['column']}'{_subset(claim)} reproduces the printed digits"}
+    # The subset is Spark's proposal too. If no subset was proposed and all rows fail, each group of a grouping column
+    # (2–6 distinct values) is tried on the named column; a mean needs its ± to match as well, a single value needs
+    # >= 3 significant digits.
+    rf = claim.get("row_filter") or {}
+    sig = len(re.sub(r"[^0-9]", "", (_printed(claim["value"], claim["quote"])[0] or "")).lstrip("0"))
+    # Only when the whole column's own centre already misses the printed value: subsets of one population have
+    # similar means, so a subset could otherwise "match" a value that describes all rows.
+    whole = tried[0] if tried and "table_value" in tried[0] else None
+    vt0, vs0 = _printed(claim["value"], claim["quote"])
+    centre_misses = whole is not None and abs(whole["table_value"] - claim["value"]) > _tol(vt0, vs0)
+    if named is not None and unit_dim(named["unit"]) == dim and not rf.get("column") and centre_misses and \
+            (claim.get("plus_minus") is not None or sig >= 3):
+        for h, vals in _groupings(table).items():
+            for v in vals:
+                r = _try(dict(claim, row_filter={"column": h, "value": v}), named, table, circular, columns)
+                if r["ok"]:
+                    return {**r, "outcome": MATCHES, "subset_found_by_code": {"column": h, "value": v},
+                            "reason": f"{_how(claim, r)} of {r['n_rows']} rows of '{r['column']}' (rows where {h} = "
+                                      f"{v}; the plan named no subset, code found it) reproduces the printed digits"}
     if tried and "table_value" in tried[0]:
         r = tried[0]
         shown = f"{r['table_value']:.4g}" + (f" ± {r['table_sd']:.3g}" if r["table_sd"] is not None and
                                              claim.get("plus_minus") is not None else "")
         vt, vs = _printed(claim["value"], claim["quote"])
+        pt, ps = _printed(claim["plus_minus"], claim["quote"]) if claim.get("plus_minus") is not None else (None, 1.0)
+        if vt is not None and claim.get("plus_minus") is not None and pt is not None and r.get("table_sd") is not None \
+                and claim["statistic"] == "mean":
+            d, e = (len(x.split(".")[1]) if "." in x else 0 for x in (vt, pt))
+            q, qe = 10 ** d / vs, 10 ** e / ps
+            tv, ts = r["table_value"], r["table_sd"]
+            if math.trunc(tv * q) == round(claim["value"] * q) and math.trunc(ts * qe) == round(claim["plus_minus"] * qe):
+                return {**r, "outcome": NOT_CHECKED,
+                        "reason": f"'{r['column']}' over {r['n_rows']} rows{_subset(claim)} gives {tv:.{d + 2}f} ± "
+                                  f"{ts:.{e + 2}f}: the printed values are these truncated, not rounded"}
         if vt is not None and claim.get("plus_minus") is None:
             d = len(vt.split(".")[1]) if "." in vt else 0
             q = 10 ** d / vs
@@ -210,3 +239,14 @@ def _how(claim: dict, r: dict) -> str:
 def _subset(claim: dict) -> str:
     rf = claim.get("row_filter") or {}
     return f" (rows where {rf['column']} = {rf['value']})" if rf.get("column") else ""
+
+
+def _groupings(table: Table, max_groups: int = 6) -> dict[str, list]:
+    """Columns that look like group labels: 2..max_groups distinct values, each shared by at least two rows."""
+    out = {}
+    for j, h in enumerate(table.header):
+        vals = [r[j] for r in table.rows if r[j] is not None and str(r[j]).strip() != ""]
+        distinct = sorted({str(v).strip() for v in vals})
+        if 2 <= len(distinct) <= max_groups and len(vals) >= 2 * len(distinct):
+            out[h] = distinct
+    return out

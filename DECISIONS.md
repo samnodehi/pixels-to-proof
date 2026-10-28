@@ -133,3 +133,11 @@ Changes after the first batch runs (recorded beetle and peacock runs stay on com
 - **Re-proposals may add claims.** A re-proposal used to contribute only replacements for rejected claims; claims it
   adds that are not already there (same quantity and value) are now kept as new proposals and checked like any other.
   Accepted fields are still never replaced.
+- **Subset found by code.** Spark does not always propose the subset a claim covers (in one run it named the groups,
+  in another it did not). When no subset was proposed and the whole column's own centre misses the printed value, each
+  group of a grouping column (2–6 distinct values) is tried on the named column; a mean needs its ± to match too, a
+  single value needs ≥ 3 significant digits, and the reason says the subset was found by code. The "centre misses"
+  condition was added after a first version matched a sprint time to the 12 left-handed pitchers when the paper's
+  value describes all 55 — subsets of one population have similar means.
+- **Truncated mean ± SD.** A mean and SD that the table gives only when both are truncated (73.2333 ± 6.8290 printed
+  73.23 ± 6.82) are reported as such.
