@@ -258,3 +258,20 @@ def test_black_pillarbox_is_not_a_wall():
     img[500:520, :200] = 40
     img[:, 1120:] = 0
     assert scale._wall_face(img.astype(np.float32)) is None
+
+
+def test_table_check_subset_and_circular_mean():
+    rows = [["male", a] for a in (10.0, 20.0, 50.0)] + [["female", a] for a in (5.0, 6.0, 7.0)]
+    t = ingest.Table(file="t.csv", sheet="t", header=["sex", "angle"], rows=rows, header_row=0)
+    cols = {"angle": {"name": "angle", "quantity": "takeoff_angle", "unit": "deg", "index": 1, "si_factor": 1.0}}
+    import math
+    a = [math.radians(v) for v in (10.0, 20.0, 50.0)]
+    cm = math.degrees(math.atan2(sum(map(math.sin, a)) / 3, sum(map(math.cos, a)) / 3))
+    claim = {"quantity": "takeoff_angle", "value": round(cm, 2), "plus_minus": None, "unit": "deg",
+             "quote": f"males {round(cm, 2):.2f} deg", "statistic": "mean", "spread": "none", "table_column": "angle",
+             "si_factor": 1.0, "row_filter": {"column": "sex", "value": "male"}}
+    assert tablecheck.check(claim, t, cols)["outcome"] == tablecheck.NOT_CHECKED          # arithmetic 26.67
+    r = tablecheck.check(claim, t, cols, circular=True)
+    assert r["outcome"] == tablecheck.MATCHES and r["stats"] == "circular" and r["n_rows"] == 3
+    fem = dict(claim, value=6.0, quote="females 6.0 deg", row_filter={"column": "sex", "value": "female"})
+    assert tablecheck.check(fem, t, cols)["outcome"] == tablecheck.MATCHES

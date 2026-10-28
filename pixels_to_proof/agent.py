@@ -601,24 +601,31 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
     lam = _spar(am) if am.get("family") == "smoothing_spline_max" else None
 
     # The paper's own convention for '±', when it states one (e.g. "values are mean ± standard deviation").
-    conv = re.search(r"mean\s*(?:±|\+/-|\+-)\s*(standard deviation|s\.?d\.?\b|sd\b|standard error|s\.?e\.?m?\.?\b)",
+    conv = re.search(r"means?\s*(?:±|\+/-|\+-)\s*(standard deviation|s\.?d\.?\b|sd\b|standard error|s\.?e\.?m?\.?\b)",
                      ingest.normalise(ing["pdf_text"]).replace("+/-", "±"), re.I)
     paper_spread = None if not conv else ("sd" if conv.group(1).lower().startswith(("standard d", "s.d", "sd")) else "se")
     if conv:
         led.step("spread convention", f"the paper states '{conv.group(0)}': a '±' of unknown type is read as "
                                       f"{paper_spread.upper()}")
+    circ = re.search(r"mean vector|circular (?:mean|statistic|standard deviation)|watson.?williams|rayleigh test",
+                     ingest.normalise(ing["pdf_text"]), re.I)
+    if circ:
+        led.step("angle statistics", f"the paper states '{circ.group(0)}': a mean angle that arithmetic does not "
+                                     "reproduce is also tried as a circular mean (circular SD = sqrt(-2 ln R))")
     # claims from the PDF: routed by code
     for c in cp.claims:
         if c.get("spread") == "unknown" and c.get("plus_minus") is not None and paper_spread:
             c = dict(c, spread=paper_spread)
         route = planmod.needs(c)
         row = {"source": "paper", "quote": c["quote"], "quantity": c["quantity"], "value": c["value"],
-               "plus_minus": c["plus_minus"], "unit": c["unit"], "statistic": c["statistic"], "route": route}
+               "plus_minus": c["plus_minus"], "unit": c["unit"], "statistic": c["statistic"], "route": route,
+               "rows": (f"{c['row_filter']['column']} = {c['row_filter']['value']}"
+                        if (c.get("row_filter") or {}).get("column") else "all")}
         if route.startswith("video") and c.get("table_column") and table is not None and \
                 len(re.sub(r"[^0-9]", "", f"{c['value']:g}").lstrip("0")) >= 2:
             # Spark labelled it a single event, but if it equals a statistic of its column, it is one (code decides).
             for stat in ("mean", "max", "min"):
-                res = tablecheck.check(dict(c, statistic=stat), table, cp.columns)
+                res = tablecheck.check(dict(c, statistic=stat), table, cp.columns, bool(circ))
                 if res["outcome"] != tablecheck.NOT_CHECKED:
                     led.gate("route", False, f"proposed as a single event, but it equals the {stat} of "
                                              f"'{res['column']}': routed to the table check")
@@ -626,7 +633,7 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
                     row["statistic"], row["route"] = stat, route
                     break
         if route == "table_check" and table is not None:
-            res = tablecheck.check(c, table, cp.columns)
+            res = tablecheck.check(c, table, cp.columns, bool(circ))
             row.update(outcome=res["outcome"], reason=res["reason"],
                        evidence={k: v for k, v in res.items() if k not in ("outcome", "reason", "ok")})
         elif route == "table_check":

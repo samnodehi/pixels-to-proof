@@ -79,8 +79,13 @@ PLAN_SCHEMA = {
                 "statistic": {"type": "string", "enum": ["mean", "median", "max", "min", "single_event", "other"]},
                 "spread": {"type": "string", "enum": ["sd", "se", "range", "ci", "none", "unknown"]},
                 "n_events": {"type": ["integer", "null"], "description": "number of events the value aggregates, if stated"},
-                "table_column": {"type": ["string", "null"], "description": "event_table column this claim summarises, if any"}},
-            "required": ["quantity", "value", "plus_minus", "unit", "quote", "statistic", "spread", "n_events", "table_column"]}}},
+                "table_column": {"type": ["string", "null"], "description": "event_table column this claim summarises, if any"},
+                "row_filter": {"type": "object", "additionalProperties": False,
+                               "description": "if the claim summarises only some events (e.g. males only), the event-table column and the cell value that select them; nulls if it covers all events",
+                               "properties": {"column": {"type": ["string", "null"]}, "value": {"type": ["string", "null"]}},
+                               "required": ["column", "value"]}},
+            "required": ["quantity", "value", "plus_minus", "unit", "quote", "statistic", "spread", "n_events", "table_column",
+                         "row_filter"]}}},
     "required": ["title", "videos", "event_table", "scale_reference", "object_phrase", "authors_speed_method", "claims"]}
 
 PLAN_PROMPT = """You are planning an audit of the kinematic numbers in a scientific paper against its own supplementary
@@ -97,7 +102,8 @@ Propose, strictly from what the material says:
 - how the authors computed speed (method family and parameters) with an exact quote from the paper or script;
 - every quantitative kinematic claim in the PDF (speeds, distances, heights, durations, angles, accelerations):
   value, ±, unit, an exact quote, whether it is a single event or a statistic over events (mean, max, ...), the spread
-  type, n if stated, and which event-table column it summarises if any.
+  type, n if stated, which event-table column it summarises if any, and — if it covers only some events (for example
+  one sex or one condition) — the column and cell value that select those rows.
 Do not invent anything. Quotes must be copied exactly from one contiguous passage; to cite two separate passages,
 join them with ' ... '. Use null or 'unknown' where the material is silent.
 
@@ -321,7 +327,20 @@ def check(plan: dict, pdf_text: str, script_text: str, tables: list[ingest.Table
         cp.checks.append(Check(f"claim '{cl['quote'][:50]}'", ok_quote,
                                "quote and value found in the PDF" if ok_quote else "quote not found verbatim or value not in quote; dropped"))
         if ok_quote:
-            cp.claims.append(dict(cl, si_factor=f))
+            cl = dict(cl, si_factor=f)
+            rf = cl.get("row_filter") or {}
+            if rf.get("column"):
+                tab = next((t for t in tables if et and t.file == Path(et["file"]).name and t.sheet == et["sheet"]), None)
+                ok_rf = tab is not None and rf["column"] in tab.header and rf.get("value") is not None and any(
+                    str(r[tab.header.index(rf["column"])]).strip().lower() == str(rf["value"]).strip().lower()
+                    for r in tab.rows)
+                cp.checks.append(Check(f"claim '{cl['quote'][:50]}' rows", ok_rf,
+                                       f"rows where '{rf['column']}' = '{rf.get('value')}'" if ok_rf else
+                                       f"row filter '{rf['column']}' = '{rf.get('value')}' matches no rows; the claim is "
+                                       "checked against all rows"))
+                if not ok_rf:
+                    cl["row_filter"] = {"column": None, "value": None}
+            cp.claims.append(cl)
 
     sr = plan.get("scale_reference", {})
     size_ok = sr.get("size_mm") is not None and quoted(sr.get("evidence", "")) and any(
