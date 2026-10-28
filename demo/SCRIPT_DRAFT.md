@@ -1,42 +1,53 @@
-# Demo script — draft v2 (for Sam's approval before any audio is generated)
+# Demo script — draft v3 (narrator style; for Sam's approval before any audio is generated)
 
-Voice: "daniel" (ElevenLabs eleven-v4 via OpenRouter). About 370 words, ~2:40 at 140 words per minute.
+Voice: "daniel" (ElevenLabs eleven-v4 via OpenRouter), calm storyteller, short pauses at "—" and line breaks.
+Spoken text ≈ 410 words: ≈ 2:45 at 150 words per minute, ≈ 2:56 at 140 (to be measured on the generated audio; cut further if it runs over 2:55). Burned-in English captions, one short line at a time.
 Screen: the live Space (recorded runs), plus close-ups of receipts and the ledger. Every number below comes from the
 recorded runs in `showcase/` (beetle and peacock on commit 49f237b; breadth on 7cf697a; faults on 49f237b).
 
 ---
 
-**0:00 — The problem** *(screen: a paper's results paragraph, numbers highlighted)*
-A scientific paper is a list of numbers. Today most journals also publish the data behind those numbers — and often
-the videos. Almost nobody checks one against the other. Pixels to Proof does, on its own.
+**0:00 — The hook** *(screen: a results paragraph, its numbers lighting up one by one)*
+Every scientific paper makes promises.
+Beetle larvae leave the ground at almost half a metre per second.
+Male peacock spiders take off at twenty-five degrees.
+Often the journal also publishes the data behind them — the tables, even the videos.
+But does anyone check one against the other? Almost never. So we built an agent that does.
 
-**0:15 — What it is** *(screen: the bundle of files → the Space header "Hands-off")*
-Give it only what the journal published: the PDF, the data tables, the scripts, the videos. Muse Spark reads everything
-and proposes an audit plan — which file is which, what every column means, every number the paper claims. Code checks
-each proposal against the files. No number in a verdict is written by a language model.
+**0:20 — Meet Pixels to Proof** *(screen: the bundle of files going into the Space; header "Hands-off")*
+You give it exactly what the journal published. Nothing more.
+Muse Spark reads it all and drafts a plan: what each file and column means, and every number the paper claims.
+Then code checks every single proposal against the files.
+The rule is simple: the model may propose — but no number in a verdict is ever written by a language model.
 
-**0:40 — The agent at work** *(screen: ledger view, purple "MUSE SPARK PROPOSED" next to "CODE CHECKED" ✔/✘)*
-Every proposal is a line in the ledger, next to the check that accepted or rejected it. A quote that is not in the
-paper is rejected, and Muse Spark is asked again with the reason. When it says a number covers only the males, code
-first checks that the table has those rows.
+**0:45 — Watching it think** *(screen: ledger view, "MUSE SPARK PROPOSED" lines next to "CODE CHECKED" ✔/✘)*
+Every step lands in a ledger — what the model proposed, and the check that accepted or rejected it.
+A quote that isn't really in the paper? Rejected — and Muse Spark is asked again, with the reason.
 
-**1:05 — Numbers against data** *(screen: peacock claims table, then the Breadth tab)*
-In a peacock-spider paper, the take-off angles reproduce only as circular means — exactly the statistics the authors
-used. Three printed values are the table's values truncated, not rounded. Across thirteen papers — athletes, fish,
-ants, birds, spiders — the agent checked 319 printed numbers. Sixty-three reproduce to the last printed digit; for
-every other one, it says why it could not.
+**1:00 — Numbers versus data** *(screen: peacock claims table; then the Breadth tab)*
+Take the peacock spider paper.
+Its take-off angles only add up as circular means — exactly the statistics the authors said they used.
+Three of its printed values turn out to be the table's numbers cut short, not rounded.
+Across thirteen papers — athletes, fish, ants, birds, spiders. Three hundred and nineteen printed numbers.
+Sixty-three reproduce to the printed digit. For every other one, it tells you why not.
 
-**1:35 — Where there is video** *(screen: beetle receipt video, verdict card; then the spider receipt)*
-Where there is a video, it goes further. In a beetle-larva paper it refuses eleven of twelve shots — real-time
-footage, no scale — before tracking anything. One jump is tracked by SAM 3.1, matched to its row of the data table
-blind, from geometry alone, and the published take-off speed is reproduced. In the spider video it splits recordings
-joined by dissolves, reads "playback four times faster", measures the gap to the landing target — and refuses: the
-flight is not ballistic, and the extra deceleration points against the motion, as air drag would.
+**1:30 — When there's video** *(screen: beetle receipt playing, then the green verdict card)*
+When there's a video, it goes all the way down to physics.
+In the beetle paper, it rejects eleven of twelve shots up front — no scale, or a camera too slow.
+One jump is left. SAM 3.1 tracks it, the agent finds its row in the data blind, from the jump's shape alone — and the
+published take-off speed holds up. Reproduced.
 
-**2:15 — Can it be fooled?** *(screen: Calibration tab, fault table)*
-We fed it twelve kinds of wrong model answers: wrong units, wrong frame rates, a box on the background. Four were
-caught, six were repaired by the agent itself, two changed nothing. None produced a wrong verdict.
+**1:55 — Knowing when to say no** *(screen: the spider receipt, the amber refusal card)*
+The spider video is trickier. The agent splits recordings that fade into each other, reads "playback four times
+faster", and measures the gap to the target.
+Then it refuses. The flight isn't a clean arc — something slows the spider down, almost straight against its motion —
+the mark of air drag on a tiny body.
+An honest "I can't measure this" beats a confident wrong number.
 
-**2:35 — Close** *(screen: title card)*
-Muse Spark proposes. SAM 3.1 tracks. Code checks every step and writes it down.
+**2:25 — Can it be fooled?** *(screen: Calibration tab, the fault table)*
+We tried. Twelve kinds of deliberately wrong model answers.
+Four were caught, six the agent repaired on its own, two changed nothing — and not one produced a wrong verdict.
+
+**2:40 — Close** *(screen: title card)*
+Muse Spark proposes. SAM 3.1 tracks. Code checks every step, and writes it down.
 Pixels to Proof — a second reader for the numbers in science.
