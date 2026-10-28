@@ -18,7 +18,8 @@ check. Every model output is a ledger row together with the check that accepted 
    transitions. **G2:** for every shot of at least three times that length, Muse Spark reads a contact sheet (tiles
    labelled with frame numbers) and proposes the separate recordings in it — a dissolve between two near-identical
    scenes is invisible to pixel statistics; code accepts a split only if the recordings lie in the shot, do not
-   overlap and stay long enough after one tile is trimmed at each inner boundary. Muse Spark then reads every
+   overlap and are long enough; a recording starts where Spark says the transition is over and ends in the middle of
+   the next transition. Muse Spark then reads every
    recording (in parallel) from its first frame (object box) and a frame at 40 % (overlay text typed in later):
    printed text, frame rate, scale reference. Framed montage panels are detected and logged; **the agent does not
    split montages yet** (the case-file pipeline does).
@@ -40,7 +41,10 @@ check. Every model output is a ledger row together with the check that accepted 
    A claim about a subset of events (e.g. one sex) uses the rows selected by Spark's proposed filter (checked to exist);
    a mean angle is also tried as a circular mean when the paper states circular statistics; a mean whose stated n is
    not the number of rows is also tried per animal (each animal's rows averaged first, accepted only if the number of
-   animals equals n). Claims printed on the videos are checked the same way.
+   animals equals n). If the proposed statistic fails on its column, the other statistics are tried there (values
+   printed with ≥ 3 significant digits); a value that a statistic reproduces only when truncated is reported as such.
+   Claims printed on the videos are checked the same way. A single-event claim that no measured shot was paired to
+   ends as NOT CHECKED.
    A claim labelled single-event that equals a column statistic (≥ 2 significant digits) is routed to the table check.
    Units the agent cannot convert, or statistics without a column → refused with a reason.
 6. **Per shot, before any tracking (G4):** an absolute take-off speed column must exist (else nothing to compare
@@ -69,7 +73,7 @@ check. Every model output is a ledger row together with the check that accepted 
    scipy replica on our track is printed as a second reading (it does not vote). Each verdict also records the range of
    published values the measurement would have accepted.
 11. **Ledger and receipt.** Every Muse Spark and SAM call (role, tokens, seconds, replayed-from-cache flag), every
-   gate, every verdict; inputs' hashes; commit; `checks.toml` hash. Receipts are rendered for verdict shots. Any
+   gate, every verdict; inputs' hashes; commit; `checks.toml` hash. Receipts are rendered for every measured shot (verdict or refusal). Any
    exception inside one shot refuses that shot only.
 
 ## Not done (known)

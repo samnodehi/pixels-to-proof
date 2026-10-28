@@ -12,42 +12,49 @@ execution, demo; target also the Best Agentic Use-Case bonus.
 
 ## Architecture
 See `DESIGN.md` (as built) and `DECISIONS.md` (choices and their history). Core: `pixels_to_proof/agent.py`
-(G0 licence → shots + frame reads → plan with G1 and re-proposal → routing → table check → G4 inputs → SAM track with
+(G0 licence → shots, G2 recordings (Spark split) + frame reads → plan with G1 and re-proposal → routing → table check → G4 inputs → SAM track with
 G5 and box re-proposal → self-checks → G3 blind pairing → G6 verdict → ledger and receipt). The older case-file
 pipeline (`pipeline.py`, `cases/`) remains for the synthetic benchmark and the hand-prepared spider montage case.
 
 ## Stages
 - S0 Day-1 spike: DONE 2026-10-27 (beetle jump re-measured from a hand-prepared case).
 - S1 Measuring core + CLI + tests: DONE 2026-10-27.
-- S2 Synthetic calibration: DONE 2026-10-27 (`bench/RESULTS_seed2026.md`); re-run identical on 2026-10-28 after the
-  agent changes.
+- S2 Synthetic calibration: DONE 2026-10-27 (`bench/RESULTS_seed2026.md`); full re-run identical on 2026-10-28
+  (morning); after the later changes to the measuring code the kinematics were recomputed from the cached tracks:
+  identical.
 - S3 Spider montage (hand-prepared cases): DONE 2026-10-27, all CANNOT MEASURE with reasons.
 - S4 Web app + Space: DONE 2026-10-27; replaced 2026-10-28 by the ledger-driven Audit view (recorded runs, labelled
   live re-run of bundled papers, rate limited; no uploads).
 - S5 Audit agent, hands-off on the beetle bundle: DONE 2026-10-28 (council → reviews → build → impact/doc review →
-  hardening). Clean-commit recorded run `beetle-20261028-7a8c0e6`.
-- S6 Fault injection: DONE 2026-10-28 on the clean base (12 faults: caught 5, recovered 5, no effect 2, wrong 0,
-  errors 0; `showcase/faults.md`). Re-run at freeze.
-- S7 Second hands-off paper: NEXT. Spider (needs the main-paper PDF and montage splitting in the agent) and/or the
-  peacock spider candidate (J Exp Biol 2025, CC BY; video on Zenodo, table on Dryad); downloads need Sam (the
-  container's proxy blocks those hosts).
+  hardening). Recorded run now `beetle-20261028-49f237b` (re-recorded with S7).
+- S6 Fault injection: DONE 2026-10-28; re-run on the recorded beetle run of commit 49f237b (12 faults: caught 4,
+  recovered 6, no effect 2, wrong 0, errors 0; `showcase/faults.md`). Re-run at freeze.
+- S7 Second hands-off paper: DONE 2026-10-28 — peacock spider (J Exp Biol 2025; Zenodo video, Dryad CSV, files fetched
+  by Sam). New agent abilities: fades, Spark-proposed recordings (G2), playback speed-up, gap-to-target scale, wall
+  landing, truncated-flight refusal, per-subset / circular / per-animal table statistics, truncation notes. Recorded
+  run `peacock-20261028-49f237b`; beetle re-recorded on the same commit (`beetle-20261028-49f237b`, same verdict).
+  Phidippus (Sci Rep 2018) main PDF now available: a third hands-off bundle needs montage splitting (not built).
 - S8 Demo video (3 min, English AI voice "daniel", captions), README, submission: Nov 1–3; public repo and Space only
   with Sam's OK.
 
 ## Findings so far
-- Beetle (agent, hands-off): 18 claims — 11 reproduced from the table, 2 by another column, 3 by no column, 2 refused;
-  12 shots — 11 refused before tracking with reasons, 1 measured; blind pairing row 488 (4.7×); REPRODUCED
+- Beetle (agent, hands-off): 19 claims — 11 reproduced from the table, 2 by another column, 3 by no column, 3 refused;
+  12 shots — 11 refused before tracking with reasons, 1 measured; blind pairing row 488 (4.9×); REPRODUCED
   0.405 ± 0.024 vs 0.436 [0.425–0.447]; authors' method replica 0.398 (second reading). Scale: our grid 5.0 mm vs the
-  authors' implied 4.85 mm (3 %).
+  authors' implied 4.85 mm from their raw tracks (3 %; earlier analysis, not in the ledger).
 - Beetle text vs table (not findings about the authors; aggregation is not always stated): "leaving the ground at an
   angle of 79.6 ± 28.2 degrees" equals the body-posture angle column; "airborne for 1.3 ± 0.7 x 10-3 s" is reproduced
   by no column (the airborne-time column gives 67 ± 26 ms).
+- Peacock spider (agent, hands-off): both full jumps refused — not ballistic (male g +21 %, sideways 25 %; female
+  +11 %, 11 %), residual acceleration against the motion; take-off angles reproduce only as circular means; three
+  printed values are the table values truncated (90.069 → 90.06, 0.9872 → 0.98, 127.871 → 127.8); male mass
+  reproduces per spider (n = 10), female mass gives 10.43 vs the printed 10.40 (earlier run).
 - Spider (case pipeline): see README; the montage skips 1 frame in 13–14.
 
 ## Risks
-- Real papers with video + scale + stated fps + per-event table are rare: impact rests on one hands-off paper unless
-  S7 lands.
-- Model variance: claim extraction differs between runs (17–23 claims); every claim is checked, but counts move.
-- Plan call latency (~2 min of a ~4 min audit); SAM latency; the Space's 15 live runs/day cap → recorded runs default.
+- Real papers with video + scale + stated fps + per-event table are rare: two hands-off papers, one verdict among them.
+- Model variance: claim extraction differs between runs (beetle 18–23, peacock 24–28 claims); every claim is checked, but counts move.
+- Plan call latency (80–100 s per plan version; recorded audits 392 s and 608 s with re-proposals); SAM latency; the Space's 15 live runs/day cap → recorded runs default.
 - Narrow overlap on the beetle verdict; the sensitivity range is printed (−1 % to +17 %).
-- Montages not split by the agent; grid is the only scale route in the agent.
+- Montages not split by the agent. Small animals can be slowed by drag (peacock spider): the ballistic model then
+  refuses.

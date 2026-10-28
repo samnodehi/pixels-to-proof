@@ -1,0 +1,2280 @@
+{
+ "run_id": "peacock-20261028-49f237b",
+ "started": "2026-10-28T16:30:58+00:00",
+ "commit": "49f237bcb835e8e4bfa7358cf4b873e987795309",
+ "inputs": {
+  "Maratus_splendens_kinematics.csv": "e86569f4e6e1197db1ecd70a937065b1c2822e6528458f1238e1d4136993efa5",
+  "S1_Maratus.mp4": "655ae8c2983a6433abff0d3f4e0d219af61f4d147f2da13e94ea79bb5fd63fe9",
+  "jeb249416.pdf": "be94e2237bac05e21188ed5be5be266bc054130dd29f205b9d67657a2e9c8dc4",
+  "jeb249416supp.pdf": "8d0fa02934f0491e2e71964d3e2299d723c85f06a001e0f5f264d321f99f4876"
+ },
+ "checks_sha256": "b8a6e7a11527dba91bd08e6891ef75bae5ba5223667255507e481d1721f43fda",
+ "events": [
+  {
+   "i": 0,
+   "t": 0.07,
+   "kind": "step",
+   "what": "inventory",
+   "note": "2 pdf, 1 video, 1 table, 0 archive files",
+   "ref": ""
+  },
+  {
+   "i": 1,
+   "t": 0.44,
+   "kind": "step",
+   "what": "paper",
+   "note": "jeb249416.pdf chosen as the paper (of 2 PDFs)",
+   "ref": ""
+  },
+  {
+   "i": 2,
+   "t": 0.44,
+   "kind": "gate",
+   "gate": "G0 licence",
+   "ok": true,
+   "note": "CC BY: 002-1286-5373 This is an Open Access article distributed under the terms of the Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 3,
+   "t": 0.44,
+   "kind": "step",
+   "what": "read files",
+   "note": "127135 chars of PDF text, 1 table sheets, 0 scripts",
+   "ref": ""
+  },
+  {
+   "i": 4,
+   "t": 17.39,
+   "kind": "step",
+   "what": "shots",
+   "note": "S1_Maratus.mp4: 3 shots of >= 30 frames (cuts and fades)",
+   "ref": "S1_Maratus.mp4"
+  },
+  {
+   "i": 5,
+   "t": 74.0,
+   "kind": "model",
+   "role": "split shots",
+   "model": "muse-spark-1.3",
+   "tokens": 15772,
+   "seconds": 40.4,
+   "proposal": "S1_Maratus.mp4: shot 1: 0 recording(s); shot 2: 2 recording(s); shot 3: 2 recording(s)",
+   "ref": "S1_Maratus.mp4",
+   "cached": false
+  },
+  {
+   "i": 6,
+   "t": 74.0,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": false,
+   "note": "shot 1 (0-119): no recording proposed; the shot is kept as it is; Spark: All tiles 0 to 119 show the identical black title card 'Sexual Dimorphism in Jump Kinematics & Choreography in Peacock S",
+   "ref": "S1_Maratus.mp4",
+   "on": 5
+  },
+  {
+   "i": 7,
+   "t": 74.01,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 2 (173-571): 2 recordings: 173-384, 402-571 (each ends in the middle of the following transition); Spark: Male overlay text (127.8 m/s2 and 13.03 g) present through 368 then disappears in blank gray tiles 376,385,393; female o",
+   "ref": "S1_Maratus.mp4",
+   "on": 5
+  },
+  {
+   "i": 8,
+   "t": 74.01,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 3 (599-1110): 2 recordings: 599-876, 893-1110 (each ends in the middle of the following transition); Spark: Tiles 871 and 882 are blurry double-exposures blending the male landing on the right with the female sitting on the left",
+   "ref": "S1_Maratus.mp4",
+   "on": 5
+  },
+  {
+   "i": 9,
+   "t": 124.49,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 7621,
+   "seconds": 8.1,
+   "proposal": "printed text 'Sexual Dimorphism in / Jump Kinematics & Choreography in / Peacock Spiders / Ajay Narendra', fps None, scale reference none, object box [0, 0, 0, 0]",
+   "ref": "S1_Maratus_s1",
+   "cached": false
+  },
+  {
+   "i": 10,
+   "t": 124.5,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 9327,
+   "seconds": 17.5,
+   "proposal": "printed text 'Male Peacock spider, Maratus splendens jumps to a / vertical target to cross a gap of 4 cm', fps 5000, scale reference none, object box [68, 905, 275, 1050]",
+   "ref": "S1_Maratus_s2r1",
+   "cached": false
+  },
+  {
+   "i": 11,
+   "t": 124.52,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 8305,
+   "seconds": 12.0,
+   "proposal": "printed text 'Female Peacock spider, Maratus splendens jumps to a / vertical target to cross a gap of 4 ', fps 5000, scale reference none, object box [27, 924, 347, 1080]",
+   "ref": "S1_Maratus_s2r2",
+   "cached": false
+  },
+  {
+   "i": 12,
+   "t": 124.54,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 7795,
+   "seconds": 9.5,
+   "proposal": "printed text 'High magnification jump of a Male Peacock spider, Maratus splendens / Prior to the jump, L', fps 5000, scale reference none, object box [82, 739, 545, 1057]",
+   "ref": "S1_Maratus_s3r1",
+   "cached": false
+  },
+  {
+   "i": 13,
+   "t": 124.55,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 7280,
+   "seconds": 9.8,
+   "proposal": "printed text 'High magnification jump of a Female Peacock spider, Maratus splendens / Prior to the jump,', fps 5000, scale reference none, object box [80, 805, 575, 1055]",
+   "ref": "S1_Maratus_s3r2",
+   "cached": false
+  },
+  {
+   "i": 14,
+   "t": 223.26,
+   "kind": "model",
+   "role": "plan",
+   "model": "muse-spark-1.3",
+   "tokens": 61956,
+   "seconds": 98.7,
+   "proposal": "v1: 33 claims, event table Maratus_splendens_kinematics, 1 videos, authors' method finite_difference",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 15,
+   "t": 223.56,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 video S1_Maratus.mp4 fps: fps quote found and states the number",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 16,
+   "t": 223.57,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 column Maximum Velocity m/s range: 0.6106..0.9872 in SI",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 17,
+   "t": 223.57,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 column Take-off angle deg range: 6.484..41.16 in SI",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 18,
+   "t": 223.57,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 column Maximum trajectory height_mm range: 0.00272..0.01976 in SI",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 19,
+   "t": 223.57,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 column End trajectory height_mm range: -0.00373..0.01853 in SI",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 20,
+   "t": 223.57,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'We placed a vertical landing platform (0.1×0.5×4.0': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 21,
+   "t": 223.57,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The smallest individual filmed was a 2.0 mg male t': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 22,
+   "t": 223.57,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The smallest individual filmed was a 2.0 mg male t' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 23,
+   "t": 223.58,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The smallest individual filmed was a 2.0 mg male t': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 24,
+   "t": 223.58,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The smallest individual filmed was a 2.0 mg male t' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 25,
+   "t": 223.58,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The smallest individual filmed was a 2.0 mg male t': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 26,
+   "t": 223.58,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'The smallest individual filmed was a 2.0 mg male t' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 27,
+   "t": 223.58,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In comparison, the heaviest individual filmed was ': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 28,
+   "t": 223.58,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In comparison, the heaviest individual filmed was ' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 29,
+   "t": 223.58,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In comparison, the heaviest individual filmed was ': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 30,
+   "t": 223.58,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In comparison, the heaviest individual filmed was ' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 31,
+   "t": 223.58,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In comparison, the heaviest individual filmed was ': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 32,
+   "t": 223.58,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In comparison, the heaviest individual filmed was ' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 33,
+   "t": 223.58,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Between the two sexes, the highest and lowest acce': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 34,
+   "t": 223.58,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Between the two sexes, the highest and lowest acce' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 35,
+   "t": 223.59,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Between the two sexes, the highest and lowest acce': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 36,
+   "t": 223.59,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Between the two sexes, the highest and lowest acce' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 37,
+   "t": 223.59,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Between the sexes, the highest take-off velocity w': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 38,
+   "t": 223.59,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Between the sexes, the highest take-off velocity w' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 39,
+   "t": 223.59,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Between the sexes, the highest take-off velocity w': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 40,
+   "t": 223.59,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Between the sexes, the highest take-off velocity w' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 41,
+   "t": 223.59,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Males had a significantly higher take-off angle co': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 42,
+   "t": 223.59,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Males had a significantly higher take-off angle co' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 43,
+   "t": 223.59,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Males had a significantly higher take-off angle co': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 44,
+   "t": 223.59,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Males had a significantly higher take-off angle co' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 45,
+   "t": 223.59,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In females, the third pair of legs left the platfo': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 46,
+   "t": 223.6,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In females, the third pair of legs left the platfo' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 47,
+   "t": 223.6,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In females, the third pair of legs left the platfo': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 48,
+   "t": 223.6,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In females, the third pair of legs left the platfo' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 49,
+   "t": 223.6,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In both sexes, the fourth pair of legs left the pl': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 50,
+   "t": 223.6,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In both sexes, the fourth pair of legs left the pl' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 51,
+   "t": 223.6,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In both sexes, the fourth pair of legs left the pl': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 52,
+   "t": 223.6,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In both sexes, the fourth pair of legs left the pl' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 53,
+   "t": 223.6,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In both sexes, the third pair of legs left the pla': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 54,
+   "t": 223.6,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In both sexes, the third pair of legs left the pla' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 55,
+   "t": 223.6,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In both sexes, the third pair of legs left the pla': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 56,
+   "t": 223.6,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'In both sexes, the third pair of legs left the pla' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 57,
+   "t": 223.61,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Spiders waved their first two pairs of legs for 0.': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 58,
+   "t": 223.61,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim 'The tip of the abdomen touched the take-off platfo': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 59,
+   "t": 223.61,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '20.8': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 60,
+   "t": 223.61,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '24.6': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 61,
+   "t": 223.61,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '0.84': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 62,
+   "t": 223.61,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '0.81': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 63,
+   "t": 223.61,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Males take-off with a maximum acceleration of 127.': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 64,
+   "t": 223.61,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Males take-off with a maximum acceleration of 127.' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 65,
+   "t": 223.61,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Males take-off with a maximum acceleration of 127.': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 66,
+   "t": 223.61,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Males take-off with a maximum acceleration of 127.' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 67,
+   "t": 223.62,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Females take-off with a maximum acceleration of 12': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 68,
+   "t": 223.62,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Females take-off with a maximum acceleration of 12' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 69,
+   "t": 223.62,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Females take-off with a maximum acceleration of 12': quote and value found in the PDF",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 70,
+   "t": 223.62,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'Females take-off with a maximum acceleration of 12' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 14
+  },
+  {
+   "i": 71,
+   "t": 308.83,
+   "kind": "model",
+   "role": "re-propose plan",
+   "model": "muse-spark-1.3",
+   "tokens": 63644,
+   "seconds": 85.2,
+   "proposal": "v2: 34 claims, event table Maratus_splendens_kinematics, 1 videos, authors' method finite_difference",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 72,
+   "t": 309.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 video S1_Maratus.mp4 fps: fps quote found and states the number",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 73,
+   "t": 309.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'We placed a vertical landing platform (0.1×0.5×4.0': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 74,
+   "t": 309.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The smallest individual filmed was a 2.0 mg male t': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 75,
+   "t": 309.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The smallest individual filmed was a 2.0 mg male t' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 76,
+   "t": 309.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The smallest individual filmed was a 2.0 mg male t': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 77,
+   "t": 309.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The smallest individual filmed was a 2.0 mg male t' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 78,
+   "t": 309.01,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The smallest individual filmed was a 2.0 mg male t': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 79,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'The smallest individual filmed was a 2.0 mg male t' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 80,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In comparison, the heaviest individual filmed was ': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 81,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In comparison, the heaviest individual filmed was ' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 82,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In comparison, the heaviest individual filmed was ': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 83,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In comparison, the heaviest individual filmed was ' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 84,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In comparison, the heaviest individual filmed was ': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 85,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In comparison, the heaviest individual filmed was ' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 86,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Between the two sexes, the highest and lowest acce': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 87,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Between the two sexes, the highest and lowest acce' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 88,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Between the two sexes, the highest and lowest acce': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 89,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Between the two sexes, the highest and lowest acce' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 90,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Between the sexes, the highest take-off velocity w': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 91,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Between the sexes, the highest take-off velocity w' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 92,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Between the sexes, the highest take-off velocity w': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 93,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Between the sexes, the highest take-off velocity w' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 94,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Males had a significantly higher take-off angle co': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 95,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Males had a significantly higher take-off angle co' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 96,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Males had a significantly higher take-off angle co': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 97,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Males had a significantly higher take-off angle co' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 98,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In females, the third pair of legs left the platfo': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 99,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In females, the third pair of legs left the platfo' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 100,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In females, the third pair of legs left the platfo': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 101,
+   "t": 309.02,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In females, the third pair of legs left the platfo' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 102,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In both sexes, the fourth pair of legs left the pl': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 103,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In both sexes, the fourth pair of legs left the pl' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 104,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In both sexes, the fourth pair of legs left the pl': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 105,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In both sexes, the fourth pair of legs left the pl' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 106,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In both sexes, the third pair of legs left the pla': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 107,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In both sexes, the third pair of legs left the pla' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 108,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In both sexes, the third pair of legs left the pla': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 109,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'In both sexes, the third pair of legs left the pla' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 110,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Spiders waved their first two pairs of legs for 0.': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 111,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Males take-off with a maximum acceleration of 127.': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 112,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Males take-off with a maximum acceleration of 127.' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 113,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Males take-off with a maximum acceleration of 127.': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 114,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Males take-off with a maximum acceleration of 127.' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 115,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Females take-off with a maximum acceleration of 12': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 116,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Females take-off with a maximum acceleration of 12' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 117,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Females take-off with a maximum acceleration of 12': quote and value found in the PDF",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 118,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'Females take-off with a maximum acceleration of 12' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 119,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim '(~0.2 ms;': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 120,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim '20.8': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 121,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim '24.6': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 122,
+   "t": 309.03,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim '0.84': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 123,
+   "t": 309.04,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v2 claim '0.81': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 71
+  },
+  {
+   "i": 124,
+   "t": 385.06,
+   "kind": "model",
+   "role": "re-propose plan",
+   "model": "muse-spark-1.3",
+   "tokens": 59724,
+   "seconds": 76.0,
+   "proposal": "v3: 47 claims, event table Maratus_splendens_kinematics, 1 videos, authors' method finite_difference",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 125,
+   "t": 385.18,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 video S1_Maratus.mp4 fps: fps quote found and states the number",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 126,
+   "t": 385.18,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'We placed a vertical landing platform (0.1×0.5×4.0': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 127,
+   "t": 385.19,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The smallest individual filmed was a 2.0 mg male t': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 128,
+   "t": 385.19,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The smallest individual filmed was a 2.0 mg male t' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 129,
+   "t": 385.19,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The smallest individual filmed was a 2.0 mg male t': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 130,
+   "t": 385.19,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The smallest individual filmed was a 2.0 mg male t' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 131,
+   "t": 385.19,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The smallest individual filmed was a 2.0 mg male t': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 132,
+   "t": 385.19,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'The smallest individual filmed was a 2.0 mg male t' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 133,
+   "t": 385.19,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In comparison, the heaviest individual filmed was ': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 134,
+   "t": 385.19,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In comparison, the heaviest individual filmed was ' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 135,
+   "t": 385.19,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In comparison, the heaviest individual filmed was ': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 136,
+   "t": 385.19,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In comparison, the heaviest individual filmed was ' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 137,
+   "t": 385.19,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In comparison, the heaviest individual filmed was ': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 138,
+   "t": 385.19,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In comparison, the heaviest individual filmed was ' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 139,
+   "t": 385.2,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Between the two sexes, the highest and lowest acce': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 140,
+   "t": 385.2,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Between the two sexes, the highest and lowest acce' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 141,
+   "t": 385.2,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Between the two sexes, the highest and lowest acce': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 142,
+   "t": 385.2,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Between the two sexes, the highest and lowest acce' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 143,
+   "t": 385.2,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Between the sexes, the highest take-off velocity w': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 144,
+   "t": 385.2,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Between the sexes, the highest take-off velocity w' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 145,
+   "t": 385.2,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Between the sexes, the highest take-off velocity w': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 146,
+   "t": 385.21,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Between the sexes, the highest take-off velocity w' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 147,
+   "t": 385.21,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Males had a significantly higher take-off angle co': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 148,
+   "t": 385.21,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Males had a significantly higher take-off angle co' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 149,
+   "t": 385.21,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Males had a significantly higher take-off angle co': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 150,
+   "t": 385.21,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Males had a significantly higher take-off angle co' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 151,
+   "t": 385.21,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In females, the third pair of legs left the platfo': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 152,
+   "t": 385.22,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In females, the third pair of legs left the platfo' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 153,
+   "t": 385.22,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In females, the third pair of legs left the platfo': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 154,
+   "t": 385.22,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In females, the third pair of legs left the platfo' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 155,
+   "t": 385.22,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In both sexes, the fourth pair of legs left the pl': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 156,
+   "t": 385.22,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In both sexes, the fourth pair of legs left the pl' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 157,
+   "t": 385.22,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In both sexes, the fourth pair of legs left the pl': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 158,
+   "t": 385.22,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In both sexes, the fourth pair of legs left the pl' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 159,
+   "t": 385.22,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In both sexes, the third pair of legs left the pla': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 160,
+   "t": 385.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In both sexes, the third pair of legs left the pla' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 161,
+   "t": 385.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In both sexes, the third pair of legs left the pla': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 162,
+   "t": 385.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'In both sexes, the third pair of legs left the pla' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 163,
+   "t": 385.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Spiders waved their first two pairs of legs for 0.': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 164,
+   "t": 385.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Males take-off with a maximum acceleration of 127.': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 165,
+   "t": 385.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Males take-off with a maximum acceleration of 127.' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 166,
+   "t": 385.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Males take-off with a maximum acceleration of 127.': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 167,
+   "t": 385.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Males take-off with a maximum acceleration of 127.' rows: rows where 'sex' = 'male'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 168,
+   "t": 385.23,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Females take-off with a maximum acceleration of 12': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 169,
+   "t": 385.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Females take-off with a maximum acceleration of 12' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 170,
+   "t": 385.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Females take-off with a maximum acceleration of 12': quote and value found in the PDF",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 171,
+   "t": 385.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v3 claim 'Females take-off with a maximum acceleration of 12' rows: rows where 'sex' = 'female'",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 172,
+   "t": 385.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim '0.2 ms': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 173,
+   "t": 385.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim '20.8': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 174,
+   "t": 385.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim '24.6': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 175,
+   "t": 385.24,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim '0.84': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 176,
+   "t": 385.25,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v3 claim '0.81': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 124
+  },
+  {
+   "i": 177,
+   "t": 385.25,
+   "kind": "step",
+   "what": "plan accepted",
+   "note": "v1 (5 needed fields still rejected)",
+   "ref": ""
+  },
+  {
+   "i": 178,
+   "t": 385.26,
+   "kind": "step",
+   "what": "spread convention",
+   "note": "the paper states 'means±s.d': a '±' of unknown type is read as SD",
+   "ref": ""
+  },
+  {
+   "i": 179,
+   "t": 385.27,
+   "kind": "step",
+   "what": "angle statistics",
+   "note": "the paper states 'circular statistic': a mean angle that arithmetic does not reproduce is also tried as a circular mean (circular SD = sqrt(-2 ln R))",
+   "ref": ""
+  },
+  {
+   "i": 180,
+   "t": 385.29,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: We placed a vertical landing platform (0.1×0.5×4.0 cm, L×W×H) 4 cm awa",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 181,
+   "t": 385.29,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The smallest individual filmed was a 2.0 mg male that had a take-off d",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 182,
+   "t": 385.3,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: The smallest individual filmed was a 2.0 mg male that had a take-off d",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 183,
+   "t": 385.3,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "see video route: The smallest individual filmed was a 2.0 mg male that had a take-off d",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 184,
+   "t": 385.31,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: In comparison, the heaviest individual filmed was a 13.2 mg female tha",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 185,
+   "t": 385.31,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: In comparison, the heaviest individual filmed was a 13.2 mg female tha",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 186,
+   "t": 385.32,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "see video route: In comparison, the heaviest individual filmed was a 13.2 mg female tha",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 187,
+   "t": 385.32,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: Between the two sexes, the highest and lowest acceleration was seen in",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 188,
+   "t": 385.33,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: Between the two sexes, the highest and lowest acceleration was seen in",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 189,
+   "t": 385.33,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: Between the sexes, the highest take-off velocity was in males (0.98 m ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 190,
+   "t": 385.34,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: Between the sexes, the highest take-off velocity was in males (0.98 m ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 191,
+   "t": 385.34,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: Males had a significantly higher take-off angle compared with females ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 192,
+   "t": 385.35,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: Males had a significantly higher take-off angle compared with females ",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 193,
+   "t": 385.35,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: In females, the third pair of legs left the platform 3.5±0.4 ms (means",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 194,
+   "t": 385.35,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: In females, the third pair of legs left the platform 3.5±0.4 ms (means",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 195,
+   "t": 385.36,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: In both sexes, the fourth pair of legs left the platform close to when",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 196,
+   "t": 385.36,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: In both sexes, the fourth pair of legs left the platform close to when",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 197,
+   "t": 385.37,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: In both sexes, the third pair of legs left the platform after peak acc",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 198,
+   "t": 385.37,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: In both sexes, the third pair of legs left the platform after peak acc",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 199,
+   "t": 385.38,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Spiders waved their first two pairs of legs for 0.4–60 ms, and gradual",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 200,
+   "t": 385.39,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "NOT CHECKED: Males take-off with a maximum acceleration of 127.8 m/s2 and 13.03 g",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 201,
+   "t": 385.4,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Males take-off with a maximum acceleration of 127.8 m/s2 and 13.03 g",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 202,
+   "t": 385.4,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: Females take-off with a maximum acceleration of 122.7 m/s2 and 12.5 g",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 203,
+   "t": 385.41,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: Females take-off with a maximum acceleration of 122.7 m/s2 and 12.5 g",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 204,
+   "t": 385.41,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "5000 video frames per second of real time, stated in the paper for this video file",
+   "ref": "S1_Maratus_s1",
+   "on": null
+  },
+  {
+   "i": 205,
+   "t": 398.43,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": false,
+   "note": "no measurable platform gap on this shot (no platform protrudes from the image border)",
+   "ref": "S1_Maratus_s1",
+   "on": null
+  },
+  {
+   "i": 206,
+   "t": 398.43,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "1250 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text); 'playback 4x faster' printed on the video: every 4th camera frame is shown, so one video frame = 4/5000 s",
+   "ref": "S1_Maratus_s2r1",
+   "on": null
+  },
+  {
+   "i": 207,
+   "t": 417.89,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": true,
+   "note": "gap from the platform tip at x=232 px to the wall at x=1843.1 px = 1611 px = 40 mm (stated: 'We placed a vertical landing platform (0.1×0.5×4.0 cm, L×W×H) 4 cm away from the')",
+   "ref": "S1_Maratus_s2r1",
+   "on": null
+  },
+  {
+   "i": 208,
+   "t": 482.61,
+   "kind": "model",
+   "role": "track",
+   "model": "sam-3.1",
+   "tokens": null,
+   "seconds": 64.6,
+   "proposal": "box from Muse Spark: 212 frames tracked",
+   "ref": "S1_Maratus_s2r1",
+   "cached": false
+  },
+  {
+   "i": 209,
+   "t": 482.61,
+   "kind": "gate",
+   "gate": "G5 track",
+   "ok": true,
+   "note": "box from Muse Spark: accepted",
+   "ref": "S1_Maratus_s2r1",
+   "on": 208
+  },
+  {
+   "i": 210,
+   "t": 482.61,
+   "kind": "gate",
+   "gate": "G5 gravity",
+   "ok": false,
+   "note": "11.83 m/s^2 from the flight (+20.6% vs 9.81)",
+   "ref": "S1_Maratus_s2r1",
+   "on": null
+  },
+  {
+   "i": 211,
+   "t": 482.61,
+   "kind": "gate",
+   "gate": "G5 free flight",
+   "ok": false,
+   "note": "sideways acceleration 24.8% of vertical; acceleration beyond gravity 36% of g, at 11 deg from straight against the mid-flight motion (the direction air drag would have)",
+   "ref": "S1_Maratus_s2r1",
+   "on": null
+  },
+  {
+   "i": 212,
+   "t": 482.62,
+   "kind": "gate",
+   "gate": "G3 blind pairing",
+   "ok": false,
+   "note": "best row j1 is only 1.16x closer than j3 (needs 2.0x): not unambiguous (features: end_height, jump_height, takeoff_angle; published speed not used)",
+   "ref": "S1_Maratus_s2r1",
+   "on": null
+  },
+  {
+   "i": 213,
+   "t": 489.59,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "1250 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text); 'playback 4x faster' printed on the video: every 4th camera frame is shown, so one video frame = 4/5000 s",
+   "ref": "S1_Maratus_s2r2",
+   "on": null
+  },
+  {
+   "i": 214,
+   "t": 505.8,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": true,
+   "note": "gap from the platform tip at x=231 px to the wall at x=1840.6 px = 1610 px = 40 mm (stated: 'We placed a vertical landing platform (0.1×0.5×4.0 cm, L×W×H) 4 cm away from the')",
+   "ref": "S1_Maratus_s2r2",
+   "on": null
+  },
+  {
+   "i": 215,
+   "t": 564.2,
+   "kind": "model",
+   "role": "track",
+   "model": "sam-3.1",
+   "tokens": null,
+   "seconds": 58.3,
+   "proposal": "box from Muse Spark: 170 frames tracked",
+   "ref": "S1_Maratus_s2r2",
+   "cached": false
+  },
+  {
+   "i": 216,
+   "t": 564.21,
+   "kind": "gate",
+   "gate": "G5 track",
+   "ok": true,
+   "note": "box from Muse Spark: accepted",
+   "ref": "S1_Maratus_s2r2",
+   "on": 215
+  },
+  {
+   "i": 217,
+   "t": 564.21,
+   "kind": "gate",
+   "gate": "G5 gravity",
+   "ok": false,
+   "note": "10.85 m/s^2 from the flight (+10.6% vs 9.81)",
+   "ref": "S1_Maratus_s2r2",
+   "on": null
+  },
+  {
+   "i": 218,
+   "t": 564.21,
+   "kind": "gate",
+   "gate": "G5 free flight",
+   "ok": false,
+   "note": "sideways acceleration 11.1% of vertical; acceleration beyond gravity 16% of g, at 31 deg from straight against the mid-flight motion",
+   "ref": "S1_Maratus_s2r2",
+   "on": null
+  },
+  {
+   "i": 219,
+   "t": 564.21,
+   "kind": "gate",
+   "gate": "G3 blind pairing",
+   "ok": false,
+   "note": "best row j1 is only 1.39x closer than j3 (needs 2.0x): not unambiguous (features: end_height, jump_height, takeoff_angle; published speed not used)",
+   "ref": "S1_Maratus_s2r2",
+   "on": null
+  },
+  {
+   "i": 220,
+   "t": 569.69,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "5000 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
+   "ref": "S1_Maratus_s3r1",
+   "on": null
+  },
+  {
+   "i": 221,
+   "t": 589.71,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": false,
+   "note": "no measurable platform gap on this shot (no platform protrudes from the image border)",
+   "ref": "S1_Maratus_s3r1",
+   "on": null
+  },
+  {
+   "i": 222,
+   "t": 589.71,
+   "kind": "gate",
+   "gate": "G4 frame rate",
+   "ok": true,
+   "note": "5000 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
+   "ref": "S1_Maratus_s3r2",
+   "on": null
+  },
+  {
+   "i": 223,
+   "t": 607.94,
+   "kind": "gate",
+   "gate": "G4 scale",
+   "ok": false,
+   "note": "no measurable platform gap on this shot (no platform protrudes from the image border)",
+   "ref": "S1_Maratus_s3r2",
+   "on": null
+  }
+ ],
+ "verdicts": [],
+ "summary": {
+  "status": "complete",
+  "claims": {
+   "REFUSED": 14,
+   "NOT CHECKED": 5,
+   "MATCHES TABLE": 5
+  },
+  "videos": {
+   "S1_Maratus_s1": "CANNOT MEASURE",
+   "S1_Maratus_s2r1": "CANNOT MEASURE",
+   "S1_Maratus_s2r2": "CANNOT MEASURE",
+   "S1_Maratus_s3r1": "CANNOT MEASURE",
+   "S1_Maratus_s3r2": "CANNOT MEASURE"
+  },
+  "finished": "2026-10-28T16:41:06+00:00",
+  "wall_s": 607.9
+ }
+}

@@ -70,7 +70,8 @@ def header_md(rep: dict, led: dict, meta: dict, live: bool = False) -> str:
              + f" · input files: {len(led.get('inputs', {}))} (hashes in the ledger)  ",
              f"**Hands-off:** the agent received only the files the journal published — "
              f"{', '.join(f'`{k}`' for k in led.get('inputs', {}))}. Nothing was set by hand.  ",
-             f"**Work done:** {len(models)} Muse Spark proposals ({sum(e['tokens'] or 0 for e in models):,} tokens) · "
+             f"**Work done:** {sum(1 for e in models if e['role'] != 'track')} Muse Spark proposals "
+             f"({sum(e['tokens'] or 0 for e in models):,} tokens) · "
              f"SAM 3.1 tracks: {sum(1 for g in gates if g['gate'] == 'G5 track')} · "
              f"{len(gates)} code checks, {rej} of which rejected something."]
     return "\n".join(lines)

@@ -69,7 +69,7 @@ hands-off beetle run gives the same verdict.
   first peacock run a black title card and the magnified take-off shots, where no landing target is visible, returned
   a "gap" spanning the whole frame.
 - **Quotes across a hyphenated line break.** "take-off" broken at a line end extracts as "takeoff"; quotes are compared
-  with hyphens between letters removed on both sides (the beetle plan's 38 checks give the same results).
+  with hyphens between letters removed on both sides (re-checking a cached beetle plan gives the same results).
 - **Overlay text from two frames.** Captions are often typed in after the first frame; the frame reading now gets the
   first frame (for the object box) and a frame at 40 % of the shot (for the text).
 - **Playback speed.** "Playback N x faster" printed on a shot means one video frame stands for N camera frames; a

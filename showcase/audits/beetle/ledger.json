@@ -1,7 +1,7 @@
 {
- "run_id": "beetle-20261028-7a8c0e6",
- "started": "2026-10-28T11:37:03+00:00",
- "commit": "7a8c0e637d49e536ea4c7dfb281de355ade24aab",
+ "run_id": "beetle-20261028-49f237b",
+ "started": "2026-10-28T16:30:58+00:00",
+ "commit": "49f237bcb835e8e4bfa7358cf4b873e987795309",
  "inputs": {
   "journal.pone.0256509.s001.xlsx": "108169bba1e8018748e49a95023f2820de05c14547ace1fbcfb9f423c4ba2401",
   "journal.pone.0256509.s002.zip": "074fe13998d5ba27c210bb34c6f92c4db870db19c06774c256fe9065eb03d983",
@@ -21,7 +21,7 @@
   },
   {
    "i": 1,
-   "t": 0.34,
+   "t": 0.43,
    "kind": "step",
    "what": "paper",
    "note": "paper.pdf chosen as the paper",
@@ -29,7 +29,7 @@
   },
   {
    "i": 2,
-   "t": 0.34,
+   "t": 0.43,
    "kind": "gate",
    "gate": "G0 licence",
    "ok": true,
@@ -39,7 +39,7 @@
   },
   {
    "i": 3,
-   "t": 0.47,
+   "t": 0.62,
    "kind": "step",
    "what": "read files",
    "note": "225492 chars of PDF text, 2 table sheets, 1 scripts",
@@ -47,565 +47,1021 @@
   },
   {
    "i": 4,
-   "t": 3.4,
+   "t": 5.39,
    "kind": "step",
    "what": "shots",
-   "note": "journal.pone.0256509.s003.mp4: 9 shots of >= 30 frames",
+   "note": "journal.pone.0256509.s003.mp4: 9 shots of >= 30 frames (cuts and fades)",
    "ref": "journal.pone.0256509.s003.mp4"
   },
   {
    "i": 5,
-   "t": 19.32,
-   "kind": "step",
-   "what": "shots",
-   "note": "journal.pone.0256509.s004.mp4: 3 shots of >= 30 frames",
-   "ref": "journal.pone.0256509.s004.mp4"
+   "t": 33.68,
+   "kind": "model",
+   "role": "split shots",
+   "model": "muse-spark-1.3",
+   "tokens": 13309,
+   "seconds": 16.7,
+   "proposal": "journal.pone.0256509.s003.mp4: shot 1: 1 recording(s); shot 2: 1 recording(s); shot 3: 1 recording(s); shot 4: 1 recording(s); shot 5: 1 recording(s)",
+   "ref": "journal.pone.0256509.s003.mp4",
+   "cached": false
   },
   {
    "i": 6,
-   "t": 53.22,
-   "kind": "model",
-   "role": "read frame",
-   "model": "muse-spark-1.3",
-   "tokens": 3621,
-   "seconds": 12.6,
-   "proposal": "printed text 'Laemophloeus biguttatus / realtime - 30 frames/second / jumping behavior / Bertone et al.,', fps 30, scale reference none, object box [540, 245, 737, 577]",
-   "ref": "journal.pone.0256509.s003_s1",
-   "cached": false
+   "t": 33.68,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 1 (0-89): one recording: the shot is kept as it is; Spark: All tiles 0 to 89 show the same dark soil/bark texture, same lighting, camera angle and text overlay. The orange larva m",
+   "ref": "journal.pone.0256509.s003.mp4",
+   "on": 5
   },
   {
    "i": 7,
-   "t": 53.24,
-   "kind": "model",
-   "role": "read frame",
-   "model": "muse-spark-1.3",
-   "tokens": 2863,
-   "seconds": 11.9,
-   "proposal": "printed text 'Laemophloeus biguttatus / realtime - 30 frames/second / jumping behavior / Bertone et al. ', fps 30, scale reference none, object box [630, 283, 770, 708]",
-   "ref": "journal.pone.0256509.s003_s2",
-   "cached": false
+   "t": 33.68,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 2 (224-350): one recording: the shot is kept as it is; Spark: All tiles 224 to 350 show the same light mottled bark background, same lighting, framing and overlay with the larva cent",
+   "ref": "journal.pone.0256509.s003.mp4",
+   "on": 5
   },
   {
    "i": 8,
-   "t": 53.26,
-   "kind": "model",
-   "role": "read frame",
-   "model": "muse-spark-1.3",
-   "tokens": 3835,
-   "seconds": 15.3,
-   "proposal": "printed text 'Laemophloeus biguttatus / realtime - 30 frames/second / jumping behavior / Bertone et al.,', fps 30, scale reference grid, object box [577, 642, 675, 668]",
-   "ref": "journal.pone.0256509.s003_s3",
-   "cached": false
+   "t": 33.68,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 3 (363-584): one recording: the shot is kept as it is; Spark: All tiles 363 to 584 show the same white grid background with horizontal brown strip, same lighting, framing and overlay",
+   "ref": "journal.pone.0256509.s003.mp4",
+   "on": 5
   },
   {
    "i": 9,
-   "t": 53.28,
-   "kind": "model",
-   "role": "read frame",
-   "model": "muse-spark-1.3",
-   "tokens": 3690,
-   "seconds": 14.2,
-   "proposal": "printed text 'Laemophloeus biguttatus / realtime - 30 frames/second / jumping behavior / Bertone et al.,', fps 30, scale reference grid, object box [654, 668, 688, 700]",
-   "ref": "journal.pone.0256509.s003_s4",
-   "cached": false
+   "t": 33.68,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 4 (585-757): one recording: the shot is kept as it is; Spark: All tiles 585 to 757 show the same white grid background with horizontal strip, same lighting, framing and overlay. Cons",
+   "ref": "journal.pone.0256509.s003.mp4",
+   "on": 5
   },
   {
    "i": 10,
-   "t": 53.29,
-   "kind": "model",
-   "role": "read frame",
-   "model": "muse-spark-1.3",
-   "tokens": 4422,
-   "seconds": 17.2,
-   "proposal": "printed text 'Laemophloeus biguttatus / realtime - 30 frames/second / jumping behavior / Bertone et al.,', fps 30, scale reference grid, object box [772, 628, 1026, 677]",
-   "ref": "journal.pone.0256509.s003_s5",
-   "cached": false
+   "t": 33.68,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 5 (758-946): one recording: the shot is kept as it is; Spark: All tiles 758 to 946 show the same close grid view, same lighting and overlay. The yellowish larva moves steadily left-t",
+   "ref": "journal.pone.0256509.s003.mp4",
+   "on": 5
   },
   {
    "i": 11,
-   "t": 53.32,
-   "kind": "model",
-   "role": "read frame",
-   "model": "muse-spark-1.3",
-   "tokens": 3298,
-   "seconds": 12.4,
-   "proposal": "printed text 'Placonotus testaceus / realtime - 30 frames/second / jumping behavior / Bertone et al., 20', fps 30, scale reference none, object box [643, 252, 759, 520]",
-   "ref": "journal.pone.0256509.s003_s6",
-   "cached": false
+   "t": 66.87,
+   "kind": "step",
+   "what": "shots",
+   "note": "journal.pone.0256509.s004.mp4: 3 shots of >= 30 frames (cuts and fades)",
+   "ref": "journal.pone.0256509.s004.mp4"
   },
   {
    "i": 12,
-   "t": 53.34,
+   "t": 86.47,
    "kind": "model",
-   "role": "read frame",
+   "role": "split shots",
    "model": "muse-spark-1.3",
-   "tokens": 3669,
+   "tokens": 8892,
    "seconds": 13.0,
-   "proposal": "printed text 'Placonotus testaceus / realtime - 30 frames/second / jumping behavior / Bertone et al., 20', fps 30, scale reference none, object box [434, 253, 505, 538]",
-   "ref": "journal.pone.0256509.s003_s7",
+   "proposal": "journal.pone.0256509.s004.mp4: shot 1: 1 recording(s); shot 2: 1 recording(s); shot 3: 1 recording(s)",
+   "ref": "journal.pone.0256509.s004.mp4",
    "cached": false
   },
   {
    "i": 13,
-   "t": 53.36,
-   "kind": "model",
-   "role": "read frame",
-   "model": "muse-spark-1.3",
-   "tokens": 4051,
-   "seconds": 12.3,
-   "proposal": "printed text 'Placonotus testaceus / realtime - 30 frames/second / jumping behavior / Bertone et al., 20', fps 30, scale reference none, object box [635, 585, 735, 690]",
-   "ref": "journal.pone.0256509.s003_s8",
-   "cached": false
+   "t": 86.47,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 1 (0-210): one recording: the shot is kept as it is; Spark: No internal boundary: purple-grey background, lighting and white title overlay identical in all tiles; larva posture pro",
+   "ref": "journal.pone.0256509.s004.mp4",
+   "on": 12
   },
   {
    "i": 14,
-   "t": 53.38,
-   "kind": "model",
-   "role": "read frame",
-   "model": "muse-spark-1.3",
-   "tokens": 3622,
-   "seconds": 13.3,
-   "proposal": "printed text 'Placonotus testaceus / realtime - 30 frames/second / jumping behavior / Bertone et al., 20', fps 30, scale reference none, object box [500, 240, 810, 435]",
-   "ref": "journal.pone.0256509.s003_s9",
-   "cached": false
+   "t": 86.47,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 2 (211-803): one recording: the shot is kept as it is; Spark: No internal boundary: fine-grid background and white title overlay identical in all tiles; small larva moves smoothly le",
+   "ref": "journal.pone.0256509.s004.mp4",
+   "on": 12
   },
   {
    "i": 15,
-   "t": 53.39,
-   "kind": "model",
-   "role": "read frame",
-   "model": "muse-spark-1.3",
-   "tokens": 3386,
-   "seconds": 10.2,
-   "proposal": "printed text 'Laemophloeus biguttatus / captured - 3,200 frames/second / playback - 30 frames/second / j', fps 3200, scale reference none, object box [129, 384, 735, 463]",
-   "ref": "journal.pone.0256509.s004_s1",
-   "cached": false
+   "t": 86.47,
+   "kind": "gate",
+   "gate": "G2 recordings",
+   "ok": true,
+   "note": "shot 3 (804-1214): one recording: the shot is kept as it is; Spark: No internal boundary: coarse-grid grayscale background and white title overlay identical in all tiles; larva posture evo",
+   "ref": "journal.pone.0256509.s004.mp4",
+   "on": 12
   },
   {
    "i": 16,
-   "t": 53.4,
+   "t": 121.39,
    "kind": "model",
    "role": "read frame",
    "model": "muse-spark-1.3",
-   "tokens": 3611,
-   "seconds": 13.8,
-   "proposal": "printed text 'Laemophloeus biguttatus / captured - 3,200 frames/second / playback - 30 frames/second / j', fps 3200, scale reference grid, object box [648, 643, 857, 676]",
-   "ref": "journal.pone.0256509.s004_s2",
+   "tokens": 4519,
+   "seconds": 10.1,
+   "proposal": "printed text 'Laemophloeus biguttatus / realtime - 30 frames/second / jumping behavior / Bertone et al.,', fps 30, scale reference none, object box [626, 227, 789, 562]",
+   "ref": "journal.pone.0256509.s003_s1",
    "cached": false
   },
   {
    "i": 17,
-   "t": 53.42,
+   "t": 121.41,
    "kind": "model",
    "role": "read frame",
    "model": "muse-spark-1.3",
-   "tokens": 3585,
-   "seconds": 14.5,
-   "proposal": "printed text 'Laemophloeus biguttatus / captured - 60,000 frames/second / playback - 30 frames/second / ', fps 60000, scale reference grid, object box [490, 530, 1010, 675]",
-   "ref": "journal.pone.0256509.s004_s3",
+   "tokens": 4976,
+   "seconds": 11.8,
+   "proposal": "printed text 'Laemophloeus biguttatus / realtime - 30 frames/second / jumping behavior / Bertone et al.,', fps 30, scale reference none, object box [688, 284, 795, 694]",
+   "ref": "journal.pone.0256509.s003_s2",
    "cached": false
   },
   {
    "i": 18,
-   "t": 151.18,
+   "t": 121.43,
    "kind": "model",
-   "role": "plan",
+   "role": "read frame",
    "model": "muse-spark-1.3",
-   "tokens": 125295,
-   "seconds": 97.8,
-   "proposal": "v1: 24 claims, event table BeetleJumpPerformanceData, 3 videos, authors' method smoothing_spline_max",
-   "ref": "",
+   "tokens": 5077,
+   "seconds": 11.9,
+   "proposal": "printed text 'Laemophloeus biguttatus / realtime - 30 frames/second / jumping behavior / Bertone et al.,', fps 30, scale reference grid, object box [576, 638, 670, 658]",
+   "ref": "journal.pone.0256509.s003_s3",
    "cached": false
   },
   {
    "i": 19,
-   "t": 151.41,
+   "t": 121.44,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 4639,
+   "seconds": 12.0,
+   "proposal": "printed text 'Laemophloeus biguttatus / realtime - 30 frames/second / jumping behavior / Bertone et al. ', fps 30, scale reference grid, object box [654, 670, 694, 702]",
+   "ref": "journal.pone.0256509.s003_s4",
+   "cached": false
+  },
+  {
+   "i": 20,
+   "t": 121.45,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 5247,
+   "seconds": 12.8,
+   "proposal": "printed text 'Laemophloeus biguttatus / realtime - 30 frames/second / jumping behavior / Bertone et al.,', fps 30, scale reference grid, object box [775, 628, 1015, 675]",
+   "ref": "journal.pone.0256509.s003_s5",
+   "cached": false
+  },
+  {
+   "i": 21,
+   "t": 121.47,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 5144,
+   "seconds": 10.9,
+   "proposal": "printed text 'Placonotus testaceus / realtime - 30 frames/second / jumping behavior / Bertone et al., 20', fps 30, scale reference none, object box [643, 250, 780, 510]",
+   "ref": "journal.pone.0256509.s003_s6",
+   "cached": false
+  },
+  {
+   "i": 22,
+   "t": 121.49,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 4627,
+   "seconds": 10.0,
+   "proposal": "printed text 'Placonotus testaceus / realtime - 30 frames/second / jumping behavior / Bertone et al., 20', fps 30, scale reference none, object box [444, 226, 527, 547]",
+   "ref": "journal.pone.0256509.s003_s7",
+   "cached": false
+  },
+  {
+   "i": 23,
+   "t": 121.5,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 4652,
+   "seconds": 10.4,
+   "proposal": "printed text 'Placonotus testaceus / realtime - 30 frames/second / jumping behavior / Bertone et al., 20', fps 30, scale reference none, object box [655, 575, 735, 675]",
+   "ref": "journal.pone.0256509.s003_s8",
+   "cached": false
+  },
+  {
+   "i": 24,
+   "t": 121.52,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 5010,
+   "seconds": 11.1,
+   "proposal": "printed text 'Placonotus testaceus / realtime - 30 frames/second / jumping behavior / Bertone et al., 20', fps 30, scale reference none, object box [515, 236, 766, 440]",
+   "ref": "journal.pone.0256509.s003_s9",
+   "cached": false
+  },
+  {
+   "i": 25,
+   "t": 121.53,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 4139,
+   "seconds": 7.1,
+   "proposal": "printed text 'Laemophloeus biguttatus / captured - 3,200 frames/second / playback - 30 frames/second / j', fps 3200, scale reference none, object box [129, 384, 743, 465]",
+   "ref": "journal.pone.0256509.s004_s1",
+   "cached": false
+  },
+  {
+   "i": 26,
+   "t": 121.54,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 4880,
+   "seconds": 11.7,
+   "proposal": "printed text 'Laemophloeus biguttatus / captured - 3,200 frames/second / playback - 30 frames/second / j', fps 3200, scale reference grid, object box [648, 643, 879, 677]",
+   "ref": "journal.pone.0256509.s004_s2",
+   "cached": false
+  },
+  {
+   "i": 27,
+   "t": 121.55,
+   "kind": "model",
+   "role": "read frame",
+   "model": "muse-spark-1.3",
+   "tokens": 4987,
+   "seconds": 13.0,
+   "proposal": "printed text 'Laemophloeus biguttatus / captured - 60,000 frames/second / playback - 30 frames/second / ', fps 60000, scale reference grid, object box [495, 535, 1060, 680]",
+   "ref": "journal.pone.0256509.s004_s3",
+   "cached": false
+  },
+  {
+   "i": 28,
+   "t": 223.2,
+   "kind": "model",
+   "role": "plan",
+   "model": "muse-spark-1.3",
+   "tokens": 125129,
+   "seconds": 101.6,
+   "proposal": "v1: 37 claims, event table BeetleJumpPerformanceData, 3 videos, authors' method smoothing_spline_max",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 29,
+   "t": 223.63,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 video journal.pone.0256509.s003.mp4 fps: fps quote found and states the number",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 20,
-   "t": 151.41,
+   "i": 30,
+   "t": 223.63,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 video journal.pone.0256509.s004.mp4 fps: fps quote found and states the number",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 21,
-   "t": 151.41,
+   "i": 31,
+   "t": 223.63,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 video journal.pone.0256509.s004.mp4 fps: fps quote found and states the number",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 22,
-   "t": 151.41,
+   "i": 32,
+   "t": 223.63,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 column Airborne_time range: 0.02594..0.1062 in SI",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 23,
-   "t": 151.42,
+   "i": 33,
+   "t": 223.63,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 column TakeoffAngleDeg range: 23.67..85.16 in SI",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 24,
-   "t": 151.42,
+   "i": 34,
+   "t": 223.63,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 column DistanceRawm range: 0.00233..0.02375 in SI",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 25,
-   "t": 151.42,
+   "i": 35,
+   "t": 223.63,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 column HeightRawm range: 0.001513..0.01483 in SI",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 26,
-   "t": 151.42,
+   "i": 36,
+   "t": 223.63,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 column DistanceRaw_bodyProp unit: unit 'ratio' is not absolute: kept for table checks, not used for pairing",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 27,
-   "t": 151.42,
+   "i": 37,
+   "t": 223.63,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 column HeightRaw_bodyProp unit: unit 'ratio' is not absolute: kept for table checks, not used for pairing",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 28,
-   "t": 151.42,
+   "i": 38,
+   "t": 223.63,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 column DistanceTrajm range: 0.002893..0.02494 in SI",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 29,
-   "t": 151.42,
+   "i": 39,
+   "t": 223.63,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 column HeightTrajm range: 0.001342..0.01478 in SI",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 30,
-   "t": 151.42,
+   "i": 40,
+   "t": 223.63,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 column DistanceTraj_bodyProp unit: unit 'ratio' is not absolute: kept for table checks, not used for pairing",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 31,
-   "t": 151.42,
+   "i": 41,
+   "t": 223.64,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 column HeightTraj_bodyProp unit: unit 'ratio' is not absolute: kept for table checks, not used for pairing",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 32,
-   "t": 151.42,
+   "i": 42,
+   "t": 223.64,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 column velocity.max range: 0.1373..0.8673 in SI",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 33,
-   "t": 151.42,
+   "i": 43,
+   "t": 223.64,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 column VelError kind: relative (quote found)",
    "ref": "",
-   "on": 18
-  },
-  {
-   "i": 34,
-   "t": 151.42,
-   "kind": "gate",
-   "gate": "G1 plan",
-   "ok": true,
-   "note": "v1 column velocity.max.BL unit: unit 'BL/s' is not absolute: kept for table checks, not used for pairing",
-   "ref": "",
-   "on": 18
-  },
-  {
-   "i": 35,
-   "t": 151.42,
-   "kind": "gate",
-   "gate": "G1 plan",
-   "ok": true,
-   "note": "v1 claim 'arching their body while gripping the substrate wi': quote and value found in the PDF",
-   "ref": "",
-   "on": 18
-  },
-  {
-   "i": 36,
-   "t": 151.42,
-   "kind": "gate",
-   "gate": "G1 plan",
-   "ok": true,
-   "note": "v1 claim 'Larvae reached takeoff velocities of 0.47 ± 0.15 m': quote and value found in the PDF",
-   "ref": "",
-   "on": 18
-  },
-  {
-   "i": 37,
-   "t": 151.42,
-   "kind": "gate",
-   "gate": "G1 plan",
-   "ok": true,
-   "note": "v1 claim 'traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) h': quote and value found in the PDF",
-   "ref": "",
-   "on": 18
-  },
-  {
-   "i": 38,
-   "t": 151.42,
-   "kind": "gate",
-   "gate": "G1 plan",
-   "ok": true,
-   "note": "v1 claim 'traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) h': quote and value found in the PDF",
-   "ref": "",
-   "on": 18
-  },
-  {
-   "i": 39,
-   "t": 151.42,
-   "kind": "gate",
-   "gate": "G1 plan",
-   "ok": true,
-   "note": "v1 claim '7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically d': quote and value found in the PDF",
-   "ref": "",
-   "on": 18
-  },
-  {
-   "i": 40,
-   "t": 151.42,
-   "kind": "gate",
-   "gate": "G1 plan",
-   "ok": true,
-   "note": "v1 claim '7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically d': quote and value found in the PDF",
-   "ref": "",
-   "on": 18
-  },
-  {
-   "i": 41,
-   "t": 151.42,
-   "kind": "gate",
-   "gate": "G1 plan",
-   "ok": true,
-   "note": "v1 claim 'resulted in a change in body angle (head-to-poster': quote and value found in the PDF",
-   "ref": "",
-   "on": 18
-  },
-  {
-   "i": 42,
-   "t": 151.42,
-   "kind": "gate",
-   "gate": "G1 plan",
-   "ok": true,
-   "note": "v1 claim 'between the first leg movement and the point at wh': quote and value found in the PDF",
-   "ref": "",
-   "on": 18
-  },
-  {
-   "i": 43,
-   "t": 151.42,
-   "kind": "gate",
-   "gate": "G1 plan",
-   "ok": true,
-   "note": "v1 claim 'During the latch-decoupling phase the body of the ': quote and value found in the PDF",
-   "ref": "",
-   "on": 18
+   "on": 28
   },
   {
    "i": 44,
-   "t": 151.42,
+   "t": 223.64,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'over a period of 0.22 ± 0.17s.': quote and value found in the PDF",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 45,
+   "t": 223.64,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'takeoff velocities of 0.47 ± 0.15 m s-1': quote and value found in the PDF",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 46,
+   "t": 223.64,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) h': quote and value found in the PDF",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 47,
+   "t": 223.64,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontal': quote and value found in the PDF",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 48,
+   "t": 223.64,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically': quote and value found in the PDF",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 49,
+   "t": 223.64,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically': quote and value found in the PDF",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 50,
+   "t": 223.64,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'from near horizontal to 149.5 ± 16.7 degrees.': quote and value found in the PDF",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 51,
+   "t": 223.64,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'left the ground averaging 5.5 ± 14.4 x 10-3 s in d': quote and value found in the PDF",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 52,
+   "t": 223.64,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 claim 'averaged 1.4 ± 0.8 x 10-3 s.': quote and value found in the PDF",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 45,
-   "t": 151.43,
+   "i": 53,
+   "t": 223.65,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 claim 'When pooled, the combined latch-decoupling and lau': quote and value found in the PDF",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 46,
-   "t": 151.43,
+   "i": 54,
+   "t": 223.65,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim 'continues to arch further to 124.1 ± 29.6 degrees.': quote and value found in the PDF",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 55,
+   "t": 223.65,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 claim 'the larvae rapidly arched their body even further ': quote and value found in the PDF",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 47,
-   "t": 151.43,
+   "i": 56,
+   "t": 223.65,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 claim 'reached a maximum acceleration of 89.5 ± 34.5 m s-': quote and value found in the PDF",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 48,
-   "t": 151.43,
+   "i": 57,
+   "t": 223.65,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 claim 'with the fastest takeoff velocity reaching 0.87 m ': quote and value found in the PDF",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 49,
-   "t": 151.43,
+   "i": 58,
+   "t": 223.65,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 claim 'leaving the ground at an angle of 79.6 ± 28.2 degr': quote and value found in the PDF",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 50,
-   "t": 151.43,
+   "i": 59,
+   "t": 223.65,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
-   "note": "v1 claim 'Over the course of the jump larvae were airborne f': quote and value found in the PDF",
+   "note": "v1 claim 'larvae were airborne for 1.3 ± 0.7 x 10-3 s': quote and value found in the PDF",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 51,
-   "t": 151.43,
+   "i": 60,
+   "t": 223.65,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 claim 'with the farthest horizontal jumper traveling 23.7': quote and value found in the PDF",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 52,
-   "t": 151.43,
+   "i": 61,
+   "t": 223.65,
    "kind": "gate",
    "gate": "G1 plan",
    "ok": true,
    "note": "v1 claim 'the longest jumping distance was about 5 cm, horiz': quote and value found in the PDF",
    "ref": "",
-   "on": 18
+   "on": 28
   },
   {
-   "i": 53,
-   "t": 151.43,
+   "i": 62,
+   "t": 223.65,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '121 mm': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 63,
+   "t": 223.65,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '0.85 m/s': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 64,
+   "t": 223.65,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '100 mm': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 65,
+   "t": 223.66,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '150 mm': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 66,
+   "t": 223.66,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '~1.0 m/s': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 67,
+   "t": 223.66,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '500 mm': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 68,
+   "t": 223.66,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '120 mm': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 69,
+   "t": 223.66,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '0.5 m/s': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 70,
+   "t": 223.66,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '30 mm': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 71,
+   "t": 223.66,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v1 claim '50 mm (vertically)': quote and value found in the PDF",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 72,
+   "t": 223.66,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '89 mm': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 73,
+   "t": 223.66,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '11.2 mm': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 74,
+   "t": 223.67,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": false,
+   "note": "v1 claim '0.47 m/s': quote not found verbatim or value not in quote; dropped",
+   "ref": "",
+   "on": 28
+  },
+  {
+   "i": 75,
+   "t": 310.57,
+   "kind": "model",
+   "role": "re-propose plan",
+   "model": "muse-spark-1.3",
+   "tokens": 126549,
+   "seconds": 86.9,
+   "proposal": "v2: 18 claims, event table BeetleJumpPerformanceData, 3 videos, authors' method smoothing_spline_max",
+   "ref": "",
+   "cached": false
+  },
+  {
+   "i": 76,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 video journal.pone.0256509.s003.mp4 fps: fps quote found and states the number",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 77,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 video journal.pone.0256509.s004.mp4 fps: fps quote found and states the number",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 78,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 video journal.pone.0256509.s004.mp4 fps: fps quote found and states the number",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 79,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 column VelError kind: relative (quote found)",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 80,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'over a period of 0.22 ± 0.17s.': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 81,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'takeoff velocities of 0.47 ± 0.15 m s-1': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 82,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) h': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 83,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontal': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 84,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 85,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 86,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'from near horizontal to 149.5 ± 16.7 degrees.': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 87,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'left the ground averaging 5.5 ± 14.4 x 10-3 s in d': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 88,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'averaged 1.4 ± 0.8 x 10-3 s.': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 89,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'When pooled, the combined latch-decoupling and lau': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 90,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'continues to arch further to 124.1 ± 29.6 degrees.': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 91,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'the larvae rapidly arched their body even further ': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 92,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'reached a maximum acceleration of 89.5 ± 34.5 m s-': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 93,
+   "t": 310.81,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'with the fastest takeoff velocity reaching 0.87 m ': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 94,
+   "t": 310.82,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'leaving the ground at an angle of 79.6 ± 28.2 degr': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 95,
+   "t": 310.82,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'larvae were airborne for 1.3 ± 0.7 x 10-3 s': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 96,
+   "t": 310.82,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'with the farthest horizontal jumper traveling 23.7': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 97,
+   "t": 310.82,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim 'the longest jumping distance was about 5 cm, horiz': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 98,
+   "t": 310.82,
+   "kind": "gate",
+   "gate": "G1 plan",
+   "ok": true,
+   "note": "v2 claim '50 mm (vertically)': quote and value found in the PDF",
+   "ref": "",
+   "on": 75
+  },
+  {
+   "i": 99,
+   "t": 310.82,
    "kind": "step",
    "what": "plan accepted",
-   "note": "v1 (0 needed fields still rejected)",
+   "note": "v2 (0 needed fields still rejected)",
    "ref": ""
   },
   {
-   "i": 54,
-   "t": 151.44,
+   "i": 100,
+   "t": 310.83,
    "kind": "step",
    "what": "spread convention",
    "note": "the paper states 'mean ± standard deviation': a '±' of unknown type is read as SD",
    "ref": ""
   },
   {
-   "i": 55,
-   "t": 151.45,
+   "i": 101,
+   "t": 310.87,
    "kind": "gate",
    "gate": "route",
    "ok": true,
-   "note": "MATCHES TABLE: arching their body while gripping the substrate with their legs over a",
+   "note": "MATCHES TABLE: over a period of 0.22 ± 0.17s.",
    "ref": "",
    "on": null
   },
   {
-   "i": 56,
-   "t": 151.45,
+   "i": 102,
+   "t": 310.87,
    "kind": "gate",
    "gate": "route",
    "ok": true,
-   "note": "MATCHES TABLE: Larvae reached takeoff velocities of 0.47 ± 0.15 m s-1",
+   "note": "MATCHES TABLE: takeoff velocities of 0.47 ± 0.15 m s-1",
    "ref": "",
    "on": null
   },
   {
-   "i": 57,
-   "t": 151.45,
-   "kind": "gate",
-   "gate": "route",
-   "ok": true,
-   "note": "NOT CHECKED: traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontally",
-   "ref": "",
-   "on": null
-  },
-  {
-   "i": 58,
-   "t": 151.45,
+   "i": 103,
+   "t": 310.88,
    "kind": "gate",
    "gate": "route",
    "ok": true,
@@ -614,58 +1070,58 @@
    "on": null
   },
   {
-   "i": 59,
-   "t": 151.45,
+   "i": 104,
+   "t": 310.89,
    "kind": "gate",
    "gate": "route",
    "ok": true,
-   "note": "MATCHES TABLE: 7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically during their jumps.",
+   "note": "NOT CHECKED: 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontally",
    "ref": "",
    "on": null
   },
   {
-   "i": 60,
-   "t": 151.45,
+   "i": 105,
+   "t": 310.9,
    "kind": "gate",
    "gate": "route",
    "ok": true,
-   "note": "MATCHES OTHER COLUMN: 7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically during their jumps.",
+   "note": "MATCHES OTHER COLUMN: 7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
    "ref": "",
    "on": null
   },
   {
-   "i": 61,
-   "t": 151.46,
+   "i": 106,
+   "t": 310.9,
    "kind": "gate",
    "gate": "route",
    "ok": true,
-   "note": "MATCHES TABLE: resulted in a change in body angle (head-to-posterior) from near horiz",
+   "note": "MATCHES TABLE: 7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
    "ref": "",
    "on": null
   },
   {
-   "i": 62,
-   "t": 151.46,
+   "i": 107,
+   "t": 310.91,
    "kind": "gate",
    "gate": "route",
    "ok": true,
-   "note": "MATCHES TABLE: between the first leg movement and the point at which the last legs le",
+   "note": "MATCHES TABLE: from near horizontal to 149.5 ± 16.7 degrees.",
    "ref": "",
    "on": null
   },
   {
-   "i": 63,
-   "t": 151.46,
+   "i": 108,
+   "t": 310.91,
    "kind": "gate",
    "gate": "route",
    "ok": true,
-   "note": "MATCHES TABLE: During the latch-decoupling phase the body of the larvae continues to ",
+   "note": "MATCHES TABLE: left the ground averaging 5.5 ± 14.4 x 10-3 s in duration.",
    "ref": "",
    "on": null
   },
   {
-   "i": 64,
-   "t": 151.46,
+   "i": 109,
+   "t": 310.92,
    "kind": "gate",
    "gate": "route",
    "ok": true,
@@ -674,8 +1130,8 @@
    "on": null
   },
   {
-   "i": 65,
-   "t": 151.46,
+   "i": 110,
+   "t": 310.93,
    "kind": "gate",
    "gate": "route",
    "ok": false,
@@ -684,8 +1140,18 @@
    "on": null
   },
   {
-   "i": 66,
-   "t": 151.46,
+   "i": 111,
+   "t": 310.93,
+   "kind": "gate",
+   "gate": "route",
+   "ok": true,
+   "note": "MATCHES TABLE: continues to arch further to 124.1 ± 29.6 degrees.",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 112,
+   "t": 310.94,
    "kind": "gate",
    "gate": "route",
    "ok": true,
@@ -694,8 +1160,8 @@
    "on": null
   },
   {
-   "i": 67,
-   "t": 151.46,
+   "i": 113,
+   "t": 310.95,
    "kind": "gate",
    "gate": "route",
    "ok": true,
@@ -704,18 +1170,18 @@
    "on": null
   },
   {
-   "i": 68,
-   "t": 151.46,
+   "i": 114,
+   "t": 310.95,
    "kind": "gate",
    "gate": "route",
    "ok": true,
-   "note": "MATCHES TABLE: with the fastest takeoff velocity reaching 0.87 m s-1",
+   "note": "MATCHES TABLE: with the fastest takeoff velocity reaching 0.87 m s-1,",
    "ref": "",
    "on": null
   },
   {
-   "i": 69,
-   "t": 151.46,
+   "i": 115,
+   "t": 310.96,
    "kind": "gate",
    "gate": "route",
    "ok": true,
@@ -724,18 +1190,18 @@
    "on": null
   },
   {
-   "i": 70,
-   "t": 151.47,
+   "i": 116,
+   "t": 310.96,
    "kind": "gate",
    "gate": "route",
    "ok": true,
-   "note": "NOT CHECKED: Over the course of the jump larvae were airborne for 1.3 ± 0.7 x 10-3 ",
+   "note": "NOT CHECKED: larvae were airborne for 1.3 ± 0.7 x 10-3 s",
    "ref": "",
    "on": null
   },
   {
-   "i": 71,
-   "t": 151.47,
+   "i": 117,
+   "t": 310.97,
    "kind": "gate",
    "gate": "route",
    "ok": true,
@@ -744,8 +1210,8 @@
    "on": null
   },
   {
-   "i": 72,
-   "t": 151.47,
+   "i": 118,
+   "t": 310.98,
    "kind": "gate",
    "gate": "route",
    "ok": false,
@@ -754,18 +1220,28 @@
    "on": null
   },
   {
-   "i": 73,
-   "t": 151.47,
+   "i": 119,
+   "t": 310.98,
+   "kind": "gate",
+   "gate": "route",
+   "ok": false,
+   "note": "REFUSED: 50 mm (vertically)",
+   "ref": "",
+   "on": null
+  },
+  {
+   "i": 120,
+   "t": 310.98,
    "kind": "gate",
    "gate": "G4 frame rate",
    "ok": true,
-   "note": "30 fps, printed on the video (read by Spark, number found in the overlay text)",
+   "note": "30 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
    "ref": "journal.pone.0256509.s003_s1",
    "on": null
   },
   {
-   "i": 74,
-   "t": 151.47,
+   "i": 121,
+   "t": 310.98,
    "kind": "gate",
    "gate": "G4 feasibility",
    "ok": false,
@@ -774,18 +1250,18 @@
    "on": null
   },
   {
-   "i": 75,
-   "t": 151.47,
+   "i": 122,
+   "t": 310.98,
    "kind": "gate",
    "gate": "G4 frame rate",
    "ok": true,
-   "note": "30 fps, printed on the video (read by Spark, number found in the overlay text)",
+   "note": "30 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
    "ref": "journal.pone.0256509.s003_s2",
    "on": null
   },
   {
-   "i": 76,
-   "t": 151.47,
+   "i": 123,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 feasibility",
    "ok": false,
@@ -794,18 +1270,18 @@
    "on": null
   },
   {
-   "i": 77,
-   "t": 151.47,
+   "i": 124,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 frame rate",
    "ok": true,
-   "note": "30 fps, printed on the video (read by Spark, number found in the overlay text)",
+   "note": "30 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
    "ref": "journal.pone.0256509.s003_s3",
    "on": null
   },
   {
-   "i": 78,
-   "t": 151.47,
+   "i": 125,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 feasibility",
    "ok": false,
@@ -814,18 +1290,18 @@
    "on": null
   },
   {
-   "i": 79,
-   "t": 151.47,
+   "i": 126,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 frame rate",
    "ok": true,
-   "note": "30 fps, printed on the video (read by Spark, number found in the overlay text)",
+   "note": "30 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
    "ref": "journal.pone.0256509.s003_s4",
    "on": null
   },
   {
-   "i": 80,
-   "t": 151.48,
+   "i": 127,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 feasibility",
    "ok": false,
@@ -834,18 +1310,18 @@
    "on": null
   },
   {
-   "i": 81,
-   "t": 151.48,
+   "i": 128,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 frame rate",
    "ok": true,
-   "note": "30 fps, printed on the video (read by Spark, number found in the overlay text)",
+   "note": "30 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
    "ref": "journal.pone.0256509.s003_s5",
    "on": null
   },
   {
-   "i": 82,
-   "t": 151.48,
+   "i": 129,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 feasibility",
    "ok": false,
@@ -854,18 +1330,18 @@
    "on": null
   },
   {
-   "i": 83,
-   "t": 151.48,
+   "i": 130,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 frame rate",
    "ok": true,
-   "note": "30 fps, printed on the video (read by Spark, number found in the overlay text)",
+   "note": "30 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
    "ref": "journal.pone.0256509.s003_s6",
    "on": null
   },
   {
-   "i": 84,
-   "t": 151.48,
+   "i": 131,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 feasibility",
    "ok": false,
@@ -874,18 +1350,18 @@
    "on": null
   },
   {
-   "i": 85,
-   "t": 151.48,
+   "i": 132,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 frame rate",
    "ok": true,
-   "note": "30 fps, printed on the video (read by Spark, number found in the overlay text)",
+   "note": "30 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
    "ref": "journal.pone.0256509.s003_s7",
    "on": null
   },
   {
-   "i": 86,
-   "t": 151.48,
+   "i": 133,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 feasibility",
    "ok": false,
@@ -894,18 +1370,18 @@
    "on": null
   },
   {
-   "i": 87,
-   "t": 151.48,
+   "i": 134,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 frame rate",
    "ok": true,
-   "note": "30 fps, printed on the video (read by Spark, number found in the overlay text)",
+   "note": "30 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
    "ref": "journal.pone.0256509.s003_s8",
    "on": null
   },
   {
-   "i": 88,
-   "t": 151.48,
+   "i": 135,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 feasibility",
    "ok": false,
@@ -914,18 +1390,18 @@
    "on": null
   },
   {
-   "i": 89,
-   "t": 151.48,
+   "i": 136,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 frame rate",
    "ok": true,
-   "note": "30 fps, printed on the video (read by Spark, number found in the overlay text)",
+   "note": "30 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
    "ref": "journal.pone.0256509.s003_s9",
    "on": null
   },
   {
-   "i": 90,
-   "t": 151.48,
+   "i": 137,
+   "t": 310.99,
    "kind": "gate",
    "gate": "G4 feasibility",
    "ok": false,
@@ -934,18 +1410,18 @@
    "on": null
   },
   {
-   "i": 91,
-   "t": 151.48,
+   "i": 138,
+   "t": 311.0,
    "kind": "gate",
    "gate": "G4 frame rate",
    "ok": true,
-   "note": "3200 fps, printed on the video (read by Spark, number found in the overlay text)",
+   "note": "3200 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
    "ref": "journal.pone.0256509.s004_s1",
    "on": null
   },
   {
-   "i": 92,
-   "t": 151.49,
+   "i": 139,
+   "t": 311.0,
    "kind": "gate",
    "gate": "G4 scale",
    "ok": false,
@@ -954,50 +1430,50 @@
    "on": null
   },
   {
-   "i": 93,
-   "t": 151.5,
+   "i": 140,
+   "t": 311.0,
    "kind": "gate",
    "gate": "G4 frame rate",
    "ok": true,
-   "note": "3200 fps, printed on the video (read by Spark, number found in the overlay text)",
+   "note": "3200 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
    "ref": "journal.pone.0256509.s004_s2",
    "on": null
   },
   {
-   "i": 94,
-   "t": 151.58,
+   "i": 141,
+   "t": 311.05,
    "kind": "gate",
    "gate": "G4 scale",
    "ok": true,
-   "note": "grid 186.3 px (sd 0.23, 7 lines) = 5.0 mm; Spark's estimate 192 px",
+   "note": "grid 186.3 px (sd 0.23, 7 lines) = 5.0 mm; Spark's estimate 190 px",
    "ref": "journal.pone.0256509.s004_s2",
    "on": null
   },
   {
-   "i": 95,
-   "t": 219.76,
+   "i": 142,
+   "t": 381.35,
    "kind": "model",
    "role": "track",
    "model": "sam-3.1",
    "tokens": null,
-   "seconds": 60.6,
+   "seconds": 62.5,
    "proposal": "box from Muse Spark: 593 frames tracked",
    "ref": "journal.pone.0256509.s004_s2",
    "cached": false
   },
   {
-   "i": 96,
-   "t": 219.76,
+   "i": 143,
+   "t": 381.36,
    "kind": "gate",
    "gate": "G5 track",
    "ok": true,
    "note": "box from Muse Spark: accepted",
    "ref": "journal.pone.0256509.s004_s2",
-   "on": 95
+   "on": 142
   },
   {
-   "i": 97,
-   "t": 219.76,
+   "i": 144,
+   "t": 381.36,
    "kind": "gate",
    "gate": "G5 gravity",
    "ok": true,
@@ -1006,8 +1482,8 @@
    "on": null
   },
   {
-   "i": 98,
-   "t": 219.76,
+   "i": 145,
+   "t": 381.36,
    "kind": "gate",
    "gate": "G5 free flight",
    "ok": true,
@@ -1016,28 +1492,28 @@
    "on": null
   },
   {
-   "i": 99,
-   "t": 219.77,
+   "i": 146,
+   "t": 381.36,
    "kind": "gate",
    "gate": "G3 blind pairing",
    "ok": true,
-   "note": "c_21382_488_croppedxypts is 4.7x closer than the runner-up c_21382_426_croppedxypts (features: airborne_time, jump_distance, jump_height, takeoff_angle; published speed not used)",
+   "note": "c_21382_488_croppedxypts is 4.9x closer than the runner-up c_21382_426_croppedxypts (features: airborne_time, jump_distance, jump_height, takeoff_angle; published speed not used)",
    "ref": "journal.pone.0256509.s004_s2",
    "on": null
   },
   {
-   "i": 100,
-   "t": 227.87,
+   "i": 147,
+   "t": 392.15,
    "kind": "gate",
    "gate": "G4 frame rate",
    "ok": true,
-   "note": "60000 fps, printed on the video (read by Spark, number found in the overlay text)",
+   "note": "60000 video frames per second of real time, printed on the video (read by Spark, number found in the overlay text)",
    "ref": "journal.pone.0256509.s004_s3",
    "on": null
   },
   {
-   "i": 101,
-   "t": 227.87,
+   "i": 148,
+   "t": 392.15,
    "kind": "gate",
    "gate": "G4 feasibility",
    "ok": false,
@@ -1054,10 +1530,10 @@
    "published": 0.404810832,
    "pm": 0.023815554787236577,
    "interval": [
-    0.4251232273322115,
-    0.44701982273213037
+    0.4250348352482257,
+    0.44720913672218837
    ],
-   "replica": 0.39753290199094565
+   "replica": 0.39808864420033957
   }
  ],
  "summary": {
@@ -1066,7 +1542,7 @@
    "MATCHES TABLE": 11,
    "NOT CHECKED": 3,
    "MATCHES OTHER COLUMN": 2,
-   "REFUSED": 2
+   "REFUSED": 3
   },
   "videos": {
    "journal.pone.0256509.s003_s1": "CANNOT MEASURE",
@@ -1082,7 +1558,7 @@
    "journal.pone.0256509.s004_s2": "REPRODUCED",
    "journal.pone.0256509.s004_s3": "CANNOT MEASURE"
   },
-  "finished": "2026-10-28T11:40:51+00:00",
-  "wall_s": 227.9
+  "finished": "2026-10-28T16:37:30+00:00",
+  "wall_s": 392.1
  }
 }

@@ -1,0 +1,1469 @@
+{
+  "plan": {
+    "authors_speed_method": {
+      "evidence": "(ii) take-off velocity (m s−1), v=d/t, where d is distance and t is time, determined for every frame; maximum take-off velocity was identified",
+      "family": "finite_difference",
+      "parameters": "CoM tracked every frame at 5000 fps (0.2 ms interval), v=d/t per frame, maximum taken"
+    },
+    "claims": [
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "jump_distance",
+        "quote": "We placed a vertical landing platform (0.1×0.5×4.0 cm, L×W×H) 4 cm away from the take-off platform.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "cm",
+        "value": 4.0
+      },
+      {
+        "n_events": 1,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "The smallest individual filmed was a 2.0 mg male that had a take-off duration of 22 ms, peak acceleration of 141.80 m s−2 and maximum take-off velocity of 0.89 m s−1.",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": "takeoff_duration ms",
+        "unit": "ms",
+        "value": 22.0
+      },
+      {
+        "n_events": 1,
+        "plus_minus": null,
+        "quantity": "acceleration",
+        "quote": "The smallest individual filmed was a 2.0 mg male that had a take-off duration of 22 ms, peak acceleration of 141.80 m s−2 and maximum take-off velocity of 0.89 m s−1.",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": "Peak accleration m/s2",
+        "unit": "m/s2",
+        "value": 141.8
+      },
+      {
+        "n_events": 1,
+        "plus_minus": null,
+        "quantity": "takeoff_speed",
+        "quote": "The smallest individual filmed was a 2.0 mg male that had a take-off duration of 22 ms, peak acceleration of 141.80 m s−2 and maximum take-off velocity of 0.89 m s−1.",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": "Maximum Velocity m/s",
+        "unit": "m/s",
+        "value": 0.89
+      },
+      {
+        "n_events": 1,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "In comparison, the heaviest individual filmed was a 13.2 mg female that had a take-off duration of 14 ms, peak acceleration of 122.33 m s−2 and a maximum take-off velocity of 0.76 m s−1.",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": "takeoff_duration ms",
+        "unit": "ms",
+        "value": 14.0
+      },
+      {
+        "n_events": 1,
+        "plus_minus": null,
+        "quantity": "acceleration",
+        "quote": "In comparison, the heaviest individual filmed was a 13.2 mg female that had a take-off duration of 14 ms, peak acceleration of 122.33 m s−2 and a maximum take-off velocity of 0.76 m s−1.",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": "Peak accleration m/s2",
+        "unit": "m/s2",
+        "value": 122.33
+      },
+      {
+        "n_events": 1,
+        "plus_minus": null,
+        "quantity": "takeoff_speed",
+        "quote": "In comparison, the heaviest individual filmed was a 13.2 mg female that had a take-off duration of 14 ms, peak acceleration of 122.33 m s−2 and a maximum take-off velocity of 0.76 m s−1.",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "none",
+        "statistic": "single_event",
+        "table_column": "Maximum Velocity m/s",
+        "unit": "m/s",
+        "value": 0.76
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "acceleration",
+        "quote": "Between the two sexes, the highest and lowest acceleration was seen in female spiders (155.22 and 90.06 m s−2).",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "Peak accleration m/s2",
+        "unit": "m/s2",
+        "value": 155.22
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "acceleration",
+        "quote": "Between the two sexes, the highest and lowest acceleration was seen in female spiders (155.22 and 90.06 m s−2).",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": "Peak accleration m/s2",
+        "unit": "m/s2",
+        "value": 90.06
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "takeoff_speed",
+        "quote": "Between the sexes, the highest take-off velocity was in males (0.98 m s−1) and the lowest was in females (0.61 m s−1).",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "none",
+        "statistic": "max",
+        "table_column": "Maximum Velocity m/s",
+        "unit": "m/s",
+        "value": 0.98
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "takeoff_speed",
+        "quote": "Between the sexes, the highest take-off velocity was in males (0.98 m s−1) and the lowest was in females (0.61 m s−1).",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "none",
+        "statistic": "min",
+        "table_column": "Maximum Velocity m/s",
+        "unit": "m/s",
+        "value": 0.61
+      },
+      {
+        "n_events": 30,
+        "plus_minus": 8.55,
+        "quantity": "takeoff_angle",
+        "quote": "Males had a significantly higher take-off angle compared with females (males: 25.08±8.55 deg, r=0.98, n=30; females: 20.89 ±6.25 deg, r=0.99, n=35; means±s.d.; length of mean vector; Watson–William test F=5.011, P=0.029; Figs 3B,C, 4, Table 1).",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Take-off angle deg",
+        "unit": "deg",
+        "value": 25.08
+      },
+      {
+        "n_events": 35,
+        "plus_minus": 6.25,
+        "quantity": "takeoff_angle",
+        "quote": "Males had a significantly higher take-off angle compared with females (males: 25.08±8.55 deg, r=0.98, n=30; females: 20.89 ±6.25 deg, r=0.99, n=35; means±s.d.; length of mean vector; Watson–William test F=5.011, P=0.029; Figs 3B,C, 4, Table 1).",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": "Take-off angle deg",
+        "unit": "deg",
+        "value": 20.89
+      },
+      {
+        "n_events": 35,
+        "plus_minus": 0.4,
+        "quantity": "other_duration",
+        "quote": "In females, the third pair of legs left the platform 3.5±0.4 ms (means±s.d., n=35) after the fourth pair, whereas in males it was slightly delayed (3.8±1.8 ms, n=30; Mann–Whitney U=216, P<0.001; Fig. 5; Movie 1).",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ms",
+        "value": 3.5
+      },
+      {
+        "n_events": 30,
+        "plus_minus": 1.8,
+        "quantity": "other_duration",
+        "quote": "In females, the third pair of legs left the platform 3.5±0.4 ms (means±s.d., n=35) after the fourth pair, whereas in males it was slightly delayed (3.8±1.8 ms, n=30; Mann–Whitney U=216, P<0.001; Fig. 5; Movie 1).",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ms",
+        "value": 3.8
+      },
+      {
+        "n_events": 35,
+        "plus_minus": 0.2,
+        "quantity": "other_duration",
+        "quote": "In both sexes, the fourth pair of legs left the platform close to when peak acceleration occurred (females: 0.4±0.2 ms after peak acceleration, means±s.d., n=35; males: 0.3±0.6 ms before peak acceleration, n=30).",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ms",
+        "value": 0.4
+      },
+      {
+        "n_events": 30,
+        "plus_minus": 0.6,
+        "quantity": "other_duration",
+        "quote": "In both sexes, the fourth pair of legs left the platform close to when peak acceleration occurred (females: 0.4±0.2 ms after peak acceleration, means±s.d., n=35; males: 0.3±0.6 ms before peak acceleration, n=30).",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ms",
+        "value": 0.3
+      },
+      {
+        "n_events": 30,
+        "plus_minus": 1.4,
+        "quantity": "other_duration",
+        "quote": "In both sexes, the third pair of legs left the platform after peak acceleration (Fig. 5; Movie 1; males: 3.4±1.4 ms after peak acceleration, n=30; females: 4.0±1.5 ms after peak acceleration, n=35).",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ms",
+        "value": 3.4
+      },
+      {
+        "n_events": 35,
+        "plus_minus": 1.5,
+        "quantity": "other_duration",
+        "quote": "In both sexes, the third pair of legs left the platform after peak acceleration (Fig. 5; Movie 1; males: 3.4±1.4 ms after peak acceleration, n=30; females: 4.0±1.5 ms after peak acceleration, n=35).",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ms",
+        "value": 4.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "Spiders waved their first two pairs of legs for 0.4–60 ms, and gradually lowered their abdomen.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "range",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "ms",
+        "value": 0.4
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "The tip of the abdomen touched the take-off platform briefly (~0.2 ms; equivalent to our interframe interval), presumably to attach a drag line thread.",
+        "row_filter": {
+          "column": null,
+          "value": null
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "ms",
+        "value": 0.2
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "20.8",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "none",
+        "statistic": "mean",
+        "table_column": "takeoff_duration ms",
+        "unit": "ms",
+        "value": 20.8
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other_duration",
+        "quote": "24.6",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "none",
+        "statistic": "mean",
+        "table_column": "takeoff_duration ms",
+        "unit": "ms",
+        "value": 24.6
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "takeoff_speed",
+        "quote": "0.84",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "none",
+        "statistic": "mean",
+        "table_column": "Maximum Velocity m/s",
+        "unit": "m/s",
+        "value": 0.84
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "takeoff_speed",
+        "quote": "0.81",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "none",
+        "statistic": "mean",
+        "table_column": "Maximum Velocity m/s",
+        "unit": "m/s",
+        "value": 0.81
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "jump_distance",
+        "quote": "Male Peacock spider, Maratus splendens jumps to a vertical target to cross a gap of 4 cm",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "cm",
+        "value": 4.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "acceleration",
+        "quote": "Males take-off with a maximum acceleration of 127.8 m/s2 and 13.03 g",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "none",
+        "statistic": "mean",
+        "table_column": "Peak accleration m/s2",
+        "unit": "m/s2",
+        "value": 127.8
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "Males take-off with a maximum acceleration of 127.8 m/s2 and 13.03 g",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "none",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ratio",
+        "value": 13.03
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "jump_distance",
+        "quote": "Female Peacock spider, Maratus splendens jumps to a vertical target to cross a gap of 4 cm",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "none",
+        "statistic": "other",
+        "table_column": null,
+        "unit": "cm",
+        "value": 4.0
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "acceleration",
+        "quote": "Females take-off with a maximum acceleration of 122.7 m/s2 and 12.5 g",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "none",
+        "statistic": "mean",
+        "table_column": "Peak accleration m/s2",
+        "unit": "m/s2",
+        "value": 122.7
+      },
+      {
+        "n_events": null,
+        "plus_minus": null,
+        "quantity": "other",
+        "quote": "Females take-off with a maximum acceleration of 122.7 m/s2 and 12.5 g",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "none",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ratio",
+        "value": 12.5
+      },
+      {
+        "n_events": null,
+        "plus_minus": 1.8,
+        "quantity": "other_duration",
+        "quote": "And 3.8 ± 1.8 ms after, Leg III leaves the platform",
+        "row_filter": {
+          "column": "sex",
+          "value": "male"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ms",
+        "value": 3.8
+      },
+      {
+        "n_events": null,
+        "plus_minus": 0.4,
+        "quantity": "other_duration",
+        "quote": "And 3.5 ± 0.4 ms later, Leg III leaves the platform",
+        "row_filter": {
+          "column": "sex",
+          "value": "female"
+        },
+        "spread": "sd",
+        "statistic": "mean",
+        "table_column": null,
+        "unit": "ms",
+        "value": 3.5
+      }
+    ],
+    "event_table": {
+      "columns": [
+        {
+          "evidence": "We studied the jump kinematics of 10 male (30 jumps) and 12 female spiders (35 jumps)",
+          "name": "sex",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "We filmed either the entire jump trajectory (male: n=4 spiders, 12 jumps; female: n=7 spiders, 20 jumps), or magnified views of take-off jumps to track leg joints accurately",
+          "name": "Condition",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "Individual spider IDs were used as random effects.",
+          "name": "Spider ID",
+          "quantity": "animal_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "",
+          "name": "Jump_ID",
+          "quantity": "event_id",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": ""
+        },
+        {
+          "evidence": "Animals were weighed immediately after they carried out the jumps ... 0.1 mg repeatability",
+          "name": "mass mg",
+          "quantity": "mass",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mg"
+        },
+        {
+          "evidence": "(i) take-off duration (ms) – the duration between the first instance when acceleration increased from zero (i.e. the first frame where there was movement) to the first instance when all legs were off the ground.",
+          "name": "takeoff_duration ms",
+          "quantity": "other_duration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "ms"
+        },
+        {
+          "evidence": "(iii) acceleration (m s−2), a=Δv/Δt, where Δv is change in velocity and Δt is change in time, determined for every frame; peak acceleration was identified",
+          "name": "Peak accleration m/s2",
+          "quantity": "acceleration",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m/s2"
+        },
+        {
+          "evidence": "(vi) g-force, g=a/9.81",
+          "name": "Maximum_G",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "ratio"
+        },
+        {
+          "evidence": "(ii) take-off velocity (m s−1), v=d/t, where d is distance and t is time, determined for every frame; maximum take-off velocity was identified",
+          "name": "Maximum Velocity m/s",
+          "quantity": "takeoff_speed",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "m/s"
+        },
+        {
+          "evidence": "jump force (mN), F=m×a, where m is body mass and a is acceleration",
+          "name": "Jump force",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mN"
+        },
+        {
+          "evidence": "kinetic energy (µJ), ke=½mv2, where m is body mass and v is velocity",
+          "name": "Kinetic Energy",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "µJ"
+        },
+        {
+          "evidence": "(v) jump power (mW), P=ke/take-off duration",
+          "name": "Jump Power",
+          "quantity": "other",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mW"
+        },
+        {
+          "evidence": "(vii) take-off angle (deg): the angle of the CoM between the first frame prior to when the abdomen moves and the first frame when all legs are off the ground, relative to the plane of the substrate.",
+          "name": "Take-off angle deg",
+          "quantity": "takeoff_angle",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "deg"
+        },
+        {
+          "evidence": "we identified the maximum height attained during a jump and the height above ground when animals reached the landing platform.",
+          "name": "Maximum trajectory height_mm",
+          "quantity": "jump_height",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mm"
+        },
+        {
+          "evidence": "we identified the maximum height attained during a jump and the height above ground when animals reached the landing platform.",
+          "name": "End trajectory height_mm",
+          "quantity": "end_height",
+          "uncertainty_kind": "not_an_uncertainty",
+          "uncertainty_of": null,
+          "unit": "mm"
+        }
+      ],
+      "file": "Maratus_splendens_kinematics.csv",
+      "rows_are": "one recorded jump event (one take-off or full-jump)",
+      "sheet": "Maratus_splendens_kinematics"
+    },
+    "object_phrase": "peacock spider",
+    "scale_reference": {
+      "evidence": "We placed a vertical landing platform (0.1×0.5×4.0 cm, L×W×H) 4 cm away from the take-off platform.",
+      "kind": "platform_gap",
+      "size_mm": 40.0
+    },
+    "title": "Sexual dimorphism in jump kinematics and choreography in peacock spiders",
+    "videos": [
+      {
+        "capture_fps": 5000,
+        "content": "Male and female Maratus splendens locomotory jumps from take-off platform to vertical landing platform across 4 cm gap, including full trajectories and high-magnification take-off views showing legs I and II raised and leg IV leaving before leg III",
+        "file": "S1_Maratus.mp4",
+        "fps_evidence": "at 5000 frames s−1 (2048×1024 pixels)",
+        "label": "Movie 1"
+      }
+    ]
+  },
+  "checks": [
+    {
+      "field": "video S1_Maratus.mp4 fps",
+      "ok": true,
+      "note": "fps quote found and states the number"
+    },
+    {
+      "field": "column Maximum Velocity m/s range",
+      "ok": true,
+      "note": "0.6106..0.9872 in SI"
+    },
+    {
+      "field": "column Take-off angle deg range",
+      "ok": true,
+      "note": "6.484..41.16 in SI"
+    },
+    {
+      "field": "column Maximum trajectory height_mm range",
+      "ok": true,
+      "note": "0.00272..0.01976 in SI"
+    },
+    {
+      "field": "column End trajectory height_mm range",
+      "ok": true,
+      "note": "-0.00373..0.01853 in SI"
+    },
+    {
+      "field": "claim 'We placed a vertical landing platform (0.1×0.5×4.0'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The smallest individual filmed was a 2.0 mg male t'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The smallest individual filmed was a 2.0 mg male t' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'male'"
+    },
+    {
+      "field": "claim 'The smallest individual filmed was a 2.0 mg male t'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The smallest individual filmed was a 2.0 mg male t' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'male'"
+    },
+    {
+      "field": "claim 'The smallest individual filmed was a 2.0 mg male t'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The smallest individual filmed was a 2.0 mg male t' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'male'"
+    },
+    {
+      "field": "claim 'In comparison, the heaviest individual filmed was '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'In comparison, the heaviest individual filmed was ' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'female'"
+    },
+    {
+      "field": "claim 'In comparison, the heaviest individual filmed was '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'In comparison, the heaviest individual filmed was ' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'female'"
+    },
+    {
+      "field": "claim 'In comparison, the heaviest individual filmed was '",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'In comparison, the heaviest individual filmed was ' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'female'"
+    },
+    {
+      "field": "claim 'Between the two sexes, the highest and lowest acce'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Between the two sexes, the highest and lowest acce' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'female'"
+    },
+    {
+      "field": "claim 'Between the two sexes, the highest and lowest acce'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Between the two sexes, the highest and lowest acce' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'female'"
+    },
+    {
+      "field": "claim 'Between the sexes, the highest take-off velocity w'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Between the sexes, the highest take-off velocity w' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'male'"
+    },
+    {
+      "field": "claim 'Between the sexes, the highest take-off velocity w'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Between the sexes, the highest take-off velocity w' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'female'"
+    },
+    {
+      "field": "claim 'Males had a significantly higher take-off angle co'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Males had a significantly higher take-off angle co' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'male'"
+    },
+    {
+      "field": "claim 'Males had a significantly higher take-off angle co'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Males had a significantly higher take-off angle co' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'female'"
+    },
+    {
+      "field": "claim 'In females, the third pair of legs left the platfo'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'In females, the third pair of legs left the platfo' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'female'"
+    },
+    {
+      "field": "claim 'In females, the third pair of legs left the platfo'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'In females, the third pair of legs left the platfo' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'male'"
+    },
+    {
+      "field": "claim 'In both sexes, the fourth pair of legs left the pl'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'In both sexes, the fourth pair of legs left the pl' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'female'"
+    },
+    {
+      "field": "claim 'In both sexes, the fourth pair of legs left the pl'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'In both sexes, the fourth pair of legs left the pl' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'male'"
+    },
+    {
+      "field": "claim 'In both sexes, the third pair of legs left the pla'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'In both sexes, the third pair of legs left the pla' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'male'"
+    },
+    {
+      "field": "claim 'In both sexes, the third pair of legs left the pla'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'In both sexes, the third pair of legs left the pla' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'female'"
+    },
+    {
+      "field": "claim 'Spiders waved their first two pairs of legs for 0.'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'The tip of the abdomen touched the take-off platfo'",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    },
+    {
+      "field": "claim '20.8'",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    },
+    {
+      "field": "claim '24.6'",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    },
+    {
+      "field": "claim '0.84'",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    },
+    {
+      "field": "claim '0.81'",
+      "ok": false,
+      "note": "quote not found verbatim or value not in quote; dropped"
+    },
+    {
+      "field": "claim 'Males take-off with a maximum acceleration of 127.'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Males take-off with a maximum acceleration of 127.' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'male'"
+    },
+    {
+      "field": "claim 'Males take-off with a maximum acceleration of 127.'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Males take-off with a maximum acceleration of 127.' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'male'"
+    },
+    {
+      "field": "claim 'Females take-off with a maximum acceleration of 12'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Females take-off with a maximum acceleration of 12' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'female'"
+    },
+    {
+      "field": "claim 'Females take-off with a maximum acceleration of 12'",
+      "ok": true,
+      "note": "quote and value found in the PDF"
+    },
+    {
+      "field": "claim 'Females take-off with a maximum acceleration of 12' rows",
+      "ok": true,
+      "note": "rows where 'sex' = 'female'"
+    }
+  ],
+  "columns": {
+    "sex": {
+      "evidence": "We studied the jump kinematics of 10 male (30 jumps) and 12 female spiders (35 jumps)",
+      "name": "sex",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 0,
+      "si_factor": null
+    },
+    "Condition": {
+      "evidence": "We filmed either the entire jump trajectory (male: n=4 spiders, 12 jumps; female: n=7 spiders, 20 jumps), or magnified views of take-off jumps to track leg joints accurately",
+      "name": "Condition",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 1,
+      "si_factor": null
+    },
+    "Spider ID": {
+      "evidence": "Individual spider IDs were used as random effects.",
+      "name": "Spider ID",
+      "quantity": "animal_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 2,
+      "si_factor": null
+    },
+    "Jump_ID": {
+      "evidence": "",
+      "name": "Jump_ID",
+      "quantity": "event_id",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "",
+      "index": 3,
+      "si_factor": null
+    },
+    "mass mg": {
+      "evidence": "Animals were weighed immediately after they carried out the jumps ... 0.1 mg repeatability",
+      "name": "mass mg",
+      "quantity": "mass",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mg",
+      "index": 4,
+      "si_factor": null
+    },
+    "takeoff_duration ms": {
+      "evidence": "(i) take-off duration (ms) – the duration between the first instance when acceleration increased from zero (i.e. the first frame where there was movement) to the first instance when all legs were off the ground.",
+      "name": "takeoff_duration ms",
+      "quantity": "other_duration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "ms",
+      "index": 5,
+      "si_factor": 0.001
+    },
+    "Peak accleration m/s2": {
+      "evidence": "(iii) acceleration (m s−2), a=Δv/Δt, where Δv is change in velocity and Δt is change in time, determined for every frame; peak acceleration was identified",
+      "name": "Peak accleration m/s2",
+      "quantity": "acceleration",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m/s2",
+      "index": 6,
+      "si_factor": 1.0
+    },
+    "Maximum_G": {
+      "evidence": "(vi) g-force, g=a/9.81",
+      "name": "Maximum_G",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "ratio",
+      "index": 7,
+      "si_factor": null
+    },
+    "Maximum Velocity m/s": {
+      "evidence": "(ii) take-off velocity (m s−1), v=d/t, where d is distance and t is time, determined for every frame; maximum take-off velocity was identified",
+      "name": "Maximum Velocity m/s",
+      "quantity": "takeoff_speed",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "m/s",
+      "index": 8,
+      "si_factor": 1.0
+    },
+    "Jump force": {
+      "evidence": "jump force (mN), F=m×a, where m is body mass and a is acceleration",
+      "name": "Jump force",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mN",
+      "index": 9,
+      "si_factor": null
+    },
+    "Kinetic Energy": {
+      "evidence": "kinetic energy (µJ), ke=½mv2, where m is body mass and v is velocity",
+      "name": "Kinetic Energy",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "µJ",
+      "index": 10,
+      "si_factor": null
+    },
+    "Jump Power": {
+      "evidence": "(v) jump power (mW), P=ke/take-off duration",
+      "name": "Jump Power",
+      "quantity": "other",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mW",
+      "index": 11,
+      "si_factor": null
+    },
+    "Take-off angle deg": {
+      "evidence": "(vii) take-off angle (deg): the angle of the CoM between the first frame prior to when the abdomen moves and the first frame when all legs are off the ground, relative to the plane of the substrate.",
+      "name": "Take-off angle deg",
+      "quantity": "takeoff_angle",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "deg",
+      "index": 12,
+      "si_factor": 1.0
+    },
+    "Maximum trajectory height_mm": {
+      "evidence": "we identified the maximum height attained during a jump and the height above ground when animals reached the landing platform.",
+      "name": "Maximum trajectory height_mm",
+      "quantity": "jump_height",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mm",
+      "index": 13,
+      "si_factor": 0.001
+    },
+    "End trajectory height_mm": {
+      "evidence": "we identified the maximum height attained during a jump and the height above ground when animals reached the landing platform.",
+      "name": "End trajectory height_mm",
+      "quantity": "end_height",
+      "uncertainty_kind": "not_an_uncertainty",
+      "uncertainty_of": null,
+      "unit": "mm",
+      "index": 14,
+      "si_factor": 0.001
+    }
+  },
+  "claims": [
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "jump_distance",
+      "quote": "We placed a vertical landing platform (0.1×0.5×4.0 cm, L×W×H) 4 cm away from the take-off platform.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "none",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "cm",
+      "value": 4.0,
+      "si_factor": 0.01
+    },
+    {
+      "n_events": 1,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "The smallest individual filmed was a 2.0 mg male that had a take-off duration of 22 ms, peak acceleration of 141.80 m s−2 and maximum take-off velocity of 0.89 m s−1.",
+      "row_filter": {
+        "column": "sex",
+        "value": "male"
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": "takeoff_duration ms",
+      "unit": "ms",
+      "value": 22.0,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 1,
+      "plus_minus": null,
+      "quantity": "acceleration",
+      "quote": "The smallest individual filmed was a 2.0 mg male that had a take-off duration of 22 ms, peak acceleration of 141.80 m s−2 and maximum take-off velocity of 0.89 m s−1.",
+      "row_filter": {
+        "column": "sex",
+        "value": "male"
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": "Peak accleration m/s2",
+      "unit": "m/s2",
+      "value": 141.8,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 1,
+      "plus_minus": null,
+      "quantity": "takeoff_speed",
+      "quote": "The smallest individual filmed was a 2.0 mg male that had a take-off duration of 22 ms, peak acceleration of 141.80 m s−2 and maximum take-off velocity of 0.89 m s−1.",
+      "row_filter": {
+        "column": "sex",
+        "value": "male"
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": "Maximum Velocity m/s",
+      "unit": "m/s",
+      "value": 0.89,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 1,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "In comparison, the heaviest individual filmed was a 13.2 mg female that had a take-off duration of 14 ms, peak acceleration of 122.33 m s−2 and a maximum take-off velocity of 0.76 m s−1.",
+      "row_filter": {
+        "column": "sex",
+        "value": "female"
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": "takeoff_duration ms",
+      "unit": "ms",
+      "value": 14.0,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 1,
+      "plus_minus": null,
+      "quantity": "acceleration",
+      "quote": "In comparison, the heaviest individual filmed was a 13.2 mg female that had a take-off duration of 14 ms, peak acceleration of 122.33 m s−2 and a maximum take-off velocity of 0.76 m s−1.",
+      "row_filter": {
+        "column": "sex",
+        "value": "female"
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": "Peak accleration m/s2",
+      "unit": "m/s2",
+      "value": 122.33,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 1,
+      "plus_minus": null,
+      "quantity": "takeoff_speed",
+      "quote": "In comparison, the heaviest individual filmed was a 13.2 mg female that had a take-off duration of 14 ms, peak acceleration of 122.33 m s−2 and a maximum take-off velocity of 0.76 m s−1.",
+      "row_filter": {
+        "column": "sex",
+        "value": "female"
+      },
+      "spread": "none",
+      "statistic": "single_event",
+      "table_column": "Maximum Velocity m/s",
+      "unit": "m/s",
+      "value": 0.76,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "acceleration",
+      "quote": "Between the two sexes, the highest and lowest acceleration was seen in female spiders (155.22 and 90.06 m s−2).",
+      "row_filter": {
+        "column": "sex",
+        "value": "female"
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "Peak accleration m/s2",
+      "unit": "m/s2",
+      "value": 155.22,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "acceleration",
+      "quote": "Between the two sexes, the highest and lowest acceleration was seen in female spiders (155.22 and 90.06 m s−2).",
+      "row_filter": {
+        "column": "sex",
+        "value": "female"
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": "Peak accleration m/s2",
+      "unit": "m/s2",
+      "value": 90.06,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "takeoff_speed",
+      "quote": "Between the sexes, the highest take-off velocity was in males (0.98 m s−1) and the lowest was in females (0.61 m s−1).",
+      "row_filter": {
+        "column": "sex",
+        "value": "male"
+      },
+      "spread": "none",
+      "statistic": "max",
+      "table_column": "Maximum Velocity m/s",
+      "unit": "m/s",
+      "value": 0.98,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "takeoff_speed",
+      "quote": "Between the sexes, the highest take-off velocity was in males (0.98 m s−1) and the lowest was in females (0.61 m s−1).",
+      "row_filter": {
+        "column": "sex",
+        "value": "female"
+      },
+      "spread": "none",
+      "statistic": "min",
+      "table_column": "Maximum Velocity m/s",
+      "unit": "m/s",
+      "value": 0.61,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 30,
+      "plus_minus": 8.55,
+      "quantity": "takeoff_angle",
+      "quote": "Males had a significantly higher take-off angle compared with females (males: 25.08±8.55 deg, r=0.98, n=30; females: 20.89 ±6.25 deg, r=0.99, n=35; means±s.d.; length of mean vector; Watson–William test F=5.011, P=0.029; Figs 3B,C, 4, Table 1).",
+      "row_filter": {
+        "column": "sex",
+        "value": "male"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Take-off angle deg",
+      "unit": "deg",
+      "value": 25.08,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 35,
+      "plus_minus": 6.25,
+      "quantity": "takeoff_angle",
+      "quote": "Males had a significantly higher take-off angle compared with females (males: 25.08±8.55 deg, r=0.98, n=30; females: 20.89 ±6.25 deg, r=0.99, n=35; means±s.d.; length of mean vector; Watson–William test F=5.011, P=0.029; Figs 3B,C, 4, Table 1).",
+      "row_filter": {
+        "column": "sex",
+        "value": "female"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": "Take-off angle deg",
+      "unit": "deg",
+      "value": 20.89,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": 35,
+      "plus_minus": 0.4,
+      "quantity": "other_duration",
+      "quote": "In females, the third pair of legs left the platform 3.5±0.4 ms (means±s.d., n=35) after the fourth pair, whereas in males it was slightly delayed (3.8±1.8 ms, n=30; Mann–Whitney U=216, P<0.001; Fig. 5; Movie 1).",
+      "row_filter": {
+        "column": "sex",
+        "value": "female"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ms",
+      "value": 3.5,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 30,
+      "plus_minus": 1.8,
+      "quantity": "other_duration",
+      "quote": "In females, the third pair of legs left the platform 3.5±0.4 ms (means±s.d., n=35) after the fourth pair, whereas in males it was slightly delayed (3.8±1.8 ms, n=30; Mann–Whitney U=216, P<0.001; Fig. 5; Movie 1).",
+      "row_filter": {
+        "column": "sex",
+        "value": "male"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ms",
+      "value": 3.8,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 35,
+      "plus_minus": 0.2,
+      "quantity": "other_duration",
+      "quote": "In both sexes, the fourth pair of legs left the platform close to when peak acceleration occurred (females: 0.4±0.2 ms after peak acceleration, means±s.d., n=35; males: 0.3±0.6 ms before peak acceleration, n=30).",
+      "row_filter": {
+        "column": "sex",
+        "value": "female"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ms",
+      "value": 0.4,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 30,
+      "plus_minus": 0.6,
+      "quantity": "other_duration",
+      "quote": "In both sexes, the fourth pair of legs left the platform close to when peak acceleration occurred (females: 0.4±0.2 ms after peak acceleration, means±s.d., n=35; males: 0.3±0.6 ms before peak acceleration, n=30).",
+      "row_filter": {
+        "column": "sex",
+        "value": "male"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ms",
+      "value": 0.3,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 30,
+      "plus_minus": 1.4,
+      "quantity": "other_duration",
+      "quote": "In both sexes, the third pair of legs left the platform after peak acceleration (Fig. 5; Movie 1; males: 3.4±1.4 ms after peak acceleration, n=30; females: 4.0±1.5 ms after peak acceleration, n=35).",
+      "row_filter": {
+        "column": "sex",
+        "value": "male"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ms",
+      "value": 3.4,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": 35,
+      "plus_minus": 1.5,
+      "quantity": "other_duration",
+      "quote": "In both sexes, the third pair of legs left the platform after peak acceleration (Fig. 5; Movie 1; males: 3.4±1.4 ms after peak acceleration, n=30; females: 4.0±1.5 ms after peak acceleration, n=35).",
+      "row_filter": {
+        "column": "sex",
+        "value": "female"
+      },
+      "spread": "sd",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ms",
+      "value": 4.0,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other_duration",
+      "quote": "Spiders waved their first two pairs of legs for 0.4–60 ms, and gradually lowered their abdomen.",
+      "row_filter": {
+        "column": null,
+        "value": null
+      },
+      "spread": "range",
+      "statistic": "other",
+      "table_column": null,
+      "unit": "ms",
+      "value": 0.4,
+      "si_factor": 0.001
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "acceleration",
+      "quote": "Males take-off with a maximum acceleration of 127.8 m/s2 and 13.03 g",
+      "row_filter": {
+        "column": "sex",
+        "value": "male"
+      },
+      "spread": "none",
+      "statistic": "mean",
+      "table_column": "Peak accleration m/s2",
+      "unit": "m/s2",
+      "value": 127.8,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "Males take-off with a maximum acceleration of 127.8 m/s2 and 13.03 g",
+      "row_filter": {
+        "column": "sex",
+        "value": "male"
+      },
+      "spread": "none",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ratio",
+      "value": 13.03,
+      "si_factor": null
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "acceleration",
+      "quote": "Females take-off with a maximum acceleration of 122.7 m/s2 and 12.5 g",
+      "row_filter": {
+        "column": "sex",
+        "value": "female"
+      },
+      "spread": "none",
+      "statistic": "mean",
+      "table_column": "Peak accleration m/s2",
+      "unit": "m/s2",
+      "value": 122.7,
+      "si_factor": 1.0
+    },
+    {
+      "n_events": null,
+      "plus_minus": null,
+      "quantity": "other",
+      "quote": "Females take-off with a maximum acceleration of 122.7 m/s2 and 12.5 g",
+      "row_filter": {
+        "column": "sex",
+        "value": "female"
+      },
+      "spread": "none",
+      "statistic": "mean",
+      "table_column": null,
+      "unit": "ratio",
+      "value": 12.5,
+      "si_factor": null
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Demo script — draft v1 (for Sam's approval before any audio is generated)
 
-Target length ~2:50 at ~140 words per minute (about 400 words). Voice: "daniel". Screen: the live Space.
+Target length ~2:30–2:50 at ~140 words per minute (this draft: about 340 words). Voice: "daniel". Screen: the live Space.
 Numbers marked [*] are filled in from the final recorded runs at freeze.
 
 ---
@@ -17,7 +17,7 @@ SAM 3.1 tracks the animal. Physics and arithmetic decide. No number in a verdict
 **0:40 — The agent at work (ledger view)**
 Every model proposal is a line in the ledger, next to the check that accepted or rejected it.
 Here a quote does not occur in the paper — rejected; Muse Spark is asked again with the reason, and only that field
-is replaced. Here the tracker followed the background — rejected; Muse Spark proposes a new box.
+is replaced. And when we planted a box on the background, the track was rejected and Muse Spark proposed a new one.
 
 **1:05 — Paper one: larval beetles (PLOS ONE)**
 [*] claims are recomputed from the paper's own table: [*] reproduce the printed digits, two are reproduced by a
