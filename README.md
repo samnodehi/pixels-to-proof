@@ -70,9 +70,9 @@ tracks):
 Ten PLOS papers with raw data on Zenodo (sprinting and jumping athletes, fish, ants, guinea fowl, pigeons, tadpoles) and
 the *Phidippus regius* jumping-spider paper (Sci Rep 2018). 276 claims: 45 reproduced to the printed digits, 114 NOT
 CHECKED (mostly tables the agent cannot read as laid out, or values that describe another aggregation; three are the
-table value truncated), 117 refused with a reason. Examples of what the code-side checks add: sprint times reproduced
-per training group although the plan named no group (the code found the subset); a body mass "73.23 ± 6.82 kg" that is
-the table's 73.2333 ± 6.8290 truncated.
+table value truncated), 117 refused with a reason. Examples: sprint times reproduced per training group (rows
+selected by group); a body mass "73.23 ± 6.82 kg" that is the table's 73.2333 ± 6.8290 truncated. In an earlier run of
+the same paper the plan named no groups, and code found them (DECISIONS.md).
 
 ## How it works
 
