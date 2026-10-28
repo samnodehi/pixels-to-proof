@@ -225,6 +225,7 @@ def plan_stage(ing: dict, units: list[dict], out: Path, led: Ledger) -> planmod.
         f" ({u['n_frames']} frames): printed text '{u['frame_reading']['overlay_text']}'"
         + (f"; montage with {len(u['panels'])} framed panels" if len(u['panels']) >= 2 else "")
         for u in units)
+    videos_text = videos_text or "(no video in the bundle)"
     overlay = "\n".join(u["frame_reading"]["overlay_text"] for u in units)
     scripts = "\n".join(s for _, s in ing["scripts"])
     feedback, fid, best = "", None, None

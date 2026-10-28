@@ -265,6 +265,9 @@ def build() -> gr.Blocks:
             pick.change(lambda t: render(audits()[t]), pick, outs)
             demo.load(lambda t: render(audits()[t]) if t else [None] * 8, pick, outs)
             go.click(live_run, pick, outs + [status], concurrency_limit=1)
+        with gr.Tab("Breadth"):
+            f = ROOT / "showcase" / "breadth.md"
+            gr.Markdown(f.read_text() if f.exists() else "No breadth test recorded yet.")
         with gr.Tab("Calibration"):
             for name in ("calibration.md", "faults.md"):
                 f = ROOT / "showcase" / name

@@ -57,7 +57,17 @@ def pair(k: Kinematics, table: Table, columns: dict[str, dict], id_column: str |
     (d1, i1, _), (d2, i2, _) = scores[0], scores[1]
     margin = d2 / d1 if d1 > 0 else float("inf")
     idx = table.header.index(id_column) if id_column in table.header else None
-    rid = lambda i: str(table.rows[i][idx]) if idx is not None else f"row {i + 1}"
+    # an event id that repeats across animals ("j1", "j2" per spider) is prefixed with the animal id when there is one
+    animal = next((c["index"] for c in columns.values() if c.get("quantity") == "animal_id"), None)
+    ids = [table.rows[i][idx] for i in range(len(table.rows))] if idx is not None else []
+    unique = len(set(map(str, ids))) == len(ids)
+
+    def rid(i: int) -> str:
+        if idx is None:
+            return f"row {i + 1}"
+        if unique or animal is None:
+            return str(table.rows[i][idx])
+        return f"{table.rows[i][animal]}/{table.rows[i][idx]}"
     detail = {q: {"ours": ours[q], "row": {name: (table.rows[i1][j] * fac if _num(table.rows[i1][j]) else None)
                                            for name, j, fac in cols}} for q, cols in feats.items()}
     out = {"row_index": i1, "row_id": rid(i1), "distance": d1, "runner_up": rid(i2), "runner_up_distance": d2,
