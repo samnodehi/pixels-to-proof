@@ -111,6 +111,11 @@ def _try(claim: dict, col: dict, table: Table, circular: bool = False, columns: 
     centre, sd = _stats(vals, claim["statistic"])
     out = {"ok": judge(centre, sd), "column": col["name"], "n_rows": len(vals), "table_value": centre,
            "table_sd": sd, "stats": "arithmetic"}
+    if not out["ok"] and claim["statistic"] == "mean" and claim.get("plus_minus") is not None and len(vals) > 1 \
+            and abs(centre - claim["value"]) <= _tol(vt, vs):
+        psd = statistics.pstdev(vals)                  # some papers print the population SD (divide by n, not n-1)
+        if judge(centre, psd):
+            out.update(ok=True, table_sd=psd, stats="population_sd")
     if not out["ok"] and circular and claim["statistic"] == "mean" and unit_dim(col["unit"]) == "angle":
         c_mean, c_sd = _circular(vals)
         if judge(c_mean, c_sd):
@@ -194,6 +199,8 @@ def check(claim: dict, table: Table, columns: dict[str, dict], circular: bool = 
 def _how(claim: dict, r: dict) -> str:
     if r.get("stats") == "circular":
         return "circular mean (the paper uses circular statistics)"
+    if r.get("stats") == "population_sd":
+        return "mean with the population SD (divided by n, not n − 1)"
     if r.get("stats") == "per_animal":
         return (f"mean over animals (each animal's rows averaged first; animal = {r['per_animal']['key']}; "
                 f"{r['per_animal']['groups']} animals = the n printed)")

@@ -304,3 +304,16 @@ def test_table_check_per_animal_and_truncation():
            "row_filter": {"column": None, "value": None}}
     r = tablecheck.check(low, t, cols)
     assert r["outcome"] == tablecheck.NOT_CHECKED and "truncated" in r["reason"]
+
+
+def test_population_sd_is_named():
+    rows = [[v] for v in (70.0, 72.0, 80.0, 71.0)]
+    t = ingest.Table(file="t.csv", sheet="t", header=["w"], rows=rows, header_row=0)
+    cols = {"w": {"name": "w", "quantity": "mass", "unit": "kg", "index": 0, "si_factor": None}}
+    import statistics
+    psd = round(statistics.pstdev([70, 72, 80, 71]), 2)
+    claim = {"quantity": "mass", "value": 73.25, "plus_minus": psd, "unit": "kg", "quote": f"weight 73.25 ± {psd} kg",
+             "statistic": "mean", "spread": "sd", "table_column": "w", "si_factor": None, "n_events": None,
+             "row_filter": {"column": None, "value": None}}
+    r = tablecheck.check(claim, t, cols)
+    assert r["outcome"] == tablecheck.MATCHES and r["stats"] == "population_sd"
