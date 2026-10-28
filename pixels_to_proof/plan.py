@@ -79,7 +79,7 @@ PLAN_SCHEMA = {
                 "statistic": {"type": "string", "enum": ["mean", "median", "max", "min", "single_event", "other"]},
                 "spread": {"type": "string", "enum": ["sd", "se", "range", "ci", "none", "unknown"]},
                 "n_events": {"type": ["integer", "null"], "description": "number of events the value aggregates, if stated"},
-                "table_column": {"type": ["string", "null"], "description": "event_table column this claim summarises, if any"},
+                "table_column": {"type": ["string", "null"], "description": "header of the data-table column this claim summarises, if any (the event_table, or another table or sheet in TABLES)"},
                 "row_filter": {"type": "object", "additionalProperties": False,
                                "description": "if the claim summarises only some events (e.g. males only), the event-table column and the cell value that select them; nulls if it covers all events",
                                "properties": {"column": {"type": ["string", "null"]}, "value": {"type": ["string", "null"]}},
@@ -333,10 +333,12 @@ def check(plan: dict, pdf_text: str, script_text: str, tables: list[ingest.Table
             cl = dict(cl, si_factor=f)
             rf = cl.get("row_filter") or {}
             if rf.get("column"):
-                tab = next((t for t in tables if et and t.file == Path(et["file"]).name and t.sheet == et["sheet"]), None)
-                ok_rf = tab is not None and rf["column"] in tab.header and rf.get("value") is not None and any(
-                    str(r[tab.header.index(rf["column"])]).strip().lower() == str(rf["value"]).strip().lower()
-                    for r in tab.rows)
+                ev = [t for t in tables if et and t.file == Path(et["file"]).name and t.sheet == et["sheet"]]
+                cands = [t for t in ev + tables if rf["column"] in t.header and
+                         (not cl.get("table_column") or cl["table_column"] in t.header)]
+                ok_rf = rf.get("value") is not None and any(
+                    str(r[t.header.index(rf["column"])]).strip().lower() == str(rf["value"]).strip().lower()
+                    for t in cands[:1] for r in t.rows)
                 cp.checks.append(Check(f"claim '{cl['quote'][:50]}' rows", ok_rf,
                                        f"rows where '{rf['column']}' = '{rf.get('value')}'" if ok_rf else
                                        f"row filter '{rf['column']}' = '{rf.get('value')}' matches no rows; the claim is "
@@ -385,12 +387,12 @@ def _apply_exponent(cl: dict) -> None:
 def needs(claim: dict) -> str:
     """Route by what a claim is (code, not the model): aggregates are checked against the event table; single events
     go to the video via pairing; everything else is refused with a reason."""
-    if claim.get("si_factor") is None and not claim.get("table_column"):
-        return f"refuse: unit '{claim['unit']}' is not one the agent can measure or convert"
     if claim["statistic"] in ("mean", "median", "max", "min") and claim.get("table_column"):
         return "table_check"
     if claim["statistic"] in ("mean", "median", "max", "min"):
-        return "refuse: statistic over several events and no event-table column to recompute it"
+        return "refuse: statistic over several events and no data-table column proposed to recompute it"
+    if claim.get("si_factor") is None and not claim.get("table_column"):
+        return f"refuse: unit '{claim['unit']}' is not one the agent can measure or convert"
     if claim["statistic"] == "single_event" and claim["quantity"] in SI and claim.get("si_factor") is None:
         return f"refuse: unit '{claim['unit']}' is not one the agent can measure or convert"
     if claim["statistic"] == "single_event":

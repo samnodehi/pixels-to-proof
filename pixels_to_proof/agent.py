@@ -651,8 +651,22 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
                     route, c = "table_check", dict(c, statistic=stat)
                     row["statistic"], row["route"] = stat, route
                     break
-        if route == "table_check" and table is not None:
-            res = tablecheck.check(c, table, cp.columns, bool(circ))
+        tab, cols = table, cp.columns
+        if route == "table_check" and c.get("table_column") and c["table_column"] not in cp.columns:
+            # a column of another table or sheet: no column meanings were proposed for it, so it is read in the
+            # claim's own unit and only that column is tried (no other-column scan)
+            other = next((t for t in ing["tables"] if c["table_column"] in t.header), None)
+            if other is not None:
+                j = other.header.index(c["table_column"])
+                tab, cols = other, {c["table_column"]: {"name": c["table_column"], "index": j, "unit": c["unit"],
+                                                        "quantity": c["quantity"], "si_factor": c.get("si_factor")}}
+                for h, cc in cp.columns.items():          # keep id columns for per-animal grouping if present
+                    if cc.get("quantity") == "animal_id" and h in other.header:
+                        cols[h] = dict(cc, index=other.header.index(h))
+                led.step("other table", f"'{c['table_column']}' is in {other.file}/{other.sheet}, read in the "
+                                        f"claim's unit ({c['unit']})")
+        if route == "table_check" and tab is not None:
+            res = tablecheck.check(c, tab, cols, bool(circ))
             row.update(outcome=res["outcome"], reason=res["reason"],
                        evidence={k: v for k, v in res.items() if k not in ("outcome", "reason", "ok")})
         elif route == "table_check":
