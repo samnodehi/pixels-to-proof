@@ -1,0 +1,2323 @@
+{
+"beetle": {
+"tables": [
+[
+44,
+1258.734375,
+1192,
+1167.015625,
+"claim (verbatim from the paper or its video)\tkind\tvalue\toutcome\twhy\n\u201cover a peri"
+],
+[
+44,
+2535.078125,
+1099.5,
+511.953125,
+"video\tshot\tframes\tverdict\twhy\njournal.pone.0256509.s003.mp4\t1\t90\tCANNOT MEASURE\t"
+]
+],
+"verdict": [
+[
+660,
+594.328125,
+576,
+381.484375,
+"REPRODUCED\nPublished (event table, row c_21382_488_croppedxypts, column velocity"
+]
+],
+"intro": [
+[
+32,
+152.046875,
+1178.359375,
+40.75,
+"The model proposes; tracking, arithmetic and physics decide. No number in a verd"
+]
+],
+"handsoff": [
+[
+32,
+405.9375,
+1216,
+162.390625,
+"Bertone M.A. et al. (2022). A novel power-amplified jumping behavior in larval b"
+]
+],
+"header": [
+[
+32,
+369.140625,
+1216,
+20.796875,
+"Larval beetle jumps \u2014 Bertone et al. 2022, PLOS ONE"
+]
+],
+"workdone": [
+[
+32,
+405.9375,
+1216,
+162.390625,
+"Bertone M.A. et al. (2022). A novel power-amplified jumping behavior in larval b"
+]
+],
+"recorded": [
+[
+32,
+405.9375,
+1216,
+162.390625,
+"Bertone M.A. et al. (2022). A novel power-amplified jumping behavior in larval b"
+]
+],
+"rows": [
+[
+44.5,
+1259.234375,
+1191,
+39.015625,
+"claim (verbatim from the paper or its video)\tkind\tvalue\toutcome\twhy"
+],
+[
+44.5,
+1298.25,
+1191,
+53.4375,
+"\u201cover a period of 0.22 \u00b1 0.17s.\u201d\tmean\t0.22 \u00b1 0.17 s\tMATCHES TABLE\tmean of 29 row"
+],
+[
+44.5,
+1351.6875,
+1191,
+53.4375,
+"\u201ctakeoff velocities of 0.47 \u00b1 0.15 m s-1\u201d\tmean\t0.47 \u00b1 0.15 m s-1\tMATCHES TABLE\tm"
+],
+[
+44.5,
+1405.125,
+1191,
+69.65625,
+"\u201ctraveled 11.2 \u00b1 2.8 mm (1.98 \u00b1 0.8 body lengths) horizontally\u201d\tmean\t11.2 \u00b1 2.8 "
+],
+[
+44.5,
+1474.78125,
+1191,
+85.875,
+"\u201c11.2 \u00b1 2.8 mm (1.98 \u00b1 0.8 body lengths) horizontally\u201d\tmean\t1.98 \u00b1 0.8 body leng"
+],
+[
+44.5,
+1560.65625,
+1191,
+69.65625,
+"\u201c7.9 \u00b1 4.3 mm (1.5 \u00b1 0.9 body lengths) vertically\u201d\tmean\t7.9 \u00b1 4.3 mm\tMATCHES OTH"
+],
+[
+44.5,
+1630.3125,
+1191,
+53.4375,
+"\u201c7.9 \u00b1 4.3 mm (1.5 \u00b1 0.9 body lengths) vertically\u201d\tmean\t1.5 \u00b1 0.9 body lengths\tM"
+],
+[
+44.5,
+1683.75,
+1191,
+53.4375,
+"\u201cfrom near horizontal to 149.5 \u00b1 16.7 degrees.\u201d\tmean\t149.5 \u00b1 16.7 deg\tMATCHES TA"
+],
+[
+44.5,
+1737.1875,
+1191,
+53.4375,
+"\u201cleft the ground averaging 5.5 \u00b1 14.4 x 10-3 s in duration.\u201d\tmean\t0.0055 \u00b1 0.014"
+],
+[
+44.5,
+1790.625,
+1191,
+53.4375,
+"\u201caveraged 1.4 \u00b1 0.8 x 10-3 s.\u201d\tmean\t0.0014 \u00b1 0.0008 s\tMATCHES TABLE\tmean of 29 r"
+],
+[
+44.5,
+1844.0625,
+1191,
+57.03125,
+"\u201cWhen pooled, the combined latch-decoupling and launch phases lasted 6.9 \u00b1 14.3 "
+],
+[
+44.5,
+1901.09375,
+1191,
+53.4375,
+"\u201ccontinues to arch further to 124.1 \u00b1 29.6 degrees.\u201d\tmean\t124.1 \u00b1 29.6 deg\tMATCH"
+],
+[
+44.5,
+1954.53125,
+1191,
+57.03125,
+"\u201cthe larvae rapidly arched their body even further to 79.6 \u00b1 28.2 degrees prior "
+],
+[
+44.5,
+2011.5625,
+1191,
+53.4375,
+"\u201creached a maximum acceleration of 89.5 \u00b1 34.5 m s-2\u201d\tmean\t89.5 \u00b1 34.5 m s-2\tMAT"
+],
+[
+44.5,
+2065,
+1191,
+53.4375,
+"\u201cwith the fastest takeoff velocity reaching 0.87 m s-1,\u201d\tmax\t0.87 m s-1\tMATCHES "
+],
+[
+44.5,
+2118.4375,
+1191,
+69.65625,
+"\u201cleaving the ground at an angle of 79.6 \u00b1 28.2 degrees.\u201d\tmean\t79.6 \u00b1 28.2 deg\tMA"
+],
+[
+44.5,
+2188.09375,
+1191,
+69.65625,
+"\u201clarvae were airborne for 1.3 \u00b1 0.7 x 10-3 s\u201d\tmean\t0.0013 \u00b1 0.0007 s\tNOT CHECKED"
+],
+[
+44.5,
+2257.75,
+1191,
+57.03125,
+"\u201cwith the farthest horizontal jumper traveling 23.75 mm (Fig 4).\u201d\tmax\t23.75 mm\tM"
+],
+[
+44.5,
+2314.78125,
+1191,
+57.03125,
+"\u201cthe longest jumping distance was about 5 cm, horizontally.\u201d\tmax\t5.0 cm\tREFUSED\t"
+],
+[
+44.5,
+2371.8125,
+1191,
+53.4375,
+"\u201c50 mm (vertically)\u201d\tmax\t50.0 mm\tREFUSED\tstatistic over several events and no ev"
+],
+[
+44.5,
+2535.578125,
+1098.5,
+39.015625,
+"video\tshot\tframes\tverdict\twhy"
+],
+[
+44.5,
+2574.59375,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t1\t90\tCANNOT MEASURE\tat 30 fps a flight spans at mo"
+],
+[
+44.5,
+2613.921875,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t2\t127\tCANNOT MEASURE\tat 30 fps a flight spans at m"
+],
+[
+44.5,
+2653.25,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t3\t222\tCANNOT MEASURE\tat 30 fps a flight spans at m"
+],
+[
+44.5,
+2692.578125,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t4\t173\tCANNOT MEASURE\tat 30 fps a flight spans at m"
+],
+[
+44.5,
+2731.90625,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t5\t189\tCANNOT MEASURE\tat 30 fps a flight spans at m"
+],
+[
+44.5,
+2771.234375,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t6\t67\tCANNOT MEASURE\tat 30 fps a flight spans at mo"
+],
+[
+44.5,
+2810.5625,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t7\t32\tCANNOT MEASURE\tat 30 fps a flight spans at mo"
+],
+[
+44.5,
+2849.890625,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t8\t57\tCANNOT MEASURE\tat 30 fps a flight spans at mo"
+],
+[
+44.5,
+2889.21875,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t9\t58\tCANNOT MEASURE\tat 30 fps a flight spans at mo"
+],
+[
+44.5,
+2928.546875,
+1098.5,
+39.328125,
+"journal.pone.0256509.s004.mp4\t1\t211\tCANNOT MEASURE\tno measurable grid on this sh"
+],
+[
+44.5,
+2967.875,
+1098.5,
+39.328125,
+"journal.pone.0256509.s004.mp4\t2\t593\tREPRODUCED\tpublished value (with its stated "
+],
+[
+44.5,
+3007.203125,
+1098.5,
+39.328125,
+"journal.pone.0256509.s004.mp4\t3\t411\tCANNOT MEASURE\tshot covers 6.9 ms, shorter t"
+]
+],
+"th": [
+[
+44.5,
+1259.234375,
+394.015625,
+39.015625,
+"claim (verbatim from the paper or its video)"
+],
+[
+438.515625,
+1259.234375,
+67.890625,
+39.015625,
+"kind"
+],
+[
+506.40625,
+1259.234375,
+167.8125,
+39.015625,
+"value"
+],
+[
+674.21875,
+1259.234375,
+199.046875,
+39.015625,
+"outcome"
+],
+[
+873.265625,
+1259.234375,
+362.234375,
+39.015625,
+"why"
+],
+[
+44.5,
+2535.578125,
+237.671875,
+39.015625,
+"video"
+],
+[
+282.171875,
+2535.578125,
+58.828125,
+39.015625,
+"shot"
+],
+[
+341,
+2535.578125,
+75.546875,
+39.015625,
+"frames"
+],
+[
+416.546875,
+2535.578125,
+155.03125,
+39.015625,
+"verdict"
+],
+[
+571.578125,
+2535.578125,
+571.421875,
+39.015625,
+"why"
+]
+],
+"cardlines": [
+[
+680,
+602.328125,
+542,
+29.390625,
+"REPRODUCED"
+],
+[
+680,
+631.71875,
+542,
+41.1875,
+"Published (event table, row c_21382_488_croppedxypts, column velocity.max): 0.40"
+],
+[
+680,
+672.90625,
+542,
+39.1875,
+"Re-measured from the video (ballistic fit of the SAM 3.1 track): 0.436 m/s, inte"
+],
+[
+680,
+712.09375,
+542,
+58.78125,
+"Sensitivity: with this interval and this kind of \u00b1, any published value between "
+],
+[
+680,
+770.875,
+542,
+58.78125,
+"Second reading \u2014 the authors' stated method, approximately replicated on our tra"
+],
+[
+680,
+829.65625,
+542,
+39.1875,
+"Self-checks: gravity from the flight 10.02 m/s\u00b2 (9.81 expected) \u00b7 sideways accel"
+],
+[
+680,
+868.84375,
+542,
+59.78125,
+"Blind pairing: this jump is row c_21382_488_croppedxypts, 4.9\u00d7 closer than the r"
+],
+[
+680,
+928.625,
+542,
+39.1875,
+"Why: published value (with its stated uncertainty) overlaps the measured interva"
+]
+],
+"t_handsoff": [
+[
+32,
+499.984375,
+72.703125,
+18
+]
+],
+"t_rule": [
+[
+143.453125,
+174.796875,
+391.34375,
+18
+]
+],
+"t_proposes": [
+[
+779.6875,
+106.546875,
+64.125,
+18
+],
+[
+967.375,
+152.046875,
+64.140625,
+18
+]
+]
+},
+"ledger": {
+"rows": [
+[
+44.5,
+1262.234375,
+1191,
+39.015625,
+"claim (verbatim from the paper or its video)\tkind\tvalue\toutcome\twhy"
+],
+[
+44.5,
+1301.25,
+1191,
+53.4375,
+"\u201cover a period of 0.22 \u00b1 0.17s.\u201d\tmean\t0.22 \u00b1 0.17 s\tMATCHES TABLE\tmean of 29 row"
+],
+[
+44.5,
+1354.6875,
+1191,
+53.4375,
+"\u201ctakeoff velocities of 0.47 \u00b1 0.15 m s-1\u201d\tmean\t0.47 \u00b1 0.15 m s-1\tMATCHES TABLE\tm"
+],
+[
+44.5,
+1408.125,
+1191,
+69.65625,
+"\u201ctraveled 11.2 \u00b1 2.8 mm (1.98 \u00b1 0.8 body lengths) horizontally\u201d\tmean\t11.2 \u00b1 2.8 "
+],
+[
+44.5,
+1477.78125,
+1191,
+85.875,
+"\u201c11.2 \u00b1 2.8 mm (1.98 \u00b1 0.8 body lengths) horizontally\u201d\tmean\t1.98 \u00b1 0.8 body leng"
+],
+[
+44.5,
+1563.65625,
+1191,
+69.65625,
+"\u201c7.9 \u00b1 4.3 mm (1.5 \u00b1 0.9 body lengths) vertically\u201d\tmean\t7.9 \u00b1 4.3 mm\tMATCHES OTH"
+],
+[
+44.5,
+1633.3125,
+1191,
+53.4375,
+"\u201c7.9 \u00b1 4.3 mm (1.5 \u00b1 0.9 body lengths) vertically\u201d\tmean\t1.5 \u00b1 0.9 body lengths\tM"
+],
+[
+44.5,
+1686.75,
+1191,
+53.4375,
+"\u201cfrom near horizontal to 149.5 \u00b1 16.7 degrees.\u201d\tmean\t149.5 \u00b1 16.7 deg\tMATCHES TA"
+],
+[
+44.5,
+1740.1875,
+1191,
+53.4375,
+"\u201cleft the ground averaging 5.5 \u00b1 14.4 x 10-3 s in duration.\u201d\tmean\t0.0055 \u00b1 0.014"
+],
+[
+44.5,
+1793.625,
+1191,
+53.4375,
+"\u201caveraged 1.4 \u00b1 0.8 x 10-3 s.\u201d\tmean\t0.0014 \u00b1 0.0008 s\tMATCHES TABLE\tmean of 29 r"
+],
+[
+44.5,
+1847.0625,
+1191,
+57.03125,
+"\u201cWhen pooled, the combined latch-decoupling and launch phases lasted 6.9 \u00b1 14.3 "
+],
+[
+44.5,
+1904.09375,
+1191,
+53.4375,
+"\u201ccontinues to arch further to 124.1 \u00b1 29.6 degrees.\u201d\tmean\t124.1 \u00b1 29.6 deg\tMATCH"
+],
+[
+44.5,
+1957.53125,
+1191,
+57.03125,
+"\u201cthe larvae rapidly arched their body even further to 79.6 \u00b1 28.2 degrees prior "
+],
+[
+44.5,
+2014.5625,
+1191,
+53.4375,
+"\u201creached a maximum acceleration of 89.5 \u00b1 34.5 m s-2\u201d\tmean\t89.5 \u00b1 34.5 m s-2\tMAT"
+],
+[
+44.5,
+2068,
+1191,
+53.4375,
+"\u201cwith the fastest takeoff velocity reaching 0.87 m s-1,\u201d\tmax\t0.87 m s-1\tMATCHES "
+],
+[
+44.5,
+2121.4375,
+1191,
+69.65625,
+"\u201cleaving the ground at an angle of 79.6 \u00b1 28.2 degrees.\u201d\tmean\t79.6 \u00b1 28.2 deg\tMA"
+],
+[
+44.5,
+2191.09375,
+1191,
+69.65625,
+"\u201clarvae were airborne for 1.3 \u00b1 0.7 x 10-3 s\u201d\tmean\t0.0013 \u00b1 0.0007 s\tNOT CHECKED"
+],
+[
+44.5,
+2260.75,
+1191,
+57.03125,
+"\u201cwith the farthest horizontal jumper traveling 23.75 mm (Fig 4).\u201d\tmax\t23.75 mm\tM"
+],
+[
+44.5,
+2317.78125,
+1191,
+57.03125,
+"\u201cthe longest jumping distance was about 5 cm, horizontally.\u201d\tmax\t5.0 cm\tREFUSED\t"
+],
+[
+44.5,
+2374.8125,
+1191,
+53.4375,
+"\u201c50 mm (vertically)\u201d\tmax\t50.0 mm\tREFUSED\tstatistic over several events and no ev"
+],
+[
+44.5,
+2538.578125,
+1098.5,
+39.015625,
+"video\tshot\tframes\tverdict\twhy"
+],
+[
+44.5,
+2577.59375,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t1\t90\tCANNOT MEASURE\tat 30 fps a flight spans at mo"
+],
+[
+44.5,
+2616.921875,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t2\t127\tCANNOT MEASURE\tat 30 fps a flight spans at m"
+],
+[
+44.5,
+2656.25,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t3\t222\tCANNOT MEASURE\tat 30 fps a flight spans at m"
+],
+[
+44.5,
+2695.578125,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t4\t173\tCANNOT MEASURE\tat 30 fps a flight spans at m"
+],
+[
+44.5,
+2734.90625,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t5\t189\tCANNOT MEASURE\tat 30 fps a flight spans at m"
+],
+[
+44.5,
+2774.234375,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t6\t67\tCANNOT MEASURE\tat 30 fps a flight spans at mo"
+],
+[
+44.5,
+2813.5625,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t7\t32\tCANNOT MEASURE\tat 30 fps a flight spans at mo"
+],
+[
+44.5,
+2852.890625,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t8\t57\tCANNOT MEASURE\tat 30 fps a flight spans at mo"
+],
+[
+44.5,
+2892.21875,
+1098.5,
+39.328125,
+"journal.pone.0256509.s003.mp4\t9\t58\tCANNOT MEASURE\tat 30 fps a flight spans at mo"
+],
+[
+44.5,
+2931.546875,
+1098.5,
+39.328125,
+"journal.pone.0256509.s004.mp4\t1\t211\tCANNOT MEASURE\tno measurable grid on this sh"
+],
+[
+44.5,
+2970.875,
+1098.5,
+39.328125,
+"journal.pone.0256509.s004.mp4\t2\t593\tREPRODUCED\tpublished value (with its stated "
+],
+[
+44.5,
+3010.203125,
+1098.5,
+39.328125,
+"journal.pone.0256509.s004.mp4\t3\t411\tCANNOT MEASURE\tshot covers 6.9 ms, shorter t"
+],
+[
+56.5,
+3464.125,
+1167,
+38.625,
+"0.0s\tCODE\t\tinventory: 1 pdf, 2 video, 1 table, 1 archive files"
+],
+[
+56.5,
+3502.75,
+1167,
+38.625,
+"0.4s\tCODE\t\tpaper: paper.pdf chosen as the paper"
+],
+[
+56.5,
+3541.375,
+1167,
+52.0625,
+"0.4s\tCODE CHECKED\t\u2714\tG0 licence: CC BY: ertone et al. This is an open access arti"
+],
+[
+56.5,
+3593.4375,
+1167,
+38.625,
+"0.6s\tCODE\t\tread files: 225492 chars of PDF text, 2 table sheets, 1 scripts"
+],
+[
+56.5,
+3632.0625,
+1167,
+38.625,
+"5.4s\tCODE\t\tshots: journal.pone.0256509.s003.mp4: 9 shots of >= 30 frames (cuts a"
+],
+[
+56.5,
+3670.6875,
+1167,
+56.25,
+"33.7s\tMUSE SPARK PROPOSED\t\tsplit shots: journal.pone.0256509.s003.mp4: shot 1: 1"
+],
+[
+56.5,
+3726.9375,
+1167,
+54.0625,
+"33.7s\tCODE CHECKED\t\u2714\tG2 recordings: shot 1 (0-89): one recording: the shot is ke"
+],
+[
+56.5,
+3781,
+1167,
+54.0625,
+"33.7s\tCODE CHECKED\t\u2714\tG2 recordings: shot 2 (224-350): one recording: the shot is"
+],
+[
+56.5,
+3835.0625,
+1167,
+54.0625,
+"33.7s\tCODE CHECKED\t\u2714\tG2 recordings: shot 3 (363-584): one recording: the shot is"
+],
+[
+56.5,
+3889.125,
+1167,
+54.0625,
+"33.7s\tCODE CHECKED\t\u2714\tG2 recordings: shot 4 (585-757): one recording: the shot is"
+],
+[
+56.5,
+3943.1875,
+1167,
+54.0625,
+"33.7s\tCODE CHECKED\t\u2714\tG2 recordings: shot 5 (758-946): one recording: the shot is"
+],
+[
+56.5,
+3997.25,
+1167,
+38.625,
+"66.9s\tCODE\t\tshots: journal.pone.0256509.s004.mp4: 3 shots of >= 30 frames (cuts "
+],
+[
+56.5,
+4035.875,
+1167,
+56.25,
+"86.5s\tMUSE SPARK PROPOSED\t\tsplit shots: journal.pone.0256509.s004.mp4: shot 1: 1"
+],
+[
+56.5,
+4092.125,
+1167,
+54.0625,
+"86.5s\tCODE CHECKED\t\u2714\tG2 recordings: shot 1 (0-210): one recording: the shot is k"
+],
+[
+56.5,
+4146.1875,
+1167,
+54.0625,
+"86.5s\tCODE CHECKED\t\u2714\tG2 recordings: shot 2 (211-803): one recording: the shot is"
+],
+[
+56.5,
+4200.25,
+1167,
+54.0625,
+"86.5s\tCODE CHECKED\t\u2714\tG2 recordings: shot 3 (804-1214): one recording: the shot i"
+],
+[
+56.5,
+4254.3125,
+1167,
+56.25,
+"121.4s\tMUSE SPARK PROPOSED\t\tread frame: printed text 'Laemophloeus biguttatus / "
+],
+[
+56.5,
+4310.5625,
+1167,
+56.25,
+"121.4s\tMUSE SPARK PROPOSED\t\tread frame: printed text 'Laemophloeus biguttatus / "
+],
+[
+56.5,
+4366.8125,
+1167,
+56.25,
+"121.4s\tMUSE SPARK PROPOSED\t\tread frame: printed text 'Laemophloeus biguttatus / "
+],
+[
+56.5,
+4423.0625,
+1167,
+56.25,
+"121.4s\tMUSE SPARK PROPOSED\t\tread frame: printed text 'Laemophloeus biguttatus / "
+],
+[
+56.5,
+4479.3125,
+1167,
+56.25,
+"121.5s\tMUSE SPARK PROPOSED\t\tread frame: printed text 'Laemophloeus biguttatus / "
+],
+[
+56.5,
+4535.5625,
+1167,
+56.25,
+"121.5s\tMUSE SPARK PROPOSED\t\tread frame: printed text 'Placonotus testaceus / rea"
+],
+[
+56.5,
+4591.8125,
+1167,
+56.25,
+"121.5s\tMUSE SPARK PROPOSED\t\tread frame: printed text 'Placonotus testaceus / rea"
+],
+[
+56.5,
+4648.0625,
+1167,
+56.25,
+"121.5s\tMUSE SPARK PROPOSED\t\tread frame: printed text 'Placonotus testaceus / rea"
+],
+[
+56.5,
+4704.3125,
+1167,
+56.25,
+"121.5s\tMUSE SPARK PROPOSED\t\tread frame: printed text 'Placonotus testaceus / rea"
+],
+[
+56.5,
+4760.5625,
+1167,
+56.25,
+"121.5s\tMUSE SPARK PROPOSED\t\tread frame: printed text 'Laemophloeus biguttatus / "
+],
+[
+56.5,
+4816.8125,
+1167,
+56.25,
+"121.5s\tMUSE SPARK PROPOSED\t\tread frame: printed text 'Laemophloeus biguttatus / "
+],
+[
+56.5,
+4873.0625,
+1167,
+56.25,
+"121.5s\tMUSE SPARK PROPOSED\t\tread frame: printed text 'Laemophloeus biguttatus / "
+],
+[
+56.5,
+4929.3125,
+1167,
+56.25,
+"223.2s\tMUSE SPARK PROPOSED\t\tplan: v1: 37 claims, event table BeetleJumpPerforman"
+],
+[
+56.5,
+4985.5625,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 video journal.pone.0256509.s003.mp4 fps: fps q"
+],
+[
+56.5,
+5024.1875,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 video journal.pone.0256509.s004.mp4 fps: fps q"
+],
+[
+56.5,
+5062.8125,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 video journal.pone.0256509.s004.mp4 fps: fps q"
+],
+[
+56.5,
+5101.4375,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 column Airborne_time range: 0.02594..0.1062 in"
+],
+[
+56.5,
+5140.0625,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 column TakeoffAngleDeg range: 23.67..85.16 in "
+],
+[
+56.5,
+5178.6875,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 column DistanceRawm range: 0.00233..0.02375 in"
+],
+[
+56.5,
+5217.3125,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 column HeightRawm range: 0.001513..0.01483 in "
+],
+[
+56.5,
+5255.9375,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 column DistanceRaw_bodyProp unit: unit 'ratio'"
+],
+[
+56.5,
+5294.5625,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 column HeightRaw_bodyProp unit: unit 'ratio' i"
+],
+[
+56.5,
+5333.1875,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 column DistanceTrajm range: 0.002893..0.02494 "
+],
+[
+56.5,
+5371.8125,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 column HeightTrajm range: 0.001342..0.01478 in"
+],
+[
+56.5,
+5410.4375,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 column DistanceTraj_bodyProp unit: unit 'ratio"
+],
+[
+56.5,
+5449.0625,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 column HeightTraj_bodyProp unit: unit 'ratio' "
+],
+[
+56.5,
+5487.6875,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 column velocity.max range: 0.1373..0.8673 in S"
+],
+[
+56.5,
+5526.3125,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 column VelError kind: relative (quote found)"
+],
+[
+56.5,
+5564.9375,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'over a period of 0.22 \u00b1 0.17s.': quote "
+],
+[
+56.5,
+5603.5625,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'takeoff velocities of 0.47 \u00b1 0.15 m s-1"
+],
+[
+56.5,
+5642.1875,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'traveled 11.2 \u00b1 2.8 mm (1.98 \u00b1 0.8 body"
+],
+[
+56.5,
+5680.8125,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim '11.2 \u00b1 2.8 mm (1.98 \u00b1 0.8 body lengths)"
+],
+[
+56.5,
+5719.4375,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim '7.9 \u00b1 4.3 mm (1.5 \u00b1 0.9 body lengths) v"
+],
+[
+56.5,
+5758.0625,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim '7.9 \u00b1 4.3 mm (1.5 \u00b1 0.9 body lengths) v"
+],
+[
+56.5,
+5796.6875,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'from near horizontal to 149.5 \u00b1 16.7 de"
+],
+[
+56.5,
+5835.3125,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'left the ground averaging 5.5 \u00b1 14.4 x "
+],
+[
+56.5,
+5873.9375,
+1167,
+38.625,
+"223.6s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'averaged 1.4 \u00b1 0.8 x 10-3 s.': quote an"
+],
+[
+56.5,
+5912.5625,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'When pooled, the combined latch-decoupl"
+],
+[
+56.5,
+5951.1875,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'continues to arch further to 124.1 \u00b1 29"
+],
+[
+56.5,
+5989.8125,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'the larvae rapidly arched their body ev"
+],
+[
+56.5,
+6028.4375,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'reached a maximum acceleration of 89.5 "
+],
+[
+56.5,
+6067.0625,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'with the fastest takeoff velocity reach"
+],
+[
+56.5,
+6105.6875,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'leaving the ground at an angle of 79.6 "
+],
+[
+56.5,
+6144.3125,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'larvae were airborne for 1.3 \u00b1 0.7 x 10"
+],
+[
+56.5,
+6182.9375,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'with the farthest horizontal jumper tra"
+],
+[
+56.5,
+6221.5625,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim 'the longest jumping distance was about "
+],
+[
+56.5,
+6260.1875,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2718\tG1 plan: v1 claim '121 mm': quote not found verbatim or va"
+],
+[
+56.5,
+6298.8125,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2718\tG1 plan: v1 claim '0.85 m/s': quote not found verbatim or "
+],
+[
+56.5,
+6337.4375,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2718\tG1 plan: v1 claim '100 mm': quote not found verbatim or va"
+],
+[
+56.5,
+6376.0625,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2718\tG1 plan: v1 claim '150 mm': quote not found verbatim or va"
+],
+[
+56.5,
+6414.6875,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2718\tG1 plan: v1 claim '~1.0 m/s': quote not found verbatim or "
+],
+[
+56.5,
+6453.3125,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2718\tG1 plan: v1 claim '500 mm': quote not found verbatim or va"
+],
+[
+56.5,
+6491.9375,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2718\tG1 plan: v1 claim '120 mm': quote not found verbatim or va"
+],
+[
+56.5,
+6530.5625,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2718\tG1 plan: v1 claim '0.5 m/s': quote not found verbatim or v"
+],
+[
+56.5,
+6569.1875,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2718\tG1 plan: v1 claim '30 mm': quote not found verbatim or val"
+],
+[
+56.5,
+6607.8125,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2714\tG1 plan: v1 claim '50 mm (vertically)': quote and value fo"
+],
+[
+56.5,
+6646.4375,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2718\tG1 plan: v1 claim '89 mm': quote not found verbatim or val"
+],
+[
+56.5,
+6685.0625,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2718\tG1 plan: v1 claim '11.2 mm': quote not found verbatim or v"
+],
+[
+56.5,
+6723.6875,
+1167,
+38.625,
+"223.7s\tCODE CHECKED\t\u2718\tG1 plan: v1 claim '0.47 m/s': quote not found verbatim or "
+],
+[
+56.5,
+6762.3125,
+1167,
+56.25,
+"310.6s\tMUSE SPARK PROPOSED\t\tre-propose plan: v2: 18 claims, event table BeetleJu"
+],
+[
+56.5,
+6818.5625,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 video journal.pone.0256509.s003.mp4 fps: fps q"
+],
+[
+56.5,
+6857.1875,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 video journal.pone.0256509.s004.mp4 fps: fps q"
+],
+[
+56.5,
+6895.8125,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 video journal.pone.0256509.s004.mp4 fps: fps q"
+],
+[
+56.5,
+6934.4375,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 column VelError kind: relative (quote found)"
+],
+[
+56.5,
+6973.0625,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'over a period of 0.22 \u00b1 0.17s.': quote "
+],
+[
+56.5,
+7011.6875,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'takeoff velocities of 0.47 \u00b1 0.15 m s-1"
+],
+[
+56.5,
+7050.3125,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'traveled 11.2 \u00b1 2.8 mm (1.98 \u00b1 0.8 body"
+],
+[
+56.5,
+7088.9375,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim '11.2 \u00b1 2.8 mm (1.98 \u00b1 0.8 body lengths)"
+],
+[
+56.5,
+7127.5625,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim '7.9 \u00b1 4.3 mm (1.5 \u00b1 0.9 body lengths) v"
+],
+[
+56.5,
+7166.1875,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim '7.9 \u00b1 4.3 mm (1.5 \u00b1 0.9 body lengths) v"
+],
+[
+56.5,
+7204.8125,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'from near horizontal to 149.5 \u00b1 16.7 de"
+],
+[
+56.5,
+7243.4375,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'left the ground averaging 5.5 \u00b1 14.4 x "
+],
+[
+56.5,
+7282.0625,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'averaged 1.4 \u00b1 0.8 x 10-3 s.': quote an"
+],
+[
+56.5,
+7320.6875,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'When pooled, the combined latch-decoupl"
+],
+[
+56.5,
+7359.3125,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'continues to arch further to 124.1 \u00b1 29"
+],
+[
+56.5,
+7397.9375,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'the larvae rapidly arched their body ev"
+],
+[
+56.5,
+7436.5625,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'reached a maximum acceleration of 89.5 "
+],
+[
+56.5,
+7475.1875,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'with the fastest takeoff velocity reach"
+],
+[
+56.5,
+7513.8125,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'leaving the ground at an angle of 79.6 "
+],
+[
+56.5,
+7552.4375,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'larvae were airborne for 1.3 \u00b1 0.7 x 10"
+],
+[
+56.5,
+7591.0625,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'with the farthest horizontal jumper tra"
+],
+[
+56.5,
+7629.6875,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim 'the longest jumping distance was about "
+],
+[
+56.5,
+7668.3125,
+1167,
+38.625,
+"310.8s\tCODE CHECKED\t\u2714\tG1 plan: v2 claim '50 mm (vertically)': quote and value fo"
+],
+[
+56.5,
+7706.9375,
+1167,
+38.625,
+"310.8s\tCODE\t\tplan accepted: v2 (0 needed fields still rejected)"
+],
+[
+56.5,
+7745.5625,
+1167,
+38.625,
+"310.8s\tCODE\t\tspread convention: the paper states 'mean \u00b1 standard deviation': a "
+],
+[
+56.5,
+7784.1875,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2714\troute: MATCHES TABLE: over a period of 0.22 \u00b1 0.17s."
+],
+[
+56.5,
+7822.8125,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2714\troute: MATCHES TABLE: takeoff velocities of 0.47 \u00b1 0.15 m "
+],
+[
+56.5,
+7861.4375,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2714\troute: NOT CHECKED: traveled 11.2 \u00b1 2.8 mm (1.98 \u00b1 0.8 bod"
+],
+[
+56.5,
+7900.0625,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2714\troute: NOT CHECKED: 11.2 \u00b1 2.8 mm (1.98 \u00b1 0.8 body lengths"
+],
+[
+56.5,
+7938.6875,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2714\troute: MATCHES OTHER COLUMN: 7.9 \u00b1 4.3 mm (1.5 \u00b1 0.9 body "
+],
+[
+56.5,
+7977.3125,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2714\troute: MATCHES TABLE: 7.9 \u00b1 4.3 mm (1.5 \u00b1 0.9 body lengths"
+],
+[
+56.5,
+8015.9375,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2714\troute: MATCHES TABLE: from near horizontal to 149.5 \u00b1 16.7"
+],
+[
+56.5,
+8054.5625,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2714\troute: MATCHES TABLE: left the ground averaging 5.5 \u00b1 14.4"
+],
+[
+56.5,
+8093.1875,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2714\troute: MATCHES TABLE: averaged 1.4 \u00b1 0.8 x 10-3 s."
+],
+[
+56.5,
+8131.8125,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2718\troute: REFUSED: When pooled, the combined latch-decoupling"
+],
+[
+56.5,
+8170.4375,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2714\troute: MATCHES TABLE: continues to arch further to 124.1 \u00b1"
+],
+[
+56.5,
+8209.0625,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2714\troute: MATCHES TABLE: the larvae rapidly arched their body"
+],
+[
+56.5,
+8247.6875,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2714\troute: MATCHES TABLE: reached a maximum acceleration of 89"
+],
+[
+56.5,
+8286.3125,
+1167,
+38.625,
+"310.9s\tCODE CHECKED\t\u2714\troute: MATCHES TABLE: with the fastest takeoff velocity re"
+],
+[
+56.5,
+8324.9375,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2714\troute: MATCHES OTHER COLUMN: leaving the ground at an angl"
+],
+[
+56.5,
+8363.5625,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2714\troute: NOT CHECKED: larvae were airborne for 1.3 \u00b1 0.7 x 1"
+],
+[
+56.5,
+8402.1875,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2714\troute: MATCHES TABLE: with the farthest horizontal jumper "
+],
+[
+56.5,
+8440.8125,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2718\troute: REFUSED: the longest jumping distance was about 5 c"
+],
+[
+56.5,
+8479.4375,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2718\troute: REFUSED: 50 mm (vertically)"
+],
+[
+56.5,
+8518.0625,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2714\tG4 frame rate: 30 video frames per second of real time, pr"
+],
+[
+56.5,
+8556.6875,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2718\tG4 feasibility: at 30 fps the longest flight in the table "
+],
+[
+56.5,
+8595.3125,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2714\tG4 frame rate: 30 video frames per second of real time, pr"
+],
+[
+56.5,
+8633.9375,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2718\tG4 feasibility: at 30 fps the longest flight in the table "
+],
+[
+56.5,
+8672.5625,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2714\tG4 frame rate: 30 video frames per second of real time, pr"
+],
+[
+56.5,
+8711.1875,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2718\tG4 feasibility: at 30 fps the longest flight in the table "
+],
+[
+56.5,
+8749.8125,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2714\tG4 frame rate: 30 video frames per second of real time, pr"
+],
+[
+56.5,
+8788.4375,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2718\tG4 feasibility: at 30 fps the longest flight in the table "
+],
+[
+56.5,
+8827.0625,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2714\tG4 frame rate: 30 video frames per second of real time, pr"
+],
+[
+56.5,
+8865.6875,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2718\tG4 feasibility: at 30 fps the longest flight in the table "
+],
+[
+56.5,
+8904.3125,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2714\tG4 frame rate: 30 video frames per second of real time, pr"
+],
+[
+56.5,
+8942.9375,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2718\tG4 feasibility: at 30 fps the longest flight in the table "
+],
+[
+56.5,
+8981.5625,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2714\tG4 frame rate: 30 video frames per second of real time, pr"
+],
+[
+56.5,
+9020.1875,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2718\tG4 feasibility: at 30 fps the longest flight in the table "
+],
+[
+56.5,
+9058.8125,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2714\tG4 frame rate: 30 video frames per second of real time, pr"
+],
+[
+56.5,
+9097.4375,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2718\tG4 feasibility: at 30 fps the longest flight in the table "
+],
+[
+56.5,
+9136.0625,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2714\tG4 frame rate: 30 video frames per second of real time, pr"
+],
+[
+56.5,
+9174.6875,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2718\tG4 feasibility: at 30 fps the longest flight in the table "
+],
+[
+56.5,
+9213.3125,
+1167,
+54.0625,
+"311.0s\tCODE CHECKED\t\u2714\tG4 frame rate: 3200 video frames per second of real time, "
+],
+[
+56.5,
+9267.375,
+1167,
+38.625,
+"311.0s\tCODE CHECKED\t\u2718\tG4 scale: no measurable grid on this shot (Spark saw: none"
+],
+[
+56.5,
+9306,
+1167,
+54.0625,
+"311.0s\tCODE CHECKED\t\u2714\tG4 frame rate: 3200 video frames per second of real time, "
+],
+[
+56.5,
+9360.0625,
+1167,
+38.625,
+"311.1s\tCODE CHECKED\t\u2714\tG4 scale: grid 186.3 px (sd 0.23, 7 lines) = 5.0 mm; Spark"
+],
+[
+56.5,
+9398.6875,
+1167,
+56.25,
+"381.4s\tMUSE SPARK PROPOSED\t\ttrack: box from Muse Spark: 593 frames tracked journ"
+],
+[
+56.5,
+9454.9375,
+1167,
+38.625,
+"381.4s\tCODE CHECKED\t\u2714\tG5 track: box from Muse Spark: accepted journal.pone.02565"
+],
+[
+56.5,
+9493.5625,
+1167,
+38.625,
+"381.4s\tCODE CHECKED\t\u2714\tG5 gravity: 10.02 m/s^2 from the flight (+2.2% vs 9.81) jo"
+],
+[
+56.5,
+9532.1875,
+1167,
+38.625,
+"381.4s\tCODE CHECKED\t\u2714\tG5 free flight: sideways acceleration 0.7% of vertical jou"
+],
+[
+56.5,
+9570.8125,
+1167,
+54.0625,
+"381.4s\tCODE CHECKED\t\u2714\tG3 blind pairing: c_21382_488_croppedxypts is 4.9x closer "
+],
+[
+56.5,
+9624.875,
+1167,
+54.0625,
+"392.1s\tCODE CHECKED\t\u2714\tG4 frame rate: 60000 video frames per second of real time,"
+],
+[
+56.5,
+9678.9375,
+1167,
+38.625,
+"392.1s\tCODE CHECKED\t\u2718\tG4 feasibility: the shot covers 6.9 ms; the shortest airbo"
+]
+]
+},
+"peacock": {
+"tables": [
+[
+44,
+1249.71875,
+1184.171875,
+2039.3125,
+"claim (verbatim from the paper or its video)\tkind\tvalue\toutcome\twhy\n\u201cWe placed a"
+],
+[
+44,
+3398.359375,
+1192,
+343.5,
+"video\tshot\tframes\tverdict\twhy\nS1_Maratus.mp4\t1\t120\tCANNOT MEASURE\tno measurable "
+]
+],
+"verdict": [
+[
+660,
+616.03125,
+576,
+282.515625,
+"CANNOT MEASURE\nShot S1_Maratus_s2r1 was tracked (SAM 3.1) and measured, and a ch"
+]
+],
+"rows": [
+[
+44.5,
+1250.21875,
+1183.171875,
+39.015625,
+"claim (verbatim from the paper or its video)\tkind\tvalue\toutcome\twhy"
+],
+[
+44.5,
+1289.234375,
+1183.171875,
+57.03125,
+"\u201cWe placed a vertical landing platform (0.1\u00d70.5\u00d74.0 cm, L\u00d7W\u00d7H) 4 cm away from th"
+],
+[
+44.5,
+1346.265625,
+1183.171875,
+75.046875,
+"\u201cThe smallest individual filmed was a 2.0 mg male that had a take-off duration o"
+],
+[
+44.5,
+1421.3125,
+1183.171875,
+75.046875,
+"\u201cThe smallest individual filmed was a 2.0 mg male that had a take-off duration o"
+],
+[
+44.5,
+1496.359375,
+1183.171875,
+75.046875,
+"\u201cThe smallest individual filmed was a 2.0 mg male that had a take-off duration o"
+],
+[
+44.5,
+1571.40625,
+1183.171875,
+93.0625,
+"\u201cIn comparison, the heaviest individual filmed was a 13.2 mg female that had a t"
+],
+[
+44.5,
+1664.46875,
+1183.171875,
+93.0625,
+"\u201cIn comparison, the heaviest individual filmed was a 13.2 mg female that had a t"
+],
+[
+44.5,
+1757.53125,
+1183.171875,
+93.0625,
+"\u201cIn comparison, the heaviest individual filmed was a 13.2 mg female that had a t"
+],
+[
+44.5,
+1850.59375,
+1183.171875,
+75.046875,
+"\u201cBetween the two sexes, the highest and lowest acceleration was seen in female s"
+],
+[
+44.5,
+1925.640625,
+1183.171875,
+75.046875,
+"\u201cBetween the two sexes, the highest and lowest acceleration was seen in female s"
+],
+[
+44.5,
+2000.6875,
+1183.171875,
+75.046875,
+"\u201cBetween the sexes, the highest take-off velocity was in males (0.98 m s\u22121) and "
+],
+[
+44.5,
+2075.734375,
+1183.171875,
+75.046875,
+"\u201cBetween the sexes, the highest take-off velocity was in males (0.98 m s\u22121) and "
+],
+[
+44.5,
+2150.78125,
+1183.171875,
+111.078125,
+"\u201cMales had a significantly higher take-off angle compared with females (males: 2"
+],
+[
+44.5,
+2261.859375,
+1183.171875,
+111.078125,
+"\u201cMales had a significantly higher take-off angle compared with females (males: 2"
+],
+[
+44.5,
+2372.9375,
+1183.171875,
+93.0625,
+"\u201cIn females, the third pair of legs left the platform 3.5\u00b10.4 ms (means\u00b1s.d., n="
+],
+[
+44.5,
+2466,
+1183.171875,
+93.0625,
+"\u201cIn females, the third pair of legs left the platform 3.5\u00b10.4 ms (means\u00b1s.d., n="
+],
+[
+44.5,
+2559.0625,
+1183.171875,
+93.0625,
+"\u201cIn both sexes, the fourth pair of legs left the platform close to when peak acc"
+],
+[
+44.5,
+2652.125,
+1183.171875,
+93.0625,
+"\u201cIn both sexes, the fourth pair of legs left the platform close to when peak acc"
+],
+[
+44.5,
+2745.1875,
+1183.171875,
+93.0625,
+"\u201cIn both sexes, the third pair of legs left the platform after peak acceleration"
+],
+[
+44.5,
+2838.25,
+1183.171875,
+93.0625,
+"\u201cIn both sexes, the third pair of legs left the platform after peak acceleration"
+],
+[
+44.5,
+2931.3125,
+1183.171875,
+57.03125,
+"\u201cSpiders waved their first two pairs of legs for 0.4\u201360 ms, and gradually lowere"
+],
+[
+44.5,
+2988.34375,
+1183.171875,
+75.046875,
+"\u201cMales take-off with a maximum acceleration of 127.8 m/s2 and 13.03 g\u201d\nprinted o"
+],
+[
+44.5,
+3063.390625,
+1183.171875,
+75.046875,
+"\u201cMales take-off with a maximum acceleration of 127.8 m/s2 and 13.03 g\u201d\nprinted o"
+],
+[
+44.5,
+3138.4375,
+1183.171875,
+75.046875,
+"\u201cFemales take-off with a maximum acceleration of 122.7 m/s2 and 12.5 g\u201d\nprinted "
+],
+[
+44.5,
+3213.484375,
+1183.171875,
+75.046875,
+"\u201cFemales take-off with a maximum acceleration of 122.7 m/s2 and 12.5 g\u201d\nprinted "
+],
+[
+44.5,
+3398.859375,
+1191,
+39.015625,
+"video\tshot\tframes\tverdict\twhy"
+],
+[
+44.5,
+3437.875,
+1191,
+39.328125,
+"S1_Maratus.mp4\t1\t120\tCANNOT MEASURE\tno measurable platform gap on this shot (no "
+],
+[
+44.5,
+3477.203125,
+1191,
+75.046875,
+"S1_Maratus.mp4\t2 (recording 1)\t212\tCANNOT MEASURE\tself-checks failed (gravity +2"
+],
+[
+44.5,
+3552.25,
+1191,
+75.046875,
+"S1_Maratus.mp4\t2 (recording 2)\t170\tCANNOT MEASURE\tself-checks failed (gravity +1"
+],
+[
+44.5,
+3627.296875,
+1191,
+57.03125,
+"S1_Maratus.mp4\t3 (recording 1)\t278\tCANNOT MEASURE\tno measurable platform gap on "
+],
+[
+44.5,
+3684.328125,
+1191,
+57.03125,
+"S1_Maratus.mp4\t3 (recording 2)\t218\tCANNOT MEASURE\tno measurable platform gap on "
+]
+],
+"th": [
+[
+44.5,
+1250.21875,
+420,
+39.015625,
+"claim (verbatim from the paper or its video)"
+],
+[
+464.5,
+1250.21875,
+109.859375,
+39.015625,
+"kind"
+],
+[
+574.359375,
+1250.21875,
+131.875,
+39.015625,
+"value"
+],
+[
+706.234375,
+1250.21875,
+141.4375,
+39.015625,
+"outcome"
+],
+[
+847.671875,
+1250.21875,
+380,
+39.015625,
+"why"
+],
+[
+44.5,
+3398.859375,
+140.09375,
+39.015625,
+"video"
+],
+[
+184.59375,
+3398.859375,
+106.578125,
+39.015625,
+"shot"
+],
+[
+291.171875,
+3398.859375,
+75.546875,
+39.015625,
+"frames"
+],
+[
+366.71875,
+3398.859375,
+155.03125,
+39.015625,
+"verdict"
+],
+[
+521.75,
+3398.859375,
+713.75,
+39.015625,
+"why"
+]
+],
+"cardlines": [
+[
+680,
+624.03125,
+542,
+29.390625,
+"CANNOT MEASURE"
+],
+[
+680,
+653.421875,
+542,
+41.1875,
+"Shot S1_Maratus_s2r1 was tracked (SAM 3.1) and measured, and a check refused it."
+],
+[
+680,
+694.609375,
+542,
+39.1875,
+"Self-checks: gravity from the flight 11.83 m/s\u00b2 (9.81 expected) \u00b7 sideways accel"
+],
+[
+680,
+733.796875,
+542,
+39.1875,
+"Diagnosis: acceleration beyond gravity 36% of g, at 11 deg from straight against"
+],
+[
+680,
+772.984375,
+542,
+39.1875,
+"Blind pairing: best row j1 is only 1.16x closer than j3 (needs 2.0x): not unambi"
+],
+[
+680,
+812.171875,
+542,
+78.375,
+"Why: self-checks failed (gravity +21%, sideways 25% of vertical; acceleration be"
+]
+]
+},
+"breadth": {
+"h2": [
+[
+32,
+1071.75,
+1216,
+28.59375,
+"Weaver ants: climbing \u2014 PLOS ONE 2015"
+],
+[
+32,
+1879.09375,
+1216,
+28.59375,
+"Basketball: countermovement jumps \u2014 PLOS ONE 2023"
+],
+[
+32,
+3554.25,
+1216,
+28.59375,
+"Galaxiid fish: velocity barrier \u2014 PLOS ONE 2025"
+],
+[
+32,
+3947.3125,
+1216,
+28.59375,
+"Guinea fowl: running over drops \u2014 PLOS ONE 2014"
+],
+[
+32,
+4056.25,
+1216,
+28.59375,
+"Jumping spider Phidippus regius \u2014 Nabawy et al. 2018, Sci Rep"
+],
+[
+32,
+4299.90625,
+1216,
+28.59375,
+"Pigeons: paired flight \u2014 PLOS Biology 2019"
+],
+[
+32,
+4645.375,
+1216,
+28.59375,
+"Baseball pitchers: sprint and jump \u2014 PLOS ONE 2022"
+],
+[
+32,
+5004.84375,
+1216,
+28.59375,
+"Reef fish: escape responses \u2014 PLOS ONE 2026"
+],
+[
+32,
+5133.375,
+1216,
+28.59375,
+"Volleyball players: reactive strength \u2014 PLOS ONE 2022"
+],
+[
+32,
+6021.90625,
+1216,
+28.59375,
+"Football: sprint potentiation \u2014 PLOS ONE 2025"
+]
+],
+"h3": [
+[
+0,
+0,
+0,
+0,
+"Peacock spider jumps \u2014 Narendra et al. 2025, J Exp Biol"
+],
+[
+32,
+1034.953125,
+1216,
+20.796875,
+"Every claim not reproduced, with the agent's reason"
+]
+],
+"tables": [
+[
+0,
+0,
+0,
+0,
+"claim (verbatim from the paper or its video)kindvalueoutcomewhy\u201cWe placed a vert"
+],
+[
+0,
+0,
+0,
+0,
+"videoshotframesverdictwhyS1_Maratus.mp41120CANNOT MEASUREno measurable platform "
+],
+[
+32,
+491.640625,
+1216,
+527.3125,
+"paper\tclaims\tMATCHES TABLE\tother column\tNOT CHECKED\tREFUSED\tvideo shots\tseconds\n"
+]
+],
+"h1": [
+[
+32,
+16,
+1216,
+33.796875,
+"Pixels to Proof"
+],
+[
+32,
+259.546875,
+1216,
+33.796875,
+"Breadth: the same agent on 11 more papers"
+]
+],
+"strong": [
+[
+32,
+394.640625,
+1216,
+91,
+"Totals: 276 claims \u2014 45 reproduced to the printed digits (44 by the proposed col"
+]
+]
+},
+"calib": {
+"tables": [
+[
+0,
+0,
+0,
+0,
+"claim (verbatim from the paper or its video)kindvalueoutcomewhy\u201cWe placed a vert"
+],
+[
+0,
+0,
+0,
+0,
+"videoshotframesverdictwhyS1_Maratus.mp41120CANNOT MEASUREno measurable platform "
+],
+[
+0,
+0,
+0,
+0,
+"\n\n\npaper\nclaims\nMATCHES TABLE\nother column\nNOT CHECKED\nREFUSED\nvideo shots\nsecon"
+],
+[
+32,
+536.65625,
+978.875,
+285.15625,
+"group\tn\texpected\tREPRODUCED\tNOT REPRODUCED\tCANNOT MEASURE\tERROR\nplanted error 0%"
+],
+[
+32,
+1204.28125,
+1216,
+1057.75,
+"mutation\toutcome\twhat happened\tgate rejections that fired\ncolumn map: trajectory"
+]
+],
+"h1": [
+[
+32,
+16,
+1216,
+33.796875,
+"Pixels to Proof"
+],
+[
+0,
+0,
+0,
+0,
+"Breadth: the same agent on 11 more papers"
+],
+[
+32,
+259.546875,
+1216,
+33.796875,
+"Synthetic calibration results"
+],
+[
+32,
+997.609375,
+1216,
+33.796875,
+"Fault injection"
+]
+],
+"summary": [
+[
+32,
+2278.03125,
+1216,
+22.75,
+"caught 4, recovered 6, no effect 2, wrong verdicts 0, errors 0 (of 12)"
+]
+]
+}
+}

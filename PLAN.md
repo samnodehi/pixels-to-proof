@@ -40,6 +40,8 @@ pipeline (`pipeline.py`, `cases/`) remains for the synthetic benchmark and the h
   GitHub without a licence).
 - S8 Demo video (3 min, English AI voice "daniel", captions), README, submission: Nov 1–3; public repo and Space only
   with Sam's OK.
+  Progress 2026-10-29: script v3 approved; narration (2:52) and captions approved by Sam; first cut of the video
+  rendered from the recorded runs (`demo/video/`), waiting for Sam's review.
 
 ## Findings so far
 - Beetle (agent, hands-off): 19 claims — 11 reproduced from the table, 2 by another column, 3 by no column, 3 refused;
