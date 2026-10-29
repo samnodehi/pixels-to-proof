@@ -1,0 +1,79 @@
+[
+ {
+  "title": "**0:00 \u2014 The hook** *(screen: a results paragraph, its numbers lighting up one by one)*",
+  "lines": [
+   "Every scientific paper makes promises.",
+   "Beetle larvae leave the ground at almost half a metre per second.",
+   "Male peacock spiders take off at twenty-five degrees.",
+   "Often the journal also publishes the data behind them \u2014 the tables, even the videos.",
+   "But does anyone check one against the other? Almost never. So we built an agent that does."
+  ],
+  "text": "Every scientific paper makes promises. Beetle larvae leave the ground at almost half a metre per second. Male peacock spiders take off at twenty-five degrees. Often the journal also publishes the data behind them \u2014 the tables, even the videos. But does anyone check one against the other? Almost never. So we built an agent that does."
+ },
+ {
+  "title": "**0:20 \u2014 Meet Pixels to Proof** *(screen: the bundle of files going into the Space; header \"Hands-off\")*",
+  "lines": [
+   "You give it exactly what the journal published. Nothing more.",
+   "Muse Spark reads it all and drafts a plan: what each file and column means, and every number the paper claims.",
+   "Then code checks every single proposal against the files.",
+   "The rule is simple: the model may propose \u2014 but no number in a verdict is ever written by a language model."
+  ],
+  "text": "You give it exactly what the journal published. Nothing more. Muse Spark reads it all and drafts a plan: what each file and column means, and every number the paper claims. Then code checks every single proposal against the files. The rule is simple: the model may propose \u2014 but no number in a verdict is ever written by a language model."
+ },
+ {
+  "title": "**0:45 \u2014 Watching it think** *(screen: ledger view, \"MUSE SPARK PROPOSED\" lines next to \"CODE CHECKED\" \u2714/\u2718)*",
+  "lines": [
+   "Every step lands in a ledger \u2014 what the model proposed, and the check that accepted or rejected it.",
+   "A quote that isn't really in the paper? Rejected \u2014 and Muse Spark is asked again, with the reason."
+  ],
+  "text": "Every step lands in a ledger \u2014 what the model proposed, and the check that accepted or rejected it. A quote that isn't really in the paper? Rejected \u2014 and Muse Spark is asked again, with the reason."
+ },
+ {
+  "title": "**1:00 \u2014 Numbers versus data** *(screen: peacock claims table; then the Breadth tab)*",
+  "lines": [
+   "Take the peacock spider paper.",
+   "Its take-off angles only add up as circular means \u2014 exactly the statistics the authors said they used.",
+   "Three of its printed values turn out to be the table's numbers cut short, not rounded.",
+   "Across thirteen papers \u2014 athletes, fish, ants, birds, spiders. Three hundred and nineteen printed numbers.",
+   "Sixty-three reproduce to the printed digit. For every other one, it tells you why not."
+  ],
+  "text": "Take the peacock spider paper. Its take-off angles only add up as circular means \u2014 exactly the statistics the authors said they used. Three of its printed values turn out to be the table's numbers cut short, not rounded. Across thirteen papers \u2014 athletes, fish, ants, birds, spiders. Three hundred and nineteen printed numbers. Sixty-three reproduce to the printed digit. For every other one, it tells you why not."
+ },
+ {
+  "title": "**1:30 \u2014 When there's video** *(screen: beetle receipt playing, then the green verdict card)*",
+  "lines": [
+   "When there's a video, it goes all the way down to physics.",
+   "In the beetle paper, it rejects eleven of twelve shots up front \u2014 no scale, or a camera too slow.",
+   "One jump is left. SAM 3.1 tracks it, the agent finds its row in the data blind, from the jump's shape alone \u2014 and the",
+   "published take-off speed holds up. Reproduced."
+  ],
+  "text": "When there's a video, it goes all the way down to physics. In the beetle paper, it rejects eleven of twelve shots up front \u2014 no scale, or a camera too slow. One jump is left. SAM 3.1 tracks it, the agent finds its row in the data blind, from the jump's shape alone \u2014 and the published take-off speed holds up. Reproduced."
+ },
+ {
+  "title": "**1:55 \u2014 Knowing when to say no** *(screen: the spider receipt, the amber refusal card)*",
+  "lines": [
+   "The spider video is trickier. The agent splits recordings that fade into each other, reads \"playback four times",
+   "faster\", and measures the gap to the target.",
+   "Then it refuses. The flight isn't a clean arc \u2014 something slows the spider down, almost straight against its motion \u2014",
+   "the mark of air drag on a tiny body.",
+   "An honest \"I can't measure this\" beats a confident wrong number."
+  ],
+  "text": "The spider video is trickier. The agent splits recordings that fade into each other, reads \"playback four times faster\", and measures the gap to the target. Then it refuses. The flight isn't a clean arc \u2014 something slows the spider down, almost straight against its motion \u2014 the mark of air drag on a tiny body. An honest \"I can't measure this\" beats a confident wrong number."
+ },
+ {
+  "title": "**2:25 \u2014 Can it be fooled?** *(screen: Calibration tab, the fault table)*",
+  "lines": [
+   "We tried. Twelve kinds of deliberately wrong model answers.",
+   "Four were caught, six the agent repaired on its own, two changed nothing \u2014 and not one produced a wrong verdict."
+  ],
+  "text": "We tried. Twelve kinds of deliberately wrong model answers. Four were caught, six the agent repaired on its own, two changed nothing \u2014 and not one produced a wrong verdict."
+ },
+ {
+  "title": "**2:40 \u2014 Close** *(screen: title card)*",
+  "lines": [
+   "Muse Spark proposes. SAM 3.1 tracks. Code checks every step, and writes it down.",
+   "Pixels to Proof \u2014 a second reader for the numbers in science."
+  ],
+  "text": "Muse Spark proposes. SAM 3.1 tracks. Code checks every step, and writes it down. Pixels to Proof \u2014 a second reader for the numbers in science."
+ }
+]
