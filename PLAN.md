@@ -7,8 +7,8 @@ Wed Nov 4, 9:00 PM ET. All work in this repository was written during the hackat
 Given what a journal published with a paper (PDF, supplementary videos, data tables, scripts), audit its kinematic
 claims: recompute statistics from the paper's own tables, re-measure single jumps from its videos, and return per claim
 and per shot an outcome with evidence or a refusal naming the failing check. The model proposes; code checks and
-measures. Judging criteria (equal weight): impact, use of Meta AI tooling beyond basic integration, technical depth and
-execution, demo; target also the Best Agentic Use-Case bonus.
+measures. Judging criteria (participant guide, read 2026-10-29): impact 30 %, use of Meta AI tooling beyond basic integration 25 %,
+technical depth and execution 20 %, demo 25 %; target also the Best Agentic Use-Case bonus.
 
 ## Architecture
 See `DESIGN.md` (as built) and `DECISIONS.md` (choices and their history). Core: `pixels_to_proof/agent.py`
@@ -41,7 +41,9 @@ pipeline (`pipeline.py`, `cases/`) remains for the synthetic benchmark and the h
 - S8 Demo video (3 min, English AI voice "daniel", captions), README, submission: Nov 1–3; public repo and Space only
   with Sam's OK.
   Progress 2026-10-29: script v3 approved; narration (2:52) and captions approved by Sam; first cut of the video
-  rendered from the recorded runs (`demo/video/`), waiting for Sam's review.
+  rendered from the recorded runs (`demo/video/`) and approved; v2 adds "built during the hackathon" to the title
+  cards (rule: judges must see what was built in the event). README gets an at-a-glance top; `SUBMISSION.md` drafts
+  the submission text.
 
 ## Findings so far
 - Beetle (agent, hands-off): 19 claims — 11 reproduced from the table, 2 by another column, 3 by no column, 3 refused;

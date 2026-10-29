@@ -1,15 +1,50 @@
 # Pixels to Proof
 
-**An agent that audits the motion numbers in a scientific paper against the paper's own supplementary videos and
-data.** Give it what the journal published — the PDF, the videos, the data tables, any analysis scripts — and it
-returns an outcome for every kinematic claim in the PDF (recomputed from the paper's own table, or refused with a
-reason) and a verdict for every video shot it can measure, against the matching row of the paper's data, or a
-refusal that names the check that failed.
+**An agent that checks the motion numbers in a scientific paper against the paper's own published data and
+videos.** Give it exactly what the journal published — the PDF, the data tables, the supplementary videos, any analysis
+scripts — and it returns, for every kinematic number the paper prints, either a check against the paper's own data or
+a refusal that names the reason. When the paper has a usable high-speed video, it re-measures the jump from the pixels.
 
 *The model proposes; tracking, arithmetic and physics decide. No number in a verdict is written by a language model.*
 
 Built during the Meta Global AI Developer Hackathon (Oct 27 – Nov 4, 2026) with **Muse Spark 1.3** and **SAM 3.1**
-(Meta Model API). Live app: the Hugging Face Space linked from the submission.
+through the Meta Model API. The demo video and the live app (Hugging Face Space) are linked from the submission page.
+
+## At a glance
+
+| | result |
+|---|---|
+| papers audited hands-off (no file, column or claim set by hand) | 13 (animal locomotion and sport science; PLOS ONE, PLOS Biology, J Exp Biol, Sci Rep) |
+| printed numbers checked against the paper's own data | 319 claims: **63 reproduce to the printed digit**, the rest NOT CHECKED or REFUSED, each with its reason |
+| video re-measurement | larval beetle jump **REPRODUCED** (published 0.405 ± 0.024 m/s, re-measured 0.436, interval 0.425–0.447); both peacock-spider jumps **refused** (not ballistic; the extra deceleration points against the motion, as air drag would) |
+| fault injection: 12 kinds of deliberately wrong model answers | 4 caught, 6 repaired by the agent, 2 no effect, **0 wrong verdicts** |
+
+Numbers come from recorded runs in `showcase/` (beetle and peacock-spider runs on commit `49f237b`, breadth runs on
+`7cf697a`); the app renders each run from its ledger.
+
+## How Meta's models are used
+
+- **Muse Spark 1.3** (Responses API, strict JSON-schema output) does all the reading, as *proposals*:
+  - reads the paper PDF (Files API) with digests of the data tables and the authors' scripts, and proposes a plan:
+    which file is which, the meaning and unit of every table column (with the sentence or script line that says so),
+    every kinematic claim with its verbatim quote and statistic, and the authors' speed method;
+  - reads contact sheets of each video shot and proposes where separate recordings start and end (dissolves inside a
+    shot), and reads single frames for the printed frame rate, playback speed, scale reference and the animal's box;
+  - when code rejects a field, Muse Spark is **asked again with the checker's reasons** (plan re-proposals, and a new
+    tracking box after SAM 3.1's track fails its quality gate).
+- **SAM 3.1** tracks the animal through the high-speed clip, prompted with a text concept and Muse Spark's box; its
+  masks feed the physics (ballistic fit, gravity and free-flight self-checks).
+- Code checks every proposal (quotes must exist in the PDF, units must parse, columns must hold plausible values,
+  recordings must lie inside their shot) and writes every proposal and every check to a run ledger, which the app
+  displays.
+
+## Built during the hackathon
+
+Everything in this repository was written during the hackathon: the first commit is from 2026-10-27, and the git
+history shows the build day by day. The only adapted code is the SAM 3.1 streaming adapter from Meta's model cookbook
+(MIT, see `NOTICE`). The papers, videos and tables used are third-party works under open licences (CC BY 4.0 / CC0),
+credited where shown. The demo video's narration is an AI voice (ElevenLabs via OpenRouter); its scripts are in
+`demo/`.
 
 ## What it does on real papers
 

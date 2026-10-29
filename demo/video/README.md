@@ -11,4 +11,4 @@ Built on the narration in `../voice/` (`narration.mp3`, `narration.srt`, `words.
    the captions; `python3 peek.py out.png t1 t2 …` shows single frames for checking.
 
 The shot times in `timeline.py` follow the word timings of the narration; if the narration is regenerated, re-check
-them. First cut rendered 2026-10-29: `demo_v1.mp4`, 2:52 (kept in Sam's hackathon folder, not committed).
+them. Rendered 2026-10-29: `demo_v2.mp4`, 2:52 (v1 + "built during the hackathon" on the title cards); not committed.

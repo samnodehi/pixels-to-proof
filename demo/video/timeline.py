@@ -60,7 +60,9 @@ L += [label(0.2, 7.6, "Bertone et al. 2022, PLOS ONE"),
       {"type": "text", "t0": 20.5, "t1": 24.9, "lines": [
           {"text": "Pixels to Proof", "y": 330, "size": 132},
           {"text": "an agent that checks a paper against its own data", "y": 510, "size": 46,
-           "font": "Inter-Regular.otf", "color": "#c9d1dc"}]}]
+           "font": "Inter-Regular.otf", "color": "#c9d1dc"},
+          {"text": "built during the Meta Global AI Developer Hackathon, Oct 27 – Nov 4, 2026", "y": 640,
+           "size": 30, "font": "Inter-Regular.otf", "color": "#8a94a6"}]}]
 
 # 1 — what it is: the recorded run of the beetle paper ---------------------------------------------------------------
 bf = S + "beetle_full.png"
@@ -172,7 +174,9 @@ L += [{"type": "text", "t0": 159.9, "t1": 167.4, "lines": [{"text": "Muse Spark 
           {"text": "Pixels to Proof", "y": 300, "size": 132},
           {"text": "a second reader for the numbers in science", "y": 480, "size": 48,
            "font": "Inter-Regular.otf", "color": "#c9d1dc"},
-          {"text": "Meta Global AI Developer Hackathon 2026  ·  Muse Spark 1.3  ·  SAM 3.1", "y": 640, "size": 30,
+          {"text": "Built during the Meta Global AI Developer Hackathon, Oct 27 – Nov 4, 2026", "y": 640, "size": 30,
+           "font": "Inter-Regular.otf", "color": "#8a94a6"},
+          {"text": "Muse Spark 1.3  ·  SAM 3.1  (Meta Model API)", "y": 690, "size": 30,
            "font": "Inter-Regular.otf", "color": "#8a94a6"}]}]
 
 LAYERS = L
