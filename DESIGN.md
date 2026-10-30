@@ -19,7 +19,9 @@ check. Every model output is a ledger row together with the check that accepted 
    labelled with frame numbers) and proposes the separate recordings in it — a dissolve between two near-identical
    scenes is invisible to pixel statistics; code accepts a split only if the recordings lie in the shot, do not
    overlap and are long enough; a recording starts where Spark says the transition is over and ends in the middle of
-   the next transition. Muse Spark then reads every
+   the next transition. A split is also tested by the physics later: if a tracked flight is still under way at the
+   end of a recording Spark split off, that boundary cannot be the end of a recording; it is rejected and the
+   recording is measured again joined with the next one, until the flight ends or the shot does. Muse Spark then reads every
    recording (in parallel) from its first frame (object box) and a frame at 40 % (overlay text typed in later):
    printed text, frame rate, scale reference. Framed montage panels are detected and logged; **the agent does not
    split montages yet** (the case-file pipeline does).

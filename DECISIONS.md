@@ -141,3 +141,21 @@ Changes after the first batch runs (recorded beetle and peacock runs stay on com
   value describes all 55 — subsets of one population have similar means.
 - **Truncated mean ± SD.** A mean and SD that the table gives only when both are truncated (73.2333 ± 6.8290 printed
   73.23 ± 6.82) are reported as such.
+
+## 2026-10-30 — freeze check: two defects found and fixed
+
+Fresh runs of both hands-off papers and a fault-injection re-run on the current code (the recorded showcase runs used
+in the demo video are from commit 49f237b, before the breadth changes):
+
+- **Over-split recording.** In one beetle run Muse Spark split the continuous high-speed recording (shot 2) into six,
+  reading the contact sheet's row wrap as the larva "resetting"; the flight then ran past a proposed boundary, every
+  recording was refused, and the REPRODUCED jump was lost (no wrong verdict, but the result disappeared). Pixel
+  statistics cannot tell this boundary from the real dissolves in the peacock-spider video (changed-pixel fractions of
+  about 1 % in both), so the check is physical instead: a flight still under way at the end of a recording Spark split
+  off means the boundary is not the end of a recording. It is rejected (G2, in the ledger) and the recording is
+  measured again joined with the next one, until the flight ends or the shot does. Replaying that run: recordings 1–4
+  joined, REPRODUCED with the same measurement (0.436, interval 0.425–0.447, row 488). The peacock-spider run replays
+  unchanged (no flight cut there).
+- **Duplicate claim after a re-proposal.** A re-proposal stated "5.5 x 10-3 s" in ms; the merge compared raw values,
+  so both copies were kept, and the fault classifier read the second copy as a changed verdict ("WRONG"). The merge
+  and the classifier now compare claims by their value in SI units.

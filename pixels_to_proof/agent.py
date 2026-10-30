@@ -5,6 +5,7 @@ every proposal against the files and the physics; SAM 3.1 tracks. Every step is 
 from __future__ import annotations
 
 import json
+import shutil
 import math
 import re
 import time
@@ -39,11 +40,13 @@ class Unit:
     panel: int | None = None
     label: str = ""
     rec: int | None = None    # 1-based recording within a shot that Muse Spark split (checked by code)
+    rec_end: int | None = None  # last recording of a run of recordings joined back together (see _join_next)
 
     @property
     def uid(self) -> str:
         stem = str(Path(self.video).with_suffix("")).replace("/", "_").replace("\\", "_")
         return (f"{stem}_s{self.shot}" + (f"r{self.rec}" if self.rec is not None else "")
+                + (f"-{self.rec_end}" if self.rec_end is not None else "")
                 + (f"_p{self.panel}" if self.panel is not None else ""))
 
 
@@ -460,7 +463,7 @@ def measure_unit(bundle: Path, u: dict, inputs: dict, phrase: str, out: Path, le
         led.gate("G5 track", False, f"the flight is still under way at the last frame of the shot (frame {k.landing_frame}): "
                                     "the shot boundary cuts the flight, so its end, distance and height are unknown",
                  ref=uid)
-        return {"ok": False, "reason": "the shot ends before the flight does"}
+        return {"ok": False, "reason": "the shot ends before the flight does", "flight_cut": True}
     g_ok = abs(k.g_fit_rel_err) <= th["selfcheck"]["gravity_rel_tolerance"]
     s_ok = k.ax_rel_g <= th["selfcheck"]["sideways_rel_tolerance"]
     led.gate("G5 gravity", g_ok, f"{k.g_fit:.2f} m/s^2 from the flight ({k.g_fit_rel_err:+.1%} vs 9.81)", ref=uid)
@@ -477,7 +480,9 @@ def _audit_unit(bundle: Path, u: dict, cp: planmod.CheckedPlan, table, et, id_co
     th = thresholds()
     uid = u["uid"]
     vrow = {"unit": uid, "video": u["unit"]["video"], "shot": u["unit"]["shot"], "frames": u["n_frames"],
-            "shot_label": f"{u['unit']['shot']}" + (f" (recording {u['unit']['rec']})" if u["unit"].get("rec") else "")}
+            "shot_label": f"{u['unit']['shot']}" + (
+                f" (recordings {u['unit']['rec']}–{u['unit']['rec_end']}, joined)" if u["unit"].get("rec_end")
+                else f" (recording {u['unit']['rec']})" if u["unit"].get("rec") else "")}
     if table is None or speed_col is None:
         led.gate("G4 comparison", False, "no single, absolute take-off speed column in an event table: nothing to "
                                          "compare a video measurement with, so the shot is not tracked", ref=uid)
@@ -497,6 +502,8 @@ def _audit_unit(bundle: Path, u: dict, cp: planmod.CheckedPlan, table, et, id_co
     m = measure_unit(bundle, u, inputs, cp.plan["object_phrase"], out, led)
     if not m["ok"]:
         vrow.update(verdict=verdict.CANNOT_MEASURE, reason=m["reason"], stage="track")
+        if m.get("flight_cut"):
+            vrow["flight_cut"] = True
         return vrow
     k = m["k"]
     vrow.update(fps=inputs["fps"], fps_source=inputs["fps_source"], mm_per_px=inputs["mm_per_px"],
@@ -679,14 +686,26 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
         report["claims"].append(row)
 
     # video units: one failure (a crashed tool, an unreadable file) refuses that shot, not the audit
-    for u in units:
+    def audit_one(u):
         try:
-            report["videos"].append(_audit_unit(bundle, u, cp, table, et, id_col, speed_col, unc_col, am, lam, out, led))
+            return _audit_unit(bundle, u, cp, table, et, id_col, speed_col, unc_col, am, lam, out, led)
         except Exception as exc:
             led.gate("error", False, f"{type(exc).__name__}: {exc}", ref=u["uid"])
-            report["videos"].append({"unit": u["uid"], "video": u["unit"]["video"], "shot": u["unit"]["shot"],
-                                     "frames": u["n_frames"], "verdict": verdict.CANNOT_MEASURE,
-                                     "reason": f"processing error: {type(exc).__name__}: {exc}", "stage": "error"})
+            return {"unit": u["uid"], "video": u["unit"]["video"], "shot": u["unit"]["shot"], "frames": u["n_frames"],
+                    "verdict": verdict.CANNOT_MEASURE, "reason": f"processing error: {type(exc).__name__}: {exc}",
+                    "stage": "error"}
+
+    i = 0
+    while i < len(units):
+        u, row = units[i], audit_one(units[i])
+        # A flight still under way at the end of a recording that Muse Spark split off means that boundary is not the
+        # end of a recording (a jump cannot continue into another recording): the boundary is rejected and the
+        # recording is measured again joined with the next one, until the flight ends or the shot does.
+        while row.get("flight_cut") and (j := _join_next(units, i, out, led)) is not None:
+            u, i = j, i + 1
+            row = audit_one(u)
+        report["videos"].append(row)
+        i += 1
 
     for r in report["claims"]:
         if r["outcome"] == "see video route":
@@ -700,6 +719,30 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
     (out / "report.json").write_text(json.dumps(report, indent=1, ensure_ascii=False, default=float))
     led.finish(status="complete", claims=counts, videos=report["summary"]["videos"])
     return report
+
+
+def _join_next(units: list[dict], i: int, out: Path, led: Ledger) -> dict | None:
+    """units[i] joined with units[i + 1] when that is the next recording of the same shot (Spark's split, G2), else
+    None. The joined unit starts where units[i] starts, so units[i]'s frame reading is reused (no new model call);
+    units[i + 1] is replaced by it."""
+    if i + 1 >= len(units):
+        return None
+    a, b = units[i]["unit"], units[i + 1]["unit"]
+    if a.get("rec") is None or b.get("rec") is None or (a["video"], a["shot"]) != (b["video"], b["shot"]):
+        return None
+    unit = Unit(video=a["video"], shot=a["shot"], first=a["first"], last=b["last"], rec=a["rec"],
+                rec_end=b.get("rec_end") or b["rec"])
+    src, dst = out / "units" / units[i]["uid"], out / "units" / unit.uid
+    dst.mkdir(parents=True, exist_ok=True)
+    for name in ("frame0.png", "frame_text.png", "frame_reading.json"):
+        if (src / name).exists() and not (dst / name).exists():
+            shutil.copy(src / name, dst / name)
+    led.gate("G2 recordings", False, f"the flight in {units[i]['uid']} is still under way at its last frame "
+                                     f"({a['last']}), a boundary Muse Spark proposed: that boundary is rejected and "
+                                     f"the recording is joined with the next one ({unit.first}-{unit.last})",
+             ref=unit.uid)
+    units[i + 1] = dict(units[i], unit=asdict(unit), uid=unit.uid, n_frames=unit.last - unit.first + 1)
+    return units[i + 1]
 
 
 def _finite(v) -> bool:

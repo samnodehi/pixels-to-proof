@@ -336,3 +336,23 @@ def test_population_sd_is_named():
              "row_filter": {"column": None, "value": None}}
     r = tablecheck.check(claim, t, cols)
     assert r["outcome"] == tablecheck.MATCHES and r["stats"] == "population_sd"
+
+
+def test_join_next_rejoins_a_recording_whose_flight_was_cut(tmp_path):
+    # seen in a freeze run: Muse Spark split one continuous beetle recording into six (it read the contact sheet's
+    # row wrap as a reset); the flight then ran past a proposed boundary and the REPRODUCED jump was lost
+    from dataclasses import asdict
+    from pixels_to_proof.agent import Unit, _join_next
+    from pixels_to_proof.ledger import Ledger
+    us = [Unit("v.mp4", 2, 211, 305, rec=1), Unit("v.mp4", 2, 312, 406, rec=2), Unit("v.mp4", 3, 804, 900)]
+    units = [{"unit": asdict(u), "uid": u.uid, "frame_reading": {"object_box": [1, 2, 3, 4]}, "panels": [],
+              "n_frames": u.last - u.first + 1} for u in us]
+    (tmp_path / "units" / units[0]["uid"]).mkdir(parents=True)
+    (tmp_path / "units" / units[0]["uid"] / "frame_reading.json").write_text("[]")
+    led = Ledger(tmp_path / "ledger.json", "t", {}, None)
+    j = _join_next(units, 0, tmp_path, led)
+    assert j is units[1] and j["unit"]["first"] == 211 and j["unit"]["last"] == 406 and j["uid"].endswith("_s2r1-2")
+    assert j["frame_reading"] == units[0]["frame_reading"]
+    assert (tmp_path / "units" / j["uid"] / "frame_reading.json").exists()
+    assert not led.data["events"][-1]["ok"] and "joined" in led.data["events"][-1]["note"]
+    assert _join_next(units, 1, tmp_path, led) is None          # the next unit is another shot: nothing to join
