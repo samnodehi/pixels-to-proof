@@ -115,7 +115,7 @@ the same paper the plan named no groups, and code found them (DECISIONS.md).
 |---|---|---|
 | licence gate | code | an open licence (CC BY / CC0 / public domain) must be stated in the PDF before anything is uploaded |
 | inventory | code | shots by cut and fade detection; tables to text; archives unpacked |
-| recordings | **Muse Spark** (contact sheet) | separate recordings inside a shot (joined by dissolves); each must lie in the shot, not overlap and be long enough |
+| recordings | **Muse Spark** (contact sheet) | separate recordings inside a shot (joined by dissolves); each must lie in the shot, not overlap and be long enough; a flight still under way at a proposed boundary sends the recording back to be measured joined with the next one (kept only if that gives a measured flight) |
 | read each shot | **Muse Spark** (two frames) | printed frame rate and playback speed, scale reference, object box — the frame rate is kept only if the number is printed on the frame; otherwise code parses the printed text |
 | plan | **Muse Spark** (PDF + table digests + scripts) | file roles, the meaning and unit of every table column, every claim with its quote, the authors' speed method. Each quote must occur in the PDF, scripts or video text; frame-rate and scale quotes must state the number; the speed and trajectory columns must parse to SI units within a plausible range. A rejected field the audit needs triggers a **re-proposal** by Muse Spark with the checker's reasons (at most 2) |
 | route | code | statistics over many jumps → table check (arithmetic, on the rows of the subset the claim covers; circular or per-animal statistics when the paper uses them); single jumps → video; anything else refused |

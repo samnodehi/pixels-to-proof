@@ -117,10 +117,7 @@ def classify(base_rep: dict, rep: dict, new_rejections: list[str], reproposals: 
     refusal / not-checked. recovered: a check fired (or Spark re-proposed) and the final results equal the unmutated
     run. no effect: nothing fired and nothing changed (the corrupted field was overridden or not needed)."""
     bv, mv = base_rep["summary"]["videos"], rep.get("summary", {}).get("videos", {})
-    # value in SI units, so a claim the re-proposal states in another unit (5.5 ms for 0.0055 s) is the same claim
-    key = lambda c: (c["quantity"], c["statistic"], plan._claim_key(c)[1],
-                     None if c.get("plus_minus") is None else
-                     float(f"{float(c['plus_minus']) * (plan.unit_factor(c.get('unit', '')) or 1.0):.6g}"))
+    key = plan._claim_key       # values in SI units: a claim re-proposed in another unit is the same claim
     bc = {key(c): c["outcome"] for c in base_rep["claims"]}
     mc = {key(c): c["outcome"] for c in rep.get("claims", [])}
     changed_v = {u: (bv[u], mv.get(u)) for u in bv if mv.get(u) != bv[u]}

@@ -341,18 +341,45 @@ def test_population_sd_is_named():
 def test_join_next_rejoins_a_recording_whose_flight_was_cut(tmp_path):
     # seen in a freeze run: Muse Spark split one continuous beetle recording into six (it read the contact sheet's
     # row wrap as a reset); the flight then ran past a proposed boundary and the REPRODUCED jump was lost
+    import json
     from dataclasses import asdict
     from pixels_to_proof.agent import Unit, _join_next
     from pixels_to_proof.ledger import Ledger
-    us = [Unit("v.mp4", 2, 211, 305, rec=1), Unit("v.mp4", 2, 312, 406, rec=2), Unit("v.mp4", 3, 804, 900)]
+    us = [Unit("v.mp4", 2, 211, 305, rec=1), Unit("v.mp4", 2, 312, 406, rec=2), Unit("v.mp4", 2, 413, 506, rec=3),
+          Unit("v.mp4", 3, 804, 900)]
     units = [{"unit": asdict(u), "uid": u.uid, "frame_reading": {"object_box": [1, 2, 3, 4]}, "panels": [],
               "n_frames": u.last - u.first + 1} for u in us]
     (tmp_path / "units" / units[0]["uid"]).mkdir(parents=True)
-    (tmp_path / "units" / units[0]["uid"] / "frame_reading.json").write_text("[]")
+    (tmp_path / "units" / units[0]["uid"] / "frame_reading.json").write_text(json.dumps([{"object_box": [1, 2, 3, 4]}, {}]))
     led = Ledger(tmp_path / "ledger.json", "t", {}, None)
-    j = _join_next(units, 0, tmp_path, led)
-    assert j is units[1] and j["unit"]["first"] == 211 and j["unit"]["last"] == 406 and j["uid"].endswith("_s2r1-2")
-    assert j["frame_reading"] == units[0]["frame_reading"]
+    j = _join_next(units[0], units[1], tmp_path, led)
+    assert j["unit"]["first"] == 211 and j["unit"]["last"] == 406 and j["uid"].endswith("_s2r1-2")
+    assert units[1]["unit"]["first"] == 312                      # the list is not changed: the join may be undone
     assert (tmp_path / "units" / j["uid"] / "frame_reading.json").exists()
     assert not led.data["events"][-1]["ok"] and "joined" in led.data["events"][-1]["note"]
-    assert _join_next(units, 1, tmp_path, led) is None          # the next unit is another shot: nothing to join
+    j2 = _join_next(j, units[2], tmp_path, led)
+    assert j2["uid"].endswith("_s2r1-3") and j2["unit"]["last"] == 506
+    assert _join_next(units[0], units[2], tmp_path, led) is None   # not the next recording
+    assert _join_next(units[2], units[3], tmp_path, led) is None   # another shot
+    assert _join_next(units[2], None, tmp_path, led) is None       # nothing follows
+    # a reading already in the joined unit's folder (edited by a fault-injection run) is the one used
+    d = tmp_path / "units" / units[1]["uid"].replace("_s2r2", "_s2r2-3")
+    d.mkdir(parents=True)
+    (d / "frame_reading.json").write_text(json.dumps([{"object_box": [9, 9, 9, 9]}, {}]))
+    assert _join_next(units[1], units[2], tmp_path, led)["frame_reading"]["object_box"] == [9, 9, 9, 9]
+
+
+def test_merge_keeps_claims_that_differ_in_statistic():
+    base = {"authors_speed_method": {}, "scale_reference": {}, "videos": [], "event_table": None, "claims": []}
+    new = dict(base, claims=[{"quote": "a", "quantity": "takeoff_speed", "value": 0.47, "unit": "m/s", "statistic": "mean"},
+                             {"quote": "b", "quantity": "takeoff_speed", "value": 0.47, "unit": "m/s", "statistic": "median"}])
+    assert len(plan.merge(base, new, [])["claims"]) == 2
+
+
+def test_fault_classifier_reads_a_claim_in_ms_as_the_same_claim_in_s():
+    from bench.faults import classify
+    c = {"quantity": "other_duration", "statistic": "mean", "outcome": "MATCHES TABLE"}
+    base = {"summary": {"videos": {}}, "claims": [dict(c, value=0.0055, plus_minus=0.0144, unit="s")]}
+    run = {"summary": {"videos": {}}, "claims": [dict(c, value=0.0055, plus_minus=0.0144, unit="s"),
+                                                 dict(c, value=5.5, plus_minus=14.4, unit="ms")]}
+    assert classify(base, run, ["a check"], 0)[0] == "recovered"

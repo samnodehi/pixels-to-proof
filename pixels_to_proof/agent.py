@@ -697,15 +697,33 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
 
     i = 0
     while i < len(units):
-        u, row = units[i], audit_one(units[i])
-        # A flight still under way at the end of a recording that Muse Spark split off means that boundary is not the
-        # end of a recording (a jump cannot continue into another recording): the boundary is rejected and the
-        # recording is measured again joined with the next one, until the flight ends or the shot does.
-        while row.get("flight_cut") and (j := _join_next(units, i, out, led)) is not None:
-            u, i = j, i + 1
-            row = audit_one(u)
-        report["videos"].append(row)
-        i += 1
+        row = first_row = audit_one(units[i])
+        # A flight still under way at the end of a recording that Muse Spark split off suggests that boundary is not
+        # the end of a recording: the recording is measured again joined with the next one, until the flight ends or
+        # the shot does. The join is kept only if it yields a measured flight; otherwise the boundary stands, the
+        # first recording keeps its refusal and the next recording is audited on its own.
+        cur, k = units[i], i
+        while row.get("flight_cut"):
+            try:
+                joined = _join_next(cur, units[k + 1] if k + 1 < len(units) else None, out, led)
+            except Exception as exc:
+                led.gate("error", False, f"joining recordings failed: {type(exc).__name__}: {exc}", ref=cur["uid"])
+                joined = None
+            if joined is None:
+                break
+            jrow = audit_one(joined)
+            if not jrow.get("flight_cut") and not jrow.get("kinematics"):
+                led.gate("G2 recordings", True, f"joined {joined['uid']} gives no measured flight: the boundary Muse "
+                                                "Spark proposed stands and the recordings are audited separately",
+                         ref=joined["uid"])
+                break
+            cur, row, k = joined, jrow, k + 1
+        if k > i and row.get("kinematics"):
+            report["videos"].append(row)
+            i = k + 1
+        else:
+            report["videos"].append(first_row)
+            i += 1
 
     for r in report["claims"]:
         if r["outcome"] == "see video route":
@@ -721,28 +739,30 @@ def run_audit(bundle: Path, out: Path, run_id: str | None = None) -> dict:
     return report
 
 
-def _join_next(units: list[dict], i: int, out: Path, led: Ledger) -> dict | None:
-    """units[i] joined with units[i + 1] when that is the next recording of the same shot (Spark's split, G2), else
-    None. The joined unit starts where units[i] starts, so units[i]'s frame reading is reused (no new model call);
-    units[i + 1] is replaced by it."""
-    if i + 1 >= len(units):
+def _join_next(cur: dict, nxt: dict | None, out: Path, led: Ledger) -> dict | None:
+    """cur joined with nxt when nxt is the next recording of the same shot (Spark's split, G2), else None. The joined
+    unit starts where cur starts, so cur's frame reading is reused (no new model call); a reading already in the
+    joined unit's own folder (a replay, or a fault-injection run that edited it) takes precedence."""
+    if nxt is None:
         return None
-    a, b = units[i]["unit"], units[i + 1]["unit"]
-    if a.get("rec") is None or b.get("rec") is None or (a["video"], a["shot"]) != (b["video"], b["shot"]):
+    a, b = cur["unit"], nxt["unit"]
+    if a.get("rec") is None or b.get("rec") is None or (a["video"], a["shot"], a.get("panel")) != \
+            (b["video"], b["shot"], b.get("panel")) or b["rec"] != (a.get("rec_end") or a["rec"]) + 1:
         return None
-    unit = Unit(video=a["video"], shot=a["shot"], first=a["first"], last=b["last"], rec=a["rec"],
-                rec_end=b.get("rec_end") or b["rec"])
-    src, dst = out / "units" / units[i]["uid"], out / "units" / unit.uid
+    unit = Unit(video=a["video"], shot=a["shot"], first=a["first"], last=b["last"], crop=a.get("crop"),
+                panel=a.get("panel"), rec=a["rec"], rec_end=b.get("rec_end") or b["rec"])
+    src, dst = out / "units" / cur["uid"], out / "units" / unit.uid
     dst.mkdir(parents=True, exist_ok=True)
     for name in ("frame0.png", "frame_text.png", "frame_reading.json"):
         if (src / name).exists() and not (dst / name).exists():
             shutil.copy(src / name, dst / name)
-    led.gate("G2 recordings", False, f"the flight in {units[i]['uid']} is still under way at its last frame "
-                                     f"({a['last']}), a boundary Muse Spark proposed: that boundary is rejected and "
-                                     f"the recording is joined with the next one ({unit.first}-{unit.last})",
-             ref=unit.uid)
-    units[i + 1] = dict(units[i], unit=asdict(unit), uid=unit.uid, n_frames=unit.last - unit.first + 1)
-    return units[i + 1]
+    fr = cur["frame_reading"]
+    if (dst / "frame_reading.json").exists():
+        fr = json.loads((dst / "frame_reading.json").read_text())[0]
+    led.gate("G2 recordings", False, f"the flight in {cur['uid']} is still under way at its last frame "
+                                     f"({a['last']}), a boundary Muse Spark proposed: the recording is measured "
+                                     f"again joined with the next one ({unit.first}-{unit.last})", ref=unit.uid)
+    return dict(cur, unit=asdict(unit), uid=unit.uid, frame_reading=fr, n_frames=unit.last - unit.first + 1)
 
 
 def _finite(v) -> bool:

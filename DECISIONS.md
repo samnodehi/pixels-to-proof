@@ -153,7 +153,9 @@ in the demo video are from commit 49f237b, before the breadth changes):
   statistics cannot tell this boundary from the real dissolves in the peacock-spider video (changed-pixel fractions of
   about 1 % in both), so the check is physical instead: a flight still under way at the end of a recording Spark split
   off means the boundary is not the end of a recording. It is rejected (G2, in the ledger) and the recording is
-  measured again joined with the next one, until the flight ends or the shot does. Replaying that run: recordings 1–4
+  measured again joined with the next one, until the flight ends or the shot does. The join is kept only if it gives
+  a measured flight; otherwise the boundary stands (a real end of recording) and each recording keeps its own result
+  (impact review: an unconditional join could have fused two real recordings and lost a good one). Replaying that run: recordings 1–4
   joined, REPRODUCED with the same measurement (0.436, interval 0.425–0.447, row 488). The peacock-spider run replays
   unchanged (no flight cut there).
 - **Duplicate claim after a re-proposal.** A re-proposal stated "5.5 x 10-3 s" in ms; the merge compared raw values,
