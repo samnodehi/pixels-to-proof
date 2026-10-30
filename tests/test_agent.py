@@ -186,6 +186,22 @@ def test_merge_takes_a_corrected_value_from_the_same_sentence():
     assert [c["value"] for c in m["claims"]] == [0.47]
 
 
+def test_merge_does_not_add_a_claim_again_in_another_unit():
+    # seen in a fault-injection run: the re-proposal stated "5.5 x 10-3 s" in ms, and both copies were counted
+    base = {"authors_speed_method": {}, "scale_reference": {}, "videos": [], "event_table": None,
+            "claims": [{"quote": "averaging 5.5 ± 14.4 x 10-3 s", "quantity": "other_duration", "value": 0.0055,
+                        "unit": "s"},
+                       {"quote": "Larvae reached takeoff velocities of 0.57", "quantity": "takeoff_speed",
+                        "value": 0.57, "unit": "m/s"}]}
+    new = dict(base, claims=[
+        {"quote": "Larvae reached takeoff velocities of 0.47", "quantity": "takeoff_speed", "value": 0.47, "unit": "m/s"},
+        {"quote": "averaging 5.5 ± 14.4 x 10-3 s", "quantity": "other_duration", "value": 5.5, "unit": "ms"},
+        {"quote": "buckling forces of 117 μN", "quantity": "other_duration", "value": 0.117, "unit": "s"}])
+    m = plan.merge(base, new, [plan.Check("claim 'Larvae reached takeoff velocities of 0.57'", False, "")])
+    assert sorted((c["quantity"], c["value"]) for c in m["claims"]) == \
+        [("other_duration", 0.0055), ("other_duration", 0.117), ("takeoff_speed", 0.47)]
+
+
 def test_frame_step_from_overlay():
     from pixels_to_proof.agent import _frame_step
     assert _frame_step({"overlay_text": "Filmed at 5000 fps\nPlayback 4x faster"})[0] == 4

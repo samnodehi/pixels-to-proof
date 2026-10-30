@@ -54,3 +54,26 @@ Model answers vary between runs, so nothing a model says reaches a verdict witho
 
 More table layouts (several blocks in one sheet), montage videos split by the agent, and a batch mode for journals and
 reviewers to run on new submissions.
+
+## Video upload (YouTube, unlisted)
+
+**Title:** Pixels to Proof — checking a paper's numbers against its own data (Meta AI Developer Hackathon 2026)
+
+**Description:**
+
+Pixels to Proof is an agent that checks the motion numbers in a scientific paper against the paper's own published
+data and videos. Muse Spark 1.3 reads the paper and proposes; code checks every proposal; SAM 3.1 tracks the animal;
+no number in a verdict is written by a language model. Built during the Meta Global AI Developer Hackathon,
+Oct 27 – Nov 4, 2026.
+
+Code: https://github.com/samnodehi/pixels-to-proof
+Live app: https://huggingface.co/spaces/SamNo/pixels-to-proof
+
+Paper media shown (all openly licensed):
+- Bertone M.A. et al. (2022). A novel power-amplified jumping behavior in larval beetles. PLOS ONE 17(1): e0256509.
+  https://doi.org/10.1371/journal.pone.0256509 (CC BY 4.0)
+- Narendra A. et al. (2025). Sexual dimorphism in jump kinematics and choreography in peacock spiders. J Exp Biol 228(3):
+  jeb249416. https://doi.org/10.1242/jeb.249416 (CC BY 4.0); video https://doi.org/10.5281/zenodo.13208287
+  (CC BY 4.0); data https://doi.org/10.5061/dryad.hdr7sqvsp (CC0)
+
+Narration: AI voice (ElevenLabs, via OpenRouter).

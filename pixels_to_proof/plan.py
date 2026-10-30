@@ -195,12 +195,23 @@ def merge(old: dict, new: dict, rejected: list[Check]) -> dict:
             repl += [x for x in alt[:1] if x not in repl]
         else:
             keep.append(cl)
-    # claims the re-proposal adds that are not already there (same quantity and value) are kept too: they change no
-    # accepted field and are checked like every other claim
-    have = {(c["quantity"], round(float(c["value"]), 9)) for c in keep + repl}
-    extra = [x for x in new.get("claims", []) if (x["quantity"], round(float(x["value"]), 9)) not in have]
+    # claims the re-proposal adds that are not already there are kept too: they change no accepted field and are
+    # checked like every other claim. "Already there" = same quantity and the same value in SI units, so the same
+    # sentence re-proposed in another unit (5.5 ms for 0.0055 s) is not counted twice.
+    have = {_claim_key(c) for c in keep + repl}
+    extra = []
+    for x in new.get("claims", []):
+        if _claim_key(x) not in have:
+            extra.append(x)
+            have.add(_claim_key(x))
     out["claims"] = keep + repl + extra
     return out
+
+
+def _claim_key(c: dict) -> tuple:
+    """Quantity and value in SI units (the value as stated when its unit has no known factor)."""
+    f = unit_factor(c.get("unit", "")) or 1.0
+    return c["quantity"], float(f"{float(c['value']) * f:.6g}")
 
 
 def feedback_for(cp: "CheckedPlan") -> str:
