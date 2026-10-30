@@ -33,7 +33,8 @@ Dated record of choices that affect verdicts, including those made after seeing 
 - **Statistic label.** A claim labelled as a single event whose value equals the mean, max or min of its table column
   is routed to the table check (code overrides the label).
 - **Plan re-proposal merge.** A re-proposal may only replace the fields the checker rejected; everything already
-  accepted is kept (re-proposals had changed unrelated claims, which made runs harder to compare).
+  accepted is kept (re-proposals had changed unrelated claims, which made runs harder to compare). *(Extended
+  2026-10-28 night: claims a re-proposal adds are kept too; see below.)*
 - **'±' convention.** When the plan leaves a claim's spread type unknown and the paper states "mean ± standard
   deviation" (or SD/SE) somewhere, that convention is applied; otherwise the claim is NOT CHECKED.
 

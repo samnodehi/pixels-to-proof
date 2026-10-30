@@ -2,7 +2,7 @@
 
 **An agent that checks the motion numbers in a scientific paper against the paper's own published data and
 videos.** Give it exactly what the journal published — the PDF, the data tables, the supplementary videos, any analysis
-scripts — and it returns, for every kinematic number the paper prints, either a check against the paper's own data or
+scripts — and it returns, for every number the paper prints about movement and body measurements, either a check against the paper's own data or
 a refusal that names the reason. When the paper has a usable high-speed video, it re-measures the jump from the pixels.
 
 *The model proposes; tracking, arithmetic and physics decide. No number in a verdict is written by a language model.*
@@ -16,7 +16,7 @@ through the Meta Model API. The demo video and the live app (Hugging Face Space)
 |---|---|
 | papers audited hands-off (no file, column or claim set by hand) | 13 (animal locomotion and sport science; PLOS ONE, PLOS Biology, J Exp Biol, Sci Rep) |
 | printed numbers checked against the paper's own data | 319 claims: **63 reproduce to the printed digit**, the rest NOT CHECKED or REFUSED, each with its reason |
-| video re-measurement | larval beetle jump **REPRODUCED** (published 0.405 ± 0.024 m/s, re-measured 0.436, interval 0.425–0.447); both peacock-spider jumps **refused** (not ballistic; the extra deceleration points against the motion, as air drag would) |
+| video re-measurement | larval beetle jump **REPRODUCED** (published 0.405 ± 0.024 m/s, re-measured 0.436, interval 0.425–0.447); both peacock-spider jumps **refused** (not ballistic; for the male the extra acceleration points against the motion, as air drag would) |
 | fault injection: 12 kinds of deliberately wrong model answers | 4 caught, 6 repaired by the agent, 2 no effect, **0 wrong verdicts** |
 
 Numbers come from recorded runs in `showcase/` (beetle and peacock-spider runs on commit `49f237b`, breadth runs on
@@ -32,7 +32,7 @@ Numbers come from recorded runs in `showcase/` (beetle and peacock-spider runs o
     shot), and reads single frames for the printed frame rate, playback speed, scale reference and the animal's box;
   - when code rejects a field, Muse Spark is **asked again with the checker's reasons** (plan re-proposals, and a new
     tracking box after SAM 3.1's track fails its quality gate).
-- **SAM 3.1** tracks the animal through the high-speed clip, prompted with a text concept and Muse Spark's box; its
+- **SAM 3.1** tracks the animal through the high-speed clip, prompted with Muse Spark's box (a text concept as fallback); its
   masks feed the physics (ballistic fit, gravity and free-flight self-checks).
 - Code checks every proposal (quotes must exist in the PDF, units must parse, columns must hold plausible values,
   recordings must lie inside their shot) and writes every proposal and every check to a run ledger, which the app
@@ -71,7 +71,8 @@ tracks). Nothing set by hand. Recorded run `beetle-20261028-49f237b` (clean comm
   (smoothing spline, spar 1e-8, read from their Methods and script), approximately replicated on our track, gives
   0.398 m/s and is printed as a second reading.
 - The plan is a proposal: in some runs gate G1 rejects a field (for example a quote that joins two sentences) and
-  Muse Spark is asked again with the checker's reasons; only the rejected fields are taken from the re-proposal.
+  Muse Spark is asked again with the checker's reasons; from the re-proposal only the rejected fields are replaced (new
+  claims it adds are checked too).
 
 ### Peacock spiders — Narendra et al. 2025, *J Exp Biol* 228: jeb249416 (CC BY 4.0; video CC BY 4.0, data CC0)
 A different journal, data host and setup. Input: the article and supplementary PDFs, the Zenodo video, the Dryad CSV.
@@ -111,6 +112,10 @@ the same paper the plan named no groups, and code found them (DECISIONS.md).
 
 ## How it works
 
+This table describes the current code. The showcase runs predate two later additions (the joining of a recording
+whose flight runs past a Spark-proposed boundary, and the table-check extensions used in the breadth runs); the
+measuring, physics and verdict code and the thresholds in `checks.toml` are unchanged since commit `49f237b`.
+
 | step | who | what is checked by code |
 |---|---|---|
 | licence gate | code | an open licence (CC BY / CC0 / public domain) must be stated in the PDF before anything is uploaded |
@@ -138,10 +143,15 @@ main thresholds are in `checks.toml`, whose hash is in every ledger. Design and 
   not the agent's planning): 48 rendered high-speed videos with known truth and planted claim errors. Median speed
   error 0.05 %; 0 of 12 true claims flagged; planted errors of 5 %, 10 % and 20 % flagged in 23 of 24 cases (the 24th
   refused); 4 of 4 wrong frame rates refused by the gravity check. After the latest changes the kinematics were recomputed from the cached tracks: identical.
-- **Fault injection on the agent** (`bench/faults.py`, results on the app's Calibration tab): one model proposal at a
+- **Fault injection on the agent** (`bench/faults.py`, results on the app's Calibration tab; base: the recorded beetle
+  run of commit `49f237b`): one model proposal at a
   time is corrupted the way a wrong model answer would be (wrong column map, wrong units, misread numbers, wrong frame
   rate, a box on the background, …) and the agent is re-run; the table reports what caught it, what recovered and
   whether any verdict went wrong. Re-proposals in these runs are live model calls, so repeat runs can differ.
+- **Freeze check** (`showcase/freeze_check.md`): both hands-off papers and the fault injection re-run on the final
+  code: the same video verdicts and measurements, the same outcome for every claim found in both runs (two beetle
+  claims matched by the proposed column directly instead of another column), faults caught 6, recovered 4, no effect
+  2, wrong 0; two defects found on the way and fixed.
 - **A refusal on real data** (case-file pipeline, hand-prepared: frame range, panel and platform-gap scale set by hand;
   the agent does not yet split montages): jumping spider (Nabawy et al. 2018, *Sci Rep* 8:7142, CC BY 4.0), "Level
   jumps" montage. At the stated 3,200 fps the flight curves at +27 to +42 % of gravity and decelerates sideways; the
@@ -150,7 +160,7 @@ main thresholds are in `checks.toml`, whose hash is in every ledger. Design and 
 ## Limits (stated, not hidden)
 
 - Two papers audited hands-off with their videos, one video verdict (REPRODUCED) among them; real papers with a
-  high-speed video, a visible scale, a stated frame rate and a per-event table are rare (two searches over ~70 papers
+  high-speed video, a visible scale, a stated frame rate and a per-event table are rare (our searches screened about 70 papers
   found no third), and small animals can be slowed by air drag. Table checks reach many more papers (breadth test).
 - The agent measures scale from a grid or a platform gap and treats a montage shot as one picture (montage panels
   exist only in the case-file pipeline).
@@ -172,7 +182,7 @@ main thresholds are in `checks.toml`, whose hash is in every ledger. Design and 
 
 `BUNDLE_DIR` holds the paper's files as downloaded from the publisher. Only openly licensed material is processed.
 A run writes `report.json`, `ledger.json`, `plan_checked.json` and `units/<shot>/` (clip, track, receipt).
-`python -m pixels_to_proof case.json` runs the older case-file pipeline. Python ≥ 3.11; ffmpeg and pdftotext needed.
+`python -m pixels_to_proof case.json --out DIR` runs the older case-file pipeline. Python ≥ 3.11; ffmpeg and pdftotext needed.
 
 ## Licences
 

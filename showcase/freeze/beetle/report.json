@@ -1,0 +1,655 @@
+{
+ "run_id": "beetle-20261030-32dbbf4",
+ "bundle": "beetle",
+ "claims": [
+  {
+   "source": "paper",
+   "quote": "precede jumps by arching their body while gripping the substrate with their legs over a period of 0.22 ± 0.17s.",
+   "quantity": "other_duration",
+   "value": 0.22,
+   "plus_minus": 0.17,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'Load_time' reproduces the printed digits",
+   "evidence": {
+    "column": "Load_time",
+    "n_rows": 29,
+    "table_value": 0.21558189655172413,
+    "table_sd": 0.166313065461345,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "Larvae reached takeoff velocities of 0.47 ± 0.15 m s-1",
+   "quantity": "takeoff_speed",
+   "value": 0.47,
+   "plus_minus": 0.15,
+   "unit": "m/s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'velocity.max' reproduces the printed digits",
+   "evidence": {
+    "column": "velocity.max",
+    "n_rows": 29,
+    "table_value": 0.4709917141724138,
+    "table_sd": 0.15333332808990655,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "traveled 11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontally",
+   "quantity": "jump_distance",
+   "value": 11.2,
+   "plus_minus": 2.8,
+   "unit": "mm",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "no column reproduces the printed digits; 'DistanceRawm' over 29 rows gives 11.24 ± 4.78 mm (the printed value may use another aggregation unit)",
+   "evidence": {
+    "column": "DistanceRawm",
+    "n_rows": 29,
+    "table_value": 11.23611651724138,
+    "table_sd": 4.7826286943905245,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "11.2 ± 2.8 mm (1.98 ± 0.8 body lengths) horizontally",
+   "quantity": "jump_distance",
+   "value": 1.98,
+   "plus_minus": 0.8,
+   "unit": "ratio",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "no column reproduces the printed digits; 'DistanceRaw_bodyProp' over 29 rows gives 2.125 ± 0.913 ratio (the printed value may use another aggregation unit)",
+   "evidence": {
+    "column": "DistanceRaw_bodyProp",
+    "n_rows": 29,
+    "table_value": 2.124512214551724,
+    "table_sd": 0.9129669651650109,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
+   "quantity": "jump_height",
+   "value": 7.9,
+   "plus_minus": 4.3,
+   "unit": "mm",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'HeightRawm' reproduces the printed digits",
+   "evidence": {
+    "column": "HeightRawm",
+    "n_rows": 29,
+    "table_value": 7.859771896551725,
+    "table_sd": 4.305256325104609,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "7.9 ± 4.3 mm (1.5 ± 0.9 body lengths) vertically",
+   "quantity": "jump_height",
+   "value": 1.5,
+   "plus_minus": 0.9,
+   "unit": "ratio",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean with the population SD (divided by n, not n − 1) of 29 rows of 'HeightRaw_bodyProp' reproduces the printed digits",
+   "evidence": {
+    "column": "HeightRaw_bodyProp",
+    "n_rows": 29,
+    "table_value": 1.5438290933793104,
+    "table_sd": 0.9433513570714556,
+    "stats": "population_sd"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "resulted in a change in body angle (head-to-posterior) from near horizontal to 149.5 ± 16.7 degrees.",
+   "quantity": "body_angle",
+   "value": 149.5,
+   "plus_minus": 16.7,
+   "unit": "deg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'LoadingBAngle' reproduces the printed digits",
+   "evidence": {
+    "column": "LoadingBAngle",
+    "n_rows": 29,
+    "table_value": 149.52896551724137,
+    "table_sd": 16.695528463553945,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "between the first leg movement and the point at which the last legs left the ground averaging 5.5 ± 14.4 x 10-3 s in duration.",
+   "quantity": "other_duration",
+   "value": 0.0055,
+   "plus_minus": 0.0144,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'Latch_time' reproduces the printed digits",
+   "evidence": {
+    "column": "Latch_time",
+    "n_rows": 29,
+    "table_value": 0.0054849137931034485,
+    "table_sd": 0.014376112681824569,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "the body of the larvae continues to arch further to 124.1 ± 29.6 degrees.",
+   "quantity": "body_angle",
+   "value": 124.1,
+   "plus_minus": 29.6,
+   "unit": "deg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'ReleaseBAngle' reproduces the printed digits",
+   "evidence": {
+    "column": "ReleaseBAngle",
+    "n_rows": 29,
+    "table_value": 124.08341379310345,
+    "table_sd": 29.55389916566152,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "averaged 1.4 ± 0.8 x 10-3 s. This phase corresponded to the elastic energy",
+   "quantity": "other_duration",
+   "value": 0.0014,
+   "plus_minus": 0.0008,
+   "unit": "s",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'Launch_time' reproduces the printed digits",
+   "evidence": {
+    "column": "Launch_time",
+    "n_rows": 29,
+    "table_value": 0.0014224137931034483,
+    "table_sd": 0.0007860841815716949,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "the larvae rapidly arched their body even further to 79.6 ± 28.2 degrees prior to takeoff,",
+   "quantity": "body_angle",
+   "value": 79.6,
+   "plus_minus": 28.2,
+   "unit": "deg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'TakeoffBAngle' reproduces the printed digits",
+   "evidence": {
+    "column": "TakeoffBAngle",
+    "n_rows": 29,
+    "table_value": 79.6241724137931,
+    "table_sd": 28.16294488339112,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "reached a maximum acceleration of 89.5 ± 34.5 m s -2",
+   "quantity": "acceleration",
+   "value": 89.5,
+   "plus_minus": 34.5,
+   "unit": "m/s^2",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'acceleration.max' reproduces the printed digits",
+   "evidence": {
+    "column": "acceleration.max",
+    "n_rows": 29,
+    "table_value": 89.51085500103449,
+    "table_sd": 34.53990420614866,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "with the fastest takeoff velocity reaching 0.87 m s -1",
+   "quantity": "takeoff_speed",
+   "value": 0.87,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "max",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "max of 29 rows of 'velocity.max' reproduces the printed digits",
+   "evidence": {
+    "column": "velocity.max",
+    "n_rows": 29,
+    "table_value": 0.867344127,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "leaving the ground at an angle of 79.6 ± 28.2 degrees.",
+   "quantity": "takeoff_angle",
+   "value": 79.6,
+   "plus_minus": 28.2,
+   "unit": "deg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'TakeoffBAngle' reproduces the printed digits",
+   "evidence": {
+    "column": "TakeoffBAngle",
+    "n_rows": 29,
+    "table_value": 79.6241724137931,
+    "table_sd": 28.16294488339112,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "with the farthest horizontal jumper traveling 23.75 mm (Fig 4).",
+   "quantity": "jump_distance",
+   "value": 23.75,
+   "plus_minus": null,
+   "unit": "mm",
+   "statistic": "max",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "max of 29 rows of 'DistanceRawm' reproduces the printed digits",
+   "evidence": {
+    "column": "DistanceRawm",
+    "n_rows": 29,
+    "table_value": 23.748718,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "the maximum average power density during the launch phase of jumps was 323 ± 353 W/kg muscle, with a maximum of 1319 W/kg muscle (Fig 6D).",
+   "quantity": "other",
+   "value": 323.0,
+   "plus_minus": 353.0,
+   "unit": "W/kg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 29 rows of 'launchPowerOutput' reproduces the printed digits",
+   "evidence": {
+    "column": "launchPowerOutput",
+    "n_rows": 29,
+    "table_value": 322.84856768889654,
+    "table_sd": 352.50121834609047,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "with a maximum of 1319 W/kg muscle (Fig 6D).",
+   "quantity": "other",
+   "value": 1319.0,
+   "plus_minus": null,
+   "unit": "W/kg",
+   "statistic": "max",
+   "route": "table_check",
+   "rows": "all",
+   "outcome": "MATCHES TABLE",
+   "reason": "max of 29 rows of 'launchPowerOutput' reproduces the printed digits",
+   "evidence": {
+    "column": "launchPowerOutput",
+    "n_rows": 29,
+    "table_value": 1319.018405,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "the longest jumping distance was about 5 cm, horizontally.",
+   "quantity": "jump_distance",
+   "value": 5.0,
+   "plus_minus": null,
+   "unit": "cm",
+   "statistic": "max",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "video overlay",
+   "quote": "realtime - 30 frames/second",
+   "quantity": "other",
+   "value": 30.0,
+   "plus_minus": null,
+   "unit": "frames/second",
+   "statistic": "other",
+   "route": "refuse: unit 'frames/second' is not one the agent can measure or convert",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "unit 'frames/second' is not one the agent can measure or convert"
+  },
+  {
+   "source": "video overlay",
+   "quote": "captured - 3,200 frames/second",
+   "quantity": "other",
+   "value": 3200.0,
+   "plus_minus": null,
+   "unit": "frames/second",
+   "statistic": "other",
+   "route": "refuse: unit 'frames/second' is not one the agent can measure or convert",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "unit 'frames/second' is not one the agent can measure or convert"
+  },
+  {
+   "source": "video overlay",
+   "quote": "captured - 60,000 frames/second",
+   "quantity": "other",
+   "value": 60000.0,
+   "plus_minus": null,
+   "unit": "frames/second",
+   "statistic": "other",
+   "route": "refuse: unit 'frames/second' is not one the agent can measure or convert",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "unit 'frames/second' is not one the agent can measure or convert"
+  }
+ ],
+ "videos": [
+  {
+   "unit": "journal.pone.0256509.s003_s1",
+   "video": "journal.pone.0256509.s003.mp4",
+   "shot": 1,
+   "frames": 90,
+   "shot_label": "1",
+   "verdict": "CANNOT MEASURE",
+   "reason": "at 30 fps a flight spans at most 3.2 frames",
+   "stage": "inputs"
+  },
+  {
+   "unit": "journal.pone.0256509.s003_s2",
+   "video": "journal.pone.0256509.s003.mp4",
+   "shot": 2,
+   "frames": 127,
+   "shot_label": "2",
+   "verdict": "CANNOT MEASURE",
+   "reason": "at 30 fps a flight spans at most 3.2 frames",
+   "stage": "inputs"
+  },
+  {
+   "unit": "journal.pone.0256509.s003_s3",
+   "video": "journal.pone.0256509.s003.mp4",
+   "shot": 3,
+   "frames": 222,
+   "shot_label": "3",
+   "verdict": "CANNOT MEASURE",
+   "reason": "at 30 fps a flight spans at most 3.2 frames",
+   "stage": "inputs"
+  },
+  {
+   "unit": "journal.pone.0256509.s003_s4",
+   "video": "journal.pone.0256509.s003.mp4",
+   "shot": 4,
+   "frames": 173,
+   "shot_label": "4",
+   "verdict": "CANNOT MEASURE",
+   "reason": "at 30 fps a flight spans at most 3.2 frames",
+   "stage": "inputs"
+  },
+  {
+   "unit": "journal.pone.0256509.s003_s5",
+   "video": "journal.pone.0256509.s003.mp4",
+   "shot": 5,
+   "frames": 189,
+   "shot_label": "5",
+   "verdict": "CANNOT MEASURE",
+   "reason": "at 30 fps a flight spans at most 3.2 frames",
+   "stage": "inputs"
+  },
+  {
+   "unit": "journal.pone.0256509.s003_s6",
+   "video": "journal.pone.0256509.s003.mp4",
+   "shot": 6,
+   "frames": 67,
+   "shot_label": "6",
+   "verdict": "CANNOT MEASURE",
+   "reason": "at 30 fps a flight spans at most 3.2 frames",
+   "stage": "inputs"
+  },
+  {
+   "unit": "journal.pone.0256509.s003_s7",
+   "video": "journal.pone.0256509.s003.mp4",
+   "shot": 7,
+   "frames": 32,
+   "shot_label": "7",
+   "verdict": "CANNOT MEASURE",
+   "reason": "at 30 fps a flight spans at most 3.2 frames",
+   "stage": "inputs"
+  },
+  {
+   "unit": "journal.pone.0256509.s003_s8",
+   "video": "journal.pone.0256509.s003.mp4",
+   "shot": 8,
+   "frames": 57,
+   "shot_label": "8",
+   "verdict": "CANNOT MEASURE",
+   "reason": "at 30 fps a flight spans at most 3.2 frames",
+   "stage": "inputs"
+  },
+  {
+   "unit": "journal.pone.0256509.s003_s9",
+   "video": "journal.pone.0256509.s003.mp4",
+   "shot": 9,
+   "frames": 58,
+   "shot_label": "9",
+   "verdict": "CANNOT MEASURE",
+   "reason": "at 30 fps a flight spans at most 3.2 frames",
+   "stage": "inputs"
+  },
+  {
+   "unit": "journal.pone.0256509.s004_s1",
+   "video": "journal.pone.0256509.s004.mp4",
+   "shot": 1,
+   "frames": 211,
+   "shot_label": "1",
+   "verdict": "CANNOT MEASURE",
+   "reason": "no measurable grid on this shot (seen: none)",
+   "stage": "inputs"
+  },
+  {
+   "unit": "journal.pone.0256509.s004_s2",
+   "video": "journal.pone.0256509.s004.mp4",
+   "shot": 2,
+   "frames": 593,
+   "shot_label": "2",
+   "fps": 3200.0,
+   "fps_source": "printed on the video (read by Spark, number found in the overlay text)",
+   "mm_per_px": 0.02684336084064926,
+   "kinematics": {
+    "takeoff_frame": 63,
+    "landing_frame": 324,
+    "airborne_s": 0.08156250000000001,
+    "g_fit": 10.014673661102604,
+    "g_fit_rel_err": 0.021212509990935182,
+    "fit_rms_mm": 0.03286960353498356,
+    "v0_ballistic": 0.4357240581235541,
+    "v0_ci95": [
+     0.4341528371505279,
+     0.43721902052559375
+    ],
+    "angle_deg": 74.75094061360566,
+    "height_mm": 8.840719230732711,
+    "distance_mm": 9.35244870902154,
+    "v_max_spline": 0.35915804883567287,
+    "v_max_range": [
+     0.3233665684479678,
+     0.39412166102285284
+    ],
+    "ax_fit": -0.06428812090639281,
+    "ax_rel_g": 0.006419392491648576,
+    "end_height_mm": 0.45345204760638175,
+    "drag_like": "",
+    "truncated": false,
+    "notes": []
+   },
+   "skipped_frames": 0,
+   "pairing": {
+    "row_index": 23,
+    "row_id": "c_21382_488_croppedxypts",
+    "distance": 0.033928465274574986,
+    "runner_up": "c_21382_426_croppedxypts",
+    "runner_up_distance": 0.17742037242206798,
+    "margin": 5.229248390289604,
+    "features": [
+     "airborne_time",
+     "jump_distance",
+     "jump_height",
+     "takeoff_angle"
+    ],
+    "n_rows": 29,
+    "top3": [
+     [
+      "c_21382_488_croppedxypts",
+      0.034
+     ],
+     [
+      "c_21382_426_croppedxypts",
+      0.177
+     ],
+     [
+      "c_21382_486_croppedxypts",
+      0.238
+     ]
+    ],
+    "ok": true,
+    "reason": "c_21382_488_croppedxypts is 5.2x closer than the runner-up c_21382_426_croppedxypts"
+   },
+   "pairing_detail": {
+    "airborne_time": {
+     "ours": 0.08156250000000001,
+     "row": {
+      "Airborne_time": 0.0809375
+     }
+    },
+    "takeoff_angle": {
+     "ours": 74.75094061360566,
+     "row": {
+      "TakeoffAngleDeg": 74.63392626
+     }
+    },
+    "jump_distance": {
+     "ours": 0.009352448709021539,
+     "row": {
+      "DistanceRawm": 0.009437529,
+      "DistanceTrajm": 0.009519116
+     }
+    },
+    "jump_height": {
+     "ours": 0.008840719230732711,
+     "row": {
+      "HeightRawm": 0.008639686,
+      "HeightTrajm": 0.008551541
+     }
+    }
+   },
+   "verdict": "REPRODUCED",
+   "reason": "published value (with its stated uncertainty) overlaps the measured interval over 0.425-0.429",
+   "claim": {
+    "row": "c_21382_488_croppedxypts",
+    "value": 0.404810832,
+    "plus_minus": 0.023815554787236577,
+    "plus_minus_note": "VelError = 0.0588 (relative, per the quote)",
+    "column": "velocity.max"
+   },
+   "measured": {
+    "mid": 0.4357240581235541,
+    "lo": 0.4249407133616287,
+    "hi": 0.4464962044923694
+   },
+   "authors_method_replica": 0.3965552426430202,
+   "accepts_published": [
+    0.40132994381417486,
+    0.4744061431618794
+   ],
+   "authors_method": {
+    "evidence": "A spline function was fitted to the cumulative displacement data using the smooth.pspline function from the pspline package in R with a smoothing spar value of 10-8 [59]. ... Velocity and acceleration curves were calculated by taking the first and second derivatives of the displacement splines, respectively, and takeoff velocities and accelerations were estimated as the maximum values of these curves.",
+    "family": "smoothing_spline_max",
+    "parameters": "smooth.Pspline spar=1e-8 method=1, whole track, max of derivative"
+   }
+  },
+  {
+   "unit": "journal.pone.0256509.s004_s3",
+   "video": "journal.pone.0256509.s004.mp4",
+   "shot": 3,
+   "frames": 411,
+   "shot_label": "3",
+   "verdict": "CANNOT MEASURE",
+   "reason": "shot covers 6.9 ms, shorter than any flight in the table",
+   "stage": "inputs"
+  }
+ ],
+ "summary": {
+  "claims": {
+   "MATCHES TABLE": 15,
+   "NOT CHECKED": 2,
+   "REFUSED": 4
+  },
+  "videos": {
+   "journal.pone.0256509.s003_s1": "CANNOT MEASURE",
+   "journal.pone.0256509.s003_s2": "CANNOT MEASURE",
+   "journal.pone.0256509.s003_s3": "CANNOT MEASURE",
+   "journal.pone.0256509.s003_s4": "CANNOT MEASURE",
+   "journal.pone.0256509.s003_s5": "CANNOT MEASURE",
+   "journal.pone.0256509.s003_s6": "CANNOT MEASURE",
+   "journal.pone.0256509.s003_s7": "CANNOT MEASURE",
+   "journal.pone.0256509.s003_s8": "CANNOT MEASURE",
+   "journal.pone.0256509.s003_s9": "CANNOT MEASURE",
+   "journal.pone.0256509.s004_s1": "CANNOT MEASURE",
+   "journal.pone.0256509.s004_s2": "REPRODUCED",
+   "journal.pone.0256509.s004_s3": "CANNOT MEASURE"
+  },
+  "model_calls": 16,
+  "tokens": 208944,
+  "rejected_calls": 0
+ }
+}

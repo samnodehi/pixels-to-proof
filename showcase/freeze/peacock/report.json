@@ -1,0 +1,708 @@
+{
+ "run_id": "peacock-20261030-32dbbf4",
+ "bundle": "peacock",
+ "claims": [
+  {
+   "source": "paper",
+   "quote": "male: 4.94±1.86 mg, n=10",
+   "quantity": "mass",
+   "value": 4.94,
+   "plus_minus": 1.86,
+   "unit": "mg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "sex = male",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean over animals (each animal's rows averaged first; animal = Spider ID + Condition; 10 animals = the n printed) of 'mass mg' (rows where sex = male) reproduces the printed digits",
+   "evidence": {
+    "column": "mass mg",
+    "n_rows": 10,
+    "table_value": 4.9399999999999995,
+    "table_sd": 1.8649992552873105,
+    "stats": "per_animal",
+    "per_animal": {
+     "groups": 10,
+     "key": "Spider ID + Condition",
+     "value": 4.9399999999999995,
+     "sd": 1.8649992552873105
+    }
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "female: 10.40 ±2.05 mg, n=12",
+   "quantity": "mass",
+   "value": 10.4,
+   "plus_minus": 2.05,
+   "unit": "mg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "sex = female",
+   "outcome": "NOT CHECKED",
+   "reason": "no column reproduces the printed digits; averaged per animal (12 animals, the n printed) it gives 10.43 ± 2.05; 'mass mg' over 35 rows (rows where sex = female) gives 10.35 ± 1.97 mg (the printed value may use another aggregation unit)",
+   "evidence": {
+    "column": "mass mg",
+    "n_rows": 35,
+    "table_value": 10.354285714285714,
+    "table_sd": 1.966385585002993,
+    "stats": "arithmetic",
+    "per_animal": {
+     "groups": 12,
+     "key": "Spider ID",
+     "value": 10.433333333333334,
+     "sd": 2.054853825074728
+    }
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "males: 25.08±8.55 deg, r=0.98, n=30",
+   "quantity": "takeoff_angle",
+   "value": 25.08,
+   "plus_minus": 8.55,
+   "unit": "deg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "sex = male",
+   "outcome": "MATCHES TABLE",
+   "reason": "circular mean (the paper uses circular statistics) of 30 rows of 'Take-off angle deg' (rows where sex = male) reproduces the printed digits",
+   "evidence": {
+    "column": "Take-off angle deg",
+    "n_rows": 30,
+    "table_value": 25.078644973751796,
+    "table_sd": 8.552435590313188,
+    "stats": "circular"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "females: 20.89 ±6.25 deg, r=0.99, n=35",
+   "quantity": "takeoff_angle",
+   "value": 20.89,
+   "plus_minus": 6.25,
+   "unit": "deg",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "sex = female",
+   "outcome": "MATCHES TABLE",
+   "reason": "circular mean (the paper uses circular statistics) of 35 rows of 'Take-off angle deg' (rows where sex = female) reproduces the printed digits",
+   "evidence": {
+    "column": "Take-off angle deg",
+    "n_rows": 35,
+    "table_value": 20.894057743695132,
+    "table_sd": 6.254105392176456,
+    "stats": "circular"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "males and females experienced the equivalent of 13.03 g-force and 12.5 g-force, respectively, during take-off",
+   "quantity": "acceleration",
+   "value": 13.03,
+   "plus_minus": null,
+   "unit": "ratio",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "sex = male",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 30 rows of 'Maximum_G' (rows where sex = male) reproduces the printed digits",
+   "evidence": {
+    "column": "Maximum_G",
+    "n_rows": 30,
+    "table_value": 13.0347811675,
+    "table_sd": 1.4822012548885564,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "males and females experienced the equivalent of 13.03 g-force and 12.5 g-force, respectively, during take-off",
+   "quantity": "acceleration",
+   "value": 12.5,
+   "plus_minus": null,
+   "unit": "ratio",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "sex = female",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 35 rows of 'Maximum_G' (rows where sex = female) reproduces the printed digits",
+   "evidence": {
+    "column": "Maximum_G",
+    "n_rows": 35,
+    "table_value": 12.508624168485715,
+    "table_sd": 1.6035258734921614,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "We placed a vertical landing platform (0.1×0.5×4.0 cm, L×W×H) 4 cm away from the take-off platform.",
+   "quantity": "jump_distance",
+   "value": 4.0,
+   "plus_minus": null,
+   "unit": "cm",
+   "statistic": "single_event",
+   "route": "video",
+   "rows": "all",
+   "outcome": "NOT CHECKED",
+   "reason": "a single jump: no measured video shot was paired to it, so there is nothing to compare it with"
+  },
+  {
+   "source": "paper",
+   "quote": "The smallest individual filmed was a 2.0 mg male that had a take-off duration of 22 ms, peak acceleration of 141.80 m s−2 and maximum take-off velocity of 0.89 m s−1 .",
+   "quantity": "mass",
+   "value": 2.0,
+   "plus_minus": null,
+   "unit": "mg",
+   "statistic": "single_event",
+   "route": "refuse: mass is not measurable from a centroid track",
+   "rows": "sex = male",
+   "outcome": "REFUSED",
+   "reason": "mass is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "The smallest individual filmed was a 2.0 mg male that had a take-off duration of 22 ms, peak acceleration of 141.80 m s−2 and maximum take-off velocity of 0.89 m s−1 .",
+   "quantity": "other_duration",
+   "value": 22.0,
+   "plus_minus": null,
+   "unit": "ms",
+   "statistic": "single_event",
+   "route": "refuse: other_duration is not measurable from a centroid track",
+   "rows": "sex = male",
+   "outcome": "REFUSED",
+   "reason": "other_duration is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "The smallest individual filmed was a 2.0 mg male that had a take-off duration of 22 ms, peak acceleration of 141.80 m s−2 and maximum take-off velocity of 0.89 m s−1 .",
+   "quantity": "acceleration",
+   "value": 141.8,
+   "plus_minus": null,
+   "unit": "m/s2",
+   "statistic": "single_event",
+   "route": "refuse: acceleration is not measurable from a centroid track",
+   "rows": "sex = male",
+   "outcome": "REFUSED",
+   "reason": "acceleration is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "The smallest individual filmed was a 2.0 mg male that had a take-off duration of 22 ms, peak acceleration of 141.80 m s−2 and maximum take-off velocity of 0.89 m s−1 .",
+   "quantity": "takeoff_speed",
+   "value": 0.89,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "single_event",
+   "route": "video",
+   "rows": "sex = male",
+   "outcome": "NOT CHECKED",
+   "reason": "a single jump: no measured video shot was paired to it, so there is nothing to compare it with"
+  },
+  {
+   "source": "paper",
+   "quote": "the heaviest individual filmed was a 13.2 mg female that had a take-off duration of 14 ms, peak acceleration of 122.33 m s−2 and a maximum take-off velocity of 0.76 m s−1 .",
+   "quantity": "mass",
+   "value": 13.2,
+   "plus_minus": null,
+   "unit": "mg",
+   "statistic": "single_event",
+   "route": "refuse: mass is not measurable from a centroid track",
+   "rows": "sex = female",
+   "outcome": "REFUSED",
+   "reason": "mass is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "the heaviest individual filmed was a 13.2 mg female that had a take-off duration of 14 ms, peak acceleration of 122.33 m s−2 and a maximum take-off velocity of 0.76 m s−1 .",
+   "quantity": "other_duration",
+   "value": 14.0,
+   "plus_minus": null,
+   "unit": "ms",
+   "statistic": "single_event",
+   "route": "refuse: other_duration is not measurable from a centroid track",
+   "rows": "sex = female",
+   "outcome": "REFUSED",
+   "reason": "other_duration is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "the heaviest individual filmed was a 13.2 mg female that had a take-off duration of 14 ms, peak acceleration of 122.33 m s−2 and a maximum take-off velocity of 0.76 m s−1 .",
+   "quantity": "acceleration",
+   "value": 122.33,
+   "plus_minus": null,
+   "unit": "m/s2",
+   "statistic": "single_event",
+   "route": "refuse: acceleration is not measurable from a centroid track",
+   "rows": "sex = female",
+   "outcome": "REFUSED",
+   "reason": "acceleration is not measurable from a centroid track"
+  },
+  {
+   "source": "paper",
+   "quote": "the heaviest individual filmed was a 13.2 mg female that had a take-off duration of 14 ms, peak acceleration of 122.33 m s−2 and a maximum take-off velocity of 0.76 m s−1 .",
+   "quantity": "takeoff_speed",
+   "value": 0.76,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "single_event",
+   "route": "video",
+   "rows": "sex = female",
+   "outcome": "NOT CHECKED",
+   "reason": "a single jump: no measured video shot was paired to it, so there is nothing to compare it with"
+  },
+  {
+   "source": "paper",
+   "quote": "the highest and lowest acceleration was seen in female spiders (155.22 and 90.06 m s−2 ).",
+   "quantity": "acceleration",
+   "value": 155.22,
+   "plus_minus": null,
+   "unit": "m/s2",
+   "statistic": "max",
+   "route": "table_check",
+   "rows": "sex = female",
+   "outcome": "MATCHES TABLE",
+   "reason": "max of 35 rows of 'Peak accleration m/s2' (rows where sex = female) reproduces the printed digits",
+   "evidence": {
+    "column": "Peak accleration m/s2",
+    "n_rows": 35,
+    "table_value": 155.2201177,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "the highest and lowest acceleration was seen in female spiders (155.22 and 90.06 m s−2 ).",
+   "quantity": "acceleration",
+   "value": 90.06,
+   "plus_minus": null,
+   "unit": "m/s2",
+   "statistic": "min",
+   "route": "table_check",
+   "rows": "sex = female",
+   "outcome": "NOT CHECKED",
+   "reason": "the min of 'Peak accleration m/s2' over 35 rows (rows where sex = female) is 90.0690: the printed 90.06 is that value truncated, not rounded",
+   "evidence": {
+    "column": "Peak accleration m/s2",
+    "n_rows": 35,
+    "table_value": 90.06904793,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "the highest take-off velocity was in males (0.98 m s−1 ) and the lowest was in females (0.61 m s−1 ).",
+   "quantity": "takeoff_speed",
+   "value": 0.98,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "max",
+   "route": "table_check",
+   "rows": "sex = male",
+   "outcome": "NOT CHECKED",
+   "reason": "the max of 'Maximum Velocity m/s' over 30 rows (rows where sex = male) is 0.9872: the printed 0.98 is that value truncated, not rounded",
+   "evidence": {
+    "column": "Maximum Velocity m/s",
+    "n_rows": 30,
+    "table_value": 0.987214985,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "the highest take-off velocity was in males (0.98 m s−1 ) and the lowest was in females (0.61 m s−1 ).",
+   "quantity": "takeoff_speed",
+   "value": 0.61,
+   "plus_minus": null,
+   "unit": "m/s",
+   "statistic": "min",
+   "route": "table_check",
+   "rows": "sex = female",
+   "outcome": "MATCHES TABLE",
+   "reason": "min of 35 rows of 'Maximum Velocity m/s' (rows where sex = female) reproduces the printed digits",
+   "evidence": {
+    "column": "Maximum Velocity m/s",
+    "n_rows": 35,
+    "table_value": 0.610581709,
+    "table_sd": null,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "paper",
+   "quote": "the third pair of legs left the platform 3.5±0.4 ms (means±s.d., n=35) after the fourth pair",
+   "quantity": "other_duration",
+   "value": 3.5,
+   "plus_minus": 0.4,
+   "unit": "ms",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "sex = female",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "whereas in males it was slightly delayed (3.8±1.8 ms, n=30; Mann–Whitney U=216, P<0.001; Fig. 5; Movie 1).",
+   "quantity": "other_duration",
+   "value": 3.8,
+   "plus_minus": 1.8,
+   "unit": "ms",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "sex = male",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "females: 0.4±0.2 ms after peak acceleration, means±s.d., n=35",
+   "quantity": "other_duration",
+   "value": 0.4,
+   "plus_minus": 0.2,
+   "unit": "ms",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "sex = female",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "males: 0.3±0.6 ms before peak acceleration, n=30",
+   "quantity": "other_duration",
+   "value": 0.3,
+   "plus_minus": 0.6,
+   "unit": "ms",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "sex = male",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "males: 3.4±1.4 ms after peak acceleration, n=30",
+   "quantity": "other_duration",
+   "value": 3.4,
+   "plus_minus": 1.4,
+   "unit": "ms",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "sex = male",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "females: 4.0±1.5 ms after peak acceleration, n=35",
+   "quantity": "other_duration",
+   "value": 4.0,
+   "plus_minus": 1.5,
+   "unit": "ms",
+   "statistic": "mean",
+   "route": "refuse: statistic over several events and no data-table column proposed to recompute it",
+   "rows": "sex = female",
+   "outcome": "REFUSED",
+   "reason": "statistic over several events and no data-table column proposed to recompute it"
+  },
+  {
+   "source": "paper",
+   "quote": "The tip of the abdomen touched the take-off platform briefly (~0.2 ms; equivalent to our interframe interval)",
+   "quantity": "other_duration",
+   "value": 0.2,
+   "plus_minus": null,
+   "unit": "ms",
+   "statistic": "single_event",
+   "route": "refuse: other_duration is not measurable from a centroid track",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "other_duration is not measurable from a centroid track"
+  },
+  {
+   "source": "video overlay",
+   "quote": "Males take-off with a maximum acceleration of 127.8 m/s2 and 13.03 g",
+   "quantity": "acceleration",
+   "value": 127.8,
+   "plus_minus": null,
+   "unit": "m/s2",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "sex = male",
+   "outcome": "NOT CHECKED",
+   "reason": "the mean of 'Peak accleration m/s2' over 30 rows (rows where sex = male) is 127.871: the printed 127.8 is that value truncated, not rounded",
+   "evidence": {
+    "column": "Peak accleration m/s2",
+    "n_rows": 30,
+    "table_value": 127.87120324866667,
+    "table_sd": 14.540394311072477,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "video overlay",
+   "quote": "Females take-off with a maximum acceleration of 122.7 m/s2 and 12.5 g",
+   "quantity": "acceleration",
+   "value": 122.7,
+   "plus_minus": null,
+   "unit": "m/s2",
+   "statistic": "mean",
+   "route": "table_check",
+   "rows": "sex = female",
+   "outcome": "MATCHES TABLE",
+   "reason": "mean of 35 rows of 'Peak accleration m/s2' (rows where sex = female) reproduces the printed digits",
+   "evidence": {
+    "column": "Peak accleration m/s2",
+    "n_rows": 35,
+    "table_value": 122.70960310028573,
+    "table_sd": 15.730588814999006,
+    "stats": "arithmetic"
+   }
+  },
+  {
+   "source": "video overlay",
+   "quote": "to cross a gap of 4 cm",
+   "quantity": "jump_distance",
+   "value": 4.0,
+   "plus_minus": null,
+   "unit": "cm",
+   "statistic": "other",
+   "route": "refuse: not a single event or a recognised statistic",
+   "rows": "all",
+   "outcome": "REFUSED",
+   "reason": "not a single event or a recognised statistic"
+  }
+ ],
+ "videos": [
+  {
+   "unit": "S1_Maratus_s1",
+   "video": "S1_Maratus.mp4",
+   "shot": 1,
+   "frames": 120,
+   "shot_label": "1",
+   "verdict": "CANNOT MEASURE",
+   "reason": "no recording in this shot (e.g. a title card)",
+   "stage": "inputs"
+  },
+  {
+   "unit": "S1_Maratus_s2r1",
+   "video": "S1_Maratus.mp4",
+   "shot": 2,
+   "frames": 204,
+   "shot_label": "2 (recording 1)",
+   "fps": 1250.0,
+   "fps_source": "printed on the video (read by Spark, number found in the overlay text); 'playback 4x faster' printed on the video: every 4th camera frame is shown, so one video frame = 4/5000 s",
+   "mm_per_px": 0.02482705525909025,
+   "kinematics": {
+    "takeoff_frame": 79,
+    "landing_frame": 171,
+    "airborne_s": 0.0736,
+    "g_fit": 11.828940466333197,
+    "g_fit_rel_err": 0.2062162375870657,
+    "fit_rms_mm": 0.08338449461258272,
+    "v0_ballistic": 0.8753117756954802,
+    "v0_ci95": [
+     0.8641389975450308,
+     0.8868624832351477
+    ],
+    "angle_deg": 50.777006417071945,
+    "height_mm": 19.439631466678406,
+    "distance_mm": 39.24768167391734,
+    "v_max_spline": 0.8385788225358108,
+    "v_max_range": [
+     0.8127719751231813,
+     0.8542696607661057
+    ],
+    "ax_fit": -2.930099805452152,
+    "ax_rel_g": 0.24770602352692717,
+    "end_height_mm": 17.856601387658934,
+    "drag_like": "acceleration beyond gravity 36% of g, at 11 deg from straight against the mid-flight motion (the direction air drag would have)",
+    "truncated": false,
+    "notes": []
+   },
+   "skipped_frames": 0,
+   "pairing": {
+    "row_index": 24,
+    "row_id": "9s2/j1",
+    "distance": 1.133062659807022,
+    "runner_up": "s2/j3",
+    "runner_up_distance": 1.31804954305065,
+    "margin": 1.1632627124744666,
+    "features": [
+     "end_height",
+     "jump_height",
+     "takeoff_angle"
+    ],
+    "n_rows": 32,
+    "top3": [
+     [
+      "9s2/j1",
+      1.133
+     ],
+     [
+      "s2/j3",
+      1.318
+     ],
+     [
+      "s4/j1",
+      1.513
+     ]
+    ],
+    "ok": false,
+    "reason": "best row 9s2/j1 is only 1.16x closer than s2/j3 (needs 2.0x): not unambiguous"
+   },
+   "pairing_detail": {
+    "takeoff_angle": {
+     "ours": 50.777006417071945,
+     "row": {
+      "Take-off angle deg": 35.60901415
+     }
+    },
+    "jump_height": {
+     "ours": 0.019439631466678407,
+     "row": {
+      "Maximum trajectory height_mm": 0.019760000000000003
+     }
+    },
+    "end_height": {
+     "ours": 0.017856601387658932,
+     "row": {
+      "End trajectory height_mm": 0.01853
+     }
+    }
+   },
+   "verdict": "CANNOT MEASURE",
+   "reason": "self-checks failed (gravity +21%, sideways 25% of vertical; acceleration beyond gravity 36% of g, at 11 deg from straight against the mid-flight motion (the direction air drag would have)); unpaired: best row 9s2/j1 is only 1.16x closer than s2/j3 (needs 2.0x): not unambiguous"
+  },
+  {
+   "unit": "S1_Maratus_s2r2",
+   "video": "S1_Maratus.mp4",
+   "shot": 2,
+   "frames": 187,
+   "shot_label": "2 (recording 2)",
+   "fps": 1250.0,
+   "fps_source": "printed on the video (read by Spark, number found in the overlay text); 'playback 4x faster' printed on the video: every 4th camera frame is shown, so one video frame = 4/5000 s",
+   "mm_per_px": 0.024851022420132634,
+   "kinematics": {
+    "takeoff_frame": 85,
+    "landing_frame": 160,
+    "airborne_s": 0.06,
+    "g_fit": 10.933544602778587,
+    "g_fit_rel_err": 0.11491126967706486,
+    "fit_rms_mm": 0.04514870816842296,
+    "v0_ballistic": 0.7928256186466417,
+    "v0_ci95": [
+     0.7861983501975994,
+     0.7993379333332481
+    ],
+    "angle_deg": 33.93254670626647,
+    "height_mm": 8.855904747367683,
+    "distance_mm": 38.7624569112966,
+    "v_max_spline": 0.7651661219873038,
+    "v_max_range": [
+     0.7295877925008033,
+     0.7651661219873038
+    ],
+    "ax_fit": -1.2522105335023341,
+    "ax_rel_g": 0.11452923813784092,
+    "end_height_mm": 7.001897766522845,
+    "drag_like": "acceleration beyond gravity 17% of g, at 32 deg from straight against the mid-flight motion",
+    "truncated": false,
+    "notes": []
+   },
+   "skipped_frames": 0,
+   "pairing": {
+    "row_index": 18,
+    "row_id": "s2/j1",
+    "distance": 0.6129897308145367,
+    "runner_up": "s3/j3",
+    "runner_up_distance": 0.8555286601463193,
+    "margin": 1.395665566875808,
+    "features": [
+     "end_height",
+     "jump_height",
+     "takeoff_angle"
+    ],
+    "n_rows": 32,
+    "top3": [
+     [
+      "s2/j1",
+      0.613
+     ],
+     [
+      "s3/j3",
+      0.856
+     ],
+     [
+      "s3/j1",
+      0.891
+     ]
+    ],
+    "ok": false,
+    "reason": "best row s2/j1 is only 1.40x closer than s3/j3 (needs 2.0x): not unambiguous"
+   },
+   "pairing_detail": {
+    "takeoff_angle": {
+     "ours": 33.93254670626647,
+     "row": {
+      "Take-off angle deg": 28.44895736
+     }
+    },
+    "jump_height": {
+     "ours": 0.008855904747367683,
+     "row": {
+      "Maximum trajectory height_mm": 0.01251
+     }
+    },
+    "end_height": {
+     "ours": 0.007001897766522845,
+     "row": {
+      "End trajectory height_mm": 0.0069299999999999995
+     }
+    }
+   },
+   "verdict": "CANNOT MEASURE",
+   "reason": "self-checks failed (gravity +11%, sideways 11% of vertical; acceleration beyond gravity 17% of g, at 32 deg from straight against the mid-flight motion); unpaired: best row s2/j1 is only 1.40x closer than s3/j3 (needs 2.0x): not unambiguous"
+  },
+  {
+   "unit": "S1_Maratus_s3r1",
+   "video": "S1_Maratus.mp4",
+   "shot": 3,
+   "frames": 278,
+   "shot_label": "3 (recording 1)",
+   "verdict": "CANNOT MEASURE",
+   "reason": "no measurable platform gap on this shot (no platform protrudes from the image border)",
+   "stage": "inputs"
+  },
+  {
+   "unit": "S1_Maratus_s3r2",
+   "video": "S1_Maratus.mp4",
+   "shot": 3,
+   "frames": 218,
+   "shot_label": "3 (recording 2)",
+   "verdict": "CANNOT MEASURE",
+   "reason": "no measurable platform gap on this shot (no platform protrudes from the image border)",
+   "stage": "inputs"
+  }
+ ],
+ "summary": {
+  "claims": {
+   "MATCHES TABLE": 8,
+   "NOT CHECKED": 7,
+   "REFUSED": 14
+  },
+  "videos": {
+   "S1_Maratus_s1": "CANNOT MEASURE",
+   "S1_Maratus_s2r1": "CANNOT MEASURE",
+   "S1_Maratus_s2r2": "CANNOT MEASURE",
+   "S1_Maratus_s3r1": "CANNOT MEASURE",
+   "S1_Maratus_s3r2": "CANNOT MEASURE"
+  },
+  "model_calls": 10,
+  "tokens": 181140,
+  "rejected_calls": 2
+ }
+}

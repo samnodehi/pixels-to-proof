@@ -24,8 +24,8 @@ re-measures the take-off speed from physics, with self-checks on gravity and fre
 
 On 13 papers audited hands-off, 63 of 319 printed numbers reproduce to the printed digit, and every other one gets a
 named reason. It recognises angles that only add up as circular means, and values printed truncated instead of rounded. One
-beetle-larva jump is re-measured and REPRODUCED; two peacock-spider jumps are refused because the flight is slowed by
-something acting against the motion, as air drag would. Twelve kinds of deliberately wrong model answers produced no
+beetle-larva jump is re-measured and REPRODUCED; two peacock-spider jumps are refused because the flights are not
+ballistic; for the male, the extra acceleration points against the motion, as air drag would. Twelve kinds of deliberately wrong model answers produced no
 wrong verdict.
 
 ## How we used Meta's models
@@ -34,7 +34,7 @@ wrong verdict.
   with digests of its tables and scripts, contact sheets of each video shot (to split recordings joined by dissolves),
   and single frames (printed frame rate, playback speed, scale reference, the animal's box). Its answers are proposals
   that code checks field by field; rejected fields go back to Muse Spark with the checker's reasons.
-- **SAM 3.1** tracks the animal in the high-speed clip, prompted with a text concept and Muse Spark's box; when a track
+- **SAM 3.1** tracks the animal in the high-speed clip, prompted with Muse Spark's box (a text concept as fallback); when a track
   fails its quality gate, Muse Spark proposes a new box with the rejection reason.
 - Every model output and every check is written to a run ledger that the app shows step by step.
 

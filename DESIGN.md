@@ -1,4 +1,4 @@
-# Audit agent — design (as built, 2026-10-28)
+# Audit agent — design (as built, 2026-10-30)
 
 Origin: an agent council (7 members, a moderator and an evidence desk, external to this repo) followed by two
 independent reviews of its plan (red-team, novelty-critic) and, after building, two reviews of the code (impact,
@@ -34,8 +34,9 @@ check. Every model output is a ledger row together with the check that accepted 
    it and a relative ± must be below 1; speed and trajectory columns must parse to SI units within plausible ranges.
    Rejected fields are dropped, never repaired by code.
 4. **Re-proposal.** If G1 rejected a field the audit needs (frame-rate quote, ± meaning, grid size, authors' method,
-   a claim quote), Muse Spark is called again with the checker's reasons; only the rejected fields are taken from
-   the new answer (`plan.merge`); at most `plan.max_reproposals` rounds; the best-checked version is kept.
+   a claim quote), Muse Spark is called again with the checker's reasons; only the rejected fields are replaced from
+   the new answer, and claims it adds that are not already there (same quantity, statistic, value and ± in SI units)
+   are added and checked (`plan.merge`); at most `plan.max_reproposals` rounds; the best-checked version is kept.
 5. **Route per claim (code, `plan.needs`).** Statistics over events with a table column → TABLE CHECK
    (`tablecheck.py`: mean with sample SD, max, min, median, compared at the printed digits; if the proposed column fails,
    every other column of the same dimension is tried → MATCHES OTHER COLUMN; else NOT CHECKED with the closest values).
@@ -49,6 +50,12 @@ check. Every model output is a ledger row together with the check that accepted 
    ends as NOT CHECKED.
    A claim labelled single-event that equals a column statistic (≥ 2 significant digits) is routed to the table check.
    Units the agent cannot convert, or statistics without a column → refused with a reason.
+   Later additions (breadth runs): a column of another table or sheet named by a claim is read in the claim's unit;
+   when no subset was proposed and the whole column's centre misses, code tries the groups of a grouping column
+   (2–6 values) and says so; a mean whose SD matches only as a population SD, and a mean ± SD that matches only when
+   both are truncated, are reported as such. G1 accepts a quote whose letters and digits occur in order when a PDF's
+   text layer garbles symbols (the note says so). The plan prompt treats any raw-data table (events, trials or
+   individuals) as the data table.
 6. **Per shot, before any tracking (G4):** an absolute take-off speed column must exist (else nothing to compare
    with); frame rate = Spark's reading only if that number is printed on the frame, else code parses the transcribed
    text, else the paper's rate for the file if unique; a printed "playback N x faster" means one video frame stands for

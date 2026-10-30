@@ -28,12 +28,12 @@ pipeline (`pipeline.py`, `cases/`) remains for the synthetic benchmark and the h
 - S5 Audit agent, hands-off on the beetle bundle: DONE 2026-10-28 (council → reviews → build → impact/doc review →
   hardening). Recorded run now `beetle-20261028-49f237b` (re-recorded with S7).
 - S6 Fault injection: DONE 2026-10-28; re-run on the recorded beetle run of commit 49f237b (12 faults: caught 4,
-  recovered 6, no effect 2, wrong 0, errors 0; `showcase/faults.md`). Re-run at freeze.
+  recovered 6, no effect 2, wrong 0, errors 0; `showcase/faults.md`). Re-run at the freeze on 2026-10-30 (S9).
 - S7 Second hands-off paper: DONE 2026-10-28 — peacock spider (J Exp Biol 2025; Zenodo video, Dryad CSV, files fetched
   by Sam). New agent abilities: fades, Spark-proposed recordings (G2), playback speed-up, gap-to-target scale, wall
   landing, truncated-flight refusal, per-subset / circular / per-animal table statistics, truncation notes. Recorded
   run `peacock-20261028-49f237b`; beetle re-recorded on the same commit (`beetle-20261028-49f237b`, same verdict).
-  Phidippus (Sci Rep 2018) main PDF now available: a third hands-off bundle needs montage splitting (not built).
+  Phidippus (Sci Rep 2018): audited hands-off in S7b for its table claims; its montage video is not split by the agent.
 - S7b Breadth: DONE 2026-10-28 night — 11 more papers hands-off (10 PLOS + Zenodo data, Phidippus): 276 claims, 45
   reproduced, 114 NOT CHECKED, 117 refused (`showcase/breadth.md`). Video hunt (two searches, ~30 more papers): no
   third video paper meets all requirements; best near-miss = glass katydids (iScience 2025; video on PMC, data on
@@ -44,6 +44,18 @@ pipeline (`pipeline.py`, `cases/`) remains for the synthetic benchmark and the h
   rendered from the recorded runs (`demo/video/`) and approved; v2 adds "built during the hackathon" to the title
   cards (rule: judges must see what was built in the event). README gets an at-a-glance top; `SUBMISSION.md` drafts
   the submission text.
+
+- S9 Freeze check: DONE 2026-10-30 — beetle, peacock spider and fault injection re-run on the final code (`32dbbf4`):
+  same video verdicts and measurements; every claim found in both runs has the same outcome (two beetle claims now
+  matched by the proposed column directly); faults caught 6, recovered 4, no effect 2, wrong 0. Two defects found and
+  fixed on the way (over-split recording; duplicate claim in another unit). `showcase/freeze_check.md`. The showcase
+  and the video keep the recorded runs of 49f237b / 7cf697a.
+
+## Open before submission (Nov 4, 21:00 ET)
+- Sam: make the GitHub repo and the Hugging Face Space public (the agent's attempt was blocked; a person must do it).
+- Sam: upload the video (YouTube, unlisted) with the text in `SUBMISSION.md`; put the link into `SUBMISSION.md`.
+- Sam: fill in and send the submission form (fields not visible before it opens).
+- Update the Space to the final code; keep it running Nov 5–8 (judging).
 
 ## Findings so far
 - Beetle (agent, hands-off): 19 claims — 11 reproduced from the table, 2 by another column, 3 by no column, 3 refused;
