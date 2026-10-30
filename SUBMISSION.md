@@ -10,7 +10,7 @@ is from the recorded runs in `showcase/` (see README "At a glance").
 **Track:** Indie Developer · **Problem statement:** Push the Frontier (science) · **Bonus:** Best Agentic Use-Case
 
 **Links:** repository `github.com/samnodehi/pixels-to-proof` · live app `huggingface.co/spaces/SamNo/pixels-to-proof`
-· demo video (3 min) — to be filled in once uploaded.
+· demo video (2:52) `youtu.be/1L_HC-seEo8`
 
 ## Description
 

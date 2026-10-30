@@ -8,7 +8,9 @@ a refusal that names the reason. When the paper has a usable high-speed video, i
 *The model proposes; tracking, arithmetic and physics decide. No number in a verdict is written by a language model.*
 
 Built during the Meta Global AI Developer Hackathon (Oct 27 – Nov 4, 2026) with **Muse Spark 1.3** and **SAM 3.1**
-through the Meta Model API. The demo video and the live app (Hugging Face Space) are linked from the submission page.
+through the Meta Model API.
+
+**Demo video (2:52):** https://youtu.be/1L_HC-seEo8 · **Live app:** https://huggingface.co/spaces/SamNo/pixels-to-proof
 
 ## At a glance
 

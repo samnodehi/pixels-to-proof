@@ -52,10 +52,11 @@ pipeline (`pipeline.py`, `cases/`) remains for the synthetic benchmark and the h
   and the video keep the recorded runs of 49f237b / 7cf697a.
 
 ## Open before submission (Nov 4, 21:00 ET)
-- Sam: make the GitHub repo and the Hugging Face Space public (the agent's attempt was blocked; a person must do it).
-- Sam: upload the video (YouTube, unlisted) with the text in `SUBMISSION.md`; put the link into `SUBMISSION.md`.
-- Sam: fill in and send the submission form (fields not visible before it opens).
-- Update the Space to the final code; keep it running Nov 5–8 (judging).
+- DONE 2026-10-30: GitHub repo and Hugging Face Space public (by Sam); video uploaded unlisted (https://youtu.be/1L_HC-seEo8),
+  linked in README and `SUBMISSION.md`. Meta credits left: $100.05 of $150 (Sam's Billing screenshot, 2026-10-30 14:09).
+- Sam: fill in and send the submission form (fields not visible before it opens), with the text in `SUBMISSION.md`.
+- Keep the Space running Nov 5–8 (judging). Optional: X post for the Most Viral prize.
+- After the hackathon: cancel Hugging Face PRO; check OpenRouter and Meta spend.
 
 ## Findings so far
 - Beetle (agent, hands-off): 19 claims — 11 reproduced from the table, 2 by another column, 3 by no column, 3 refused;
