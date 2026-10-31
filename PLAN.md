@@ -54,7 +54,9 @@ pipeline (`pipeline.py`, `cases/`) remains for the synthetic benchmark and the h
 ## Open before submission (Nov 4, 21:00 ET)
 - DONE 2026-10-30: GitHub repo and Hugging Face Space public (by Sam); video uploaded unlisted (https://youtu.be/1L_HC-seEo8),
   linked in README and `SUBMISSION.md`. Meta credits left: $100.05 of $150 (Sam's Billing screenshot, 2026-10-30 14:09).
-- Sam: fill in and send the submission form (fields not visible before it opens), with the text in `SUBMISSION.md`.
+- DONE 2026-10-31 11:19: submission sent (filled by Claude in Sam's browser from `SUBMISSION.md`, opinion answers
+  chosen by Claude at Sam's request, submitted by Sam); checked afterwards on the platform's "Your Submission" view.
+  It stays editable ("Update Project") until the deadline.
 - Keep the Space running Nov 5–8 (judging). Optional: X post for the Most Viral prize.
 - After the hackathon: cancel Hugging Face PRO; check OpenRouter and Meta spend.
 
