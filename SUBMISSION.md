@@ -1,7 +1,7 @@
-# Submission text (draft, for the Cerebral Valley submission page)
+# Submission text (for the Cerebral Valley submission page)
 
-The form's exact fields were not visible before submission opened; the parts below cover the usual ones. Every number
-is from the recorded runs in `showcase/` (see README "At a glance").
+The form was read on 2026-10-31 (read only; nothing entered). Field by field: section "Form fields" at the end.
+Every number is from the recorded runs in `showcase/` (see README "At a glance").
 
 **Project name:** Pixels to Proof
 
@@ -77,3 +77,58 @@ Paper media shown (all openly licensed):
   (CC BY 4.0); data https://doi.org/10.5061/dryad.hdr7sqvsp (CC0)
 
 Narration: AI voice (ElevenLabs, via OpenRouter).
+
+
+## Form fields (as the form shows them, read 2026-10-31)
+
+Text fields, in form order:
+
+| field | what to enter |
+|---|---|
+| Team Name | Pixels to Proof |
+| Team Members | samnodehi (already listed) |
+| Which track | Indie Developer Track |
+| Which problem statement | Push the Frontier |
+| Most Viral: X post link (optional) | empty, unless a post is made |
+| Project Description | the two paragraphs of "Description" above |
+| Public GitHub Repository | https://github.com/samnodehi/pixels-to-proof |
+| 3-Minute Demo Video | https://www.youtube.com/watch?v=1L_HC-seEo8 |
+| Describe your use of Meta products | text A below |
+| Why are Meta's models important to your solution? | text B below |
+| Feedback on partner technologies (optional) | text C below |
+
+**Text A — use of Meta products**
+
+Pixels to Proof runs entirely on the Meta Model API. Muse Spark 1.3 (Responses API with strict JSON-schema output;
+Files API for the paper PDF) reads everything a journal publishes with a paper: the PDF with digests of the data tables
+and the authors' scripts, contact sheets of every video shot, and single frames. It proposes a plan — what each file
+and table column means, every number the paper claims with its verbatim quote, where separate recordings start inside
+a video, the printed frame rate, playback speed, scale reference and the animal's box. Code checks every proposed
+field; rejected fields go back to Muse Spark with the checker's reasons (plan re-proposals). SAM 3.1 tracks the animal
+in the high-speed clip, prompted with Muse Spark's box (text concept as fallback); when a track fails its quality gate,
+Muse Spark proposes a new box from the rejection reason. Every model call and every check is written to a run ledger
+that the live app shows step by step. Everything was built during the hackathon (first commit Oct 27).
+
+**Text B — why Meta's models matter**
+
+The task needs a model that can read a scientific PDF, a table, a contact sheet of a video and a single frame, and
+answer in a strict structure that code can check: Muse Spark does all of these through one API, with a context large
+enough for a whole paper plus its data digests. SAM 3.1 turns a box into a frame-by-frame track of a few-millimetre
+animal in a high-speed video, which is what the physics needs. Together they let the agent go from the published
+files to a measured take-off speed with no human setting anything by hand, while code keeps every number honest.
+
+**Text C — partner technologies**
+
+We did not use Fireworks, Modal or Baseten; everything ran on the Meta Model API.
+
+Choice questions (Sam's own opinion; suggestions from what happened in this build, not required to follow):
+
+- Likely to build with Meta Model API / overall opinion / recommend (0–5): Sam's opinion.
+- Muse Code: not used — leave unanswered if allowed.
+- Biggest obstacle — candidates from this build: "Code or answers from the model that were wrong or not useful"
+  (answers varied between runs; the reason every proposal is checked) or "Errors" (a long SAM 3.1 stream dropped
+  its connection on day 1).
+- Production blocker — candidate: "Missing production features, such as batch processing or spending limits" (the
+  Billing page offers a spend notification, not a hard cap).
+- Consent checkbox ("grants Meta and Cerebral Valley permission to use, publish, share, and promote the submitted
+  materials"): Sam's decision.
